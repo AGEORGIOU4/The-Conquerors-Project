@@ -3,20 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="projectStyles.css">
     <title>Landing Page</title>
+
+    <!--Import QR script-->
+    <script src="QRCodeReader/js/instascan.min.js"></script>
+    <script src="javascript.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="projectStyles.css">
+
 </head>
 
 <body>
-    <header>
+
+<header>
 
     <h1>TREASURE HUNT</h1>
 
-    </header>
+    <!--QR CODE READER-->
+    <button onclick="QRCodeReader()" id="qrBtn">
+        <img src="qrcodereader.png" alt="qr code reader" id="qrImg">
+    </button>
 
-    <p id="homeP">Welcome to the Conquerors Treasure Hunt</p>
+</header>
 
-    <h6 id ="startBtn"> <a href="start.html">START</a></h6>
+
+<p id="homeP">Welcome to the Conquerors Treasure Hunt</p>
+
+<h6 id="startBtn"><a href="start.html">START</a></h6>
+
+
+<!--QR CODE READER SCREEN-->
+<video id="preview"></video>
+
+<div style="margin: 20px; padding: 20px; background-color: black; color: white; text-align: center;" id="content">
+
+</div>
+
 
 </body>
 
