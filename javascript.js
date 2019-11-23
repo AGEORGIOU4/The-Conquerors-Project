@@ -1,19 +1,22 @@
-//import start API
-
-let playerName = document.getElementById("playerName");
-
-
-console.log(playerName);
-
-
-
-
-function getChallenges() {
-    fetch("https://codecyprus.org/th/api/start?player=" + playerName + "&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw")
-        .then(response => response.json())
+// Get Challenges
+function getChallenges () {
+    fetch("https://codecyprus.org/th/api/list?")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
-        })
-}
 
-console.log(getChallenges);
+
+            let playerName = "AndreasGeorgiou";
+            let appName = "TheConquerorsApp";
+            let challengesList = document.getElementById("challenges");
+            let treasureHuntsArray = jsonObject.treasureHunts;
+
+            for (let i=0; i<treasureHuntsArray.length; i++) {
+                let listItem = document.createElement("li");
+                let uuid = treasureHuntsArray[i].uuid;
+                listItem.innerHTML ="<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid +"'>" + treasureHuntsArray[i].name + "</a>";
+                challengesList.appendChild(listItem);
+
+            }
+        });
+}

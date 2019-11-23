@@ -7,9 +7,14 @@
 </head>
 <body>
 
-<input type = "text" name="playerName" id="playerName">
-    <input type="submit" value="submit">
+<p>Select a treasure hunt...</p>
 
-        <p> This is where things get started. I hope you are prepared </p>
+<ul id="challenges"></ul>
+
+<script>
+    let list = document.getElementById("challenges");
+    getChallenges(list);
+</script>
+
 </body>
 </html>
