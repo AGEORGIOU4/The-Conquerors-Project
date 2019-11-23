@@ -6,8 +6,8 @@ function getChallenges () {
             console.log(jsonObject);
 
 
-            let playerName = "AndreasGeorgiou";
-            let appName = "TheConquerorsApp";
+            let playerName = "Ageorgiousdbsd";
+            let appName = "eqrgqerheht";
             let challengesList = document.getElementById("challenges");
             let treasureHuntsArray = jsonObject.treasureHunts;
 
