@@ -1,0 +1,59 @@
+* {
+    font-family: sans-serif;
+}
+
+header {
+    background-color: darkcyan;
+
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 20px;
+    font-size: -webkit-xxx-large;
+}
+
+body {
+    margin: 0;
+}
+
+/*==========     LANDING PAGE     ==========*/
+#homeP {
+    padding: 100px;
+    margin: 15px 20px;
+    font-size: 50px;
+    text-align: center;
+    border: 2px solid red;
+}
+
+#startBtn {
+    display: block;
+    margin: 20px 20px;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: x-large;
+    text-align: center;
+    border-bottom: 1px solid #313131;
+    background-color: red;
+}
+
+
+
+/*==========      START PAGE     ==========*/
+#credentials {
+    margin: 50px auto;
+    text-align: center;
+}
+
+#name, #appName {
+    width: 50%;
+    height: 20px;
+    margin: 20px auto;
+    border: 2px solid #313131;
+}
+
+#selectTH {
+    font-size: x-large;
+    text-align: center;
+}

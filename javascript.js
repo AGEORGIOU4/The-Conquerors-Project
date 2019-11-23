@@ -6,14 +6,18 @@ function getChallenges () {
             console.log(jsonObject);
 
 
-            let playerName = "Ageorgiousdbsd";
-            let appName = "eqrgqerheht";
             let challengesList = document.getElementById("challenges");
             let treasureHuntsArray = jsonObject.treasureHunts;
 
             for (let i = 0; i < treasureHuntsArray.length; i++) {
                 let listItem = document.createElement("li");
+
                 let uuid = treasureHuntsArray[i].uuid;
+
+                // Get credentials
+                const params = new URLSearchParams(location.search);
+                let playerName = params.get("player");
+                let appName = params.get("app");
                 listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
                 challengesList.appendChild(listItem);
 
