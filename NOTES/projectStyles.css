@@ -1,0 +1,125 @@
+* {
+    font-family: sans-serif;
+}
+
+
+/*==========HEADER==========*/
+header {
+    width: 100%;
+    background-color: white;
+    border-bottom: 4px solid #4f4e4e;
+    text-align: left;
+}
+
+#theConquerorsLogo {
+    width: 75%;
+    padding: 20px 30px;
+}
+
+#twitterLogo {
+    width: 5%;
+    position: absolute;
+    top: 100px;
+    right: 12px;
+}
+
+#qrBtn {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    color: #5a5a5a;
+    background-color: #FFFFFF;
+}
+
+/*==========FOOTER==========*/
+#footerLink {
+    padding: 20px auto;
+    font-size: 12px;
+}
+
+/*===========BODY==========*/
+body {
+    margin: 0;
+    text-align: center;
+}
+
+video#preview.active {
+    width: 100%;
+    text-align: center;
+}
+
+/*==========LANDING PAGE==========*/
+#homeP {
+    padding: 100px;
+    margin: 15px 20px;
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: darkcyan;
+    text-align: justify;
+    border: 2px solid red;
+}
+
+#startBtn {
+    display: block;
+    margin: 20px 20px;
+    padding: 10px;
+    font-size: 70px;
+    text-align: center;
+    border-bottom: 1px solid #313131;
+    background-color: #313131;
+}
+
+#startBtn a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#tagline {
+    text-align: center;
+    font-size: x-large;
+}
+
+#groupList {
+    text-align: left;
+}
+
+/*==========START PAGE==========*/
+#credentials {
+    margin: 50px auto;
+    text-align: center;
+}
+
+#name, #appName {
+    width: 50%;
+    height: 80px;
+    margin: 20px auto;
+    color: #313131;
+    font-size: 40px;
+    border: 2px solid #313131;
+}
+
+#submitBtn {
+    color: #313131;
+    font-size: 80px;
+}
+
+#successMessage {
+    display: none;
+}
+
+#selectTH {
+    color: #313131;
+    font-size: 50px;
+    text-align: center;
+}
+
+#challenges {
+    list-style-type: none;
+}
+
+li a {
+
+    font-size: 40px;
+}
