@@ -1,6 +1,10 @@
+const API_LIST = "https://codecyprus.org/th/api/list";
+
+
+
 // Get Challenges
 function getChallenges() {
-    fetch("https://codecyprus.org/th/api/list")
+    fetch(API_LIST)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
@@ -17,28 +21,22 @@ function getChallenges() {
 
 
                 let uuid = treasureHuntsArray[i].uuid;
-
                 // Get needed parameters
                 const params = new URLSearchParams(location.search);
-
                 let playerName = params.get("player");
                 let appName = params.get("app");
-
                 listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
 
-                let statusStart = treasureHuntsArray.status;
                 challengesList.appendChild(listItem);
-
-                let message =  document.getElementById("warningMessage");
-                let nameBox =  document.getElementById("name");
-                let appNameBox =  document.getElementById("appName");
-
             }
         });
 }
-
-
 // We have to use the session ID from the select challenge and use it to get the Questions
+
+
+function start(uuid) {
+    console.debug("Start th with UUID: " + uuid);
+}
 
 
 function getQuestions() {
