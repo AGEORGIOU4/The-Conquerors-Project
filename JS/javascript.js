@@ -1,39 +1,37 @@
 // Get Challenges
 function getChallenges() {
-    fetch("https://codecyprus.org/th/api/list?")
+    fetch("https://codecyprus.org/th/api/list")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
 
-            // Get TH array
+            // Get Treasure Hunt array
             let treasureHuntsArray = jsonObject.treasureHunts;
-            // Get challenges list
+
+            // Get challenges list from the app page
             const challengesList = document.getElementById("challenges");
 
+            // Traverse the array to get needed data
             for (let i = 0; i < treasureHuntsArray.length; i++) {
                 let listItem = document.createElement("li");
 
-                let uuid = treasureHuntsArray[i].uuid;
-                let status = jsonObject.status;
 
-                // Get credentials
+                let uuid = treasureHuntsArray[i].uuid;
+
+                // Get needed parameters
                 const params = new URLSearchParams(location.search);
 
                 let playerName = params.get("player");
                 let appName = params.get("app");
 
                 listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
+
                 challengesList.appendChild(listItem);
 
-                let message =  document.getElementById("successMessage");
+                let message =  document.getElementById("warningMessage");
                 let nameBox =  document.getElementById("name");
                 let appNameBox =  document.getElementById("appName");
 
-                /*if (status === "OK") {
-                    message.style.display = "block";
-                    nameBox.style.display = "none";
-                    appNameBox.style.display = "none";
-                }*/
             }
         });
 }
