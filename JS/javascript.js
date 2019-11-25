@@ -101,3 +101,25 @@ function QRCodeReader() {
         document.getElementById("content").innerHTML = content;
     });
 }
+
+
+function getLocation(){
+
+
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+
+
+function showPosition(position){
+
+    alert("Successfully Obtained Location");
+
+}
+
+getLocation();
