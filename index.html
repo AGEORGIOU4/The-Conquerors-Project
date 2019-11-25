@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
-
     <!--Import QR script-->
     <script src="QRCodeReader/js/instascan.min.js"></script>
     <script src="JS/javascript.js"></script>
-
     <link rel="stylesheet" type="text/css" href="CSS/projectStyles.css">
-
 </head>
 
 <body>
-
 <header>
 
-    <h1>TREASURE HUNT</h1>
+    <img src="Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
+    <a href="https://twitter.com/TheConquerors4/">
+    <img src="twitter-logo.png" alt="Twitter Logo" id="twitterLogo">
+    </a>
 
     <!--QR CODE READER-->
     <button onclick="QRCodeReader()" id="qrBtn">
@@ -26,11 +25,19 @@
 
 </header>
 
+<p id="homeP">Welcome to the Conquerors Treasure Hunt App.This app is aiming to provide a nice friendly experience
+    to its users. Hit start and enjoy the beautiful, full of suprises journey. . . .
+    <br>
+</p>
 
-<p id="homeP">Welcome to the Conquerors Treasure Hunt</p>
+<h6 id="startBtn"><a href="app.html">START</a></h6>
 
-<h6 id="startBtn"><a href="Start.html">START</a></h6>
-
+<h6 id="tagline">Our group is formed by:</h6>
+<ul id = "groupList">
+    <li>Andreas Georgiou</li>
+    <li>Iakovos Kyriakou</li>
+    <li>Kostas Ioannou</li>
+</ul>
 
 <!--QR CODE READER SCREEN-->
 <video id="preview"></video>

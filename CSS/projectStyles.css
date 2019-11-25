@@ -3,15 +3,22 @@
 }
 
 header {
-    background-color: darkcyan;
-
+    width: 100%;
+    background-color: white;
+    border-bottom: 4px solid #313131;
+    text-align: left;
 }
 
-h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 80px;
-    font-size: 80px;
+#theConquerorsLogo {
+    width: 75%;
+    padding: 20px 30px;
+}
+
+#twitterLogo {
+    width: 5%;
+    position: absolute;
+    top: 100px;
+    right: 17px;
 }
 
 #qrBtn {
@@ -39,8 +46,10 @@ body {
 #homeP {
     padding: 100px;
     margin: 15px 20px;
-    font-size: 50px;
-    text-align: center;
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: darkcyan;
+    text-align: justify;
     border: 2px solid red;
 }
 
@@ -59,6 +68,15 @@ body {
     color: #FFFFFF;
 }
 
+#tagline {
+    text-align: center;
+    font-size: x-large;
+}
+
+#groupList {
+    text-align: left;
+}
+
 
 /*==========      START PAGE     ==========*/
 #credentials {
@@ -67,21 +85,24 @@ body {
 }
 
 #name, #appName {
-    width: 50%;
-    height: 20px;
+    width: 40%;
+    height: 30px;
+    color: #313131;
     margin: 20px auto;
     border: 2px solid #313131;
 }
 
+#submitBtn {
+    color: #313131;
+    font-size: xx-large;
+}
+
 #selectTH {
+    color: #313131;
     font-size: 50px;
     text-align: center;
 }
 
-ul {
-    list-style-type: none;
-}
-
 li a {
-   font-size: 40px;
+    font-size: 40px;
 }
