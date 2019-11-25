@@ -1,13 +1,17 @@
 // Get Challenges
+
+
+
 function getChallenges() {
     fetch("https://codecyprus.org/th/api/list?")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
 
-
-            let challengesList = document.getElementById("challenges");
+            // Get TH array
             let treasureHuntsArray = jsonObject.treasureHunts;
+
+            const challengesList = document.getElementById("challenges");
 
             for (let i = 0; i < treasureHuntsArray.length; i++) {
                 let listItem = document.createElement("li");
@@ -16,11 +20,12 @@ function getChallenges() {
 
                 // Get credentials
                 const params = new URLSearchParams(location.search);
+
                 let playerName = params.get("player");
                 let appName = params.get("app");
+
                 listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
                 challengesList.appendChild(listItem);
-
             }
         });
 }
