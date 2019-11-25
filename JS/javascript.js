@@ -26,6 +26,7 @@ function getChallenges() {
 
                 listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
 
+                let statusStart = treasureHuntsArray.status;
                 challengesList.appendChild(listItem);
 
                 let message =  document.getElementById("warningMessage");
@@ -36,22 +37,22 @@ function getChallenges() {
         });
 }
 
+
+// We have to use the session ID from the select challenge and use it to get the Questions
+
+
 function getQuestions() {
     fetch("https://codecyprus.org/th/api/question")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
 
-            // Get TH array
-            let treasureHuntsArray = jsonObject.treasureHunts;
-            let uuid = treasureHuntsArray[i].uuid;
+            // Get questions
+            let questions = jsonObject.questions;
         });
 }
 
-
-
-
-
+getQuestions();
 
 
 //=========================QR CODE READER=========================//
