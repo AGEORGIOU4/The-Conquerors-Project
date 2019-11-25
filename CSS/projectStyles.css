@@ -36,7 +36,7 @@ header {
 /*==========FOOTER==========*/
 #footerLink {
     padding: 20px auto;
-    font-size: smaller;
+    font-size: 12px;
 }
 
 /*===========BODY==========*/
@@ -92,16 +92,21 @@ video#preview.active {
 }
 
 #name, #appName {
-    width: 40%;
-    height: 30px;
-    color: #313131;
+    width: 50%;
+    height: 80px;
     margin: 20px auto;
+    color: #313131;
+    font-size: 40px;
     border: 2px solid #313131;
 }
 
 #submitBtn {
     color: #313131;
-    font-size: xx-large;
+    font-size: 80px;
+}
+
+#successMessage {
+    display: none;
 }
 
 #selectTH {
@@ -110,6 +115,11 @@ video#preview.active {
     text-align: center;
 }
 
+#challenges {
+    list-style-type: none;
+}
+
 li a {
+
     font-size: 40px;
 }
