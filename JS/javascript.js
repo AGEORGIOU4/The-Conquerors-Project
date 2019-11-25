@@ -42,7 +42,7 @@ function getQuestions() {
 function QRCodeReader() {
 
     //opts
-    var opts = {
+    let opts = {
         // Whether to scan continuously for QR codes. If false, use scanner.scan() to
         // manually scan. If true, the scanner emits the "scan" event when a QR code is
         // scanned. Default true.
@@ -78,7 +78,7 @@ function QRCodeReader() {
     };
 
 
-    var scanner = new Instascan.Scanner(opts);
+    let scanner = new Instascan.Scanner(opts);
 
     Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
