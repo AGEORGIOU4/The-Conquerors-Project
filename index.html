@@ -52,6 +52,30 @@
         <a href="https://github.com/AGEORGIOU4/TheConquerorsProject">https://github.com/AGEORGIOU4/TheConquerorsProject</a>
     </p>
 </footer>
+<script>
+    var cookies = document.cookie;
+    console.log(cookies);
+    function getLocation(){
+
+
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    }
+
+
+    function showPosition(position){
+
+        alert("Successfully Obtained Location");
+
+    }
+
+    getLocation();
+</script>
 
 </body>
 
