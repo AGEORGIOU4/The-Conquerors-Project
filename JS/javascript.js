@@ -113,5 +113,13 @@ function QRCodeReader() {
 
 
 
+//leaderboard
 
-
+function leaderboard() {
+    fetch("https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+            console.log(jsonObject);
+            
+        });
+}
