@@ -8,22 +8,33 @@
     <script src="QRCodeReader/js/instascan.min.js"></script>
     <script src="JS/javascript.js"></script>
     <link rel="stylesheet" type="text/css" href="CSS/projectStyles.css">
-    <link rel='icon' href='Favicon Logo.png' type='image/x-icon'>
+    <link rel='icon' href='IMAGES/Favicon%20Logo.png' type='image/x-icon'>
 
 </head>
 
 <body>
 
 <header>
-    <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
-    <a href="https://twitter.com/TheConquerors4/">
-        <img src="IMAGES/twitter-logo.png" alt="Twitter Logo" id="twitterLogo">
-    </a>
-    <!--QR CODE READER-->
-    <button onclick="QRCodeReader()" id="qrBtn">
-        QR Code Reader
-    </button>
-</header>
+    <header>
+        <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
+
+    </header>
+    <div id="socialBar">
+        <div id="qrBtnDiv">
+            <!--QR CODE READER-->
+            <button onclick="QRCodeReader()" id="qrBtn">
+                QR Code Reader
+            </button>
+        </div>
+
+        <a href="https://twitter.com/TheConquerors4/">
+            <img src="IMAGES/twitter-logo.png" alt="Twitter Logo" id="twitterLogo">
+        </a>
+
+        <a href="https://www.facebook.com/theConquerorsTreasureHunt/">
+            <img src="IMAGES/facebook-logo.png" alt="Twitter Logo" id="facebookLogo">
+        </a>
+    </div>
 
 <p id="selectTH">Select a treasure hunt...</p>
 

@@ -3,12 +3,14 @@
 }
 
 
+
+
 /*==========HEADER==========*/
 header {
     width: 100%;
     background-color: white;
     border-bottom: 4px solid #4f4e4e;
-    text-align: left;
+    text-align: center;
 }
 
 #theConquerorsLogo {
@@ -16,28 +18,52 @@ header {
     padding: 20px 30px;
 }
 
-#twitterLogo {
-    width: 5%;
-    position: absolute;
-    top: 100px;
-    right: 12px;
-}
 
-#qrBtn {
-    width: 70px;
-    height: 70px;
-    position: absolute;
-    right: 3px;
-    top: 3px;
-    color: #5a5a5a;
-    background-color: #FFFFFF;
-}
+
 
 /*==========FOOTER==========*/
 #footerLink {
     padding: 20px auto;
     font-size: 12px;
 }
+
+
+
+
+/*========SOCIAL BAR========*/
+#socialBar {
+    height: 73px;
+    text-align: right;
+    background-color: beige;
+    border-bottom: 4px solid #4f4e4e;
+}
+
+#qrBtnDiv {
+    text-align: left;
+}
+
+
+#qrBtn {
+    height: 73px;
+    float: left;
+    color: #5a5a5a;
+    font-size: x-large;
+    background-color: #FFFFFF;
+}
+
+#twitterLogo {
+    height: 86px;
+    width: 86px;
+    margin: -7px;
+}
+
+#facebookLogo {
+    height: 70px;
+    width: 70px;
+}
+
+
+
 
 /*===========BODY==========*/
 body {
@@ -50,15 +76,18 @@ video#preview.active {
     text-align: center;
 }
 
+
+
+
 /*==========LANDING PAGE==========*/
 #homeP {
-    padding: 100px;
-    margin: 15px 20px;
+    padding: 75px;
+    margin:30px 20px;
     font-size: 20px;
     color: #FFFFFF;
     background-color: darkcyan;
     text-align: justify;
-    border: 2px solid red;
+    border: 2px solid grey;
 }
 
 #startBtn {
@@ -84,6 +113,9 @@ video#preview.active {
 #groupList {
     text-align: left;
 }
+
+
+
 
 /*==========START PAGE==========*/
 #credentials {
