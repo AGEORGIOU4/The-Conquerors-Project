@@ -1,4 +1,6 @@
 const API_LIST = "https://codecyprus.org/th/api/list";
+const API_START = "https://codecyprus.org/th/api/start";
+const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 
 
 
@@ -19,13 +21,15 @@ function getChallenges() {
             for (let i = 0; i < treasureHuntsArray.length; i++) {
                 let listItem = document.createElement("li");
 
-
                 let uuid = treasureHuntsArray[i].uuid;
                 // Get needed parameters
                 const params = new URLSearchParams(location.search);
+
                 let playerName = params.get("player");
-                let appName = params.get("app");
-                listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
+                let appName = "The Conquerors";
+
+                let url = API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid;
+                listItem.innerHTML = treasureHuntsArray[i].name;
 
                 challengesList.appendChild(listItem);
             }
@@ -40,13 +44,14 @@ function start(uuid) {
 
 
 function getQuestions() {
-    fetch("https://codecyprus.org/th/api/question")
+    fetch(API_QUESTIONS)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
 
             // Get questions
             let questions = jsonObject.questions;
+            console.log(questions);
         });
 }
 

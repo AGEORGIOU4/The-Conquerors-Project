@@ -23,8 +23,7 @@ header {
 
 /*==========FOOTER==========*/
 #footerLink {
-    padding: 20px auto;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 
@@ -135,7 +134,7 @@ video#preview.active {
 
 #submitBtn {
     color: #313131;
-    font-size: 80px;
+    font-size: 50px;
 }
 
 #successMessage {
@@ -155,4 +154,12 @@ video#preview.active {
 li a {
 
     font-size: 40px;
+}
+
+
+
+
+/*==========NOTES==========*/
+#notesList {
+    text-align: left;
 }
