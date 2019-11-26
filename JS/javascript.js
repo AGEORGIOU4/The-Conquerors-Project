@@ -55,7 +55,6 @@ getQuestions();
 
 //=========================QR CODE READER=========================//
 function QRCodeReader() {
-
     //opts
     let opts = {
         // Whether to scan continuously for QR codes. If false, use scanner.scan() to
