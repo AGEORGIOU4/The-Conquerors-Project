@@ -2,6 +2,7 @@ const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 
+let sessionID = "";
 
 
 // Get Challenges
@@ -21,41 +22,56 @@ function getChallenges() {
             for (let i = 0; i < treasureHuntsArray.length; i++) {
                 let listItem = document.createElement("li");
 
-                let uuid = treasureHuntsArray[i].uuid;
-                // Get needed parameters
+                // Get required parameters
                 const params = new URLSearchParams(location.search);
 
                 let playerName = params.get("player");
                 let appName = "The Conquerors";
+                let uuid = treasureHuntsArray[i].uuid;
 
-                let url = API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid;
-                listItem.innerHTML = treasureHuntsArray[i].name;
+                listItem.innerHTML = "<a href='questions.html" +  "'>" + treasureHuntsArray[i].name;
 
                 challengesList.appendChild(listItem);
             }
         });
 }
-// We have to use the session ID from the select challenge and use it to get the Questions
 
 
-function start(uuid) {
-    console.debug("Start th with UUID: " + uuid);
-}
+function startSession(uuid) {
+    let username = document.getElementById("playername");
+    let appName = "The Conquerors";
 
+    let uuidStart =  document.getElementById("uuid");
 
-function getQuestions() {
-    fetch(API_QUESTIONS)
-        .then(response => response.json()) //Parse JSON text to JavaScript object
-        .then(jsonObject => {
-            console.log(jsonObject);
+    fetch(API_LIST + "?" +  username + "&app=" + appName + "&treasure-hunt-id=" + uuidStart)
+        .then(response => response.json())
+        .then(jsonResponse => {
 
-            // Get questions
-            let questions = jsonObject.questions;
-            console.log(questions);
+            console.log(jsonResponse);
         });
 }
 
-getQuestions();
+function getQuestions() {
+    fetch(API_QUESTIONS + "?session=" + sessionID)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+            console.log(jsonObject);
+            console.log(sessionID);
+
+        });
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //=========================QR CODE READER=========================//

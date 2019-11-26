@@ -91,7 +91,7 @@ video#preview.active {
     text-align: center;
 }
 
-#name, #appName {
+#username, #appName {
     width: 50%;
     height: 80px;
     margin: 20px auto;
