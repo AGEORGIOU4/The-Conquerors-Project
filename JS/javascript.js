@@ -134,5 +134,33 @@ function QRCodeReader() {
 
 
 
+function getLeaderBoard(url) {
+// create and invoke the http request
+    fetch("https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10", { method: "GET" })
+        .then(response => response.json())
+        .then(json => handleLeaderboard(json));
+}
 
 
+//Leaderboard
+
+const TH_API_URL = "https://codecyprus.org/th/api/";
+// session of questions
+let session  = "ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM";
+let url = TH_API_URL + "leaderboard?sorted&session=" + session;
+getLeaderBoard(url);
+
+
+function handleLeaderboard(leaderboard) {
+    let html = ""; // used to include HTML code for the table rows
+    let leaderboardArray = leaderboard['leaderboard'];
+    for(const entry of leaderboardArray) {
+        html += "<tr>" +
+            "<td>" + entry['player'] + "</td>" +
+            "<td>" + entry['score'] + "</td>" +
+            "<td>" + entry['completionTime'] + "</td>" +
+            "</tr>";
+    }
+    let leaderboardElement = document.getElementById('test-results-table'); // table
+    leaderboardElement.innerHTML += html; // append generated HTML to existing
+}

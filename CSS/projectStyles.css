@@ -18,6 +18,9 @@ header {
     padding: 20px 30px;
 }
 
+#test-results-table{
+    border: 3px solid skyblue;
+}
 
 
 
