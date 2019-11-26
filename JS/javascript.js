@@ -24,7 +24,7 @@ function getChallenges() {
                 // Get needed parameters
                 const params = new URLSearchParams(location.search);
                 let playerName = params.get("player");
-                let appName = params.get("app");
+                let appName = "The Conquerors";
                 listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
 
                 challengesList.appendChild(listItem);
