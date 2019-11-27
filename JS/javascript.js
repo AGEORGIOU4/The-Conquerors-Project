@@ -3,6 +3,8 @@ const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 
 let sessionID = "";
+let uuid="";
+let playerName="";
 
 
 // Get Challenges
@@ -25,13 +27,14 @@ function getChallenges() {
                 // Get required parameters
                 const params = new URLSearchParams(location.search);
 
-                let playerName = params.get("player");
+                playerName = params.get("player");
                 let appName = "The Conquerors";
-                let uuid = treasureHuntsArray[i].uuid;
+                uuid = treasureHuntsArray[i].uuid;
 
                 listItem.innerHTML = "<a href='questions.html" +  "'>" + treasureHuntsArray[i].name;
 
                 challengesList.appendChild(listItem);
+                console.log(playerName);
             }
         });
 }
@@ -41,16 +44,15 @@ function startSession(uuid) {
     let username = document.getElementById("playername");
     let appName = "The Conquerors";
 
-    let uuidStart =  document.getElementById("uuid");
 
-    fetch(API_START + "?" +  username + "&app=" + appName + "&treasure-hunt-id=" + uuidStart)
+    fetch(API_START + "?" +  username + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json())
-        .then(jsonResponse => {
-
-            console.log(jsonResponse);
-        });
+        .then(jsonResponse => handlestart(jsonResponse));
 }
-
+function handlestart(json) {
+    sessionID = json.session;
+    console.log(sessionID);
+}
 function getQuestions() {
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
