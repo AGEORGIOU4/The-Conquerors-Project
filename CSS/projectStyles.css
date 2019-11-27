@@ -18,6 +18,7 @@ header {
 
 
 /*==========FOOTER==========*/
+
 #footerLink {
     font-size: 12px;
 }
@@ -125,6 +126,17 @@ video#preview.active {
 /*==========APP PAGE==========*/
 
 /* PHASE 1 */
+
+#instructionsBox {
+    display: block;
+    padding: 10px;
+    margin: 30px 20px;
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: darkcyan;
+    text-align: justify;
+    border: 2px solid red;
+}
 
 #selectTH {
     color: #313131;

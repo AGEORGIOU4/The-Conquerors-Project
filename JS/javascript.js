@@ -59,11 +59,14 @@ function getChallenges() {
 getChallenges(list);
 
 function getCredentials() {
-    // Hide Treasure Hunt challenges
+    // Hide Treasure Hunt Instructions & Challenges
+    document.getElementById("instructionsBox");
     document.getElementById("selectTH");
     document.getElementById("challenges");
-    challenges.style.display = "none";
+    instructionsBox.style.display = "none";
     selectTH.style.display = "none";
+    challenges.style.display = "none";
+
 
     // Show username input
     let userInput = document.getElementById("usernameBox");
