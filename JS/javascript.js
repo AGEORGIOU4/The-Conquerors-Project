@@ -3,6 +3,7 @@ const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 
 let sessionID = "";
+let uuid = "";
 
 
 // Get Challenges
@@ -27,7 +28,7 @@ function getChallenges() {
 
                 let playerName = params.get("player");
                 let appName = "The Conquerors";
-                let uuid = treasureHuntsArray[i].uuid;
+                uuid = treasureHuntsArray[i].uuid;
 
                 listItem.innerHTML = "<a href='questions.html" +  "'>" + treasureHuntsArray[i].name;
 
