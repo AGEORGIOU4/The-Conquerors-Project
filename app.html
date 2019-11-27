@@ -14,41 +14,48 @@
 
 <body>
 
-    <header>
-        <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
-
-    </header>
-    <div id="socialBar">
-        <div id="qrBtnDiv">
-            <!--QR CODE READER-->
-            <button onclick="QRCodeReader()" id="qrBtn">
-                QR Code Reader
-            </button>
-        </div>
-
-        <a href="https://twitter.com/TheConquerors4/">
-            <img src="IMAGES/twitter-logo.png" alt="Twitter Logo" id="twitterLogo">
-        </a>
-
-        <a href="https://www.facebook.com/theConquerorsTreasureHunt/">
-            <img src="IMAGES/facebook-logo.png" alt="Twitter Logo" id="facebookLogo">
-        </a>
+<!-----------------------------------HEADER----------------------------------->
+<header>
+    <a href="index.html">
+    <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
+    </a>
+</header>
+<div id="socialBar">
+    <div id="qrBtnDiv">
+        <!--QR CODE READER-->
+        <button onclick="QRCodeReader()" id="qrBtn">
+            QR Code Reader
+        </button>
     </div>
 
-    <form name ="enterCredentials" id="credentials" method="get" action="app.html">
+    <a href="https://twitter.com/TheConquerors4/">
+        <img src="IMAGES/twitter-logo.png" alt="Twitter Logo" id="twitterLogo">
+    </a>
+
+    <a href="https://www.facebook.com/theConquerorsTreasureHunt/">
+        <img src="IMAGES/facebook-logo.png" alt="Twitter Logo" id="facebookLogo">
+    </a>
+</div>
+
+
+<!----------PHASE 1---------->
+<p id="selectTH">Select a treasure hunt...</p>
+
+<ul id="challenges"></ul>
+
+
+<!----------PHASE 2---------->
+<div id="usernameBox">
+    <form name="enterCredentials" id="credentials" method="get">
 
         <span style="font-size: 55px">Enter username: </span>
         <br>
         <label for="username"></label>
         <input type="text" name="player" id="username">
         <br>
-        <input type="submit" id="submitBtn">
-
+        <input type="submit" id="submitBtn" onclick="startSession()">
     </form>
-
-<p id="selectTH">Select a treasure hunt...</p>
-
-<ul id="challenges"></ul>
+</div>
 
 
 <!--QR CODE READER SCREEN-->
@@ -58,19 +65,20 @@
 
 </div>
 
+
+<!-----------------------------------FOOTER----------------------------------->
 <footer>
     <p id="footerLink">To check our GitHub repository please visit:
         <a href="https://github.com/AGEORGIOU4/TheConquerorsProject">https://github.com/AGEORGIOU4/TheConquerorsProject</a>
     </p>
 </footer>
 
+
 <script>
     let list = document.getElementById("challenges");
 
 
     getChallenges(list);
-
-
 
 
     // cookies

@@ -1,11 +1,11 @@
-const API_LIST = "https://codecyprus.org/th/api/list?";
+const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 
 let sessionID = "";
 let uuid="";
 let playerName="";
-let appName = "The Conquerors";
+let appName = "";
 
 
 // Get Challenges
@@ -23,44 +23,56 @@ function getChallenges() {
 
             // Traverse the array to get needed data
             for (let i = 0; i < treasureHuntsArray.length; i++) {
-                let listItem = document.createElement("li");
 
-                // Get required parameters
-                const params = new URLSearchParams(location.search);
+                // Get the TH uuid
+                uuid = treasureHuntsArray[i].uuid;
 
-                playerName = params.get("player");
-                uuid = treasureHuntsArray[0].uuid;
+                // Create a button for each TH challenge
+                let treasureHuntsBtn = document.createElement('input');
+                treasureHuntsBtn.type = "button";
+                treasureHuntsBtn.value = treasureHuntsArray[i].name;
+                treasureHuntsBtn.name = "THList";
+                treasureHuntsBtn.id = "treasureHuntsBtn";
 
-                listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName +
-                    "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
+//===============================CALL GET CREDENTIALS ON CLICK===================================//
+                treasureHuntsBtn.addEventListener("click", getCredentials);
 
-
-                challengesList.appendChild(listItem);
-                startSession();
+                challengesList.appendChild(treasureHuntsBtn);
             }
         });
 }
 
+function getCredentials() {
+    let userForm = document.getElementById("usernameBox");
+    userForm.style.display = "block";
+
+    // Get required parameters
+    const params = new URLSearchParams(location.search);
+    playerName = params.get("player");
+    appName = "TheConquerors";
+    let submitBtn = document.getElementById("submitBtn");
+
+    //PROBLEM!!!!!!
+    submitBtn.addEventListener("click", startSession);
+
+
+}
+
 
 function startSession() {
-
     fetch(API_START + "?" +  playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
-        .then(response => response.json())
-        .then(jsonResponse => handlestart(jsonResponse));
+            .then(response => response.json()) //Parse JSON text to JavaScript object
+            .then(jsonObject => {
 
+                console.log(jsonObject);
+
+            });
 }
 
 
 
 
-function handlestart(json) {
-    sessionID = json.session;
-    console.log(sessionID);
-}
-
-
-
-
+/*
 function getQuestions() {
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
@@ -69,16 +81,7 @@ function getQuestions() {
         });
 }
 
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
@@ -141,6 +144,7 @@ function QRCodeReader() {
 }
 
 
+/*
 
 function getLeaderBoard(url) {
 // create and invoke the http request
@@ -148,6 +152,7 @@ function getLeaderBoard(url) {
         .then(response => response.json())
         .then(json => handleLeaderboard(json));
 }
+*/
 
 
 /*

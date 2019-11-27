@@ -120,7 +120,23 @@ video#preview.active {
 
 
 
-/*==========START PAGE==========*/
+/*==========APP PAGE==========*/
+
+/* PHASE 1 */
+
+#selectTH {
+    color: #313131;
+    font-size: 50px;
+    text-align: center;
+}
+
+
+/* PHASE 2 */
+
+#usernameBox {
+    display: none;
+}
+
 #credentials {
     margin: 50px auto;
     text-align: center;
@@ -142,21 +158,6 @@ video#preview.active {
 
 #successMessage {
     display: none;
-}
-
-#selectTH {
-    color: #313131;
-    font-size: 50px;
-    text-align: center;
-}
-
-#challenges {
-    list-style-type: none;
-}
-
-li a {
-
-    font-size: 40px;
 }
 
 
