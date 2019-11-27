@@ -25,14 +25,22 @@ function getChallenges() {
             for (let i = 0; i < treasureHuntsArray.length; i++) {
 
                 // Get the TH uuid
-                uuid = treasureHuntsArray[i].uuid;
+                let uuidLocal = treasureHuntsArray[i].uuid;
 
+
+                /// GET THE PROPER UUID FROM THE BUTTON!!
                 // Create a button for each TH challenge
                 let treasureHuntsBtn = document.createElement('input');
                 treasureHuntsBtn.type = "button";
                 treasureHuntsBtn.value = treasureHuntsArray[i].name;
-                treasureHuntsBtn.name = "THList";
-                treasureHuntsBtn.id = "treasureHuntsBtn";
+
+                // The name of the button is the corresponding uuid
+                treasureHuntsBtn.name = treasureHuntsArray[i].uuid;
+                treasureHuntsBtn.id = "treasureHuntsBtn" + [i];
+                treasureHuntsBtn.onclick = function() {
+
+                    uuid = uuidLocal;
+                };
 
 //===============================CALL GET CREDENTIALS ON CLICK===================================//
                 treasureHuntsBtn.addEventListener("click", getCredentials);
@@ -43,45 +51,58 @@ function getChallenges() {
 }
 
 function getCredentials() {
-    let userForm = document.getElementById("usernameBox");
-    userForm.style.display = "block";
+
+    // Hide Treasure Hunt challenges
+    document.getElementById("selectTH");
+    document.getElementById("challenges");
+    challenges.style.display = "none";
+    selectTH.style.display = "none";
+
+
+    // Show username input
+    let userInput = document.getElementById("usernameBox");
+    userInput.style.display = "block";
 
     // Get required parameters
     const params = new URLSearchParams(location.search);
     playerName = params.get("player");
     appName = "TheConquerors";
-    let submitBtn = document.getElementById("submitBtn");
-
-    //PROBLEM!!!!!!
-    submitBtn.addEventListener("click", startSession);
-
 
 }
 
 
-function startSession() {
-    fetch(API_START + "?" +  playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
+function startSession(uuid) {
+
+
+
+    let playerName = document.getElementById("username").value;
+
+    fetch(API_START + "?player=" +  playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
 
-                console.log(jsonObject);
+                sessionID = jsonObject.session;
+
+    getQuestions(sessionID);
 
             });
 }
 
+function getQuestions(sessionID) {
+
+    // Hide username input
+    document.getElementById("usernameBox");
+    usernameBox.style.display = "none";
 
 
-
-/*
-function getQuestions() {
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
+            console.log(jsonObject);
         });
 }
 
-*/
 
 
 
