@@ -3,8 +3,6 @@
 }
 
 
-
-
 /*==========HEADER==========*/
 header {
     width: 100%;
@@ -19,20 +17,17 @@ header {
 }
 
 
-
 /*==========FOOTER==========*/
 #footerLink {
     font-size: 12px;
 }
 
 
-
-
 /*========SOCIAL BAR========*/
 #socialBar {
-    height: 75px;
+    height: 74px;
     text-align: right;
-    background-color: #d2d268;
+    background-color: #adad5c;
     border-bottom: 4px solid #313131;
 }
 
@@ -42,30 +37,41 @@ header {
 
 
 #qrBtn {
-    height: 75px;
+    height: 74px;
     float: left;
     color: #5a5a5a;
     font-size: x-large;
     background-color: #FFFFFF;
 }
 
-#twitterLogo {
-    height: 70px;
-    width: 85px;
-    margin-top: 2px;
-}
-
 #twitterLink {
     text-decoration: none;
 }
 
-#facebookLogo {
-    height: 70px;
-    width: 70px;
-    margin-right: 15px;
+#twitterLogo {
+    height: 60px;
+    width: 75px;
+    margin: 7px 16px;
 }
 
+#facebookLogo {
+    height: 60px;
+    width: 60px;
+    margin: 7px 16px;
+}
 
+#twitterLogo:hover {
+    height: 70px;
+    width: 85px;
+    margin: 2px 8px;
+}
+
+#facebookLogo:hover {
+    height: 70px;
+    width: 70px;
+    margin: 2px 11px;
+
+}
 
 
 /*===========BODY==========*/
@@ -80,12 +86,10 @@ video#preview.active {
 }
 
 
-
-
 /*==========LANDING PAGE==========*/
 #homeP {
     padding: 75px;
-    margin:30px 20px;
+    margin: 30px 20px;
     font-size: 20px;
     color: #FFFFFF;
     background-color: darkcyan;
@@ -116,8 +120,6 @@ video#preview.active {
 #groupList {
     text-align: left;
 }
-
-
 
 
 /*==========APP PAGE==========*/
@@ -160,8 +162,6 @@ video#preview.active {
 #successMessage {
     display: none;
 }
-
-
 
 
 /*==========NOTES==========*/

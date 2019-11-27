@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
-    <!--Import QR script-->
-    <script src="QRCodeReader/js/instascan.min.js"></script>
-    <script src="JS/javascript.js"></script>
+
+    <!-- Link a CSS file for layout and styling-->
     <link rel="stylesheet" type="text/css" href="CSS/projectStyles.css">
     <link rel='icon' href='IMAGES/Favicon%20Logo.png' type='image/x-icon'>
 </head>
@@ -19,13 +18,6 @@
 </header>
 
 <div id="socialBar">
-    <div id="qrBtnDiv">
-    <!--QR CODE READER-->
-    <button onclick="QRCodeReader()" id="qrBtn">
-        QR Code Reader
-    </button>
-    </div>
-
     <a id="twitterLink" href="https://twitter.com/TheConquerors4/">
         <img src="IMAGES/twitter.png" alt="Twitter Logo" id="twitterLogo">
     </a>
@@ -44,18 +36,12 @@
 <h6 id="startBtn"><a href="app.html">START THE QUIZ</a></h6>
 
 <h6 id="tagline">Our group is formed by:</h6>
+
 <ul id="groupList">
     <li>Andreas Georgiou</li>
     <li>Iakovos Kyriakou</li>
     <li>Kostas Ioannou</li>
 </ul>
-
-<!--QR CODE READER SCREEN-->
-<video id="preview"></video>
-
-<div style="margin: 20px; padding: 20px; background-color: black; color: white; text-align: center;" id="content">
-
-</div>
 
 <footer>
     <p id="footerLink">To check our GitHub repository please visit:

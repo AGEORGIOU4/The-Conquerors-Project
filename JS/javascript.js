@@ -2,11 +2,14 @@ const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 
+// Parameters
 let sessionID = "";
 let uuid="";
 let playerName="";
 let appName = "";
 
+// Create a list to add dynamically all the TH challenges
+let list = document.getElementById("challenges");
 
 // Get Challenges
 function getChallenges() {
@@ -27,8 +30,6 @@ function getChallenges() {
                 // Get the TH uuid
                 let uuidLocal = treasureHuntsArray[i].uuid;
 
-
-                /// GET THE PROPER UUID FROM THE BUTTON!!
                 // Create a button for each TH challenge
                 let treasureHuntsBtn = document.createElement('input');
                 treasureHuntsBtn.type = "button";
@@ -37,66 +38,59 @@ function getChallenges() {
                 // The name of the button is the corresponding uuid
                 treasureHuntsBtn.name = treasureHuntsArray[i].uuid;
                 treasureHuntsBtn.id = "treasureHuntsBtn" + [i];
-                treasureHuntsBtn.onclick = function() {
 
-                    uuid = uuidLocal;
+                // Define the uuid for each TH on click
+                treasureHuntsBtn.onclick =  function () {
+
+                    uuid = uuidLocal
                 };
 
-//===============================CALL GET CREDENTIALS ON CLICK===================================//
-                treasureHuntsBtn.addEventListener("click", getCredentials);
+                    //===============================CALL GET CREDENTIALS ON CLICK===================================//
+                    treasureHuntsBtn.addEventListener("click", getCredentials);
 
-                challengesList.appendChild(treasureHuntsBtn);
-            }
+                        // Add the TH challenges buttons on a list
+                        challengesList.appendChild(treasureHuntsBtn);
+
+                }
         });
 }
 
-
-
-let list = document.getElementById("challenges");
+// Call the first function to start the quiz
 getChallenges(list);
 
-
-
 function getCredentials() {
-
     // Hide Treasure Hunt challenges
     document.getElementById("selectTH");
     document.getElementById("challenges");
     challenges.style.display = "none";
     selectTH.style.display = "none";
 
-
     // Show username input
     let userInput = document.getElementById("usernameBox");
     userInput.style.display = "block";
 
-    // Get required parameters
-    const params = new URLSearchParams(location.search);
-    playerName = params.get("player");
+    // Get required parameters for START URL
     appName = "TheConquerors";
-
 }
 
-
 function startSession(uuid) {
-
-
-
     let playerName = document.getElementById("username").value;
-
-    fetch(API_START + "?player=" +  playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
+    fetch(API_START + "?player=" +  playerName + "&app=" + appName +  "&treasure-hunt-id=" + uuid)
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
-
                 sessionID = jsonObject.session;
 
-    getQuestions(sessionID);
-
+                status = jsonObject.status;
+                if (status === "ERROR") {
+                    alert(jsonObject.errorMessages);
+                }
+                else {
+                    getQuestions(sessionID);
+                }
             });
 }
 
 function getQuestions(sessionID) {
-
     // Hide username input
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
@@ -117,6 +111,7 @@ function getQuestions(sessionID) {
 }
 
 function getAnswers () {
+
 
 }
 
@@ -199,10 +194,6 @@ function showPosition(position){
     alert("Successfully Obtained Location");
 
 }
-
-getLocation();
-
-
 
 // cookies
 let cookies = document.cookie;
