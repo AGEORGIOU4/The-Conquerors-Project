@@ -17,6 +17,7 @@
     <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
 
 </header>
+
 <div id="socialBar">
     <div id="qrBtnDiv">
     <!--QR CODE READER-->
@@ -25,12 +26,13 @@
     </button>
     </div>
 
-    <a href="https://twitter.com/TheConquerors4/">
-        <img src="IMAGES/twitter-logo.png" alt="Twitter Logo" id="twitterLogo">
+    <a id="twitterLink" href="https://twitter.com/TheConquerors4/">
+        <img src="IMAGES/twitter.png" alt="Twitter Logo" id="twitterLogo">
     </a>
 
+
     <a href="https://www.facebook.com/theConquerorsTreasureHunt/">
-        <img src="IMAGES/facebook-logo.png" alt="Twitter Logo" id="facebookLogo">
+        <img src="IMAGES/facebook.png" alt="Twitter Logo" id="facebookLogo">
     </a>
 </div>
 
@@ -60,30 +62,6 @@
         <a href="https://github.com/AGEORGIOU4/TheConquerorsProject">https://github.com/AGEORGIOU4/TheConquerorsProject</a>
     </p>
 </footer>
-
-
-<script>
-    var cookies = document.cookie;
-    console.log(cookies);
-    function getLocation(){
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        }
-        else {
-            alert("Geolocation is not supported by your browser.");
-        }
-    }
-
-    function showPosition(position){
-
-        alert("Successfully Obtained Location");
-
-    }
-
-    getLocation();
-
-</script>
 
 </body>
 

@@ -50,6 +50,13 @@ function getChallenges() {
         });
 }
 
+
+
+let list = document.getElementById("challenges");
+getChallenges(list);
+
+
+
 function getCredentials() {
 
     // Hide Treasure Hunt challenges
@@ -94,13 +101,23 @@ function getQuestions(sessionID) {
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
 
+    //Show Questions
+    document.getElementById("question");
+
+
+
 
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
             console.log(jsonObject);
+            question.innerHTML = jsonObject.questionText;
         });
+}
+
+function getAnswers () {
+
 }
 
 
@@ -163,6 +180,33 @@ function QRCodeReader() {
         document.getElementById("content").innerHTML = content;
     });
 }
+
+
+
+//=========================GET LOCATION=========================//
+function getLocation(){
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+
+function showPosition(position){
+
+    alert("Successfully Obtained Location");
+
+}
+
+getLocation();
+
+
+
+// cookies
+let cookies = document.cookie;
+console.log(cookies);
 
 
 /*

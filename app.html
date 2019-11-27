@@ -29,17 +29,17 @@
     </div>
 
     <a href="https://twitter.com/TheConquerors4/">
-        <img src="IMAGES/twitter-logo.png" alt="Twitter Logo" id="twitterLogo">
+        <img src="IMAGES/twitter.png" alt="Twitter Logo" id="twitterLogo">
     </a>
 
     <a href="https://www.facebook.com/theConquerorsTreasureHunt/">
-        <img src="IMAGES/facebook-logo.png" alt="Twitter Logo" id="facebookLogo">
+        <img src="IMAGES/facebook.png" alt="Twitter Logo" id="facebookLogo">
     </a>
 </div>
 
 
 <!----------PHASE 1---------->
-<p id="selectTH">Select a treasure hunt...</p>
+<p id="selectTH">Select a treasure hunt:</p>
 
 <ul id="challenges"></ul>
 
@@ -48,7 +48,7 @@
 <div id="usernameBox">
     <form name="enterCredentials" id="credentials" method="get">
 
-        <span style="font-size: 55px">Enter username: </span>
+        <span style="font-size: 40px; color: #313131;">Enter username: </span>
         <br>
         <label for="username"></label>
         <input type="text" name="player" id="username">
@@ -56,6 +56,21 @@
         <input type="button" id="submitBtn" onclick="startSession(uuid)" value="Submit">
     </form>
 </div>
+
+
+<!----------PHASE 3---------->
+
+<div id="QuestionSection">
+    <p id="question"></p>
+</div>
+
+
+
+
+
+
+
+
 
 
 <!--QR CODE READER SCREEN-->
@@ -73,19 +88,6 @@
     </p>
 </footer>
 
-
-<script>
-    let list = document.getElementById("challenges");
-
-
-    getChallenges(list);
-
-
-    // cookies
-    let cookies = document.cookie;
-    console.log(cookies);
-
-</script>
 
 </body>
 
