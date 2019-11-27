@@ -1,7 +1,9 @@
 const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
-const TH_API_URL = "https://codecyprus.org/th/api/";
+const API_LEADERBOARD ="https://codecyprus.org/th/api/leaderboard?sorted&session=";
+
+
 // Parameters
 let sessionID = "";
 let uuid="";
@@ -98,18 +100,20 @@ function getQuestions(sessionID) {
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
 
-    //Show Questions
+    // Retrieve a paragraph element named "question" to add the questions
     document.getElementById("question");
 
-
-
-
+    // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
             console.log(jsonObject);
+            console.log(sessionID);
+
+            // Change the questions paragraph content by adding the question from the server
             question.innerHTML = jsonObject.questionText;
+            getLeaderBoard(sessionID);
         });
 }
 
@@ -119,6 +123,47 @@ function getAnswers () {
 }
 
 
+
+
+
+//access the leaderBoard
+function getLeaderBoard(sessionNumber) {
+    fetch(API_LEADERBOARD + sessionNumber + "&limit=20")
+        .then(response => response.json())
+        .then(json => { handleLeaderBoard(json);
+            console.log(json);
+        });
+}
+
+
+function handleLeaderBoard(leaderboard) {
+    let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+    second: '2-digit'};
+
+    // Used to include HTML code for the table rows
+    let html = "";
+    let leaderboardArray = leaderboard['leaderboard'];
+
+    // Get all elements in the array instead of for loop
+    for(const entry of leaderboardArray) {
+
+       let date = new Date (entry['completionTime']);
+       let formattedDate = date.toLocaleDateString("en-UK", options);
+
+        html += "<tr>" +
+            "<td>" + entry['player'] + "</td>" +
+            "<td>" + entry['score'] + "</td>" +
+            "<td>" + formattedDate + "</td>" +
+            "</tr>";
+    }
+
+    let leaderBoardElement = document.getElementById('test-results-table');
+    leaderBoardElement.innerHTML += html;
+}
+
+
+
+//========================OTHER FUNCTIONS=========================//
 
 
 //=========================QR CODE READER=========================//
@@ -203,29 +248,9 @@ let cookies = document.cookie;
 console.log(cookies);
 
 
-//access the leaderboard
-function getLeaderBoard(url) {
-    fetch(url, {method:"GET"})
-        .then(response => response.json())
-        .then(json => handleLeaderboard(json));
-}
 
-let session ="ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICA4OnngggM";
-let url = TH_API_URL + "leaderboard?sorted&session=" + session;
-getLeaderBoard(url);
-function handleLeaderboard(leaderboard) {
-    let html = "";
-    let leaderboardArray = leaderboard['leaderboard'];
-    //get all elements in the array instead of for loop
-    for(const entry of leaderboardArray){
-        html += "<tr>" +
-            "<td>" + entry['player'] + "</td>" +
-            "<td>" + entry['score'] + "</td>" +
-            "<td>" + entry['completionTime'] + "</td>" +
-            "</tr>";
-    }
-    let leaderboardElement = document.getElementById('test-results');
-    leaderboardElement.innerHTML +=html;
-}
+
+
+
 
 
