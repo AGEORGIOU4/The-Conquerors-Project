@@ -1,10 +1,11 @@
-const API_LIST = "https://codecyprus.org/th/api/list";
+const API_LIST = "https://codecyprus.org/th/api/list?";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 
 let sessionID = "";
 let uuid="";
 let playerName="";
+let appName = "The Conquerors";
 
 
 // Get Challenges
@@ -28,31 +29,38 @@ function getChallenges() {
                 const params = new URLSearchParams(location.search);
 
                 playerName = params.get("player");
-                let appName = "The Conquerors";
-                uuid = treasureHuntsArray[i].uuid;
+                uuid = treasureHuntsArray[0].uuid;
 
-                listItem.innerHTML = "<a href='questions.html" +  "'>" + treasureHuntsArray[i].name;
+                listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=" + playerName + "&app=" + appName +
+                    "&treasure-hunt-id=" + uuid + "'>" + treasureHuntsArray[i].name + "</a>";
+
 
                 challengesList.appendChild(listItem);
-                console.log(playerName);
+                startSession();
             }
         });
 }
 
 
-function startSession(uuid) {
-    let username = document.getElementById("playername");
-    let appName = "The Conquerors";
+function startSession() {
 
-
-    fetch(API_START + "?" +  username + "&app=" + appName + "&treasure-hunt-id=" + uuid)
+    fetch(API_START + "?" +  playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json())
         .then(jsonResponse => handlestart(jsonResponse));
+
 }
+
+
+
+
 function handlestart(json) {
     sessionID = json.session;
     console.log(sessionID);
 }
+
+
+
+
 function getQuestions() {
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
@@ -142,6 +150,7 @@ function getLeaderBoard(url) {
 }
 
 
+/*
 //Leaderboard
 
 const TH_API_URL = "https://codecyprus.org/th/api/";
@@ -164,3 +173,4 @@ function handleLeaderboard(leaderboard) {
     let leaderboardElement = document.getElementById('test-results-table'); // table
     leaderboardElement.innerHTML += html; // append generated HTML to existing
 }
+*/
