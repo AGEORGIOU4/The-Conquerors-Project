@@ -52,6 +52,7 @@ header {
 #twitterLogo {
     height: 70px;
     width: 85px;
+    margin-top: 2px;
 }
 
 #twitterLink {
