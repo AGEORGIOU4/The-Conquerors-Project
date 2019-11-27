@@ -43,7 +43,7 @@ function startSession(uuid) {
 
     let uuidStart =  document.getElementById("uuid");
 
-    fetch(API_LIST + "?" +  username + "&app=" + appName + "&treasure-hunt-id=" + uuidStart)
+    fetch(API_START + "?" +  username + "&app=" + appName + "&treasure-hunt-id=" + uuidStart)
         .then(response => response.json())
         .then(jsonResponse => {
 
@@ -55,8 +55,6 @@ function getQuestions() {
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-            console.log(jsonObject);
-            console.log(sessionID);
 
         });
 }
