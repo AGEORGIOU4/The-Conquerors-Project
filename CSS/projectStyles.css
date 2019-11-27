@@ -95,7 +95,7 @@ video#preview.active {
     color: #FFFFFF;
     background-color: darkcyan;
     text-align: justify;
-    border: 2px solid grey;
+    border: 2px solid red;
 }
 
 #startBtn {
