@@ -117,48 +117,33 @@ function getQuestions(sessionID) {
         });
 }
 
-function getAnswers () {
-
-
-}
-
-
-
-
 
 //access the leaderBoard
-function getLeaderBoard(sessionNumber) {
-    fetch(API_LEADERBOARD + sessionNumber + "&limit=20")
+function getLeaderBoard(sessionID) {
+    fetch(API_LEADERBOARD + sessionID + "&sorted&limit=20")
         .then(response => response.json())
-        .then(json => { handleLeaderBoard(json);
-            console.log(json);
+        .then(jsonObject => {
+            console.log(jsonObject);
+            console.log(sessionID);
         });
 }
 
 
-function handleLeaderBoard(leaderboard) {
-    let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
-    second: '2-digit'};
+function handleLeaderBoard(json) {
 
     // Used to include HTML code for the table rows
     let html = "";
     let leaderboardArray = leaderboard['leaderboard'];
 
     // Get all elements in the array instead of for loop
-    for(const entry of leaderboardArray) {
-
-       let date = new Date (entry['completionTime']);
-       let formattedDate = date.toLocaleDateString("en-UK", options);
+    for (const entry of leaderboardArray) {
 
         html += "<tr>" +
             "<td>" + entry['player'] + "</td>" +
             "<td>" + entry['score'] + "</td>" +
-            "<td>" + formattedDate + "</td>" +
+            "<td>" + entry['completionTime'] + "</td>" +
             "</tr>";
     }
-
-    let leaderBoardElement = document.getElementById('test-results-table');
-    leaderBoardElement.innerHTML += html;
 }
 
 
