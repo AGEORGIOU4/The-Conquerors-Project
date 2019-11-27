@@ -148,12 +148,22 @@ function QRCodeReader() {
 
 function getLeaderBoard(url) {
 // create and invoke the http request
-    fetch("https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10", { method: "GET" })
+    fetch("https://codecyprus.org/th/api/leaderboard?session="+ uuid, { method: "GET" })
         .then(response => response.json())
-        .then(json => handleLeaderboard(json));
-}
-*/
+        .then(json => {
 
+            let leaderBoard = json.leaderboard;
+            console.log(leaderBoard);
+
+
+
+
+
+            }
+            );
+}
+
+*/
 
 /*
 //Leaderboard
