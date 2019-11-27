@@ -1,7 +1,7 @@
 const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
-
+const TH_API_URL = "https://codecyprus.org/th/api/";
 // Parameters
 let sessionID = "";
 let uuid="";
@@ -203,40 +203,29 @@ let cookies = document.cookie;
 console.log(cookies);
 
 
-function getLeaderBoard() {
-
-    fetch("https://codecyprus.org/th/api/leaderboard?session="+ uuid +"&sorted&limit=20", )
+//access the leaderboard
+function getLeaderBoard(url) {
+    fetch(url, {method:"GET"})
         .then(response => response.json())
-        .then(json => {
-
-                let leaderBoard = json.leaderboard;
-                let limit = json.limit;
-                console.log(leaderBoard);
-
-
-                let tableScores = "<table>" // used to include HTML code for the table rows
-
-                for(let i=0; i < limit; i++) {
-                    tableScores += "<tr>" +
-                        "<td>" + leaderBoard[i].player + "</td>" +
-                        "<td>" + leaderBoard[i].completionTime + "</td>" +
-                        "<td>" + leaderBoard[i].score + "</td>" +
-                        "</tr>";
-
-                    tableScores=+ "</table>";
-                    document.body = document.createElement("body");
-                    document.body.innerHTML = (tableScores);
-
-                }
-            }
-        );
+        .then(json => handleLeaderboard(json));
 }
 
-/*
-function handleLeaderboard(leaderboard){
-    let options = {
-        day:'numeric', month:'short', hour:'2-digit',
+let session ="ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICA4OnngggM";
+let url = TH_API_URL + "leaderboard?sorted&session=" + session;
+getLeaderBoard(url);
+function handleLeaderboard(leaderboard) {
+    let html = "";
+    let leaderboardArray = leaderboard['leaderboard'];
+    //get all elements in the array instead of for loop
+    for(const entry of leaderboardArray){
+        html += "<tr>" +
+            "<td>" + entry['player'] + "</td>" +
+            "<td>" + entry['score'] + "</td>" +
+            "<td>" + entry['completionTime'] + "</td>" +
+            "</tr>";
     }
+    let leaderboardElement = document.getElementById('test-results');
+    leaderboardElement.innerHTML +=html;
 }
 
- */
+
