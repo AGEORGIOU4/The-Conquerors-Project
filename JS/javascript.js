@@ -38,9 +38,12 @@ function getChallenges() {
                 treasureHuntsBtn.type = "button";
                 treasureHuntsBtn.value = treasureHuntsArray[i].name;
 
+                treasureHuntsBtn.style.fontSize = "-webkit-xxx-large";
+                treasureHuntsBtn.style.margin = "15px auto";
+
                 // The name of the button is the corresponding uuid
                 treasureHuntsBtn.name = treasureHuntsArray[i].uuid;
-                treasureHuntsBtn.id = "treasureHuntsBtn" + [i];
+                treasureHuntsBtn.id = "treasureHuntsBtn" + [i + 1];
 
                 // Define the uuid for each TH on click
                 treasureHuntsBtn.onclick = function () {
@@ -59,6 +62,7 @@ function getChallenges() {
 // Call the first function to start the quiz
 getChallenges(list);
 
+// Get the username and the app name to pass them at Start Session
 function getCredentials() {
     // Hide Treasure Hunt Instructions & Challenges
     document.getElementById("instructionsBox");
@@ -95,6 +99,7 @@ function startSession(uuid) {
 
                 // If all params are correct (username, app name, session) call the questions
                 getQuestions(sessionID);
+
             }
         });
 }
@@ -112,18 +117,49 @@ function getQuestions(sessionID) {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
+            var typeOfQuestion = jsonObject.questionType;
+
             console.log(jsonObject);
             console.log(sessionID);
 
             // Change the questions paragraph content by adding the question from the server
             question.innerHTML = jsonObject.questionText;
 
-            // Call leaderboard and pass the sessionID
-            getLeaderBoard(sessionID);
-
+            getTypeOfQuestion(typeOfQuestion)
 
         });
 }
+
+function getTypeOfQuestion (typeOfQuestion) {
+    document.getElementById("booleanButtons");
+
+    document.getElementById("mcqButtons");
+
+    document.getElementById("integerBtn");
+    document.getElementById("submitIntegerBtn");
+
+    document.getElementById("numericBtn");
+    document.getElementById("textBtn");
+
+    if (typeOfQuestion === "BOOLEAN") {
+        booleanButtons.style.display = "block";
+    }
+    if (typeOfQuestion === "MCQ") {
+        mcqButtons.style.display = "block";
+    }
+    if (typeOfQuestion === "INTEGER") {
+        integerBtn.style.display = "block";
+        submitIntegerBtn.style.display = "block";
+    }
+    if (typeOfQuestion === "NUMERIC") {
+        numericBtn.style.display = "block";
+    }
+    if (typeOfQuestion === "TEXT") {
+        textBtn.style.display = "block";
+    }
+}
+
+
 
 
 //access the leaderBoard
@@ -240,7 +276,6 @@ function setCookie(cookieName, cookieValue, expireDays) {
     let expires = "expires=" + date.toUTCString();
     document.cookie = "cookieName=" + cookieValue + ";" + expires + ";path=/";
     console.log(cookieName);
-
 }
 
 
@@ -253,26 +288,25 @@ function getLeaderboard(url) {
 //fixed session
 let session = "ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICA4OnngggM";
 let url = API_LEADERBOARD + session;
-getLeaderBoard(url);
+getLeaderboard(url);
 
-function handleLeaderbord(leaderboard){
-    let options = {day: 'numeric', month:'short', hour:'2-digit', minute: '2-digit',second: '2-digit'};
+function handleLeaderbord(leaderboard) {
+    let options = {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit'};
     let html = "";
     let leaderboardArray = leaderboard['leaderboard'];
-    for(const entry of leaderboardArray) {
+    for (const entry of leaderboardArray) {
 
         let date = new Date(entry['completionTime']);
-        let formattedDate = date.toLocaleTimeString("en-uk",options);
-    html += "<tr>" +
-        "<td>" + entry['player'] + "</td>" +
-        "<td>" + entry['score'] + "</td>" +
-        "<td>" + entry[formattedDate] + "</td>" +
-        "</tr>";
-}
+        let formattedDate = date.toLocaleTimeString("en-uk", options);
+        html += "<tr>" +
+            "<td>" + entry['player'] + "</td>" +
+            "<td>" + entry['score'] + "</td>" +
+            "<td>" + entry[formattedDate] + "</td>" +
+            "</tr>";
+    }
 
     let leaderboardElement = document.getElementById('test-results-table'); // table
     leaderboardElement.innerHTML += html; // append generated HTML to existing
 }
 
-console.log(getLeaderBoard(url));
 

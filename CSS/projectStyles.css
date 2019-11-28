@@ -38,6 +38,7 @@ header {
 
 
 #qrBtn {
+    display: none;
     height: 74px;
     float: left;
     color: #5a5a5a;
@@ -175,12 +176,56 @@ video#preview.active {
 
 #question {
     font-size: -webkit-xxx-large;
+    margin-right: 25px;
+    margin-left: 25px;
 }
 
-#qIsInteger {
+/* Answer Buttons */
+ #answerBtns {
+     text-align: center;
+ }
+
+#booleanButtons {
     display: none;
 }
 
+#mcqButtons {
+    display: none;
+}
+
+#integerBtn {
+    display: none;
+    width: 50%;
+    height: 60px;
+    margin: 20px auto;
+    font-size: 40px;
+    border: 2px solid #313131;
+    border-radius: 15px;
+}
+
+#submitIntegerBtn {
+    display: none;
+}
+
+#numericBtn {
+    display: none;
+    width: 50%;
+    height: 60px;
+    margin: 20px auto;
+    font-size: 40px;
+    border: 2px solid #313131;
+    border-radius: 15px;
+}
+
+#textBtn {
+    display: none;
+    width: 50%;
+    height: 60px;
+    margin: 20px auto;
+    font-size: 40px;
+    border: 2px solid #313131;
+    border-radius: 15px;
+}
 
 
 
