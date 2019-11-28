@@ -25,3 +25,6 @@ Linked the API List
 Linked the API Start
 Linked the API Questions
 
+questions how to get the answers
+appendchild error
+get leaderboard error
