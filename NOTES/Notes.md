@@ -27,4 +27,5 @@ Linked the API Questions
 
 questions how to get the answers
 appendchild error
-get leaderboard error
+get leaderboard error.
+
