@@ -110,16 +110,20 @@ video#preview.active {
 }
 
 #startBtn:before {
-    margin: -10px 0;
+    padding: 3px;
+    margin: -8px 0;
     position: absolute;
     content: "\276F";
+    font-size: 60px;
     color: #adad5c;
 }
 
 #startBtn:after {
-    margin: -11px -40px;;
+    padding: 3px;
+    margin: -8px -40px;;
     position: absolute;
     content: "\276F";
+    font-size: 60px;
     color: #adad5c;
 }
 
