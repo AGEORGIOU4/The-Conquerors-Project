@@ -1,14 +1,15 @@
 const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
-const API_LEADERBOARD ="https://codecyprus.org/th/api/leaderboard?sorted&session=";
+const API_LEADERBOARD = "https://codecyprus.org/th/api/leaderboard?sorted&session=";
 
 
 // Parameters
 let sessionID = "";
-let uuid="";
-let playerName="";
+let uuid = "";
+let playerName = "";
 let appName = "";
+var sessionCookie;
 
 // Create a list to add dynamically all the TH challenges
 let list = document.getElementById("challenges");
@@ -42,18 +43,16 @@ function getChallenges() {
                 treasureHuntsBtn.id = "treasureHuntsBtn" + [i];
 
                 // Define the uuid for each TH on click
-                treasureHuntsBtn.onclick =  function () {
-
+                treasureHuntsBtn.onclick = function () {
                     uuid = uuidLocal
                 };
 
-                    //===============================CALL GET CREDENTIALS ON CLICK===================================//
-                    treasureHuntsBtn.addEventListener("click", getCredentials);
+                //===============================CALL GET CREDENTIALS ON CLICK===================================//
+                treasureHuntsBtn.addEventListener("click", getCredentials);
 
-                        // Add the TH challenges buttons on a list
-                        challengesList.appendChild(treasureHuntsBtn);
-
-                }
+                // Add the TH challenges buttons on a list
+                challengesList.appendChild(treasureHuntsBtn);
+            }
         });
 }
 
@@ -69,7 +68,6 @@ function getCredentials() {
     selectTH.style.display = "none";
     challenges.style.display = "none";
 
-
     // Show username input
     let userInput = document.getElementById("usernameBox");
     userInput.style.display = "block";
@@ -79,20 +77,26 @@ function getCredentials() {
 }
 
 function startSession(uuid) {
+    // Get username value
     let playerName = document.getElementById("username").value;
-    fetch(API_START + "?player=" +  playerName + "&app=" + appName +  "&treasure-hunt-id=" + uuid)
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
-                sessionID = jsonObject.session;
+    fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
 
-                status = jsonObject.status;
-                if (status === "ERROR") {
-                    alert(jsonObject.errorMessages);
-                }
-                else {
-                    getQuestions(sessionID);
-                }
-            });
+            // Set sessionID to the current session
+            sessionID = jsonObject.session;
+
+            // Give some alert messages if the username is not valid
+            status = jsonObject.status;
+
+            if (status === "ERROR") {
+                alert(jsonObject.errorMessages);
+            } else {
+
+                // If all params are correct (username, app name, session) call the questions
+                getQuestions(sessionID);
+            }
+        });
 }
 
 function getQuestions(sessionID) {
@@ -113,7 +117,11 @@ function getQuestions(sessionID) {
 
             // Change the questions paragraph content by adding the question from the server
             question.innerHTML = jsonObject.questionText;
+
+            // Call leaderboard and pass the sessionID
             getLeaderBoard(sessionID);
+
+
         });
 }
 
@@ -145,7 +153,6 @@ function handleLeaderBoard(json) {
             "</tr>";
     }
 }
-
 
 
 //========================OTHER FUNCTIONS=========================//
@@ -210,27 +217,32 @@ function QRCodeReader() {
 }
 
 
-
 //=========================GET LOCATION=========================//
-function getLocation(){
+function getLocation() {
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
-    }
-    else {
+    } else {
         alert("Geolocation is not supported by your browser.");
     }
 }
 
-function showPosition(position){
+function showPosition(position) {
 
     alert("Successfully Obtained Location");
 
 }
 
-// cookies
-let cookies = document.cookie;
-console.log(cookies);
+
+function setCookie(cookieName, cookieValue, expireDays) {
+    let date = new Date();
+    date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = "cookieName=" + cookieValue + ";" + expires + ";path=/";
+    console.log(cookieName);
+
+}
+
 
 
 

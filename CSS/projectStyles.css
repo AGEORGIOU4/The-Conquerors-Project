@@ -156,11 +156,10 @@ video#preview.active {
     text-align: center;
 }
 
-#username, #appName {
+#username {
     width: 50%;
     height: 60px;
     margin: 20px auto;
-    color: #313131;
     font-size: 40px;
     border: 2px solid #313131;
     border-radius: 15px;
@@ -171,9 +170,19 @@ video#preview.active {
     font-size: 50px;
 }
 
-#successMessage {
+
+/* PHASE 3 */
+
+#question {
+    font-size: -webkit-xxx-large;
+}
+
+#qIsInteger {
     display: none;
 }
+
+
+
 
 
 /*==========NOTES==========*/
