@@ -244,10 +244,35 @@ function setCookie(cookieName, cookieValue, expireDays) {
 }
 
 
+function getLeaderboard(url) {
+    fetch(url)
+        .then(response.json())
+        .then(json => handleLeaderBoard(json));
+}
 
+//fixed session
+let session = "ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICA4OnngggM";
+let url = API_LEADERBOARD + session;
+getLeaderBoard(url);
 
+function handleLeaderbord(leaderboard){
+    let options = {day: 'numeric', month:'short', hour:'2-digit', minute: '2-digit',second: '2-digit'};
+    let html = "";
+    let leaderboardArray = leaderboard['leaderboard'];
+    for(const entry of leaderboardArray) {
 
+        let date = new Date(entry['completionTime']);
+        let formattedDate = date.toLocaleTimeString("en-uk",options);
+    html += "<tr>" +
+        "<td>" + entry['player'] + "</td>" +
+        "<td>" + entry['score'] + "</td>" +
+        "<td>" + entry[formattedDate] + "</td>" +
+        "</tr>";
+}
 
+    let leaderboardElement = document.getElementById('test-results-table'); // table
+    leaderboardElement.innerHTML += html; // append generated HTML to existing
+}
 
-
+console.log(getLeaderBoard(url));
 
