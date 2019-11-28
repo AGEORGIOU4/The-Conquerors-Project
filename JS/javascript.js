@@ -5,7 +5,6 @@ const API_ANSWER = "https://codecyprus.org/th/api/answer";
 const API_SKIP = "https://codecyprus.org/th/api/skip";
 const API_LEADERBOARD = "https://codecyprus.org/th/api/leaderboard?sorted&session=";
 
-D
 // Parameters
 let sessionID = "";
 let uuid = "";
@@ -139,18 +138,27 @@ function getQuestions(sessionID) {
             question.innerHTML = jsonObject.questionText;
 
             let typeOfQuestion = jsonObject.questionType;
-            let requiresLocation = jsonObject.requiresLocation;
-            let currentQuestionIndex = jsonObject.currentQuestionIndex;
-
-
-
             getTypeOfQuestion(typeOfQuestion);
-            questionRequiresLocation(requiresLocation);
-            questionCanBeSkipped (currentQuestionIndex);
-            getAnswer(typeOfQuestion);
+
+            let requiresLocation = jsonObject.requiresLocation;
+            if (requiresLocation === true) {
+                getLocation();
+            }
+
+            let skipQuestion = jsonObject.canBeSkipped;
+            if (skipQuestion === true) {
+                document.getElementById("skipButton");
+                skipButton.style.display = "block";
+                questionCanBeSkipped();
+            }
+
 
         });
 }
+
+
+// ============== QUESTION ATTRIBUTES ============== //
+
 
 function getTypeOfQuestion(typeOfQuestion) {
     document.getElementById("booleanButtons");
@@ -186,52 +194,12 @@ function getTypeOfQuestion(typeOfQuestion) {
     }
 }
 
-
-// ============== QUESTION ATTRIBUTES ============== //
-
-function questionRequiresLocation(requiresLocation) {
-    if (requiresLocation === "true") {
-        getLocation();
-    }
-}
-
 function questionCanBeSkipped() {
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
         });
 }
-
-
-
-function getAnswer(typeOfQuestion) {
-    fetch(API_ANSWER + "?session=" + sessionID + "&answer" + answer)
-        .then(response => response.json()) //Parse JSON text to JavaScript object
-        .then(jsonObject => {
-
-            if (typeOfQuestion === "TEXT") {
-                answer = document.getElementById("submitTextBtn").value;
-            }
-
-            checkAnswer(answerIsCorrect);
-        });
-}
-
-
-function checkAnswer(answerIsCorrect) {
-    if (answerIsCorrect === "true") {
-
-    }
-
-
-
-}
-
-
-
-
-
-
 
 
 
@@ -313,7 +281,7 @@ function QRCodeReader() {
 
     Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
-            scanner.start(cameras[0]);
+            scanner.start(cameras[1]);
         } else {
             console.error('No cameras found.');
             alert("No cameras found.");
