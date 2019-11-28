@@ -110,7 +110,7 @@ video#preview.active {
 }
 
 #startBtn:before {
-    margin: -11px 0;
+    margin: -10px 0;
     position: absolute;
     content: "\276F";
     color: #adad5c;
