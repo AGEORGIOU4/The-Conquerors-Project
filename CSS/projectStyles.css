@@ -111,7 +111,7 @@ video#preview.active {
 
 #startBtn:before {
     padding: 3px;
-    margin: -8px 0;
+    margin: 0 0;
     position: absolute;
     content: "\276F";
     font-size: 60px;
@@ -120,7 +120,7 @@ video#preview.active {
 
 #startBtn:after {
     padding: 3px;
-    margin: -8px -40px;;
+    margin: 0 -40px;;
     position: absolute;
     content: "\276F";
     font-size: 60px;
