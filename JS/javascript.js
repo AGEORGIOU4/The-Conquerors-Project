@@ -1,6 +1,8 @@
 const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
+const API_ANSWER = "https://codecyprus.org/th/api/answer";
+const API_SKIP = "https://codecyprus.org/th/api/skip";
 const API_LEADERBOARD = "https://codecyprus.org/th/api/leaderboard?sorted&session=";
 
 
@@ -9,7 +11,8 @@ let sessionID = "";
 let uuid = "";
 let playerName = "";
 let appName = "";
-var sessionCookie;
+let answer = "";
+
 
 // Create a list to add dynamically all the TH challenges
 let list = document.getElementById("challenges");
@@ -37,9 +40,8 @@ function getChallenges() {
                 let treasureHuntsBtn = document.createElement('input');
                 treasureHuntsBtn.type = "button";
                 treasureHuntsBtn.value = treasureHuntsArray[i].name;
-
                 treasureHuntsBtn.style.fontSize = "-webkit-xxx-large";
-                treasureHuntsBtn.style.margin = "15px auto";
+                treasureHuntsBtn.style.margin = "15px 25px";
 
                 // The name of the button is the corresponding uuid
                 treasureHuntsBtn.name = treasureHuntsArray[i].uuid;
@@ -64,6 +66,7 @@ getChallenges(list);
 
 // Get the username and the app name to pass them at Start Session
 function getCredentials() {
+//============================================================================================//
     // Hide Treasure Hunt Instructions & Challenges
     document.getElementById("instructionsBox");
     document.getElementById("selectTH");
@@ -71,6 +74,8 @@ function getCredentials() {
     instructionsBox.style.display = "none";
     selectTH.style.display = "none";
     challenges.style.display = "none";
+
+//============================================================================================//
 
     // Show username input
     let userInput = document.getElementById("usernameBox");
@@ -96,15 +101,14 @@ function startSession(uuid) {
             if (status === "ERROR") {
                 alert(jsonObject.errorMessages);
             } else {
-
                 // If all params are correct (username, app name, session) call the questions
                 getQuestions(sessionID);
-
             }
         });
 }
 
 function getQuestions(sessionID) {
+ //============================================================================================//
     // Hide username input
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
@@ -112,25 +116,43 @@ function getQuestions(sessionID) {
     // Retrieve a paragraph element named "question" to add the questions
     document.getElementById("question");
 
+//============================================================================================//
+
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            var typeOfQuestion = jsonObject.questionType;
-
+            // Print on the console the json of question
             console.log(jsonObject);
             console.log(sessionID);
+
+            // Object attributes
+            let status = jsonObject.status;
+            let errorMessages = jsonObject.errorMessages;
+
+            if (status === "ERROR") {
+                alert(errorMessages);
+            }
 
             // Change the questions paragraph content by adding the question from the server
             question.innerHTML = jsonObject.questionText;
 
-            getTypeOfQuestion(typeOfQuestion)
+            let typeOfQuestion = jsonObject.questionType;
+            let requiresLocation = jsonObject.requiresLocation;
+            let currentQuestionIndex = jsonObject.currentQuestionIndex;
+
+
+
+            getTypeOfQuestion(typeOfQuestion);
+            questionRequiresLocation(requiresLocation);
+            questionCanBeSkipped (currentQuestionIndex);
+            getAnswer(typeOfQuestion);
 
         });
 }
 
-function getTypeOfQuestion (typeOfQuestion) {
+function getTypeOfQuestion(typeOfQuestion) {
     document.getElementById("booleanButtons");
 
     document.getElementById("mcqButtons");
@@ -139,7 +161,10 @@ function getTypeOfQuestion (typeOfQuestion) {
     document.getElementById("submitIntegerBtn");
 
     document.getElementById("numericBtn");
+    document.getElementById("submitNumericBtn");
+
     document.getElementById("textBtn");
+    document.getElementById("submitTextBtn");
 
     if (typeOfQuestion === "BOOLEAN") {
         booleanButtons.style.display = "block";
@@ -153,11 +178,62 @@ function getTypeOfQuestion (typeOfQuestion) {
     }
     if (typeOfQuestion === "NUMERIC") {
         numericBtn.style.display = "block";
+        submitNumericBtn.style.display = "block";
     }
     if (typeOfQuestion === "TEXT") {
         textBtn.style.display = "block";
+        submitTextBtn.style.display = "block";
     }
 }
+
+
+// ============== QUESTION ATTRIBUTES ============== //
+
+function questionRequiresLocation(requiresLocation) {
+    if (requiresLocation === "true") {
+        getLocation();
+    }
+}
+
+function questionCanBeSkipped() {
+    fetch(API_SKIP + "?session=" + sessionID)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+        });
+}
+
+
+
+function getAnswer(typeOfQuestion) {
+    fetch(API_ANSWER + "?session=" + sessionID + "&answer" + answer)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+
+            if (typeOfQuestion === "TEXT") {
+                answer = document.getElementById("submitTextBtn").value;
+            }
+
+            checkAnswer(answerIsCorrect);
+        });
+}
+
+
+function checkAnswer(answerIsCorrect) {
+    if (answerIsCorrect === "true") {
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -270,12 +346,12 @@ function showPosition(position) {
 }
 
 
-function setCookie(cookieName, cookieValue, expireDays) {
+function setCookie(cookieName, sessionID, expireDays) {
     let date = new Date();
     date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
     let expires = "expires=" + date.toUTCString();
     document.cookie = "cookieName=" + cookieValue + ";" + expires + ";path=/";
-    console.log(cookieName);
+
 }
 
 

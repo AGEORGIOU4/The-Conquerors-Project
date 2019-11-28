@@ -44,9 +44,9 @@
 
 <!--Instructions Paragraph-->
 <div id="instructionsBox">
-    <span style="text-align: center; text-decoration: underline">
-<p id="instructionsP">INSTRUCTIONS<br></p>
-    </span>
+        <p id="instructionsP"><span style="text-decoration: underline">
+            INSTRUCTIONS
+            </span></p>
     <ul>
         <li>Select a Treasure Hunt Challenge</li>
         <li>Enter a valid username</li>
@@ -84,7 +84,6 @@
 
 <!---TYPES OF QUESTIONS BOXES--->
 <div id="answerBtns">
-
     <div id="booleanButtons">
     <!-- BOOLEAN buttons -->
     <button class="booleanBtns" value="True" onclick="checkAnswer('A')">True</button>
@@ -107,15 +106,14 @@
     <!-- NUMERIC placeholder -->
     <label for="numericBtn"></label>
   <input type="text" id="numericBtn">
+    <button value="SUBMIT" id="submitNumericBtn" onclick="checkAnswer">Submit</button>
+
 
     <!-- TEXT placeholder -->
     <label for="textBtn"></label>
   <input type="text" id="textBtn">
-
-
+    <button value="SUBMIT" id="submitTextBtn" onclick="checkAnswer()">Submit</button>
 </div>
-
-
 
 
 <!--QR CODE READER SCREEN-->
