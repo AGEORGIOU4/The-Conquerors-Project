@@ -314,13 +314,20 @@ function showPosition(position) {
 }
 
 
-function setCookie(cookieName, sessionID, expireDays) {
-    let date = new Date();
-    date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + date.toUTCString();
-    document.cookie = "cookieName=" + cookieValue + ";" + expires + ";path=/";
 
-}
+  let date = new Date();
+  let miliseconds = 365 * 24 * 60 * 1000;
+  let expireDateTime = date.getTime() + miliseconds;
+  date.setTime(expireDateTime);
+  document.cookie = sessionID +"session expires: " + date.toUTCString();
+    //testing cookie
+
+    var cookies = document.cookie;
+    console.log(cookies);
+
+
+
+
 
 
 function getLeaderboard(url) {
