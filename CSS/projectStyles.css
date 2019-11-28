@@ -109,6 +109,20 @@ video#preview.active {
     border: 2px solid red;
 }
 
+#startBtn:before {
+    margin: -11px 0;
+    position: absolute;
+    content: "\276F";
+    color: #adad5c;
+}
+
+#startBtn:after {
+    margin: -11px -40px;;
+    position: absolute;
+    content: "\276F";
+    color: #adad5c;
+}
+
 #startBtn {
     display: block;
     margin: 20px 20px;
@@ -120,6 +134,7 @@ video#preview.active {
 }
 
 #startBtn a {
+    padding: 10px 70px;
     text-decoration: none;
     color: #FFFFFF;
 }
