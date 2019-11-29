@@ -9,11 +9,13 @@ const API_LEADERBOARD = "https://codecyprus.org/th/api/leaderboard?sorted&sessio
 let sessionID = "";
 let uuid = "";
 let appName = "";
+
 let answer = "";
 
 
 // Create a list to add dynamically all the TH challenges
 let list = document.getElementById("challenges");
+
 
 // Get Challenges
 function getChallenges() {
@@ -40,7 +42,7 @@ function getChallenges() {
                     // Get the Treasure Hunt uuid
                     let uuidLocal = treasureHuntsArray[i].uuid;
 
-                    // Create a button for each TH challenge
+                    // Create a button and style it for each TH challenge
                     let treasureHuntsBtn = document.createElement('input');
                     treasureHuntsBtn.type = "button";
                     treasureHuntsBtn.value = treasureHuntsArray[i].name;
@@ -66,8 +68,10 @@ function getChallenges() {
         });
 }
 
+
 // Call the first function to start the quiz
 getChallenges(list);
+
 
 // Get the username and the app name and pass them to Start Session
 function getCredentials() {
@@ -84,6 +88,7 @@ function getCredentials() {
     let userInput = document.getElementById("usernameBox");
     userInput.style.display = "block";
 }
+
 
 function startSession(uuid) {
     // Get required parameters for START URL
@@ -103,21 +108,22 @@ function startSession(uuid) {
                 alert(jsonObject.errorMessages);
             } else {
                 // If all params are correct (username, app name, session) call the questions and set (1)_(cookies!!!)
-                getQuestions(sessionID);
+                fetchQuestions(sessionID);
                 setCookies(sessionID);
             }
         });
 }
 
-function getQuestions(sessionID) {
-//============================================================================================//
+
+function fetchQuestions(sessionID) {
+//==============================================SHOW/HIDE ELEMENTS==============================================//
     // Hide username input
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
 
     // Retrieve a paragraph element named "question" to add the questions
     document.getElementById("question");
-//============================================================================================//
+//=============================================================================================================//
 
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
@@ -130,43 +136,23 @@ function getQuestions(sessionID) {
                 alert(jsonObject.errorMessages);
             } else {
 
-            // Print on the console the json of questions
-            console.log(jsonObject);
+                // Print on the console the json of questions
+                console.log(jsonObject);
 
-            // Change the questions paragraph content by adding the question from the server
-            question.innerHTML = jsonObject.questionText;
+                // Change the questions paragraph content by adding the question from the server
+                question.innerHTML = jsonObject.questionText;
 
-            //====================QUESTION ATTRIBUTES==================//
-            let typeOfQuestion = jsonObject.questionType;
-            let skipQuestion = jsonObject.canBeSkipped;
-            let currentQuestionIndex = jsonObject.currentQuestionIndex;
-            let requiresLocation = jsonObject.requiresLocation;
+                //====================QUESTION ATTRIBUTES==================//
+                let typeOfQuestion = jsonObject.questionType;
+                let skipQuestion = jsonObject.canBeSkipped;
+                let currentQuestionIndex = jsonObject.currentQuestionIndex;
+                let requiresLocation = jsonObject.requiresLocation;
 
-            getTypeOfQuestion(typeOfQuestion);
-            getLocation(requiresLocation);
-            questionCanBeSkipped(skipQuestion, currentQuestionIndex);
+                getTypeOfQuestion(typeOfQuestion);
+                getLocation(requiresLocation);
+                questionCanBeSkipped(skipQuestion, currentQuestionIndex);
             }
         });
-}
-
-function updateUI(currentQuestionIndex) {
-    document.getElementById("question");
-
-
-
-}
-
-// Set cookie for session
-function setCookies (sessionID) {
-    let date = new Date();
-    let milliseconds = 365 * 24 * 60 *  1000;
-    let expireDateTime = date.getTime() + milliseconds;
-    date.setTime(expireDateTime);
-    document.cookie = sessionID + "session expires: " + date.toUTCString();
-
-    //testing cookie
-    var cookies = document.cookie;
-    console.log(cookies);
 }
 
 // UNDEFINED SESSION!!!!!!!!
@@ -175,6 +161,7 @@ setCookies(sessionID);
 // ============== QUESTION ATTRIBUTES FUNCTIONS ============== //
 
 function getTypeOfQuestion(typeOfQuestion) {
+//==============================================SHOW/HIDE ELEMENTS==============================================//
     document.getElementById("booleanButtons");
 
     document.getElementById("mcqButtons");
@@ -190,46 +177,84 @@ function getTypeOfQuestion(typeOfQuestion) {
 
     if (typeOfQuestion === "BOOLEAN") {
         booleanButtons.style.display = "block";
+
+        mcqButtons.style.display = "none";
+        integerBtn.style.display = "none";
+        submitIntegerBtn.style.display = "none";
+        numericBtn.style.display = "none";
+        submitNumericBtn.style.display = "none";
+        textBtn.style.display = "none";
+        submitTextBtn.style.display = "none";
     }
+
     if (typeOfQuestion === "MCQ") {
         mcqButtons.style.display = "block";
+
+        booleanButtons.style.display = "none";
+        integerBtn.style.display = "none";
+        submitIntegerBtn.style.display = "none";
+        numericBtn.style.display = "none";
+        submitNumericBtn.style.display = "none";
+        textBtn.style.display = "none";
+        submitTextBtn.style.display = "none";
     }
+
     if (typeOfQuestion === "INTEGER") {
         integerBtn.style.display = "block";
         submitIntegerBtn.style.display = "block";
+
+        booleanButtons.style.display = "none";
+        mcqButtons.style.display = "none";
+        numericBtn.style.display = "none";
+        submitNumericBtn.style.display = "none";
+        textBtn.style.display = "none";
+        submitTextBtn.style.display = "none";
     }
     if (typeOfQuestion === "NUMERIC") {
         numericBtn.style.display = "block";
         submitNumericBtn.style.display = "block";
+
+        booleanButtons.style.display = "none";
+        mcqButtons.style.display = "none";
+        integerBtn.style.display = "none";
+        submitIntegerBtn.style.display = "none";
+        textBtn.style.display = "none";
+        submitTextBtn.style.display = "none";
     }
     if (typeOfQuestion === "TEXT") {
         textBtn.style.display = "block";
         submitTextBtn.style.display = "block";
+
+        booleanButtons.style.display = "none";
+        mcqButtons.style.display = "none";
+        integerBtn.style.display = "none";
+        submitIntegerBtn.style.display = "none";
+        numericBtn.style.display = "none";
+        submitNumericBtn.style.display = "none";
     }
 }
 
+//=============================================================================================================//
+
 function questionCanBeSkipped(skipQuestion, currentQuestionIndex) {
+//==============================================SHOW/HIDE ELEMENTS==============================================//
     if (skipQuestion === true) {
-    document.getElementById("skipButton");
-    skipButton.style.display = "block";
+        document.getElementById("skipButton");
+        skipButton.style.display = "block";
+//=============================================================================================================//
 
-    fetch(API_SKIP + "?session=" + sessionID)
-        .then(response => response.json()) //Parse JSON text to JavaScript object
-        .then(jsonObject => {
-            skipButton.onclick = function () {
-                currentQuestionIndex += 1;
-                console.log(currentQuestionIndex)
-                updateUI();
-            };
-            getLeaderboard(sessionID);
+        fetch(API_SKIP + "?session=" + sessionID)
+            .then(response => response.json()) //Parse JSON text to JavaScript object
+            .then(jsonObject => {
+                skipButton.onclick = function () {
+                    currentQuestionIndex += 1;
+                    console.log(currentQuestionIndex);
+                    fetchQuestions(sessionID);
+                };
 
-        });
+            });
+    }
 }
-}
-
-
-
-
 
 function getAnswer() {
     let numericAnswer = document.getElementById("numericBtn").value;
@@ -238,15 +263,13 @@ function getAnswer() {
 }
 
 
-
-
 function getLeaderboard(sessionID) {
     fetch(API_LEADERBOARD + sessionID + "&sorted&limit=20")
         .then(response => response.json())
         .then(json => {
-    console.log ("leaderboard " + sessionID);
-    console.log(json);
-    });
+            console.log("leaderboard " + sessionID);
+            console.log(json);
+        });
 }
 
 function handleLeaderBoard(leaderboard) {
@@ -267,6 +290,20 @@ function handleLeaderBoard(leaderboard) {
         leaderboardElement.innerHTML += html;  // append generated HTML to existing
 
     }
+}
+
+
+// Set cookie for session
+function setCookies(sessionID) {
+    let date = new Date();
+    let milliseconds = 365 * 24 * 60 * 1000;
+    let expireDateTime = date.getTime() + milliseconds;
+    date.setTime(expireDateTime);
+    document.cookie = sessionID + "session expires: " + date.toUTCString();
+
+    //testing cookie
+    var cookies = document.cookie;
+    console.log(cookies);
 }
 
 
@@ -332,8 +369,7 @@ function QRCodeReader() {
 
 //=========================GET LOCATION=========================//
 function getLocation(requiresLocation) {
-    if (requiresLocation === true)
-    {
+    if (requiresLocation === true) {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {

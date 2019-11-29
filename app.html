@@ -25,7 +25,7 @@
 <div id="socialBar">
     <div id="qrBtnDiv">
         <!--QR CODE READER-->
-        <img src="IMAGES/qrCode.png" onclick="QRCodeReader()" id="qrBtn" alt = "QR BUTTON">
+        <img src="IMAGES/qrCode.png" onclick="QRCodeReader()" id="qrBtn" alt="QR BUTTON">
 
         <!--SKIP BUTTON-->
         <button onclick="questionCanBeSkipped(skipQuestion, currentQuestionIndex)" id="skipButton">
@@ -84,37 +84,40 @@
     <p id="question"></p>
 </div>
 
-<!---TYPES OF QUESTIONS BOXES--->
+
+
+<!---ANSWER BOXES--->
 <div id="answerBtns">
     <div id="booleanButtons">
-    <!-- BOOLEAN buttons -->
-    <button class="booleanBtns" value="True" onclick="checkAnswer('A')">True</button>
-    <button class="booleanBtns" value="False" onclick="checkAnswer('B')">False</button>
+
+        <!-- BOOLEAN buttons -->
+        <button class="booleanBtns" value="True" onclick="checkAnswer(True)">True</button>
+        <button class="booleanBtns" value="False" onclick="checkAnswer('False')">False</button>
     </div>
 
-    <div id ="mcqButtons">
-    <!-- MCQ buttons -->
-    <button class="mcqBtns" value="A" onclick="checkAnswer('A')">A</button>
-    <button class="mcqBtns" value="B" onclick="checkAnswer('B')">B</button>
-    <button class="mcqBtns" value="C" onclick="checkAnswer('C')">C</button>
-    <button class="mcqBtns" value="D" onclick="checkAnswer('D')">D</button>
+    <div id="mcqButtons">
+        <!-- MCQ buttons -->
+        <button class="mcqBtns" value="A" onclick="checkAnswer('A')">A</button>
+        <button class="mcqBtns" value="B" onclick="checkAnswer('B')">B</button>
+        <button class="mcqBtns" value="C" onclick="checkAnswer('C')">C</button>
+        <button class="mcqBtns" value="D" onclick="checkAnswer('D')">D</button>
     </div>
 
     <!-- INTEGER placeholder -->
     <label for="integerBtn"></label>
-  <input type="text" id="integerBtn">
-    <button value="SUBMIT" id="submitIntegerBtn" onclick="checkAnswer">Submit</button>
+    <input type="text" id="integerBtn">
+    <button id="submitIntegerBtn" onclick="checkAnswer(valueOfInteger)">Submit</button>
 
     <!-- NUMERIC placeholder -->
     <label for="numericBtn"></label>
-  <input type="text" id="numericBtn">
-    <button value="SUBMIT" id="submitNumericBtn" onclick="checkAnswer">Submit</button>
+    <input type="text" id="numericBtn">
+    <button id="submitNumericBtn" onclick="checkAnswer(valueOfNumeric)">Submit</button>
 
 
     <!-- TEXT placeholder -->
     <label for="textBtn"></label>
-  <input type="text" id="textBtn">
-    <button value="SUBMIT" id="submitTextBtn" onclick="checkAnswer()">Submit</button>
+    <input type="text" id="textBtn">
+    <button value="SUBMIT" id="submitTextBtn" onclick="checkAnswer(valueOfText)">Submit</button>
 </div>
 
 
@@ -124,7 +127,6 @@
 <div style="margin: 20px; padding: 20px; background-color: black; color: white; text-align: center;" id="content">
 
 </div>
-<!--coukies test-->
 
 
 <!-----------------------------------FOOTER----------------------------------->
