@@ -105,6 +105,11 @@ video#preview.active {
     text-align: center;
 }
 
+#content {
+    padding: 20px; 
+    background-color: black;
+}
+
 /*=============================================LANDING PAGE===========================================================*/
 
 #homeP {
