@@ -9,8 +9,8 @@ const API_LEADERBOARD = "https://codecyprus.org/th/api/leaderboard?sorted&sessio
 let sessionID = "";
 let uuid = "";
 let appName = "";
-
 let answer = "";
+
 
 
 // Create a list to add dynamically all the TH challenges
@@ -151,9 +151,14 @@ function fetchQuestions(sessionID) {
                 getTypeOfQuestion(typeOfQuestion);
                 getLocation(requiresLocation);
                 questionCanBeSkipped(skipQuestion, currentQuestionIndex);
+
             }
         });
 }
+
+function getAnswer(value) {
+}
+
 
 // UNDEFINED SESSION!!!!!!!!
 setCookies(sessionID);
@@ -256,11 +261,7 @@ function questionCanBeSkipped(skipQuestion, currentQuestionIndex) {
     }
 }
 
-function getAnswer() {
-    let numericAnswer = document.getElementById("numericBtn").value;
-    console.log(numericAnswer);
 
-}
 
 
 function getLeaderboard(sessionID) {
