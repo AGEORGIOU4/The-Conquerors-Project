@@ -8,7 +8,6 @@ const API_LEADERBOARD = "https://codecyprus.org/th/api/leaderboard?sorted&sessio
 // Parameters
 let sessionID = "";
 let uuid = "";
-let playerName = "";
 let appName = "";
 let answer = "";
 
@@ -21,41 +20,48 @@ function getChallenges() {
     fetch(API_LIST)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-            console.log(jsonObject);
+            console.log(jsonObject);      //Print on the console the object attributes
 
-            // Get Treasure Hunt array
-            let treasureHuntsArray = jsonObject.treasureHunts;
+            // Give some alert messages if status is error
+            status = jsonObject.status;
+            if (status === "ERROR") {
+                alert(jsonObject.errorMessages);
+            } else {
 
-            // Get challenges list from the app page
-            const challengesList = document.getElementById("challenges");
+                // Get Treasure Hunt array
+                let treasureHuntsArray = jsonObject.treasureHunts;
 
-            // Traverse the array to get needed data
-            for (let i = 0; i < treasureHuntsArray.length; i++) {
+                // Get challenges list from the app page
+                const challengesList = document.getElementById("challenges");
 
-                // Get the TH uuid
-                let uuidLocal = treasureHuntsArray[i].uuid;
+                // Traverse the array to get needed data
+                for (let i = 0; i < treasureHuntsArray.length; i++) {
 
-                // Create a button for each TH challenge
-                let treasureHuntsBtn = document.createElement('input');
-                treasureHuntsBtn.type = "button";
-                treasureHuntsBtn.value = treasureHuntsArray[i].name;
-                treasureHuntsBtn.style.fontSize = "-webkit-xxx-large";
-                treasureHuntsBtn.style.margin = "15px 25px";
+                    // Get the Treasure Hunt uuid
+                    let uuidLocal = treasureHuntsArray[i].uuid;
 
-                // The name of the button is the corresponding uuid
-                treasureHuntsBtn.name = treasureHuntsArray[i].uuid;
-                treasureHuntsBtn.id = "treasureHuntsBtn" + [i + 1];
+                    // Create a button for each TH challenge
+                    let treasureHuntsBtn = document.createElement('input');
+                    treasureHuntsBtn.type = "button";
+                    treasureHuntsBtn.value = treasureHuntsArray[i].name;
+                    treasureHuntsBtn.style.fontSize = "-webkit-xxx-large";
+                    treasureHuntsBtn.style.margin = "15px 25px";
 
-                // Define the uuid for each TH on click
-                treasureHuntsBtn.onclick = function () {
-                    uuid = uuidLocal
-                };
+                    // The name of the button is the corresponding uuid
+                    treasureHuntsBtn.name = treasureHuntsArray[i].uuid;
+                    treasureHuntsBtn.id = "treasureHuntsBtn" + [i + 1];
 
-                //===============================CALL GET CREDENTIALS ON CLICK===================================//
-                treasureHuntsBtn.addEventListener("click", getCredentials);
+                    // Define the uuid for each TH on click
+                    treasureHuntsBtn.onclick = function () {
+                        uuid = uuidLocal
+                    };
 
-                // Add the TH challenges buttons on a list
-                challengesList.appendChild(treasureHuntsBtn);
+                    //===============================CALL GET CREDENTIALS ON CLICK===================================//
+                    treasureHuntsBtn.addEventListener("click", getCredentials);
+
+                    // Add the TH challenges buttons on a list
+                    challengesList.appendChild(treasureHuntsBtn);
+                }
             }
         });
 }
@@ -63,7 +69,7 @@ function getChallenges() {
 // Call the first function to start the quiz
 getChallenges(list);
 
-// Get the username and the app name to pass them at Start Session
+// Get the username and the app name and pass them to Start Session
 function getCredentials() {
 //============================================================================================//
     // Hide Treasure Hunt Instructions & Challenges
@@ -73,20 +79,17 @@ function getCredentials() {
     instructionsBox.style.display = "none";
     selectTH.style.display = "none";
     challenges.style.display = "none";
-
 //============================================================================================//
-
     // Show username input
     let userInput = document.getElementById("usernameBox");
     userInput.style.display = "block";
-
-    // Get required parameters for START URL
-    appName = "TheConquerors";
 }
 
 function startSession(uuid) {
-    // Get username value
+    // Get required parameters for START URL
     let playerName = document.getElementById("username").value;
+    appName = "TheConquerors";
+
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
@@ -96,69 +99,81 @@ function startSession(uuid) {
 
             // Give some alert messages if the username is not valid
             status = jsonObject.status;
-
             if (status === "ERROR") {
                 alert(jsonObject.errorMessages);
             } else {
-                // If all params are correct (username, app name, session) call the questions
+                // If all params are correct (username, app name, session) call the questions and set (1)_(cookies!!!)
                 getQuestions(sessionID);
+                setCookies(sessionID);
             }
         });
 }
 
 function getQuestions(sessionID) {
- //============================================================================================//
+//============================================================================================//
     // Hide username input
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
 
     // Retrieve a paragraph element named "question" to add the questions
     document.getElementById("question");
-
 //============================================================================================//
 
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
-        .then(jsonObject => {
+        .then(jsonObject => {              //Print on the console the object attributes
 
-            // Print on the console the json of question
-            console.log(jsonObject);
-            console.log(sessionID);
-
-            // Object attributes
-            let status = jsonObject.status;
-            let errorMessages = jsonObject.errorMessages;
-
+            // Give some alert messages if status is error
+            status = jsonObject.status;
             if (status === "ERROR") {
-                alert(errorMessages);
-            }
+                alert(jsonObject.errorMessages);
+            } else {
+
+            // Print on the console the json of questions
+            console.log(jsonObject);
 
             // Change the questions paragraph content by adding the question from the server
             question.innerHTML = jsonObject.questionText;
 
+            //====================QUESTION ATTRIBUTES==================//
             let typeOfQuestion = jsonObject.questionType;
-            getTypeOfQuestion(typeOfQuestion);
-
-            let requiresLocation = jsonObject.requiresLocation;
-            if (requiresLocation === true) {
-                getLocation();
-            }
-
             let skipQuestion = jsonObject.canBeSkipped;
-            if (skipQuestion === true) {
-                document.getElementById("skipButton");
-                skipButton.style.display = "block";
-                questionCanBeSkipped();
+            let currentQuestionIndex = jsonObject.currentQuestionIndex;
+            let requiresLocation = jsonObject.requiresLocation;
+
+            getTypeOfQuestion(typeOfQuestion);
+            getLocation(requiresLocation);
+            questionCanBeSkipped(skipQuestion, currentQuestionIndex);
             }
-
-
         });
 }
 
+function updateUI(currentQuestionIndex) {
+    document.getElementById("question");
+    question.innerHTML =
 
-// ============== QUESTION ATTRIBUTES ============== //
 
+
+}
+
+// Set cookie for session
+function setCookies (sessionID) {
+    let date = new Date();
+    let milliseconds = 365 * 24 * 60 *  1000;
+    let expireDateTime = date.getTime() + milliseconds;
+    date.setTime(expireDateTime);
+    document.cookie = sessionID + "session expires: " + date.toUTCString();
+
+    //testing cookie
+    var cookies = document.cookie;
+    console.log(cookies);
+}
+
+// UNDEFINED SESSION!!!!!!!!
+setCookies();
+
+// ============== QUESTION ATTRIBUTES FUNCTIONS ============== //
 
 function getTypeOfQuestion(typeOfQuestion) {
     document.getElementById("booleanButtons");
@@ -194,49 +209,69 @@ function getTypeOfQuestion(typeOfQuestion) {
     }
 }
 
-function questionCanBeSkipped() {
+function questionCanBeSkipped(skipQuestion, currentQuestionIndex) {
+    if (skipQuestion === true) {
+    document.getElementById("skipButton");
+    skipButton.style.display = "block";
+
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
+            skipButton.onclick = function () {
+                currentQuestionIndex += 1;
+                console.log(currentQuestionIndex)
+                updateUI();
+            };
+            getLeaderboard(sessionID);
+
         });
+}
 }
 
 
 
 
 
+function getAnswer() {
+    let numericAnswer = document.getElementById("numericBtn").value;
+    console.log(numericAnswer);
 
-//access the leaderBoard
-function getLeaderBoard(sessionID) {
+}
+
+
+
+
+function getLeaderboard(sessionID) {
     fetch(API_LEADERBOARD + sessionID + "&sorted&limit=20")
         .then(response => response.json())
-        .then(jsonObject => {
-            console.log(jsonObject);
-            console.log(sessionID);
-        });
+        .then(json => {
+    console.log ("leaderboard " + sessionID);
+    console.log(json);
+    });
 }
 
-
-function handleLeaderBoard(json) {
-
-    // Used to include HTML code for the table rows
+function handleLeaderBoard(leaderboard) {
+    let options = {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit'};
     let html = "";
     let leaderboardArray = leaderboard['leaderboard'];
-
-    // Get all elements in the array instead of for loop
     for (const entry of leaderboardArray) {
 
+        let date = new Date(entry['completionTime']);
+        let formattedDate = date.toLocaleTimeString("en-uk", options);
         html += "<tr>" +
             "<td>" + entry['player'] + "</td>" +
             "<td>" + entry['score'] + "</td>" +
-            "<td>" + entry['completionTime'] + "</td>" +
+            "<td>" + entry[formattedDate] + "</td>" +
             "</tr>";
+
+        let leaderboardElement = document.getElementById('test-results-table'); // table
+        leaderboardElement.innerHTML += html;  // append generated HTML to existing
+
     }
 }
 
 
 //========================OTHER FUNCTIONS=========================//
-
 
 //=========================QR CODE READER=========================//
 function QRCodeReader() {
@@ -296,14 +331,15 @@ function QRCodeReader() {
     });
 }
 
-
 //=========================GET LOCATION=========================//
-function getLocation() {
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("Geolocation is not supported by your browser.");
+function getLocation(requiresLocation) {
+    if (requiresLocation === true)
+    {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
     }
 }
 
@@ -311,53 +347,6 @@ function showPosition(position) {
 
     alert("Successfully Obtained Location");
 
-}
-
-
-
-  let date = new Date();
-  let miliseconds = 365 * 24 * 60 * 1000;
-  let expireDateTime = date.getTime() + miliseconds;
-  date.setTime(expireDateTime);
-  document.cookie = sessionID +"session expires: " + date.toUTCString();
-    //testing cookie
-
-    var cookies = document.cookie;
-    console.log(cookies);
-
-
-
-
-
-
-function getLeaderboard(url) {
-    fetch(url)
-        .then(response.json())
-        .then(json => handleLeaderBoard(json));
-}
-
-//fixed session
-let session = "ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICA4OnngggM";
-let url = API_LEADERBOARD + session;
-getLeaderboard(url);
-
-function handleLeaderbord(leaderboard) {
-    let options = {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit'};
-    let html = "";
-    let leaderboardArray = leaderboard['leaderboard'];
-    for (const entry of leaderboardArray) {
-
-        let date = new Date(entry['completionTime']);
-        let formattedDate = date.toLocaleTimeString("en-uk", options);
-        html += "<tr>" +
-            "<td>" + entry['player'] + "</td>" +
-            "<td>" + entry['score'] + "</td>" +
-            "<td>" + entry[formattedDate] + "</td>" +
-            "</tr>";
-    }
-
-    let leaderboardElement = document.getElementById('test-results-table'); // table
-    leaderboardElement.innerHTML += html; // append generated HTML to existing
 }
 
 

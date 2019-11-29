@@ -28,7 +28,7 @@
         <img src="IMAGES/qrCode.png" onclick="QRCodeReader()" id="qrBtn" alt = "QR BUTTON">
 
         <!--SKIP BUTTON-->
-        <button onclick="skipQuestion()" id="skipButton">
+        <button onclick="questionCanBeSkipped(skipQuestion, currentQuestionIndex)" id="skipButton">
             SKIP
         </button>
     </div>
@@ -46,11 +46,10 @@
 <!----------PHASE 1---------->
 
 <!--Instructions Paragraph-->
-<div id="instructionsBox">
-        <p id="instructionsP"><span style="text-decoration: underline">
-            INSTRUCTIONS
-            </span></p>
-    <ul>
+<div id="instructionsBox" style="text-align: center">
+
+    <p id="instructionsP" style="text-decoration: underline; font-size: xx-large">INSTRUCTIONS</p>
+    <ul style="text-align: justify">
         <li>Select a Treasure Hunt Challenge</li>
         <li>Enter a valid username</li>
         <li>For every correct answer you earn 10 points</li>
@@ -69,7 +68,7 @@
 <div id="usernameBox">
     <form name="enterCredentials" id="credentials" method="get">
 
-        <span style="font-size: 40px; color: #313131;">Enter username: </span>
+        <span style="font-size: 40px; color: #000000;">Enter username: </span>
         <br>
         <label for="username"></label>
         <input type="text" name="player" id="username">

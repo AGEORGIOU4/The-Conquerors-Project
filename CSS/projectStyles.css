@@ -7,7 +7,7 @@
 header {
     width: 100%;
     background-color: white;
-    border-bottom: 4px solid #313131;
+    border-bottom: 4px solid #464545;
     text-align: center;
 }
 
@@ -29,7 +29,7 @@ header {
     height: 74px;
     text-align: right;
     background-color: #adad5c;
-    border-bottom: 4px solid #313131;
+    border-bottom: 4px solid #464545;
 }
 
 #qrBtnDiv {
@@ -38,22 +38,24 @@ header {
 
 
 #qrBtn {
-    height: 66px;
-    margin: 2px 10px 2px 10px;
+    height: 65px;
+    margin: 3px 20px;
     float: left;
-    border: 2px solid #313131;
+    border: 1px solid #464545;
+    cursor: pointer;
 }
 
 #skipButton {
     display: none;
     width: 180px;
-    height: 70px;
+    height: 67px;
     float: left;
-    margin: 2px 10px 2px 10px;
-    color: #313131;
+    margin: 3px 0 3px 0;
+    color: #000000;
     background-color: #FFFFFF;
-    border: 2px solid #313131;
+    border: 1px solid #464545;
     font-size: x-large;
+    cursor: pointer;
 }
 
 #twitterLink {
@@ -133,8 +135,8 @@ video#preview.active {
     padding: 10px;
     font-size: 70px;
     text-align: center;
-    border-bottom: 1px solid #313131;
-    background-color: #313131;
+    border-bottom: 1px solid #464545;
+    background-color: #464545;
 }
 
 #startBtn a {
@@ -169,7 +171,7 @@ video#preview.active {
 }
 
 #selectTH {
-    color: #313131;
+    color: #000000;
     font-size: 45px;
     text-align: center;
 }
@@ -195,12 +197,12 @@ video#preview.active {
     height: 60px;
     margin: 20px auto;
     font-size: 40px;
-    border: 2px solid #313131;
+    border: 2px solid #000000;
     border-radius: 15px;
 }
 
 #submitBtn {
-    color: #313131;
+    color: #000000;
     font-size: 50px;
 }
 
@@ -223,7 +225,7 @@ video#preview.active {
 }
 
 .booleanBtns {
-    color: #313131;
+    color: #000000;
     font-size: 50px;
 }
 
@@ -242,7 +244,7 @@ video#preview.active {
     height: 60px;
     margin: 20px auto;
     font-size: 40px;
-    border: 2px solid #313131;
+    border: 2px solid #000000;
     border-radius: 15px;
 }
 
@@ -258,7 +260,7 @@ video#preview.active {
     height: 60px;
     margin: 20px auto;
     font-size: 40px;
-    border: 2px solid #313131;
+    border: 2px solid #000000;
     border-radius: 15px;
 }
 
@@ -274,7 +276,7 @@ video#preview.active {
     height: 60px;
     margin: 20px auto;
     font-size: 40px;
-    border: 2px solid #313131;
+    border: 2px solid #000000;
     border-radius: 15px;
 }
 
