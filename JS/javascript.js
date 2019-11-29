@@ -151,7 +151,6 @@ function getQuestions(sessionID) {
 
 function updateUI(currentQuestionIndex) {
     document.getElementById("question");
-    question.innerHTML =
 
 
 
@@ -171,7 +170,7 @@ function setCookies (sessionID) {
 }
 
 // UNDEFINED SESSION!!!!!!!!
-setCookies();
+setCookies(sessionID);
 
 // ============== QUESTION ATTRIBUTES FUNCTIONS ============== //
 
