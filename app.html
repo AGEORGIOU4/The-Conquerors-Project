@@ -1,24 +1,22 @@
+<!-------------------------------------------------HTML---------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Start</title>
-    <!--Import QR script-->
     <script src="QRCodeReader/js/instascan.min.js"></script>
     <script src="JS/javascript.js"></script>
     <link rel="stylesheet" type="text/css" href="CSS/projectStyles.css">
     <link rel='icon' href='IMAGES/FaviconLogoConquerors.png' type='image/x-icon'>
-
 </head>
 
 <body>
 
-<!-----------------------------------HEADER----------------------------------->
+<!------------------------------------------------HEADER--------------------------------------------------------------->
+
 <header>
-    <a href="index.html">
         <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
-    </a>
 </header>
 
 <!--Social Bar-->
@@ -26,9 +24,8 @@
     <div id="qrBtnDiv">
         <!--QR CODE READER-->
         <img src="IMAGES/qrCode.png" onclick="QRCodeReader()" id="qrBtn" alt="QR BUTTON">
-
         <!--SKIP BUTTON-->
-        <button onclick="questionCanBeSkipped(skipQuestion, currentQuestionIndex)" id="skipButton">
+        <button onclick="questionCanBeSkipped(skipQuestion)" id="skipButton">
             SKIP
         </button>
     </div>
@@ -42,14 +39,12 @@
     </a>
 </div>
 
-
-<!----------PHASE 1---------->
+<!-----------------------------------------------PHASE 01-------------------------------------------------------------->
 
 <!--Instructions Paragraph-->
-<div id="instructionsBox" style="text-align: center">
-
-    <p id="instructionsP" style="text-decoration: underline; font-size: xx-large">INSTRUCTIONS</p>
-    <ul style="text-align: justify">
+<div id="instructionsBox">
+    <p id="instructionsP">INSTRUCTIONS</p>
+    <ul id="instructionsList">
         <li>Select a Treasure Hunt Challenge</li>
         <li>Enter a valid username</li>
         <li>For every correct answer you earn 10 points</li>
@@ -63,8 +58,8 @@
 
 <ul id="challenges"></ul>
 
+<!-----------------------------------------------PHASE 02-------------------------------------------------------------->
 
-<!----------PHASE 2---------->
 <div id="usernameBox">
     <form name="enterCredentials" id="credentials" method="get">
 
@@ -77,59 +72,50 @@
     </form>
 </div>
 
-
-<!----------PHASE 3---------->
+<!-----------------------------------------------PHASE 03-------------------------------------------------------------->
 
 <div id="QuestionSection">
     <p id="question"></p>
 </div>
 
+<!---------------------------------------------ANSWER BOXES------------------------------------------------------------>
 
+<div id="answerButtons">
 
-<!---ANSWER BOXES--->
-<div id="answerBtns">
     <div id="booleanButtons">
-
         <!-- BOOLEAN buttons -->
-        <button id="trueButton" class="booleanBtns" value="True" onclick="getAnswer(true)">True</button>
-        <button id="falseButton" class="booleanBtns" value="False" onclick="getAnswer(false)">False</button>
+        <button id="trueButton" class="booleanButtons" value="True" onclick="getAnswer(true)">True</button>
+        <button id="falseButton" class="booleanButtons" value="False" onclick="getAnswer(false)">False</button>
     </div>
 
     <div id="mcqButtons">
         <!-- MCQ buttons -->
-        <button class="mcqBtns" value="A" onclick="checkAnswer('A')">A</button>
-        <button class="mcqBtns" value="B" onclick="checkAnswer('B')">B</button>
-        <button class="mcqBtns" value="C" onclick="checkAnswer('C')">C</button>
-        <button class="mcqBtns" value="D" onclick="checkAnswer('D')">D</button>
+        <button class="mcqButtons" id="buttonA" value="A" onclick="getAnswer('A')">A</button>
+        <button class="mcqButtons" id="buttonB" value="B" onclick="getAnswer('B')">B</button>
+        <button class="mcqButtons" id="buttonC" value="C" onclick="getAnswer('C')">C</button>
+        <button class="mcqButtons" id="buttonD" value="D" onclick="getAnswer('D')">D</button>
     </div>
 
-    <!-- INTEGER placeholder -->
-    <label for="integerBtn"></label>
-    <input type="text" id="integerBtn">
-    <button id="submitIntegerBtn" onclick="checkAnswer(valueOfInteger)">Submit</button>
-
-    <!-- NUMERIC placeholder -->
-    <label for="numericBtn"></label>
-    <input type="text" id="numericBtn">
-    <button id="submitNumericBtn" onclick="checkAnswer(valueOfNumeric)">Submit</button>
-
-
-    <!-- TEXT placeholder -->
-    <label for="textBtn"></label>
-    <input type="text" id="textBtn">
-    <button value="SUBMIT" id="submitTextBtn" onclick="checkAnswer(valueOfText)">Submit</button>
+    <form name="enterAnswer" id="answer" method="get" action='javascript:getAnswer(placeholderBox.value)'>
+        <label for="placeholderBox"></label>
+        <input type="text" id="placeholderBox">
+        <button value="Submit" id="placeholderSubmit">Submit</button>
+    </form>
 </div>
 
+<!--------------------------------------------------------------------------------------------------------------------->
 
 <!--QR CODE READER SCREEN-->
-<video id="preview"></video>
+<video id="preview">
 
-<div style="margin: 20px; padding: 20px; background-color: black; color: white; text-align: center;" id="content">
+</video>
+
+<div id="content">
 
 </div>
 
+<!------------------------------------------------FOOTER--------------------------------------------------------------->
 
-<!-----------------------------------FOOTER----------------------------------->
 <footer>
     <p id="footerLink">To check our GitHub repository please visit:
         <a href="https://github.com/AGEORGIOU4/TheConquerorsProject">https://github.com/AGEORGIOU4/TheConquerorsProject</a>

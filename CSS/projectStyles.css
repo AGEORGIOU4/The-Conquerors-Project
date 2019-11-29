@@ -1,9 +1,13 @@
+html {
+    height: 100%;
+}
+
 * {
     font-family: sans-serif;
 }
 
+/*------------------------------------------------HEADER--------------------------------------------------------------*/
 
-/*==========HEADER==========*/
 header {
     width: 100%;
     background-color: white;
@@ -16,15 +20,15 @@ header {
     padding: 20px 30px;
 }
 
-
-/*==========FOOTER==========*/
+/*------------------------------------------------FOOTER--------------------------------------------------------------*/
 
 #footerLink {
     font-size: 12px;
 }
 
 
-/*========SOCIAL BAR========*/
+/*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
+
 #socialBar {
     height: 74px;
     text-align: right;
@@ -87,8 +91,8 @@ header {
 
 }
 
+/*-------------------------------------------------BODY---------------------------------------------------------------*/
 
-/*===========BODY==========*/
 body {
     margin: 0;
     text-align: center;
@@ -99,8 +103,16 @@ video#preview.active {
     text-align: center;
 }
 
+#content {
+    margin: 378px 0 20px 0;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
 
-/*==========LANDING PAGE==========*/
+/*=============================================LANDING PAGE===========================================================*/
+
 #homeP {
     padding: 75px;
     margin: 30px 20px;
@@ -145,19 +157,21 @@ video#preview.active {
     color: #FFFFFF;
 }
 
-#tagline {
+#tagLine {
     text-align: center;
     font-size: x-large;
+    font-weight: 900;
 }
 
 #groupList {
-    text-align: left;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
 }
 
+/*===============================================APP PAGE=============================================================*/
 
-/*==========APP PAGE==========*/
-
-/* PHASE 1 */
+/*-----------------------------------------------PHASE 01-------------------------------------------------------------*/
 
 #instructionsBox {
     display: block;
@@ -170,6 +184,15 @@ video#preview.active {
     border: 2px solid red;
 }
 
+#instructionsP {
+    text-decoration: underline;
+    font-size: xx-large;
+}
+
+#instructionsList {
+    text-align: justify;
+}
+
 #selectTH {
     color: #000000;
     font-size: 45px;
@@ -180,8 +203,7 @@ video#preview.active {
     padding: 0;
 }
 
-
-/* PHASE 2 */
+/*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
 
 #usernameBox {
     display: none;
@@ -206,39 +228,40 @@ video#preview.active {
     font-size: 50px;
 }
 
-
-/* PHASE 3 */
+/*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
 
 #question {
-    font-size: -webkit-xxx-large;
+    font-size: 50px;
     margin-right: 25px;
     margin-left: 25px;
 }
 
 /* Answer Buttons */
-#answerBtns {
+#answerButtons {
     text-align: center;
+    margin: 20px 20px;
 }
 
 #booleanButtons {
     display: none;
 }
 
-.booleanBtns {
+.booleanButtons {
     color: #000000;
     font-size: 40px;
+    margin: 20px 20px;
 }
 
 #mcqButtons {
     display: none;
 }
 
-.mcqBtns {
-    margin: 20px auto;
+.mcqButtons {
+    margin: 20px 20px;
     font-size: 40px;
 }
 
-#integerBtn {
+#placeholderBox {
     display: none;
     width: 50%;
     height: 60px;
@@ -248,46 +271,14 @@ video#preview.active {
     border-radius: 15px;
 }
 
-#submitIntegerBtn {
+#placeholderSubmit {
     display: none;
     margin: 20px auto;
     font-size: 40px;
 }
 
-#numericBtn {
-    display: none;
-    width: 50%;
-    height: 60px;
-    margin: 20px auto;
-    font-size: 40px;
-    border: 2px solid #000000;
-    border-radius: 15px;
-}
+/*------------------------------------------------NOTES---------------------------------------------------------------*/
 
-#submitNumericBtn {
-    display: none;
-    margin: 20px auto;
-    font-size: 40px;
-}
-
-#textBtn {
-    display: none;
-    width: 50%;
-    height: 60px;
-    margin: 20px auto;
-    font-size: 40px;
-    border: 2px solid #000000;
-    border-radius: 15px;
-}
-
-#submitTextBtn {
-    display: none;
-    margin: 20px auto;
-    font-size: 40px;
-}
-
-
-/*==========NOTES==========*/
 #notesList {
     text-align: left;
 }
