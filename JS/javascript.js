@@ -214,7 +214,6 @@ function questionCanBeSkipped(skipQuestion) {
     }
 }
 //==============================================================================================================//
-
 function skipIt() {
 fetch(API_SKIP + "?session=" + sessionID)
     .then(response => response.json()) //Parse JSON text to JavaScript object

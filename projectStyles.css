@@ -57,13 +57,13 @@ header {
 #skipButton {
     display: none;
     width: 180px;
-    height: 67px;
+    height: 110px;
     float: left;
-    margin: 3px 0 3px 0;
+    margin: 10px 10px;
     color: #000000;
     background-color: #FFFFFF;
     border: 1px solid #464545;
-    font-size: x-large;
+    font-size: 40px;
     cursor: pointer;
 }
 
