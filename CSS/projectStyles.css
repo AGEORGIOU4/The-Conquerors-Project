@@ -91,6 +91,7 @@ header {
 /*-------------------------------------------------BODY---------------------------------------------------------------*/
 
 body {
+    background-image: /IMAGES("background.png");
     margin: 0;
     text-align: center;
 }
