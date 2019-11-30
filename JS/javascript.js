@@ -18,7 +18,9 @@ function getChallenges() {
     fetch(API_LIST)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
+
             console.log(jsonObject);      //Print on the console the object attributes
+
             // Give some alert messages if status is error
             status = jsonObject.status;
             if (status === "ERROR") {
@@ -82,6 +84,10 @@ function startSession(uuid) {
     let playerName = document.getElementById("username").value;
     appName = "TheConquerors";
 
+    console.log("Player Name: " + playerName);
+    console.log("App Name: " + appName);
+    console.log("uuid: " + uuid);
+
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
@@ -113,6 +119,10 @@ function fetchQuestions(sessionID) {
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {              //Print on the console the object attributes
+
+            console.log(jsonObject);
+
+
             // Give some alert messages if status is error
             status = jsonObject.status;
             if (status === "ERROR") {
@@ -141,6 +151,9 @@ function checkAnswer(answer) {
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
+
+            console.log(jsonObject);
+
             let correct = jsonObject.correct;
             // Give some alert messages if the username is not valid
             status = jsonObject.status;
@@ -207,6 +220,8 @@ function questionCanBeSkipped(skipQuestion) {
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
 
+                console.log(jsonObject);
+
                 // Give some alert messages if the username is not valid
                 status = jsonObject.status;
                 if (status === "ERROR") {
@@ -258,7 +273,7 @@ function setCookies(sessionID) {
     let milliseconds = 365 * 24 * 60 * 1000;
     let expireDateTime = date.getTime() + milliseconds;
     date.setTime(expireDateTime);
-    document.cookie = sessionID + "session expires: " + date.toUTCString();
+    document.cookie = sessionID + " session expires: " + date.toUTCString();
 
     //testing cookie
     let cookies = document.cookie;
