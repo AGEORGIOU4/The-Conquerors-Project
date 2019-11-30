@@ -246,6 +246,7 @@ video#preview.active {
 }
 
 #credentials {
+    height: 817px;
     margin: 240px auto;
     text-align: center;
 }
@@ -268,6 +269,7 @@ video#preview.active {
 
 #question {
     font-size: 50px;
+    color: #FFFFFF;
     margin-right: 25px;
     margin-left: 25px;
 }
