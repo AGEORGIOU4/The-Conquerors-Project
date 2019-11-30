@@ -214,26 +214,28 @@ function questionCanBeSkipped(skipQuestion) {
     } else {
         document.getElementById("skipButton");
         skipButton.style.display = "block";
+
 //==============================================================================================================//
-
-        fetch(API_SKIP + "?session=" + sessionID)
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
-
-                console.log(jsonObject);
-
-                // Give some alert messages if the username is not valid
-                status = jsonObject.status;
-                if (status === "ERROR") {
-                    alert(jsonObject.errorMessages);
-                } else {
-
-                    skipButton.onclick = function () {
-                        fetchQuestions(sessionID);
-                    };
-                }
-            });
     }
+}
+        function skipTheQuestion() {
+            fetch(API_SKIP + "?session=" + sessionID)
+                .then(response => response.json()) //Parse JSON text to JavaScript object
+                .then(jsonObject => {
+
+                    console.log(jsonObject);
+
+                    // Give some alert messages if the username is not valid
+                    status = jsonObject.status;
+                    if (status === "ERROR") {
+                        alert(jsonObject.errorMessages);
+                    } else {
+
+                        skipButton.onclick = function () {
+                            fetchQuestions(sessionID);
+                        };
+                    }
+                });
 }
 
 
