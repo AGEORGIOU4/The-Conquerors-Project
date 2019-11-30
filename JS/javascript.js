@@ -11,6 +11,8 @@ let sessionID = "";
 let uuid = "";
 let appName = "";
 
+let skipQuestion = "";
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 // Get Challenges
@@ -105,8 +107,7 @@ function startSession(uuid) {
         });
 }
 
-function fetchQuestions(sessionID) {
-
+function fetchQuestions() {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
@@ -122,7 +123,6 @@ function fetchQuestions(sessionID) {
 
             console.log(jsonObject);
 
-
             // Give some alert messages if status is error
             status = jsonObject.status;
             if (status === "ERROR") {
@@ -132,12 +132,11 @@ function fetchQuestions(sessionID) {
                 question.innerHTML = jsonObject.questionText;
                 // Question attributes
                 let typeOfQuestion = jsonObject.questionType;
-                let skipQuestion = jsonObject.canBeSkipped;
-                let currentQuestionIndex = jsonObject.currentQuestionIndex;
+                skipQuestion = jsonObject.canBeSkipped;
                 let requiresLocation = jsonObject.requiresLocation;
                 getTypeOfQuestion(typeOfQuestion);
                 getLocation(requiresLocation);
-                questionCanBeSkipped(skipQuestion, currentQuestionIndex);
+                questionCanBeSkipped(skipQuestion);
             }
         });
 }
@@ -151,8 +150,6 @@ function checkAnswer(answer) {
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
-
-            console.log(jsonObject);
 
             let correct = jsonObject.correct;
             // Give some alert messages if the username is not valid
@@ -202,41 +199,39 @@ function getTypeOfQuestion(typeOfQuestion) {
         mcqButtons.style.display = "none";
     }
 }
-
 //==============================================================================================================//
 
 
 function questionCanBeSkipped(skipQuestion) {
 //==============================================SHOW/HIDE ELEMENTS==============================================//
+
     if (skipQuestion === false) {
         document.getElementById("skipButton");
         skipButton.style.display = "none";
     } else {
         document.getElementById("skipButton");
         skipButton.style.display = "block";
-
-//==============================================================================================================//
     }
 }
-        function skipTheQuestion() {
-            fetch(API_SKIP + "?session=" + sessionID)
-                .then(response => response.json()) //Parse JSON text to JavaScript object
-                .then(jsonObject => {
+//==============================================================================================================//
 
-                    console.log(jsonObject);
+function skipIt() {
+fetch(API_SKIP + "?session=" + sessionID)
+    .then(response => response.json()) //Parse JSON text to JavaScript object
+    .then(jsonObject => {
+        document.getElementById("skipButton");
+        console.log(jsonObject);
 
-                    // Give some alert messages if the username is not valid
-                    status = jsonObject.status;
-                    if (status === "ERROR") {
-                        alert(jsonObject.errorMessages);
-                    } else {
-
-                        skipButton.onclick = function () {
-                            fetchQuestions(sessionID);
-                        };
-                    }
-                });
+        // Give some alert messages if the username is not valid
+        status = jsonObject.status;
+        if (status === "ERROR") {
+            alert(jsonObject.errorMessages);
+        } else {
+                fetchQuestions(sessionID);
+        }
+    });
 }
+
 
 
 /*function getLeaderboard(sessionID) {
@@ -354,7 +349,7 @@ function getLocation(requiresLocation) {
     }
 }
 
-function showPosition() {
+function showPosition(position) {
     alert("Successfully Obtained Location");
 }
 
