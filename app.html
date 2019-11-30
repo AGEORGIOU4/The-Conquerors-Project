@@ -21,7 +21,7 @@
     
     <script src="QRCodeReader/js/instascan.min.js"></script>
     <script src="JS/javascript.js"></script>
-    <link rel="stylesheet" type="text/css" href="CSS/projectStyles.css">
+    <link rel="stylesheet" type="text/css" href="projectStyles.css">
     <link rel='icon' href='IMAGES/FaviconLogoConquerors.png' type='image/x-icon'>
 
 </head>
@@ -34,22 +34,7 @@
         <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
 </header>
 
-<!--Social Bar-->
-<div id="socialBar">
-    <div id="qrBtnDiv">
-        <!--QR CODE READER-->
-        <img src="IMAGES/qrCode.png" onclick="QRCodeReader()" id="qrBtn" alt="QR BUTTON">
-        <!--SKIP BUTTON-->
-        <button id="skipButton" onclick="skipIt()">SKIP</button>
-    </div>
-
-    <a id="twitterLink" href="https://twitter.com/TheConquerors4/">
-        <img src="IMAGES/twitter.png" alt="Twitter Logo" id="twitterLogo">
-    </a>
-
-    <a href="https://www.facebook.com/theConquerorsTreasureHunt/">
-        <img src="IMAGES/facebook.png" alt="Twitter Logo" id="facebookLogo">
-    </a>
+<div id="headBar">
 </div>
 
 <!-----------------------------------------------PHASE 01-------------------------------------------------------------->
@@ -123,16 +108,28 @@
 
 </video>
 
-<div id="content" style="margin-top: -150px;">
-
-</div>
-
 <!------------------------------------------------FOOTER--------------------------------------------------------------->
 
 <footer>
-    <p id="footerLink">To check our GitHub repository please visit:
-        <a href="https://github.com/AGEORGIOU4/TheConquerorsProject">https://github.com/AGEORGIOU4/TheConquerorsProject</a>
-    </p>
+    <div id="content">
+        <!--Social Bar-->
+        <div id="socialBarApp">
+            <a id="twitterLink" class="socialButtons" href="https://twitter.com/TheConquerors4/">
+                <img src="IMAGES/twitter.png" alt="Twitter Logo" id="twitterLogo">
+            </a>
+
+            <a  id="facebookLink" class="socialButtons" href="https://www.facebook.com/theConquerorsTreasureHunt/">
+                <img src="IMAGES/facebook.png" alt="Facebook Logo" id="facebookLogo">
+            </a>
+
+            <a  id="gitHubLink" class="socialButtons" href="https://github.com/AGEORGIOU4/TheConquerorsProject">
+                <img src="IMAGES/github.png" alt="GitHub Logo" id="githubLogo">
+            </a>
+
+        </div>
+
+
+    </div>
 </footer>
 
 

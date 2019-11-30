@@ -7,9 +7,8 @@
 
 header {
     width: 100%;
-    background-color: white;
-    border-bottom: 4px solid #464545;
     text-align: center;
+    background-color: white;
 }
 
 #theConquerorsLogo {
@@ -19,18 +18,27 @@ header {
 
 /*------------------------------------------------FOOTER--------------------------------------------------------------*/
 
+
 #footerLink {
     font-size: 12px;
 }
 
-
 /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
 
-#socialBar {
+#socialBarHome {
     height: 74px;
-    text-align: right;
+    padding: 20px;
+    text-align: center;
     background-color: #adad5c;
-    border-bottom: 4px solid #464545;
+    margin-top: 145px;
+}
+
+#socialBarApp {
+    height: 74px;
+    padding: 20px;
+    text-align: center;
+    background-color: #adad5c;
+    margin-top: -137px;
 }
 
 #qrBtnDiv {
@@ -64,34 +72,56 @@ header {
 }
 
 #twitterLogo {
-    height: 60px;
-    width: 75px;
-    margin: 7px 16px;
-}
-
-#facebookLogo {
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
     margin: 7px 16px;
 }
 
 #twitterLogo:hover {
+    height: 80px;
+    width: 80px;
+    margin: 2px 11px;
+}
+
+#facebookLogo {
     height: 70px;
-    width: 85px;
-    margin: 2px 8px;
+    width: 70px;
+    margin: 7px 16px;
+}
+
+#facebookLink {
+    text-decoration: none;
 }
 
 #facebookLogo:hover {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
     margin: 2px 11px;
 
+}
+
+#githubLogo {
+    height: 70px;
+    width: 70px;
+    margin: 7px 16px;
+}
+
+#githubLogo:hover {
+    height: 80px;
+    width: 80px;
+    margin: 2px 11px;
+
+}
+
+#gitHubLink {
+    text-decoration: none;
 }
 
 /*-------------------------------------------------BODY---------------------------------------------------------------*/
 
 body {
-    background-image: /IMAGES("background.png");
+    background-image: url("IMAGES/background.png");
+    background-size: cover;
     margin: 0;
     text-align: center;
 }
@@ -100,10 +130,9 @@ video#preview.active {
     width: 100%;
     text-align: center;
 }
-
-#content {
-    padding: 20px; 
-    background-color: black;
+#headBar {
+    height: 130px;
+    background-color: #001f2c;
 }
 
 /*=============================================LANDING PAGE===========================================================*/
@@ -112,10 +141,10 @@ video#preview.active {
     padding: 75px;
     margin: 30px 20px;
     font-size: 20px;
-    color: #FFFFFF;
-    background-color: darkcyan;
-    text-align: justify;
-    border: 2px solid red;
+    color: #464545;
+    background-color: #FFFFFF;
+    text-align: center;
+    border: 2px solid #464545;
 }
 
 #startBtn:before {
@@ -138,12 +167,13 @@ video#preview.active {
 
 #startBtn {
     display: block;
-    margin: 20px 20px;
-    padding: 10px;
+    margin: 30px 20px;
+    padding: 50px;
     font-size: 70px;
     text-align: center;
     border-bottom: 1px solid #464545;
     background-color: #464545;
+    box-shadow: 2px 2px 45px;
 }
 
 #startBtn a {
@@ -152,9 +182,14 @@ video#preview.active {
     color: #FFFFFF;
 }
 
+#developersList {
+    padding: 20px;
+}
+
 #tagLine {
     margin: 40px;
     text-align: center;
+    color: #FFFFFF;
     font-size: 50px;
     font-weight: 900;
 }
@@ -162,6 +197,7 @@ video#preview.active {
 #groupList {
     padding: 0;
     text-align: center;
+    color: #FFFFFF;
     list-style-type: none;
     font-size: 40px;
 }
@@ -172,33 +208,35 @@ video#preview.active {
 
 #instructionsBox {
     display: block;
-    padding: 35px;
+    padding: 75px;
     margin: 30px 20px;
     font-size: 20px;
-    color: #FFFFFF;
-    background-color: darkcyan;
-    text-align: justify;
-    border: 2px solid red;
+    color: #464545;
+    background-color: #FFFFFF;
+    border: 2px solid #464545;
 }
 
 #instructionsP {
+    margin-top: 0px;
     text-align: center;
     text-decoration: underline;
-    font-size: xx-large;
+    font-size: 50px;
 }
 
 #instructionsList {
-    text-align: justify;
+    text-align: left;
+    padding: 5px;
 }
 
 #selectTH {
-    color: #000000;
+    color: #FFFFFF;
     font-size: 45px;
+    font-weight: 900;
     text-align: center;
 }
 
 #challenges {
-    padding: 0;
+    padding: 20px;
 }
 
 /*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
