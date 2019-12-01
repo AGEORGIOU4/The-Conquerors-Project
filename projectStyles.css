@@ -47,18 +47,7 @@ header {
 }
 
 #qrImg {
-    margin: 9px 10px;
-    width: 108px;
-    border: 1px solid #464545;
-}
-
-#qrButton2 {
-    float: left;
-    background: transparent;
-    border: 0;
-}
-
-#qrImg2 {
+    display: block;
     margin: 9px 10px;
     width: 108px;
     border: 1px solid #464545;
@@ -241,7 +230,7 @@ body {
 }
 
 #selectTHbuttons {
-     margin: 61px;
+    margin: 61px;
 }
 
 #selectTH {
@@ -290,7 +279,7 @@ body {
 
 #credentials {
     margin-top: 90px;
-    height: 817px;
+    height: 523px;
     text-align: center;
 }
 
@@ -307,6 +296,24 @@ body {
     width: 60%;
     color: #000000;
     font-size: 50px;
+}
+
+#treasureHuntsDescriptionParagraph {
+    display: none;
+    padding: 30px;
+    margin: 100px 30px;
+    font-size: 50px;
+    background-color: #FFFFFF;
+    color: #464545;
+    border: 10px solid #adad5c;
+    border-radius: 15px;
+}
+
+#loading {
+    display: none;
+    margin-top: -1237px;
+    width: 100%;
+    border-top: 5px solid #adad5c;
 }
 
 /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
@@ -375,20 +382,13 @@ body {
     color: #000000;
     font-size: 50px;
 }
+
 /*---------------------------------------------TEST PAGE--------------------------------------------------------------*/
-#testButton1{
+#testButton1 {
     font-size: xx-large;
 
 
 }
-
-
-
-
-
-
-
-
 
 /*------------------------------------------------NOTES---------------------------------------------------------------*/
 
