@@ -41,7 +41,8 @@ header {
 }
 
 #qrButton {
-    float: left;
+    float: right;
+    padding: 0px;
     background: transparent;
     border: 0;
 }
