@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Challenges</title>
-
+    <title>Testing</title>
+    <script src="JS/testingJavaScript.js"></script>
     <script>
-        function getChallenges() {
+        function getChallengesTest() {
             fetch("https://codecyprus.org/th/test-api/list?number-of-ths=2")
                 .then(response => response.json()) //Parse JSON text to JavaScript object
                 .then(jsonObject => {
@@ -27,17 +27,30 @@
                 });
 
         }
+
+
+        function getAnswersTesting(){
+            fetch("https://codecyprus.org/th/test-api/start?player=inactive")
+            .then(response => response.json())
+            .then(jsonObject => {
+                console.log(jsonObject);
+
+            })
+
+
+        }
     </script>
 
 </head>
 <body>
 
-<h1>All Challenges</h1>
+
 <ul id="challenges"></ul>
 <script>
     let list = document.getElementById("challenges");
-    getChallenges(list);
+    getChallengesTest(list);
 </script>
+
 
 </body>
 </html>
