@@ -3,7 +3,6 @@ const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 const API_ANSWER = "https://codecyprus.org/th/api/answer";
 const API_SKIP = "https://codecyprus.org/th/api/skip";
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 // Parameters
