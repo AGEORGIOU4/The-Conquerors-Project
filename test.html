@@ -4,53 +4,19 @@
     <meta charset="UTF-8">
     <title>Testing</title>
     <script src="JS/testingJavaScript.js"></script>
-    <script>
-        function getChallengesTest() {
-            fetch("https://codecyprus.org/th/test-api/list?number-of-ths=2")
-                .then(response => response.json()) //Parse JSON text to JavaScript object
-                .then(jsonObject => {
-                    console.log(jsonObject);
 
-                    let array = jsonObject.treasureHunts;
-
-
-
-                    for(let i=0; i<array.length; i++){
-                        let uuid = array[i].uuid;
-                        let listItem = document.createElement("li");
-
-                        listItem.innerHTML =  "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id="+uuid+"'>" + array[i].name + "</a>";
-
-                        list.appendChild(listItem);
-                    }
-                    console.log(array);
-                });
-
-        }
-
-
-        function getAnswersTesting(){
-            fetch("https://codecyprus.org/th/test-api/start?player=inactive")
-            .then(response => response.json())
-            .then(jsonObject => {
-                console.log(jsonObject);
-
-            })
-
-
-        }
-    </script>
 
 </head>
 <body>
 
+<p>User Acceptance Plan</p>
+<p> enter text here...</p>
 
+<h1>Test /list</h1>
+<button id="testButton1" onclick=" getChallengesTest(list);">Run Test</button>
 <ul id="challenges"></ul>
-<script>
-    let list = document.getElementById("challenges");
-    getChallengesTest(list);
-</script>
-
-
+<h1>Test /start</h1>
+<button id="testButton2" onclick="getStartTesting();">Run Test</button>
+<ul id="errors"></ul>
 </body>
 </html>
