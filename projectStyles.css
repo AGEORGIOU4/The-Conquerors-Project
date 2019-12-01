@@ -30,7 +30,7 @@ header {
     padding: 20px;
     text-align: center;
     background-color: #adad5c;
-    margin-top: 145px;
+    margin-top: 60px;
 }
 
 #socialBarApp {
@@ -38,7 +38,7 @@ header {
     padding: 20px;
     text-align: center;
     background-color: #adad5c;
-    margin-top: -137px;
+    margin-top: 2px;
 }
 
 #qrBtnDiv {
@@ -167,7 +167,7 @@ video#preview.active {
 
 #startBtn {
     display: block;
-    margin: 30px 20px;
+    margin: 20px 20px;
     padding: 50px;
     font-size: 70px;
     text-align: center;
@@ -183,6 +183,7 @@ video#preview.active {
 }
 
 #developersList {
+    margin-top: -60px;
     padding: 20px;
 }
 
@@ -217,7 +218,7 @@ video#preview.active {
 }
 
 #instructionsP {
-    margin-top: 0px;
+    margin-top: 0;
     text-align: center;
     text-decoration: underline;
     font-size: 50px;
@@ -228,14 +229,42 @@ video#preview.active {
     padding: 5px;
 }
 
+#selectTHbutton {
+    text-align: center;
+}
+
 #selectTH {
+    margin: 0 auto;
+    background-color: transparent;
     color: #FFFFFF;
     font-size: 45px;
     font-weight: 900;
     text-align: center;
 }
 
+#selectTH:after {
+    content: "\25b6";
+    margin-left: 5px;
+}
+
+#selectTH2 {
+    margin: 0 auto;
+    display: none;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 45px;
+    font-weight: 900;
+    text-align: center;
+}
+
+#selectTH2:after {
+    content: "\25bc";
+    margin-left: 5px;
+}
+
 #challenges {
+    margin-bottom: -200px;
+    display: none;
     padding: 20px;
 }
 

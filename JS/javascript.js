@@ -59,6 +59,27 @@ function getChallenges() {
         });
 }
 
+/*-----------------------------------------------SHOW / HIDE ELEMENTS-------------------------------------------------*/
+function showChallenges() {
+    document.getElementById("challenges");
+    document.getElementById("selectTH");
+    document.getElementById("selectTH2");
+
+    challenges.style.display = "block";
+    selectTH.style.display = "none";
+    selectTH2.style.display = "block";
+}
+
+function hideChallenges() {
+    document.getElementById("challenges");
+    document.getElementById("selectTH");
+    document.getElementById("selectTH2");
+
+    challenges.style.display = "none";
+    selectTH.style.display = "block";
+    selectTH2.style.display = "none";
+}
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 // Call the first function to start the quiz
@@ -68,9 +89,15 @@ getChallenges();
 function getCredentials() {
 
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
+    document.getElementById("challenges");
+    document.getElementById("selectTH");
+    document.getElementById("selectTH2");
     document.getElementById("instructionsBox");
     document.getElementById("selectTH");
     document.getElementById("challenges");
+    challenges.style.display = "none";
+    selectTH.style.display = "none";
+    selectTH2.style.display = "none";
     instructionsBox.style.display = "none";
     selectTH.style.display = "none";
     challenges.style.display = "none";
@@ -111,7 +138,7 @@ function fetchQuestions() {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
-    /*--------------------------------------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
 
     // Retrieve a paragraph element named "question" to add the questions
     document.getElementById("question");
