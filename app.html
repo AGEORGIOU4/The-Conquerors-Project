@@ -39,6 +39,9 @@
     <button id="qrButton" value="QR" >
         <img id="qrImg" src="IMAGES/qrCode.png" alt="QR Code" onclick="QRCodeReader()">
     </button>
+    <button id="qrButton2" value="QR" >
+        <img id="qrImg2" src="IMAGES/qrCode.png" alt="QR Code" onclick="QRCodeReader2()">
+    </button>
 </div>
 
 
@@ -102,7 +105,7 @@
 
     <form name="enterAnswer" id="answerForm" method="get" action='javascript:getAnswer(placeholderBox.value)'>
         <label for="placeholderBox"></label>
-        <input type="text" id="placeholderBox">
+        <input type="text" id="placeholderBox" value="">
         <button value="Submit" id="placeholderSubmit">Submit</button>
     </form>
 </div>

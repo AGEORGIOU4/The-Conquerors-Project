@@ -2,6 +2,7 @@ const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 const API_ANSWER = "https://codecyprus.org/th/api/answer";
+const API_LOCATION = "https://codecyprus.org/th/api/location";
 const API_SKIP = "https://codecyprus.org/th/api/skip";
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -10,6 +11,8 @@ let sessionID = "";
 let uuid = "";
 let appName = "";
 let skipQuestion = "";
+let latitude = "";
+let longitude = "";
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -41,7 +44,6 @@ function getChallenges() {
                     treasureHuntsBtn.style.fontSize = "-webkit-xxx-large";
                     treasureHuntsBtn.style.margin = "15px 25px";
                     // The name of the button is the corresponding uuid
-                    treasureHuntsBtn.name = treasureHuntsArray[i].uuid;
                     treasureHuntsBtn.id = "treasureHuntsBtn" + [i + 1];
                     // Define the uuid for each TH on click
                     treasureHuntsBtn.onclick = function () {
@@ -52,6 +54,9 @@ function getChallenges() {
 
                     // Add the TH challenges buttons on a list
                     challengesList.appendChild(treasureHuntsBtn);
+
+                    /* List attributes */
+
                 }
             }
         });
@@ -77,7 +82,6 @@ function hideChallenges() {
     selectTH.style.display = "block";
     selectTH2.style.display = "none";
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 // Call the first function to start the quiz
@@ -103,7 +107,6 @@ function getCredentials() {
     let userInput = document.getElementById("usernameBox");
     userInput.style.display = "block";
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 function startSession(uuid) {
@@ -162,9 +165,14 @@ function fetchQuestions() {
                 // Question attributes
                 let typeOfQuestion = jsonObject.questionType;
                 skipQuestion = jsonObject.canBeSkipped;
+
                 let requiresLocation = jsonObject.requiresLocation;
+                if (requiresLocation === true) {
+                    getLocation(latitude, longitude);
+                }
+
                 getTypeOfQuestion(typeOfQuestion);
-                getLocation(requiresLocation);
+
                 questionCanBeSkipped(skipQuestion);
             }
         });
@@ -188,6 +196,8 @@ function checkAnswer(answer) {
             } else {
                 console.log(jsonObject);
                 if (correct === true) {
+                    document.getElementById("placeholderBox");
+                    placeholderBox.value = "";
                     fetchQuestions(sessionID);
                 }
             }
@@ -308,6 +318,36 @@ function setCookies(sessionID) {
 
 //========================OTHER FUNCTIONS=========================//
 
+
+//=========================GET LOCATION=========================//
+function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+}
+
+function showPosition(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+            console.log(jsonObject);
+            // Give some alert messages if the username is not valid
+            status = jsonObject.status;
+            if (status === "ERROR") {
+                alert(jsonObject.errorMessages);
+            } else {
+                alert("Location Received!");
+            }
+        });
+}
+
 //=========================QR CODE READER=========================//
 function QRCodeReader() {
     document.getElementById("preview");
@@ -369,19 +409,64 @@ function QRCodeReader() {
     });
 }
 
-//=========================GET LOCATION=========================//
-function getLocation(requiresLocation) {
-    if (requiresLocation === true) {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+//=========================QR CODE READER=========================//
+function QRCodeReader2() {
+    document.getElementById("preview");
+    preview.style.display = "block";
+
+    //opts
+    let opts = {
+        // Whether to scan continuously for QR codes. If false, use scanner.scan() to
+        // manually scan. If true, the scanner emits the "scan" event when a QR code is
+        // scanned. Default true.
+        continuous: true,
+
+        // The HTML element to use for the camera's video preview. Must be a <video>
+        // element. When the camera is active, this element will have the "active" CSS
+        // class, otherwise, it will have the "inactive" class. By default, an invisible
+        // element will be created to host the video.
+        video: document.getElementById('preview'),
+
+        // Whether to horizontally mirror the video preview. This is helpful when trying to
+        // scan a QR code with a user-facing camera. Default true.
+        mirror: false,
+
+        // Whether to include the scanned image data as part of the scan result. See the
+        // "scan" event for image format details. Default false.
+        captureImage: false,
+
+        // Only applies to continuous mode. Whether to actively scan when the tab is not
+        // active.
+        // When false, this reduces CPU usage when the tab is not active. Default true.
+        backgroundScan: true,
+
+        // Only applies to continuous mode. The period, in milliseconds, before the same QR
+        // code will be recognized in succession. Default 5000 (5 seconds).
+        refractoryPeriod: 5000,
+
+        // Only applies to continuous mode. The period, in rendered frames, between scans. A
+        // lower scan period increases CPU usage but makes scan response faster.
+        // Default 1 (i.e. analyze every frame).
+        scanPeriod: 1
+    };
+
+
+    let scanner = new Instascan.Scanner(opts);
+
+    Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+            scanner.start(cameras[1]);
         } else {
-            alert("Geolocation is not supported by your browser.");
+            console.error('No cameras found.');
+            alert("No cameras found.");
         }
-    }
-}
+    }).catch(function (e) {
+        console.error(e);
+    });
 
-function showPosition(position) {
-    alert("Successfully Obtained Location");
+    scanner.addListener('scan', function (content) {
+        console.log(content);
+        document.getElementById("content").innerHTML = content;
+    });
 }
-
 
