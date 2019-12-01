@@ -8,20 +8,18 @@ fetch(TESTING_API_LIST)
     .then(response =>response.json()) //ParseJSON text to JavaScript object
     .then(jsonObject => {
         console.log(jsonObject); //TODO - Success, do something with the data.
-        // Give some alert messages if status is error
-        status = jsonObject.status;
-        if (status === "ERROR") {
-            alert(jsonObject.errorMessages);
-        } else {
-            // Change the questions paragraph content by adding the question from the server
-            question.innerHTML = jsonObject.questionText;
-            // Question attributes
-            let typeOfQuestion = jsonObject.questionType;
-            skipQuestion = jsonObject.canBeSkipped;
-            let requiresLocation = jsonObject.requiresLocation;
-            getTypeOfQuestion(typeOfQuestion);
-            getLocation(requiresLocation);
-            questionCanBeSkipped(skipQuestion);
+        let array = jsonObject.treasureHunts;
+
+        let uuid = array[i].uuid;
+
+        for(let i=0; i<array.length; i++){
+
+            let listItem = document.createElement("li");
+
+            listItem.innerHTML =  "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id="+uuid+"'>" + array[i].name + "</a>";
+
+            list.appendChild(listItem);
         }
+        console.log(array);
     });
 }
