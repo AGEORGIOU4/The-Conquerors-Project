@@ -121,8 +121,6 @@ function getCredentials() {
 function startSession(uuid) {
     document.getElementById("loading");
     loading.style.display = "block";
-    document.getElementById("treasureHuntsDescriptionParagraph");
-    treasureHuntsDescriptionParagraph.style.display = "none";
     // Get required parameters for START URL
     let playerName = document.getElementById("username").value;
     appName = "TheConquerors";
@@ -143,6 +141,8 @@ function startSession(uuid) {
                 alert(jsonObject.errorMessages);
             } else {
                 // If all params are correct (username, app name, session) call the questions and set (1)_(cookies!!!)
+                document.getElementById("treasureHuntsDescriptionParagraph");
+                treasureHuntsDescriptionParagraph.style.display = "none";
                 document.getElementById("loading");
                 loading.style.display = "none";
                 fetchQuestions(sessionID);
