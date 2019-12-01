@@ -4,6 +4,8 @@ const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 const API_ANSWER = "https://codecyprus.org/th/api/answer";
 const API_LOCATION = "https://codecyprus.org/th/api/location";
 const API_SKIP = "https://codecyprus.org/th/api/skip";
+const API_LEADERBOARD = "https://codecyprus.org/th/api/leaderboard";
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 // Parameters
@@ -22,9 +24,7 @@ function getChallenges() {
     fetch(API_LIST)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-
             console.log(jsonObject);      //Print on the console the object attributes
-
             // Give some alert messages if status is error
             status = jsonObject.status;
             if (status === "ERROR") {
@@ -47,8 +47,6 @@ function getChallenges() {
                     treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
                     treasureHuntsButton.style.margin = "15px 25px";
                     treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
-
-
                     // Define the uuid for each TH on click
                     treasureHuntsButton.onclick = function () {
                         uuid = uuidLocal;
@@ -59,7 +57,6 @@ function getChallenges() {
                     treasureHuntsButton.addEventListener("click", getCredentials);
                     // Add the TH challenges buttons on a list
                     challengesList.appendChild(treasureHuntsButton);
-
                 }
             }
         });
@@ -112,8 +109,6 @@ function getCredentials() {
     userInput.style.display = "block";
     document.getElementById("treasureHuntsDescriptionParagraph");
     treasureHuntsDescriptionParagraph.style.display = "block";
-
-
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -163,14 +158,11 @@ function fetchQuestions() {
 
     // Retrieve a paragraph element named "question" to add the questions
     document.getElementById("question");
-
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {              //Print on the console the object attributes
-
             console.log(jsonObject);
-
             // Give some alert messages if status is error
             status = jsonObject.status;
             if (status === "ERROR") {
@@ -181,15 +173,16 @@ function fetchQuestions() {
                 // Question attributes
                 let typeOfQuestion = jsonObject.questionType;
                 skipQuestion = jsonObject.canBeSkipped;
-
                 let requiresLocation = jsonObject.requiresLocation;
                 if (requiresLocation === true) {
                     getLocation(latitude, longitude);
                 }
-
                 getTypeOfQuestion(typeOfQuestion);
-
                 questionCanBeSkipped(skipQuestion);
+            }
+            let completed = jsonObject.completed;
+            if (completed === true) {
+                getLeaderboard(sessionID);
             }
         });
 }
@@ -203,7 +196,6 @@ function checkAnswer(answer) {
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
-
             let correct = jsonObject.correct;
             // Give some alert messages if the username is not valid
             status = jsonObject.status;
@@ -220,13 +212,11 @@ function checkAnswer(answer) {
         });
 }
 
-
 // UNDEFINED SESSION!!!!!!!!
 setCookies(sessionID);
 
-
 function getTypeOfQuestion(typeOfQuestion) {
-//==============================================SHOW/HIDE ELEMENTS==============================================//
+    /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("booleanButtons");
     document.getElementById("mcqButtons");
     document.getElementById("placeholderBox");
@@ -255,12 +245,10 @@ function getTypeOfQuestion(typeOfQuestion) {
     }
 }
 
-//==============================================================================================================//
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 function questionCanBeSkipped(skipQuestion) {
-//==============================================SHOW/HIDE ELEMENTS==============================================//
-
+    /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     if (skipQuestion === false) {
         document.getElementById("skipButton");
         skipButton.style.display = "none";
@@ -270,7 +258,8 @@ function questionCanBeSkipped(skipQuestion) {
     }
 }
 
-//==============================================================================================================//
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 function skipIt() {
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
@@ -289,16 +278,16 @@ function skipIt() {
 }
 
 
-/*function getLeaderboard(sessionID) {
-    fetch(API_LEADERBOARD + sessionID + "&sorted&limit=20")
+function getLeaderboard() {
+    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=20")
         .then(response => response.json())
-        .then(json => {
-            console.log("leaderboard " + sessionID);
-            console.log(json);
+        .then(jsonObject => {
+            console.log("Leader board " + sessionID);
+            console.log(jsonObject);
         });
-}*/
+}
 
-/*function handleLeaderBoard(leaderboard) {
+function handleLeaderBoard(leaderboard) {
     let options = {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit'};
     let html = "";
     let leaderboardArray = leaderboard['leaderboard'];
@@ -316,7 +305,7 @@ function skipIt() {
         leaderboardElement.innerHTML += html;  // append generated HTML to existing
 
     }
-}*/
+}
 
 
 // Set cookie for session
