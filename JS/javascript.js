@@ -139,6 +139,7 @@ function startSession(uuid) {
             // Give some alert messages if the username is not valid
             status = jsonObject.status;
             if (status === "ERROR") {
+                loading.style.display = "none";
                 alert(jsonObject.errorMessages);
             } else {
                 // If all params are correct (username, app name, session) call the questions and set (1)_(cookies!!!)

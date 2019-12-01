@@ -42,7 +42,7 @@ header {
 
 #qrButton {
     float: right;
-    padding: 0px;
+    padding: 0;
     background: transparent;
     border: 0;
 }
@@ -158,15 +158,12 @@ body {
 }
 
 #groupList {
+    margin-top: 15px;
     padding: 0;
     text-align: center;
     color: #FFFFFF;
     list-style-type: none;
     font-size: 40px;
-}
-
-#developersList {
-    padding: 20px;
 }
 
 #startButton:before {
@@ -180,7 +177,7 @@ body {
 
 #startButton {
     display: block;
-    margin: 30px 20px;
+    margin: 60px 20px;
     padding: 50px;
     font-size: 70px;
     text-align: center;
@@ -267,8 +264,8 @@ body {
 
 #challenges {
     display: none;
-    margin: 10px auto -48px;
-    padding: 0 20px;
+    margin: 20px auto;
+    padding: 40px 20px;
 }
 
 /*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
@@ -302,7 +299,7 @@ body {
 #treasureHuntsDescriptionParagraph {
     display: none;
     padding: 30px;
-    margin: 100px 30px;
+    margin: 105px 30px;
     font-size: 50px;
     background-color: #FFFFFF;
     color: #464545;
