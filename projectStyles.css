@@ -41,17 +41,16 @@ header {
     margin-top: 2px;
 }
 
-#qrBtnDiv {
-    text-align: left;
+#qrButton {
+    float: left;
+    background: transparent;
+    border: 0;
 }
 
-
-#qrBtn {
-    height: 65px;
-    margin: 3px 20px;
-    float: left;
+#qrImg {
+    margin: 9px 10px;
+    width: 108px;
     border: 1px solid #464545;
-    cursor: pointer;
 }
 
 #skipButton {
