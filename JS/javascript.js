@@ -306,6 +306,9 @@ function setCookies(sessionID) {
 
 //=========================QR CODE READER=========================//
 function QRCodeReader() {
+    document.getElementById("preview");
+    preview.style.display = "block";
+
     //opts
     let opts = {
         // Whether to scan continuously for QR codes. If false, use scanner.scan() to

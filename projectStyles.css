@@ -125,10 +125,12 @@ body {
     text-align: center;
 }
 
-video#preview.active {
+#preview {
+    display: none;
     width: 100%;
     text-align: center;
 }
+
 #headBar {
     height: 130px;
     background-color: #001f2c;
@@ -146,18 +148,29 @@ video#preview.active {
     border: 2px solid #464545;
 }
 
+#tagLine {
+    margin: 0 auto;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+#groupList {
+    padding: 0;
+    text-align: center;
+    color: #FFFFFF;
+    list-style-type: none;
+    font-size: 40px;
+}
+
+#developersList {
+    padding: 20px;
+}
+
 #startBtn:before {
     padding: 3px;
     margin: 0 0;
-    position: absolute;
-    content: "\276F";
-    font-size: 60px;
-    color: #adad5c;
-}
-
-#startBtn:after {
-    padding: 3px;
-    margin: 0 -40px;;
     position: absolute;
     content: "\276F";
     font-size: 60px;
@@ -175,31 +188,19 @@ video#preview.active {
     box-shadow: 2px 2px 45px;
 }
 
+#startBtn:after {
+    padding: 3px;
+    margin: 0 -40px;;
+    position: absolute;
+    content: "\276F";
+    font-size: 60px;
+    color: #adad5c;
+}
+
 #startBtn a {
     padding: 10px 70px;
     text-decoration: none;
     color: #FFFFFF;
-}
-
-#developersList {
-    margin-top: -60px;
-    padding: 20px;
-}
-
-#tagLine {
-    margin: 40px;
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 50px;
-    font-weight: 900;
-}
-
-#groupList {
-    padding: 0;
-    text-align: center;
-    color: #FFFFFF;
-    list-style-type: none;
-    font-size: 40px;
 }
 
 /*===============================================APP PAGE=============================================================*/
@@ -228,12 +229,13 @@ video#preview.active {
     padding: 5px;
 }
 
-#selectTHbutton {
-    text-align: center;
+#selectTHbuttons {
+     margin: 61px;
 }
 
 #selectTH {
     margin: 0 auto;
+    padding: 40px 40px;
     background-color: transparent;
     color: #FFFFFF;
     font-size: 45px;
@@ -247,8 +249,9 @@ video#preview.active {
 }
 
 #selectTH2 {
-    margin: 0 auto;
     display: none;
+    margin: 0 auto;
+    padding: 40px 40px;
     background-color: transparent;
     color: #FFFFFF;
     font-size: 45px;
@@ -262,9 +265,9 @@ video#preview.active {
 }
 
 #challenges {
-    margin-bottom: -200px;
     display: none;
-    padding: 20px;
+    margin: 10px auto -48px;
+    padding: 0 20px;
 }
 
 /*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
