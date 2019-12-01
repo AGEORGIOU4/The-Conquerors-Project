@@ -275,8 +275,8 @@ video#preview.active {
 }
 
 #credentials {
+    margin-top: 90px;
     height: 817px;
-    margin: 240px auto;
     text-align: center;
 }
 
