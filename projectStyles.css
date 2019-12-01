@@ -30,7 +30,7 @@ header {
     padding: 20px;
     text-align: center;
     background-color: #adad5c;
-    margin-top: 60px;
+    margin-top: 63px;
 }
 
 #socialBarApp {
@@ -168,7 +168,7 @@ body {
     padding: 20px;
 }
 
-#startBtn:before {
+#startButton:before {
     padding: 3px;
     margin: 0 0;
     position: absolute;
@@ -177,9 +177,9 @@ body {
     color: #adad5c;
 }
 
-#startBtn {
+#startButton {
     display: block;
-    margin: 20px 20px;
+    margin: 30px 20px;
     padding: 50px;
     font-size: 70px;
     text-align: center;
@@ -188,7 +188,7 @@ body {
     box-shadow: 2px 2px 45px;
 }
 
-#startBtn:after {
+#startButton:after {
     padding: 3px;
     margin: 0 -40px;;
     position: absolute;
@@ -197,7 +197,7 @@ body {
     color: #adad5c;
 }
 
-#startBtn a {
+#startButton a {
     padding: 10px 70px;
     text-decoration: none;
     color: #FFFFFF;
@@ -274,6 +274,7 @@ body {
 
 #usernameBox {
     display: none;
+    margin-bottom: 239px;
 }
 
 #credentials {
@@ -283,15 +284,16 @@ body {
 }
 
 #username {
-    width: 50%;
-    height: 60px;
+    width: 60%;
+    height: 70px;
     margin: 20px auto;
     font-size: 40px;
     border: 2px solid #000000;
     border-radius: 15px;
 }
 
-#submitBtn {
+#submitButton {
+    width: 60%;
     color: #000000;
     font-size: 50px;
 }
