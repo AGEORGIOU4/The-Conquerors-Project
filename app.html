@@ -65,7 +65,7 @@
 <!-----------------------------------------------PHASE 02-------------------------------------------------------------->
 
 <div id="usernameBox">
-    <form name="enterCredentials" id="credentials" method="get">
+    <form name="enterCredentialsForm" id="credentials" method="get">
 
         <span style="font-size: 60px; color: #FFFFFF; font-weight: 900">Enter username: </span>
         <br>
@@ -100,7 +100,7 @@
         <button class="mcqButtons" id="buttonD" value="D" onclick="getAnswer('D')">D</button>
     </div>
 
-    <form name="enterAnswer" id="answer" method="get" action='javascript:getAnswer(placeholderBox.value)'>
+    <form name="enterAnswer" id="answerForm" method="get" action='javascript:getAnswer(placeholderBox.value)'>
         <label for="placeholderBox"></label>
         <input type="text" id="placeholderBox">
         <button value="Submit" id="placeholderSubmit">Submit</button>

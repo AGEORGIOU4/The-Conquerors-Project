@@ -300,11 +300,21 @@ body {
 
 /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
 
+#questionSection {
+    display: none;
+    height: 250px;
+    font-size: 60px;
+}
+
 #question {
-    font-size: 50px;
     color: #FFFFFF;
     margin-right: 25px;
     margin-left: 25px;
+}
+
+#answerForm {
+    display: none;
+    margin-bottom: 656px;
 }
 
 /* Answer Buttons */
@@ -315,27 +325,32 @@ body {
 
 #booleanButtons {
     display: none;
+    margin-bottom: 700px;
 }
 
 .booleanButtons {
+    width: 170px;
     color: #000000;
-    font-size: 40px;
+    font-size: 60px;
     margin: 20px 20px;
 }
 
 #mcqButtons {
     display: none;
+    margin-bottom: 700px;
 }
 
 .mcqButtons {
+    width: 170px;
+    color: #000000;
+    font-size: 60px;
     margin: 20px 20px;
-    font-size: 40px;
 }
 
 #placeholderBox {
     display: none;
-    width: 50%;
-    height: 60px;
+    width: 60%;
+    height: 70px;
     margin: 20px auto;
     font-size: 40px;
     border: 2px solid #000000;
@@ -344,8 +359,10 @@ body {
 
 #placeholderSubmit {
     display: none;
-    margin: 20px auto;
-    font-size: 40px;
+    margin: 0 auto;
+    width: 60%;
+    color: #000000;
+    font-size: 50px;
 }
 /*---------------------------------------------TEST PAGE--------------------------------------------------------------*/
 #testButton1{

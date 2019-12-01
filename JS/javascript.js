@@ -136,6 +136,10 @@ function fetchQuestions() {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("usernameBox");
     usernameBox.style.display = "none";
+    document.getElementById("questionSection");
+    questionSection.style.display = "block";
+    document.getElementById("answerForm");
+    answerForm.style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
 
     // Retrieve a paragraph element named "question" to add the questions
