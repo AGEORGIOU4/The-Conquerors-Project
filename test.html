@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Testing</title>
     <script src="JS/testingJavaScript.js"></script>
@@ -10,41 +11,99 @@
 </head>
 <body>
 
-<p>User Acceptance Plan</p>
-<p> enter text here...</p>
 
-<h1>Test /list</h1>
-<button id="testButton1" onclick=" getChallengesTest(list);">Run Test</button>
-<ul id="challenges"></ul>
-<h1>Test /start</h1>
-<button id="testButton2" onclick="getStartTesting();">Run Test</button>
-<ul id="errors"></ul>
+    <h2>Testing the List</h2>
+    <hr>
+    <button id="testButton1" onclick=" getChallengesTest(list);">Run Test</button>
+    <ul id="challenges"></ul>
 
-<table>
-        <tr>
+
+    <h2>Testing the Start</h2>
+    <hr>
+    <button id="testButton2" onclick="getStartTest();">Run Test</button>
+    <ul id="errors"></ul>
+
+    <br><br>
+
+    <h2>User Acceptance Plan</h2>
+
+    <hr>
+    <table>
+            <tr>
                 <th>Problem Found</th>
                 <th>Heuristic Violated</th>
                 <th>Task</th>
                 <th>Where did it occur</th>
                 <th>How was it found</th>
                 <th>Severity Rating</th>
+            </tr>
+            <tr>
+                <td>Duplicates the number of output when we press the 'Run Test' button twice</td>
+                <td>Visibility of system status</td>
+                <td>Fix the duplication</td>
+                <td>It occurred when we pressed the button in Testing page</td>
+                <td>Since it was an output, we were able to see the problem</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>The command 'append.Child()' was shown as unidentified</td>
+                <td>Match between the system & the real world</td>
+                <td>We had declared a global variable called 'list' were it would contain the value of the 'append.Child()' and afterwards we give it a new value in the for loop of the specific function in order to work</td>
+                <td>It occurred in the Test Page in the developer tools</td>
+                <td>We spotted the problem through the developer's tool</td>
+                <td>5</td>
+            </tr>
+    </table>
+<br><br>
+<h2>Nielsen's 10 Heuristics</h2>
+    <hr>
+    <table>
+
+        <tr>
+            <th>Heuristic</th>
+            <th>What We Did</th>
         </tr>
         <tr>
-            <td>Duplicates the number of output when we press the 'Run Test' button</td>
-            <td>Visibility of system status</td>
-            <td>Fix the duplication</td>
-            <td>It occurred in the Test Page</td>
-            <td>Since it was an output, we were able to see the problem</td>
-            <td>4</td>
+            <td>1. Visibility of system status</td>
+            <td>Added a loading animation when the user chooses his username in the treasure hunt.</td>
         </tr>
         <tr>
-            <td>The command 'append.Child()' was shown as unidentified</td>
-            <td>Match between the system & the real world</td>
-            <td>We had declared a global variable called 'list' were it would contain the value of the 'append.Child()' and afterwards we give it a new value in the for loop of the specific function in order to work</td>
-            <td>It occurred in the Test Page</td>
-            <td>We spotted the problem through the developer's tool</td>
-            <td>5</td>
+            <td>2. Match between system and the real world</td>
+            <td>The app is user friendly since it has simple structure and is giving the user simple instructions to read.</td>
         </tr>
-</table>
+        <tr>
+            <td>3. User control and freedom</td>
+            <td>If the user accidentally closes the application, his progress will be saved.</td>
+        </tr>
+        <tr>
+            <td>4. Consistency and standards</td>
+            <td>When the user starts the app, the app takes the user to the next step until he reaches the end.</td>
+        </tr>
+        <tr>
+            <td>5. Error Prevention</td>
+            <td>The buttons are big enough so that the user will definitely not misclick and press something that's going to lead to an error.</td>
+        </tr>
+        <tr>
+            <td>6. Recognition rather than recall</td>
+            <td>The instructions in the beginning help th user understand the game and the user's details will appear through the game.</td>
+        </tr>
+        <tr>
+            <td>7. Flexibility and efficiency of use</td>
+            <td>1 question requires location so when the user gets to that question the app automatically asks the user to have access to his location.</td>
+        </tr>
+        <tr>
+            <td>8. Aesthetic and minimalist design</td>
+            <td>The Barcode Scanner can be accessed at any point by just click it's icon.</td>
+        </tr>
+        <tr>
+            <td>9. Help users recognize, diagnose and recover from errors</td>
+            <td>If an error occurs the user will be notified with an alert explaining briefly the error.</td>
+        </tr>
+        <tr>
+            <td>10. Help and documentation</td>
+            <td>The steps are clear and the procedure is simple enough to not cause frustration to the user.</td>
+        </tr>
+
+    </table>
 </body>
 </html>

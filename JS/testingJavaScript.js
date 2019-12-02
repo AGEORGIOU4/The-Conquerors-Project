@@ -1,13 +1,13 @@
 //JAVASCRIPT FOR TESTING
 
 const TESTING_API_LIST = "https://codecyprus.org/th/test-api/list?number-of-ths=2";
-const TESTING_API_START = "https://codecyprus.org/th/test-api/start?player=inactive";
+const TESTING_API_START = "https://codecyprus.org/th/test-api/start?player=Kostas&app=Team2&treasure-hunt-id=";
 
 
 
 let list = document.getElementById("challenges");
 function getChallengesTest() {
-    fetch("https://codecyprus.org/th/test-api/list?number-of-ths=2")
+    fetch(TESTING_API_LIST)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
@@ -28,8 +28,8 @@ function getChallengesTest() {
 
 }
 
-    function getStartTesting(uuid){
-    fetch("https://codecyprus.org/th/test-api/start?player=Kostas&app=Team2&treasure-hunt-id=" + uuid)
+    function getStartTest(uuid){
+    fetch(TESTING_API_START + uuid)
         .then(response => response.json())
         .then(jsonObject => {
             console.log(jsonObject);
