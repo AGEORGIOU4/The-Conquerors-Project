@@ -23,35 +23,35 @@ function getChallenges() {
     fetch(API_LIST)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-                // Get Treasure Hunt Array
-                let treasureHuntsArray = jsonObject.treasureHunts;
-                // Get challenges list from the app page
-                const challengesList = document.getElementById("challenges");
-                // Traverse the array to get needed data
-                for (let i = 0; i < treasureHuntsArray.length; i++) {
-                    // Get the Treasure Hunt uuid
-                    document.getElementById("treasureHuntsDescriptionParagraph").innerHTML = treasureHuntsArray[i].description;
-                    let uuidLocal = treasureHuntsArray[i].uuid;
-                    let descriptionLocal = treasureHuntsArray[i].description;
-                    // Create a button and style it for each TH challenge
-                    let treasureHuntsButton = document.createElement('input');
-                    treasureHuntsButton.type = "button";
-                    treasureHuntsButton.value = treasureHuntsArray[i].name;
-                    treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
-                    treasureHuntsButton.style.margin = "25px";
-                    treasureHuntsButton.style.padding = "25px";
-                    treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
-                    // Define the uuid for each TH on click
-                    treasureHuntsButton.onclick = function () {
-                        uuid = uuidLocal;
-                        description = descriptionLocal;
-                        document.getElementById("treasureHuntsDescriptionParagraph").innerText = description;
-                    };
-                    /*--------------------------------CALL GET CREDENTIALS ON CLICK-----------------------------------*/
-                    treasureHuntsButton.addEventListener("click", getCredentials);
-                    // Add the TH challenges buttons on a list
-                    challengesList.appendChild(treasureHuntsButton);
-                }
+            // Get Treasure Hunt Array
+            let treasureHuntsArray = jsonObject.treasureHunts;
+            // Get challenges list from the app page
+            const challengesList = document.getElementById("challenges");
+            // Traverse the array to get needed data
+            for (let i = 0; i < treasureHuntsArray.length; i++) {
+                // Get the Treasure Hunt uuid
+                document.getElementById("treasureHuntsDescriptionParagraph").innerHTML = treasureHuntsArray[i].description;
+                let uuidLocal = treasureHuntsArray[i].uuid;
+                let descriptionLocal = treasureHuntsArray[i].description;
+                // Create a button and style it for each TH challenge
+                let treasureHuntsButton = document.createElement('input');
+                treasureHuntsButton.type = "button";
+                treasureHuntsButton.value = treasureHuntsArray[i].name;
+                treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
+                treasureHuntsButton.style.margin = "25px";
+                treasureHuntsButton.style.padding = "25px";
+                treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
+                // Define the uuid for each TH on click
+                treasureHuntsButton.onclick = function () {
+                    uuid = uuidLocal;
+                    description = descriptionLocal;
+                    document.getElementById("treasureHuntsDescriptionParagraph").innerText = description;
+                };
+                /*--------------------------------CALL GET CREDENTIALS ON CLICK-----------------------------------*/
+                treasureHuntsButton.addEventListener("click", getCredentials);
+                // Add the TH challenges buttons on a list
+                challengesList.appendChild(treasureHuntsButton);
+            }
         });
 }
 
@@ -199,8 +199,8 @@ function getAnswer(answer) {
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
-
             document.getElementById("messageBoxP");
+            document.getElementById("placeholderBox");
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.display = "block";
@@ -208,10 +208,11 @@ function getAnswer(answer) {
             } if (jsonObject.correct === false) {
                 messageBoxP.style.display = "block";
                 messageBoxP.innerText = jsonObject.message;
-            } if (jsonObject.correct === true) {
-                document.getElementById("placeholderBox");
+                messageBoxP.style.color = "red";
                 placeholderBox.value = "";
-                fetchQuestions();
+            } if (jsonObject.correct === true) {
+                placeholderBox.value = "";
+                    fetchQuestions();
             }
         });
 }
@@ -264,6 +265,7 @@ function getLeaderboard() {
 }*/
 
 
+/*
 // Set cookie for session
 function setCookies(sessionID) {
     let date = new Date();
@@ -276,6 +278,7 @@ function setCookies(sessionID) {
     let cookies = document.cookie;
     console.log(cookies);
 }
+*/
 
 
 //========================OTHER FUNCTIONS=========================//
@@ -308,12 +311,6 @@ function showPosition(position) {
             }
         });
 }
-
-function updateLocation() {
-
-
-}
-
 
 //=========================QR CODE READER=========================//
 function QRCodeReader() {
@@ -355,7 +352,6 @@ function QRCodeReader() {
         // Default 1 (i.e. analyze every frame).
         scanPeriod: 1
     };
-
 
     let scanner = new Instascan.Scanner(opts);
 
