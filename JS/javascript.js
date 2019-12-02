@@ -13,7 +13,6 @@ let sessionID = "";
 let uuid = "";
 let description = "";
 let appName = "";
-let skipQuestion = "";
 let latitude = "";
 let longitude = "";
 
@@ -24,12 +23,6 @@ function getChallenges() {
     fetch(API_LIST)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-            console.log(jsonObject);      //Print on the console the object attributes
-            // Give some alert messages if status is error
-            status = jsonObject.status;
-            if (status === "ERROR") {
-                alert(jsonObject.errorMessages);
-            } else {
                 // Get Treasure Hunt Array
                 let treasureHuntsArray = jsonObject.treasureHunts;
                 // Get challenges list from the app page
@@ -45,7 +38,8 @@ function getChallenges() {
                     treasureHuntsButton.type = "button";
                     treasureHuntsButton.value = treasureHuntsArray[i].name;
                     treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
-                    treasureHuntsButton.style.margin = "15px 25px";
+                    treasureHuntsButton.style.margin = "25px";
+                    treasureHuntsButton.style.padding = "25px";
                     treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
                     // Define the uuid for each TH on click
                     treasureHuntsButton.onclick = function () {
@@ -58,16 +52,14 @@ function getChallenges() {
                     // Add the TH challenges buttons on a list
                     challengesList.appendChild(treasureHuntsButton);
                 }
-            }
         });
 }
 
-/*-----------------------------------------------SHOW / HIDE ELEMENTS-------------------------------------------------*/
 function showChallenges() {
+    /*-----------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("challenges");
     document.getElementById("selectTH");
     document.getElementById("selectTH2");
-
     challenges.style.display = "block";
     selectTH.style.display = "none";
     selectTH2.style.display = "block";
@@ -77,7 +69,6 @@ function hideChallenges() {
     document.getElementById("challenges");
     document.getElementById("selectTH");
     document.getElementById("selectTH2");
-
     challenges.style.display = "none";
     selectTH.style.display = "block";
     selectTH2.style.display = "none";
@@ -90,70 +81,60 @@ getChallenges();
 
 // Get the username and the app name and pass them to Start Session
 function getCredentials() {
-
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("challenges");
     document.getElementById("selectTH");
     document.getElementById("selectTH2");
     document.getElementById("instructionsBox");
-    document.getElementById("selectTH");
-    document.getElementById("challenges");
+
     challenges.style.display = "none";
     selectTH.style.display = "none";
     selectTH2.style.display = "none";
     instructionsBox.style.display = "none";
-    selectTH.style.display = "none";
-    challenges.style.display = "none";
+
+
     // Show username input
     let userInput = document.getElementById("usernameBox");
     userInput.style.display = "block";
     document.getElementById("treasureHuntsDescriptionParagraph");
     treasureHuntsDescriptionParagraph.style.display = "block";
+    document.getElementById("messageBoxDiv").style.display = "block";
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-function startSession(uuid) {
-    document.getElementById("loading");
-    loading.style.display = "block";
+function startSession() {
+    document.getElementById("loading").style.display = "block";
+    document.getElementById("messageBoxP").style.display = "none";
+
     // Get required parameters for START URL
     let playerName = document.getElementById("username").value;
     appName = "TheConquerors";
-
-    console.log("Player Name: " + playerName);
-    console.log("App Name: " + appName);
-    console.log("uuid: " + uuid);
 
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             // Set sessionID to the current session
             sessionID = jsonObject.session;
-            // Give some alert messages if the username is not valid
-            status = jsonObject.status;
-            if (status === "ERROR") {
+            if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
-                alert(jsonObject.errorMessages);
+                messageBoxP.style.display = "block";
+                messageBoxP.innerText = jsonObject.errorMessages;
             } else {
-                // If all params are correct (username, app name, session) call the questions and set (1)_(cookies!!!)
-                document.getElementById("treasureHuntsDescriptionParagraph");
-                treasureHuntsDescriptionParagraph.style.display = "none";
-                document.getElementById("loading");
-                loading.style.display = "none";
+                document.getElementById("messageBoxP").style.display = "none";
+                // If all params are correct (username, app name, session) call the questions
+                document.getElementById("treasureHuntsDescriptionParagraph").style.display = "none";
+                document.getElementById("loading").style.display = "none";
                 fetchQuestions(sessionID);
-                setCookies(sessionID);
             }
         });
 }
 
 function fetchQuestions() {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
-    document.getElementById("usernameBox");
-    usernameBox.style.display = "none";
-    document.getElementById("questionSection");
-    questionSection.style.display = "block";
-    document.getElementById("answerForm");
-    answerForm.style.display = "block";
+    document.getElementById("usernameBox").style.display = "none";
+    document.getElementById("questionSection").style.display = "block";
+    document.getElementById("answerForm").style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
 
     // Retrieve a paragraph element named "question" to add the questions
@@ -162,58 +143,30 @@ function fetchQuestions() {
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {              //Print on the console the object attributes
-            console.log(jsonObject);
-            // Give some alert messages if status is error
-            status = jsonObject.status;
-            if (status === "ERROR") {
-                alert(jsonObject.errorMessages);
+            if (jsonObject.status === "ERROR") {
+                document.getElementById("messageBoxP").innerText = jsonObject.errorMessages;
             } else {
+                messageBoxP.style.display = "none";
                 // Change the questions paragraph content by adding the question from the server
                 question.innerHTML = jsonObject.questionText;
                 // Question attributes
-                let typeOfQuestion = jsonObject.questionType;
-                skipQuestion = jsonObject.canBeSkipped;
-                let requiresLocation = jsonObject.requiresLocation;
-                if (requiresLocation === true) {
+                if (jsonObject.completed === true) {
+                    getLeaderboard(sessionID);
+                }
+                if (jsonObject.requiresLocation === true) {
                     getLocation(latitude, longitude);
                 }
-                getTypeOfQuestion(typeOfQuestion);
-                questionCanBeSkipped(skipQuestion);
-            }
-            let completed = jsonObject.completed;
-            if (completed === true) {
-                getLeaderboard(sessionID);
-            }
-        });
-}
-
-function getAnswer(answer) {
-    console.log(answer);
-    checkAnswer(answer);
-}
-
-function checkAnswer(answer) {
-    fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
-        .then(response => response.json())
-        .then(jsonObject => {
-            let correct = jsonObject.correct;
-            // Give some alert messages if the username is not valid
-            status = jsonObject.status;
-            if (status === "ERROR") {
-                alert(jsonObject.errorMessages);
-            } else {
-                console.log(jsonObject);
-                if (correct === true) {
-                    document.getElementById("placeholderBox");
-                    placeholderBox.value = "";
-                    fetchQuestions(sessionID);
+                if (jsonObject.canBeSkipped === true) {
+                    document.getElementById("skipButton").style.display = "block";
                 }
+                if (jsonObject.canBeSkipped === false) {
+                    document.getElementById("skipButton").style.display = "none";
+                }
+                let typeOfQuestion = jsonObject.questionType;
+                getTypeOfQuestion(typeOfQuestion);
             }
         });
 }
-
-// UNDEFINED SESSION!!!!!!!!
-setCookies(sessionID);
 
 function getTypeOfQuestion(typeOfQuestion) {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
@@ -224,14 +177,12 @@ function getTypeOfQuestion(typeOfQuestion) {
 
     if (typeOfQuestion === "BOOLEAN") {
         booleanButtons.style.display = "block";
-
         mcqButtons.style.display = "none";
         placeholderBox.style.display = "none";
         placeholderSubmit.style.display = "none";
     }
     if (typeOfQuestion === "MCQ") {
         mcqButtons.style.display = "block";
-
         booleanButtons.style.display = "none";
         placeholderBox.style.display = "none";
         placeholderSubmit.style.display = "none";
@@ -239,39 +190,44 @@ function getTypeOfQuestion(typeOfQuestion) {
     if (typeOfQuestion === "INTEGER" || typeOfQuestion === "NUMERIC" || typeOfQuestion === "TEXT") {
         placeholderBox.style.display = "block";
         placeholderSubmit.style.display = "block";
-
         booleanButtons.style.display = "none";
         mcqButtons.style.display = "none";
     }
 }
 
-/*--------------------------------------------------------------------------------------------------------------------*/
+function getAnswer(answer) {
+    fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
+        .then(response => response.json())
+        .then(jsonObject => {
 
-function questionCanBeSkipped(skipQuestion) {
-    /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
-    if (skipQuestion === false) {
-        document.getElementById("skipButton");
-        skipButton.style.display = "none";
-    } else {
-        document.getElementById("skipButton");
-        skipButton.style.display = "block";
-    }
+            document.getElementById("messageBoxP");
+            // Give some alert messages if the username is not valid
+            if (jsonObject.status === "ERROR") {
+                messageBoxP.style.display = "block";
+                messageBoxP.innerText = jsonObject.errorMessages;
+            } if (jsonObject.correct === false) {
+                messageBoxP.style.display = "block";
+                messageBoxP.innerText = jsonObject.message;
+            } if (jsonObject.correct === true) {
+                document.getElementById("placeholderBox");
+                placeholderBox.value = "";
+                fetchQuestions();
+            }
+        });
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-function skipIt() {
+function skipQuestion() {
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-            document.getElementById("skipButton");
-            console.log(jsonObject);
-
+            document.getElementById("messageBoxP").style.display = "block";
             // Give some alert messages if the username is not valid
-            status = jsonObject.status;
-            if (status === "ERROR") {
-                alert(jsonObject.errorMessages);
+            if (jsonObject.status === "ERROR") {
+                messageBoxP.innerText = jsonObject.errorMessages;
             } else {
+                messageBoxP.innerText = jsonObject.message;
                 fetchQuestions(sessionID);
             }
         });
@@ -287,7 +243,7 @@ function getLeaderboard() {
         });
 }
 
-function handleLeaderBoard(leaderboard) {
+/*function handleLeaderBoard(leaderboard) {
     let options = {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit'};
     let html = "";
     let leaderboardArray = leaderboard['leaderboard'];
@@ -305,7 +261,7 @@ function handleLeaderBoard(leaderboard) {
         leaderboardElement.innerHTML += html;  // append generated HTML to existing
 
     }
-}
+}*/
 
 
 // Set cookie for session
@@ -335,24 +291,31 @@ function getLocation() {
     }
 }
 
+
 function showPosition(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
+            console.log(longitude + " " + latitude);
             // Give some alert messages if the username is not valid
-            status = jsonObject.status;
-            if (status === "ERROR") {
+            if (jsonObject.status === "ERROR") {
                 alert(jsonObject.errorMessages);
             } else {
-                alert("Location Received!");
+                alert(jsonObject.message);
+                setInterval(function () {
+                    showPosition(position)}, 60000)
             }
         });
 }
+
+function updateLocation() {
+
+
+}
+
 
 //=========================QR CODE READER=========================//
 function QRCodeReader() {

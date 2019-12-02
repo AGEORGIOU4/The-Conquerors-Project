@@ -8,17 +8,18 @@
     <meta property="og:title" content="The Conquerors | Treasure Hunt"/>
     <meta property="og:description" content="Welcome to the Conquerors Treasure Hunt App. This app is aiming to
     provide a nice and friendly experience to its users. Hit start and enjoy the beautiful, full of surprises
-    Treasure Hunt journey..!" />
-    <meta property="og:image" content="https://ageorgiou4.github.io/TheConquerorsProject/IMAGES/conquerorsProfilePicture.png"/>
+    Treasure Hunt journey..!"/>
+    <meta property="og:image"
+          content="https://ageorgiou4.github.io/TheConquerorsProject/IMAGES/conquerorsProfilePicture.png"/>
     <meta property="og:url" content="https://ageorgiou4.github.io/TheConquerorsProject/app.html"/>
     <meta property="og:image:width" content="400"/>
     <meta property="og:image:height" content="400"/>
     <meta property="og:site_name" content="The Conquerors"/>
     <meta property="og:type" content="website"/>
     <meta name="keywords" content="Conquerors, Treasure"/>
-   
+
     <title>Start</title>
-    
+
     <script src="QRCodeReader/js/instascan.min.js"></script>
     <script src="JS/javascript.js"></script>
     <link rel="stylesheet" type="text/css" href="projectStyles.css">
@@ -31,15 +32,32 @@
 <!------------------------------------------------HEADER--------------------------------------------------------------->
 
 <header>
-        <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
+    <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
 </header>
 
 <div id="headBar">
-    <button id="skipButton" value="SKIP" onclick="skipIt()">SKIP</button>
-    <button id="qrButton" value="QR" >
+    <!--Social Bar-->
+    <div id="socialBar">
+        <a id="twitterLink" class="socialButtons" href="https://twitter.com/TheConquerors4/">
+            <img src="IMAGES/twitter.png" alt="Twitter Logo" id="twitterLogo">
+        </a>
+
+        <a id="facebookLink" class="socialButtons" href="https://www.facebook.com/theConquerorsTreasureHunt/">
+            <img src="IMAGES/facebook.png" alt="Facebook Logo" id="facebookLogo">
+        </a>
+
+        <a id="gitHubLink" class="socialButtons" href="https://github.com/AGEORGIOU4/TheConquerorsProject">
+            <img src="IMAGES/github.png" alt="GitHub Logo" id="githubLogo">
+        </a>
+    </div>
+
+    <button id="qrButton" value="QR">
         <img id="qrImg" src="IMAGES/qrCode.png" alt="QR Code" onclick="QRCodeReader()">
     </button>
+    <button id="skipButton" value="SKIP" onclick="skipQuestion()">SKIP</button>
 </div>
+
+<img src="IMAGES/loading.gif" id="loading" alt="loading">
 
 
 <!-----------------------------------------------PHASE 01-------------------------------------------------------------->
@@ -57,11 +75,10 @@
     </ul>
 </div>
 
-<div id="selectTHbuttons">
 <button id="selectTH" onclick="showChallenges()">Select a treasure hunt:</button>
 <button id="selectTH2" onclick="hideChallenges()">Select a treasure hunt:</button>
 <ul id="challenges"></ul>
-</div>
+
 <!-----------------------------------------------PHASE 02-------------------------------------------------------------->
 
 <div id="usernameBox">
@@ -75,10 +92,6 @@
         <input type="button" id="submitButton" onclick="startSession(uuid)" value="Submit">
     </form>
 </div>
-
-<p id="treasureHuntsDescriptionParagraph"></p>
-
-<img src="IMAGES/loading.gif" id="loading" alt="loading">
 
 
 <!-----------------------------------------------PHASE 03-------------------------------------------------------------->
@@ -112,6 +125,12 @@
     </form>
 </div>
 
+<div id="messageBoxDiv">
+    <p id="messageBoxP"></p>
+</div>
+
+<p id="treasureHuntsDescriptionParagraph"></p>
+
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <!--QR CODE READER SCREEN-->
@@ -123,23 +142,6 @@
 
 <footer>
     <div id="content">
-        <!--Social Bar-->
-        <div id="socialBarApp">
-            <a id="twitterLink" class="socialButtons" href="https://twitter.com/TheConquerors4/">
-                <img src="IMAGES/twitter.png" alt="Twitter Logo" id="twitterLogo">
-            </a>
-
-            <a  id="facebookLink" class="socialButtons" href="https://www.facebook.com/theConquerorsTreasureHunt/">
-                <img src="IMAGES/facebook.png" alt="Facebook Logo" id="facebookLogo">
-            </a>
-
-            <a  id="gitHubLink" class="socialButtons" href="https://github.com/AGEORGIOU4/TheConquerorsProject">
-                <img src="IMAGES/github.png" alt="GitHub Logo" id="githubLogo">
-            </a>
-
-        </div>
-
-
     </div>
 </footer>
 

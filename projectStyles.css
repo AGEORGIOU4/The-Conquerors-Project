@@ -24,24 +24,13 @@ header {
 
 /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
 
-#socialBarHome {
-    position: fixed;
-    width: 100%;
-    height: 74px;
-    padding: 20px;
+#socialBar {
+    margin: 15px;
+    position: absolute;
+    height: 100px;
     text-align: center;
     background-color: #adad5c;
-    margin-top: 63px;
-}
-
-#socialBarApp {
-    position: fixed;
-    width: 100%;
-    height: 74px;
-    padding: 20px;
-    text-align: center;
-    background-color: #adad5c;
-    margin-top: 2px;
+    border-radius: 10px;
 }
 
 #qrButton {
@@ -60,10 +49,10 @@ header {
 
 #skipButton {
     display: none;
+    float: right;
     width: 180px;
     height: 110px;
-    float: left;
-    margin: 10px 10px;
+    margin: 10px 0 10px;
     color: #000000;
     background-color: #FFFFFF;
     border: 1px solid #464545;
@@ -78,19 +67,19 @@ header {
 #twitterLogo {
     height: 70px;
     width: 70px;
-    margin: 7px 16px;
+    margin: 15px;
 }
 
 #twitterLogo:hover {
     height: 80px;
     width: 80px;
-    margin: 2px 11px;
+    margin: 2px 10px;
 }
 
 #facebookLogo {
     height: 70px;
     width: 70px;
-    margin: 7px 16px;
+    margin: 15px;
 }
 
 #facebookLink {
@@ -100,20 +89,20 @@ header {
 #facebookLogo:hover {
     height: 80px;
     width: 80px;
-    margin: 2px 11px;
+    margin: 2px 10px;
 
 }
 
 #githubLogo {
     height: 70px;
     width: 70px;
-    margin: 7px 16px;
+    margin: 15px;
 }
 
 #githubLogo:hover {
     height: 80px;
     width: 80px;
-    margin: 2px 11px;
+    margin: 2px 10px;
 
 }
 
@@ -124,7 +113,7 @@ header {
 /*-------------------------------------------------BODY---------------------------------------------------------------*/
 
 body {
-    height: 1550px;
+    height: 1440px;
     background-image: url("IMAGES/background.png");
     background-size: cover;
     margin: 0;
@@ -143,25 +132,20 @@ body {
     background-color: #001f2c;
 }
 
-#headBarTitle {
-    margin: 0;
-    padding: 45px;
-    color: #FFFFFF;
-    font-family: monospace;
-    font-size: 40px;
-    font-style: italic;
-}
-
 /*=============================================LANDING PAGE===========================================================*/
 
 #homeP {
     padding: 75px;
-    margin: 30px 20px;
+    margin: 30px auto;
     font-size: 20px;
     color: #464545;
     background-color: #FFFFFF;
     text-align: center;
     border: 2px solid #464545;
+}
+
+#developersList {
+    margin: 88px;
 }
 
 #tagLine {
@@ -192,7 +176,7 @@ body {
 
 #startButton {
     display: block;
-    margin: 60px 20px;
+    margin: 130px 20px 0;
     padding: 50px;
     font-size: 70px;
     text-align: center;
@@ -223,7 +207,7 @@ body {
 #instructionsBox {
     display: block;
     padding: 75px;
-    margin: 25px 20px;
+    margin: 30px auto;
     font-size: 20px;
     color: #464545;
     background-color: #FFFFFF;
@@ -242,57 +226,51 @@ body {
     padding: 5px;
 }
 
-#selectTHbuttons {
-    margin: 61px;
-}
-
 #selectTH {
-    margin: 0 auto;
-    padding: 40px 40px;
+    margin: auto;
+    padding: 50px;
     background-color: transparent;
     color: #FFFFFF;
-    font-size: 45px;
+    font-size: 60px;
     font-weight: 900;
     text-align: center;
 }
 
 #selectTH:after {
-    content: "\25b6";
-    margin-left: 5px;
+    content: "\002B";
+    margin: 10px 20px;
 }
 
 #selectTH2 {
     display: none;
-    margin: 0 auto;
-    padding: 40px 40px;
+    margin: auto;
+    padding: 50px;
     background-color: transparent;
     color: #FFFFFF;
-    font-size: 45px;
+    font-size: 60px;
     font-weight: 900;
     text-align: center;
 }
 
 #selectTH2:after {
-    content: "\25bc";
-    margin-left: 5px;
+    content: "\2212";
+    margin: 10px 20px;
 }
 
 #challenges {
     display: none;
-    margin: 10px auto;
-    padding: 40px 20px;
+    margin: 20px auto;
+    padding: 40px;
 }
 
 /*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
 
 #usernameBox {
     display: none;
-    margin-bottom: 217px;
 }
 
 #credentials {
     margin-top: 90px;
-    height: 523px;
     text-align: center;
 }
 
@@ -311,15 +289,28 @@ body {
     font-size: 50px;
 }
 
+#messageBoxDiv {
+    display: none;
+    height: 400px;
+}
+
+#messageBoxP {
+    display: none;
+    margin: 0;
+    font-size: 54px;
+    color: red;
+    font-weight: 900;
+}
+
+
 #treasureHuntsDescriptionParagraph {
     display: none;
+    margin: 20px;
     padding: 30px;
-    margin: 105px 30px;
     font-size: 50px;
     background-color: #FFFFFF;
     color: #464545;
     border: 10px solid #adad5c;
-    border-radius: 15px;
 }
 
 #loading {
@@ -333,19 +324,21 @@ body {
 
 #questionSection {
     display: none;
-    height: 250px;
+    height: 300px;
+    padding: 20px;
     font-size: 60px;
 }
 
 #question {
     color: #FFFFFF;
-    margin-right: 25px;
-    margin-left: 25px;
+    margin: 0 auto;
 }
 
 #answerForm {
     display: none;
-    margin-bottom: 639px;
+    clear: both;
+    float: left;
+    width: 100%;
 }
 
 /* Answer Buttons */
@@ -356,7 +349,6 @@ body {
 
 #booleanButtons {
     display: none;
-    margin-bottom: 684px;
 }
 
 .booleanButtons {
@@ -368,7 +360,6 @@ body {
 
 #mcqButtons {
     display: none;
-    margin-bottom: 684px;
 }
 
 .mcqButtons {
@@ -380,9 +371,10 @@ body {
 
 #placeholderBox {
     display: none;
-    width: 60%;
+    float: left;
+    width: 70%;
     height: 70px;
-    margin: 20px auto;
+    margin: 20px 0 20px 30px;
     font-size: 40px;
     border: 2px solid #000000;
     border-radius: 15px;
@@ -390,10 +382,13 @@ body {
 
 #placeholderSubmit {
     display: none;
-    margin: 0 auto;
-    width: 60%;
+    float: right;
+    margin: 20px 30px 20px 0;
+    height: 76px;
     color: #000000;
     font-size: 50px;
+    border: 2px solid #000000;
+    border-radius: 15px;
 }
 
 
