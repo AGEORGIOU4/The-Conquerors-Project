@@ -298,8 +298,6 @@ function showPosition(position) {
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-            console.log(jsonObject);
-            console.log(longitude + " " + latitude);
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 alert(jsonObject.errorMessages);
