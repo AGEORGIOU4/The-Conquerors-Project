@@ -1,0 +1,31 @@
+/*---------------------------------------------TEST PAGE--------------------------------------------------------------*/
+* {
+    font-family: sans-serif;
+}
+
+/*------------------------------------------------HEADER--------------------------------------------------------------*/
+
+header {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+}
+
+#theConquerorsLogo {
+    width: 75%;
+    padding: 20px 30px;
+}
+
+/*--------------------------------------------------BODY--------------------------------------------------------------*/
+
+#testButton1, #testButton2 {
+    font-size: xx-large;
+}
+
+
+table, th, td {
+    font-size: 35px;
+
+    border: 1px solid black;
+    padding: 2px;
+}

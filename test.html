@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Testing</title>
     <script src="JS/testingJavaScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="TestingCSS.css">
 
 
 </head>
@@ -18,5 +19,32 @@
 <h1>Test /start</h1>
 <button id="testButton2" onclick="getStartTesting();">Run Test</button>
 <ul id="errors"></ul>
+
+<table>
+        <tr>
+                <th>Problem Found</th>
+                <th>Heuristic Violated</th>
+                <th>Task</th>
+                <th>Where did it occur</th>
+                <th>How was it found</th>
+                <th>Severity Rating</th>
+        </tr>
+        <tr>
+            <td>Duplicates the number of output when we press the 'Run Test' button</td>
+            <td>Visibility of system status</td>
+            <td>Fix the duplication</td>
+            <td>It occurred in the Test Page</td>
+            <td>Since it was an output, we were able to see the problem</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>The command 'append.Child()' was shown as unidentified</td>
+            <td>Match between the system & the real world</td>
+            <td>We had declared a global variable called 'list' were it would contain the value of the 'append.Child()' and afterwards we give it a new value in the for loop of the specific function in order to work</td>
+            <td>It occurred in the Test Page</td>
+            <td>We spotted the problem through the developer's tool</td>
+            <td>5</td>
+        </tr>
+</table>
 </body>
 </html>

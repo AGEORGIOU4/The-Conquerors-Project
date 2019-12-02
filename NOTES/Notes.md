@@ -40,3 +40,11 @@ Coming days
 user accptance plan
 score
 Heuritics
+
+
+
+
+REFERENCES:
+W3 Schools, www.W3schools.com
+
+
