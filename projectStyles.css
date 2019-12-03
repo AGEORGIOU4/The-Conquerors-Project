@@ -30,6 +30,19 @@ header {
     border-radius: 10px;
 }
 
+#locationButton {
+    float: right;
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+#locationImg {
+    display: block;
+    margin: 9px 10px;
+    width: 108px;
+}
+
 #qrButton {
     float: right;
     padding: 0;
@@ -256,8 +269,8 @@ body {
 
 #challenges {
     display: none;
-    margin: 0 auto;
-    padding: 20px;
+    margin: auto;
+    padding: 0;
 }
 
 /*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
@@ -378,6 +391,28 @@ body {
 }
 
 #placeholderSubmit {
+    display: none;
+    float: right;
+    margin: 20px 30px 20px 0;
+    height: 76px;
+    color: #000000;
+    font-size: 50px;
+    border: 2px solid #000000;
+    border-radius: 15px;
+}
+
+#placeholderNumberBox {
+    display: none;
+    float: left;
+    width: 70%;
+    height: 70px;
+    margin: 20px 0 20px 30px;
+    font-size: 40px;
+    border: 2px solid #000000;
+    border-radius: 15px;
+}
+
+#placeholderNumberSubmit {
     display: none;
     float: right;
     margin: 20px 30px 20px 0;

@@ -5,6 +5,7 @@ const API_ANSWER = "https://codecyprus.org/th/api/answer";
 const API_LOCATION = "https://codecyprus.org/th/api/location";
 const API_SKIP = "https://codecyprus.org/th/api/skip";
 const API_LEADERBOARD = "https://codecyprus.org/th/api/leaderboard";
+const API_SCORE = "https://codecyprus.org/th/api/score";
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -38,8 +39,11 @@ function getChallenges() {
                 treasureHuntsButton.type = "button";
                 treasureHuntsButton.value = treasureHuntsArray[i].name;
                 treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
-                treasureHuntsButton.style.margin = "25px";
+                treasureHuntsButton.style.marginTop = "25px";
+                treasureHuntsButton.style.marginBottom = "0";
                 treasureHuntsButton.style.padding = "25px";
+                treasureHuntsButton.style.paddingLeft = "238px";
+                treasureHuntsButton.style.paddingRight = "238px";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
                 // Define the uuid for each TH on click
                 treasureHuntsButton.onclick = function () {
@@ -174,24 +178,40 @@ function getTypeOfQuestion(typeOfQuestion) {
     document.getElementById("mcqButtons");
     document.getElementById("placeholderBox");
     document.getElementById("placeholderSubmit");
+    document.getElementById("placeholderNumberBox");
+    document.getElementById("placeholderNumberSubmit");
 
     if (typeOfQuestion === "BOOLEAN") {
         booleanButtons.style.display = "block";
         mcqButtons.style.display = "none";
         placeholderBox.style.display = "none";
         placeholderSubmit.style.display = "none";
+        placeholderNumberBox.style.display = "none";
+        placeholderNumberSubmit.style.display = "none";
     }
     if (typeOfQuestion === "MCQ") {
         mcqButtons.style.display = "block";
         booleanButtons.style.display = "none";
         placeholderBox.style.display = "none";
         placeholderSubmit.style.display = "none";
+        placeholderNumberBox.style.display = "none";
+        placeholderNumberSubmit.style.display = "none";
     }
-    if (typeOfQuestion === "INTEGER" || typeOfQuestion === "NUMERIC" || typeOfQuestion === "TEXT") {
+    if (typeOfQuestion === "TEXT") {
         placeholderBox.style.display = "block";
         placeholderSubmit.style.display = "block";
         booleanButtons.style.display = "none";
         mcqButtons.style.display = "none";
+        placeholderNumberBox.style.display = "none";
+        placeholderNumberSubmit.style.display = "none";
+    }
+    if (typeOfQuestion === "INTEGER" || typeOfQuestion === "NUMERIC") {
+        placeholderNumberBox.style.display = "block";
+        placeholderNumberSubmit.style.display = "block";
+        booleanButtons.style.display = "none";
+        mcqButtons.style.display = "none";
+        placeholderBox.style.display = "none";
+        placeholderSubmit.style.display = "none";
     }
 }
 
@@ -213,6 +233,7 @@ function getAnswer(answer) {
             } if (jsonObject.correct === true) {
                 placeholderBox.value = "";
                     fetchQuestions();
+                    getScore();
             }
         });
 }
@@ -234,6 +255,14 @@ function skipQuestion() {
         });
 }
 
+function getScore() {
+    fetch(API_SCORE + "?session=" + sessionID)
+        .then(response => response.json())
+        .then(jsonObject => {
+            console.log(jsonObject.player);
+            console.log(jsonObject.score);
+        });
+}
 
 function getLeaderboard() {
     fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=20")
