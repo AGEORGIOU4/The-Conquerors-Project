@@ -295,6 +295,14 @@ body {
 
 #submitButton {
     width: 60%;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 50px;
+}
+
+#submitButtonNewGame {
+    width: 60%;
+    margin-bottom: 20px;
     color: #000000;
     font-size: 50px;
 }
@@ -310,6 +318,27 @@ body {
     padding: 0 5px;
     font-size: 54px;
     color: red;
+    font-weight: 900;
+}
+
+#gameAttributes {
+    display: none;
+    height: 400px;
+}
+
+#playerNameP {
+    margin: 0;
+    padding: 0 5px;
+    font-size: 54px;
+    color: #adad5c;
+    font-weight: 900;
+}
+
+#scoreP {
+    margin: 0;
+    padding: 0 5px;
+    font-size: 54px;
+    color: #adad5c;
     font-weight: 900;
 }
 

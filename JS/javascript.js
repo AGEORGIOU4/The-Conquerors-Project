@@ -1,4 +1,4 @@
-const API_LIST = "https://codecyprus.org/th/api/list?include-finished";
+const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 const API_ANSWER = "https://codecyprus.org/th/api/answer";
@@ -42,8 +42,6 @@ function getChallenges() {
                 treasureHuntsButton.style.marginTop = "25px";
                 treasureHuntsButton.style.marginBottom = "0";
                 treasureHuntsButton.style.padding = "25px";
-                treasureHuntsButton.style.paddingLeft = "238px";
-                treasureHuntsButton.style.paddingRight = "238px";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
                 // Define the uuid for each TH on click
                 treasureHuntsButton.onclick = function () {
@@ -168,6 +166,7 @@ function fetchQuestions() {
                 }
                 let typeOfQuestion = jsonObject.questionType;
                 getTypeOfQuestion(typeOfQuestion);
+                getScore();
             }
         });
 }
@@ -236,7 +235,6 @@ function getAnswer(answer) {
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
                     fetchQuestions();
-                    getScore();
             }
         });
 }
@@ -259,9 +257,14 @@ function skipQuestion() {
 }
 
 function getScore() {
+    document.getElementById("gameAttributes").style.display = "block";
+    document.getElementById("playerNameP").style.display = "block";
+    document.getElementById("scoreP").style.display = "block";;
     fetch(API_SCORE + "?session=" + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
+            playerNameP.innerText = "Player: " + jsonObject.player;
+            scoreP.innerText = "Score: " + jsonObject.score;
             console.log(jsonObject.player);
             console.log(jsonObject.score);
         });
