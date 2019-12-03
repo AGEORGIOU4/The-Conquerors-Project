@@ -1,4 +1,4 @@
-const API_LIST = "https://codecyprus.org/th/api/list";
+const API_LIST = "https://codecyprus.org/th/api/list?include-finished";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
 const API_ANSWER = "https://codecyprus.org/th/api/answer";
