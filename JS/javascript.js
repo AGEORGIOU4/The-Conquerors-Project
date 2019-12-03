@@ -206,14 +206,15 @@ function getAnswer(answer) {
             if (jsonObject.status === "ERROR") {
                 messageBoxP.innerText = jsonObject.errorMessages;
             } if (jsonObject.correct === false) {
-                messageBoxP.innerText = jsonObject.message;
+                messageBoxP.innerText = jsonObject.message + " -3";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             } if (jsonObject.correct === true) {
-                messageBoxP.innerText = jsonObject.message;
+                messageBoxP.innerText = jsonObject.message + " +10";
                 messageBoxP.style.color = "green";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
+
                 fetchQuestions();
             }
         });
@@ -222,7 +223,7 @@ function getAnswer(answer) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 function skipQuestion() {
-    messageBoxP.style.color = "yellow";
+    messageBoxP.style.color = "red";
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
@@ -231,7 +232,8 @@ function skipQuestion() {
             if (jsonObject.status === "ERROR") {
                 messageBoxP.innerText = jsonObject.errorMessages;
             } else {
-                messageBoxP.innerText = jsonObject.message;
+                messageBoxP.style.color = "yellow";
+                messageBoxP.innerText = jsonObject.message + " -5";
                 fetchQuestions(sessionID);
             }
         });
