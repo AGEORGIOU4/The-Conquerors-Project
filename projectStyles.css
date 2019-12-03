@@ -39,7 +39,7 @@ header {
 
 #locationImg {
     display: block;
-    margin: 9px 10px;
+    margin: 10px 10px 10px 0;
     width: 108px;
 }
 
@@ -52,7 +52,7 @@ header {
 
 #qrImg {
     display: block;
-    margin: 9px 10px;
+    margin: 10px;
     width: 108px;
     border: 1px solid #464545;
 }
@@ -269,7 +269,7 @@ body {
 
 #challenges {
     display: none;
-    margin: auto;
+    margin: 0 auto 30px auto;
     padding: 0;
 }
 

@@ -221,6 +221,7 @@ function getAnswer(answer) {
         .then(jsonObject => {
             document.getElementById("messageBoxP");
             document.getElementById("placeholderBox");
+            document.getElementById("placeholderNumberBox");
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.display = "block";
@@ -230,8 +231,10 @@ function getAnswer(answer) {
                 messageBoxP.innerText = jsonObject.message;
                 messageBoxP.style.color = "red";
                 placeholderBox.value = "";
+                placeholderNumberBox.value = "";
             } if (jsonObject.correct === true) {
                 placeholderBox.value = "";
+                placeholderNumberBox.value = "";
                     fetchQuestions();
                     getScore();
             }
