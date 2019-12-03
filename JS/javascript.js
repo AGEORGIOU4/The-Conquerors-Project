@@ -133,6 +133,7 @@ function startSession() {
 }
 
 function fetchQuestions() {
+    getScore();
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("usernameBox").style.display = "none";
     document.getElementById("questionSection").style.display = "block";
@@ -153,7 +154,6 @@ function fetchQuestions() {
                 question.innerHTML = jsonObject.questionText;
                 // Question attributes
                 if (jsonObject.completed === true) {
-                    getLeaderboard(sessionID);
                 }
                 if (jsonObject.requiresLocation === true) {
                     getLocation(latitude, longitude);
@@ -166,51 +166,31 @@ function fetchQuestions() {
                 }
                 let typeOfQuestion = jsonObject.questionType;
                 getTypeOfQuestion(typeOfQuestion);
-                getScore();
             }
         });
 }
-
 function getTypeOfQuestion(typeOfQuestion) {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
-    document.getElementById("booleanButtons");
-    document.getElementById("mcqButtons");
-    document.getElementById("placeholderBox");
-    document.getElementById("placeholderSubmit");
-    document.getElementById("placeholderNumberBox");
-    document.getElementById("placeholderNumberSubmit");
+    document.getElementById("booleanButtons").style.display = "none";
+    document.getElementById("mcqButtons").style.display = "none";
+    document.getElementById("placeholderBox").style.display = "none";
+    document.getElementById("placeholderSubmit").style.display = "none";
+    document.getElementById("placeholderNumberBox").style.display = "none";
+    document.getElementById("placeholderNumberSubmit").style.display = "none";
 
     if (typeOfQuestion === "BOOLEAN") {
         booleanButtons.style.display = "block";
-        mcqButtons.style.display = "none";
-        placeholderBox.style.display = "none";
-        placeholderSubmit.style.display = "none";
-        placeholderNumberBox.style.display = "none";
-        placeholderNumberSubmit.style.display = "none";
     }
     if (typeOfQuestion === "MCQ") {
         mcqButtons.style.display = "block";
-        booleanButtons.style.display = "none";
-        placeholderBox.style.display = "none";
-        placeholderSubmit.style.display = "none";
-        placeholderNumberBox.style.display = "none";
-        placeholderNumberSubmit.style.display = "none";
     }
     if (typeOfQuestion === "TEXT") {
         placeholderBox.style.display = "block";
         placeholderSubmit.style.display = "block";
-        booleanButtons.style.display = "none";
-        mcqButtons.style.display = "none";
-        placeholderNumberBox.style.display = "none";
-        placeholderNumberSubmit.style.display = "none";
     }
     if (typeOfQuestion === "INTEGER" || typeOfQuestion === "NUMERIC") {
         placeholderNumberBox.style.display = "block";
         placeholderNumberSubmit.style.display = "block";
-        booleanButtons.style.display = "none";
-        mcqButtons.style.display = "none";
-        placeholderBox.style.display = "none";
-        placeholderSubmit.style.display = "none";
     }
 }
 
@@ -218,23 +198,23 @@ function getAnswer(answer) {
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
-            document.getElementById("messageBoxP");
+            document.getElementById("messageBoxP").style.display = "block";
+            messageBoxP.style.color = "red";
             document.getElementById("placeholderBox");
             document.getElementById("placeholderNumberBox");
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
-                messageBoxP.style.display = "block";
                 messageBoxP.innerText = jsonObject.errorMessages;
             } if (jsonObject.correct === false) {
-                messageBoxP.style.display = "block";
                 messageBoxP.innerText = jsonObject.message;
-                messageBoxP.style.color = "red";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             } if (jsonObject.correct === true) {
+                messageBoxP.innerText = jsonObject.message;
+                messageBoxP.style.color = "green";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
-                    fetchQuestions();
+                fetchQuestions();
             }
         });
 }
@@ -242,6 +222,7 @@ function getAnswer(answer) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 function skipQuestion() {
+    messageBoxP.style.color = "yellow";
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
@@ -259,27 +240,29 @@ function skipQuestion() {
 function getScore() {
     document.getElementById("gameAttributes").style.display = "block";
     document.getElementById("playerNameP").style.display = "block";
-    document.getElementById("scoreP").style.display = "block";;
+    document.getElementById("scoreP").style.display = "block";
     fetch(API_SCORE + "?session=" + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
             playerNameP.innerText = "Player: " + jsonObject.player;
             scoreP.innerText = "Score: " + jsonObject.score;
-            console.log(jsonObject.player);
-            console.log(jsonObject.score);
+
+            if (jsonObject.completed === true) {
+                getLeaderboard();
+            }
         });
 }
 
 function getLeaderboard() {
     fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=20")
-        .then(response => response.json())
+        .then(response => response.json(handleLeaderBoard(leaderboard)))
         .then(jsonObject => {
             console.log("Leader board " + sessionID);
             console.log(jsonObject);
         });
 }
 
-/*function handleLeaderBoard(leaderboard) {
+function handleLeaderBoard(leaderboard) {
     let options = {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit'};
     let html = "";
     let leaderboardArray = leaderboard['leaderboard'];
@@ -297,7 +280,7 @@ function getLeaderboard() {
         leaderboardElement.innerHTML += html;  // append generated HTML to existing
 
     }
-}*/
+}
 
 
 /*
@@ -351,6 +334,8 @@ function showPosition(position) {
 function QRCodeReader() {
     document.getElementById("preview");
     preview.style.display = "block";
+    document.getElementById("content");
+    content.style.display = "block";
 
     //opts
     let opts = {
