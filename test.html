@@ -1,60 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>Testing</title>
     <script src="JS/testingJavaScript.js"></script>
     <link rel="stylesheet" type="text/css" href="TestingCSS.css">
-
-
 </head>
 <body>
 
 
     <h2>Testing the List</h2>
     <hr>
-    <button id="testButton1" onclick=" getChallengesTest(list);">Run Test</button>
-    <ul id="challenges"></ul>
+    <button id="testButton1" onclick=" getTwoChallengesTest(list); document.getElementById('testButton1').style.display = 'none'">Run Test</button>
+    <button id="testButton2" onclick=" getTenChallengesTest(list); document.getElementById('testButton2').style.display = 'none'">Run Test</button>
+    <button id="testButton3" onclick=" getTwentyChallengesTest(list ); document.getElementById('testButton3').style.display = 'none'">Run Test</button>
 
+    <br>
+
+    <button id="buttonClearList" onclick="clearTheTestList();">Clear</button>
+
+
+    <ul id="challenges"></ul>'
+    <br>
+    <ul id="challenges2"></ul>
+    <br>
+    <ul id="challenges3"></ul>
+    <br>
 
     <h2>Testing the Start</h2>
+
     <hr>
-    <button id="testButton2" onclick="getStartTest();">Run Test</button>
+    <button id="testButton4" onclick="getStartTest(); document.getElementById('testButton4').style.display = 'none'">Run Test</button>
     <ul id="errors"></ul>
 
     <br><br>
 
     <h2>User Acceptance Plan</h2>
-
-    <hr>
-    <table>
-            <tr>
-                <th>Problem Found</th>
-                <th>Heuristic Violated</th>
-                <th>Task</th>
-                <th>Where did it occur</th>
-                <th>How was it found</th>
-                <th>Severity Rating</th>
-            </tr>
-            <tr>
-                <td>Duplicates the number of output when we press the 'Run Test' button twice</td>
-                <td>Visibility of system status</td>
-                <td>Fix the duplication</td>
-                <td>It occurred when we pressed the button in Testing page</td>
-                <td>Since it was an output, we were able to see the problem</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>The command 'append.Child()' was shown as unidentified</td>
-                <td>Match between the system & the real world</td>
-                <td>We had declared a global variable called 'list' were it would contain the value of the 'append.Child()' and afterwards we give it a new value in the for loop of the specific function in order to work</td>
-                <td>It occurred in the Test Page in the developer tools</td>
-                <td>We spotted the problem through the developer's tool</td>
-                <td>5</td>
-            </tr>
-    </table>
-<br><br>
+<br>
 <h2>Nielsen's 10 Heuristics</h2>
     <hr>
     <table>
