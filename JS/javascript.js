@@ -169,6 +169,7 @@ function fetchQuestions() {
             }
         });
 }
+
 function getTypeOfQuestion(typeOfQuestion) {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("booleanButtons").style.display = "none";
