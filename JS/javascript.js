@@ -241,6 +241,7 @@ function skipQuestion() {
 }
 
 function getScore() {
+    document.getElementById("theConquerorsLogo").style.display = "none";
     document.getElementById("gameAttributes").style.display = "block";
     document.getElementById("playerNameP").style.display = "block";
     document.getElementById("scoreP").style.display = "block";
