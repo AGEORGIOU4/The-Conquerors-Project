@@ -318,6 +318,7 @@ function getLocation() {
 
 
 function showPosition(position) {
+    clearInterval();
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)

@@ -124,9 +124,8 @@ header {
 /*-------------------------------------------------BODY---------------------------------------------------------------*/
 
 body {
-    height: 1440px;
-    background-image: url("IMAGES/background.png");
-    background-size: cover;
+    height:2000px;
+    background-color: #071230;
     margin: 0;
     text-align: center;
 }
@@ -452,6 +451,7 @@ body {
 
 #content {
     width: 100%;
+    text-decoration: none;
     margin: auto;
     font-size: 60px;
     background-color: white;
