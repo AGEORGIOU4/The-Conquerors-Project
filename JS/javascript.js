@@ -87,12 +87,12 @@ function getCredentials() {
     document.getElementById("challenges");
     document.getElementById("selectTH");
     document.getElementById("selectTH2");
-    document.getElementById("instructionsBox");
+    document.getElementById("instructionsPbox");
 
     challenges.style.display = "none";
     selectTH.style.display = "none";
     selectTH2.style.display = "none";
-    instructionsBox.style.display = "none";
+    instructionsP.style.display = "none";
 
 
     // Show username input

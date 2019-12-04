@@ -182,7 +182,7 @@ body {
 
 #startButton:before {
     padding: 3px;
-    margin: 0 0;
+    margin: 0 -78px;
     position: absolute;
     content: "\276F";
     font-size: 60px;
@@ -191,18 +191,18 @@ body {
 
 #startButton {
     display: block;
-    margin: 130px auto;
-    padding: 50px;
-    font-size: 70px;
+    margin: auto;
+    padding: 50px 120px;
+    font-size: 60px;
+    color: #FFFFFF;
     text-align: center;
-    border-bottom: 1px solid #464545;
     background-color: #464545;
     box-shadow: 2px 2px 45px;
 }
 
 #startButton:after {
     padding: 3px;
-    margin: 0 -40px;;
+    margin: 0 42px;
     position: absolute;
     content: "\276F";
     font-size: 60px;
@@ -230,26 +230,19 @@ body {
     text-align: center;
 }
 
-#instructionsBox {
+#instructionsPbox {
     display: block;
-    padding: 75px;
-    margin: 30px auto;
-    font-size: 20px;
-    color: #464545;
-    background-color: #FFFFFF;
-    border: 2px solid #464545;
 }
 
 #instructionsP {
-    margin-top: 0;
-    text-align: center;
-    text-decoration: underline;
-    font-size: 50px;
-}
 
-#instructionsList {
+    margin: 30px auto;
+    padding: 75px;
+    font-size: 20px;
+    color: #464545;
+    background-color: #FFFFFF;
     text-align: left;
-    padding: 5px;
+    border: 2px solid #464545;
 }
 
 #selectTH {
