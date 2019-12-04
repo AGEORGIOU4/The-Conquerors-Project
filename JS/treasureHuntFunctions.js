@@ -116,18 +116,20 @@ function startSession() {
     playerName = document.getElementById("username").value;
     appName = "TheConquerors";
 
+
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             // Set sessionID to the current session
             sessionID = jsonObject.session;
+
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
                 messageBoxP.style.display = "block";
                 messageBoxP.innerText = jsonObject.errorMessages;
             } else {
                 setCookie(cookieSession, sessionID, 1);
-                setCookie(cookiePlayerName, playerName, 1)
+                setCookie(cookiePlayerName, playerName, 1);
 
                 document.getElementById("messageBoxP").style.display = "none";
                 // If all params are correct (username, app name, session) call the questions
