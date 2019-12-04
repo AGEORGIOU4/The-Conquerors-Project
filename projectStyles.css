@@ -312,7 +312,7 @@ body {
     display: none;
     position: absolute;
     left: 20px;
-    bottom: 70px;
+    bottom: 0px;
     height: 400px;
     text-align: left;
 }
