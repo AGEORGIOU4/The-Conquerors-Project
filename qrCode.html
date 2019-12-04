@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="projectStyles.css">
     <link rel='icon' href='IMAGES/FaviconLogoConquerors.png' type='image/x-icon'>
 
+    <script src="QRCodeReader/js/qr.js"></script>
     <script src="QRCodeReader/js/instascan.min.js"></script>
 </head>
 
@@ -33,8 +34,23 @@
             <img src="IMAGES/github.png" alt="GitHub Logo" id="githubLogo">
         </a>
     </div>
+
+    <button id="goBack" onclick="goBack()">Go Back</button>
 </div>
+
+
+<!--QR CODE READER SCREEN-->
+<video id="preview">
+
+</video>
 
 </body>
 
+<!------------------------------------------------FOOTER--------------------------------------------------------------->
+
+<footer>
+    <div id="content"></div>
+</footer>
+
+<script>QRCodeReader()</script>
 </html>

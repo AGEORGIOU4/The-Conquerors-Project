@@ -130,17 +130,6 @@ body {
     text-align: center;
 }
 
-
-#preview {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 1240px;
-    top: 335px;
-    background-color: black;
-    text-align: center;
-}
-
 #headBar {
     height: 130px;
     background-color: #001f2c;
@@ -218,17 +207,6 @@ body {
 /*===============================================APP PAGE=============================================================*/
 
 /*-----------------------------------------------PHASE 01-------------------------------------------------------------*/
-#content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 200px;
-    bottom: 0;
-    font-size: 60px;
-    background-color: white;
-    color: #464545;
-    text-align: center;
-}
 
 #instructionsPbox {
     display: block;
@@ -458,6 +436,34 @@ body {
     display: none;
     float: right;
     margin: 20px 30px 20px 0;
+    height: 76px;
+    color: #000000;
+    font-size: 50px;
+    border: 2px solid #000000;
+    border-radius: 15px;
+}
+
+/*================================================QR PAGE=============================================================*/
+
+#preview {
+    width: 100%;
+    height: 1000px;
+    background-color: black;
+    text-align: center;
+}
+
+#content {
+    width: 100%;
+    height: 200px;
+    font-size: 60px;
+    background-color: white;
+    color: #464545;
+    text-align: center;
+}
+
+#goBack {
+    float: right;
+    margin: 27px 30px 20px 0;
     height: 76px;
     color: #000000;
     font-size: 50px;
