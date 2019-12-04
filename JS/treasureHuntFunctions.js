@@ -312,7 +312,7 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(showPosition);
 
     } else {
-        alert("Geolocation is not supported by your browser.");
+        messageP.innerText = "Geolocation is not supported by your browser.";
     }
 }
 
@@ -326,7 +326,7 @@ function showPosition(position) {
         .then(jsonObject => {
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
-                alert(jsonObject.errorMessages);
+                messageP.innerText = jsonObject.errorMessages;
             } else {
                 alert(jsonObject.message);
                 setInterval(function () {
