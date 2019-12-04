@@ -13,9 +13,12 @@ const API_SCORE = "https://codecyprus.org/th/api/score";
 let sessionID = "";
 let uuid = "";
 let description = "";
+let playerName = "";
 let appName = "";
 let latitude = "";
 let longitude = "";
+const cookieSession = "cookieSession";
+const cookiePlayerName = "cookiePlayerName";
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -110,7 +113,7 @@ function startSession() {
     document.getElementById("messageBoxP").style.display = "none";
 
     // Get required parameters for START URL
-    let playerName = document.getElementById("username").value;
+    playerName = document.getElementById("username").value;
     appName = "TheConquerors";
 
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
@@ -123,6 +126,9 @@ function startSession() {
                 messageBoxP.style.display = "block";
                 messageBoxP.innerText = jsonObject.errorMessages;
             } else {
+                setCookie(cookieSession, sessionID, 1);
+                setCookie(cookiePlayerName, playerName, 1)
+
                 document.getElementById("messageBoxP").style.display = "none";
                 // If all params are correct (username, app name, session) call the questions
                 document.getElementById("treasureHuntsDescriptionParagraph").style.display = "none";
@@ -130,6 +136,12 @@ function startSession() {
                 fetchQuestions(sessionID);
             }
         });
+}
+
+function resumeSession() {
+playerName = cookiePlayerName;
+   startSession(cookieSession,cookiePlayerName);
+
 }
 
 function fetchQuestions() {
@@ -252,14 +264,22 @@ function getScore() {
             scoreP.innerText = "Score: " + jsonObject.score;
 
             if (jsonObject.completed === true) {
+                document.getElementById("messageBoxDiv").style.display = "block";
+                document.getElementById("messageBoxP").style.display = "block";
+                document.getElementById("questionSection").style.display = "none";
+                document.getElementById("answerButtons").style.display = "none";
+                document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
+                    "Treasure Hunt";
+                messageBoxP.style.color = "green";
+
                 getLeaderboard();
             }
         });
 }
 
 function getLeaderboard() {
-    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=20")
-        .then(response => response.json(handleLeaderBoard(leaderboard)))
+    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=10")
+        .then(response => response.json())
         .then(jsonObject => {
             console.log("Leader board " + sessionID);
             console.log(jsonObject);
@@ -287,20 +307,13 @@ function handleLeaderBoard(leaderboard) {
 }
 
 
-/*
 // Set cookie for session
-function setCookies(sessionID) {
-    let date = new Date();
-    let milliseconds = 365 * 24 * 60 * 1000;
-    let expireDateTime = date.getTime() + milliseconds;
-    date.setTime(expireDateTime);
-    document.cookie = sessionID + " session expires: " + date.toUTCString();
-
-    //testing cookie
-    let cookies = document.cookie;
-    console.log(cookies);
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-*/
 
 
 //========================OTHER FUNCTIONS=========================//
@@ -308,11 +321,13 @@ function setCookies(sessionID) {
 
 //=========================GET LOCATION=========================//
 function getLocation() {
+    document.getElementById("messageBoxDiv").style.display = "block";
+    document.getElementById("messageBoxP").style.display = "block";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
 
     } else {
-        messageP.innerText = "Geolocation is not supported by your browser.";
+        messageBoxP.innerText = "Geolocation is not supported by your browser.";
     }
 }
 
@@ -324,11 +339,14 @@ function showPosition(position) {
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
+            document.getElementById("messageBoxP").style.display = "block";
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
-                messageP.innerText = jsonObject.errorMessages;
+                messageBoxP.style.color = "red";
+                messageBoxP.innerText = jsonObject.errorMessages;
             } else {
-                alert(jsonObject.message);
+                messageBoxP.innerText = jsonObject.message;
+                messageBoxP.style.color = "blue";
                 setInterval(function () {
                     showPosition(position)}, 60000)
             }
