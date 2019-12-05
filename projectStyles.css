@@ -1,499 +1,1021 @@
-* {
-    font-family: sans-serif;
+/*-----------------------------------------------MOBILE--------------------------------------------------------------*/
+@media only screen and (max-width: 1000px) {
+
+    * {
+        font-family: sans-serif;
+    }
+
+    /*------------------------------------------------HEADER--------------------------------------------------------------*/
+    header {
+        width: 100%;
+        height: 175px;
+        text-align: center;
+        background-color: white;
+    }
+
+    #theConquerorsLogo {
+        width: 75%;
+        padding: 20px 30px;
+    }
+
+    /*------------------------------------------------FOOTER--------------------------------------------------------------*/
+    footer {
+        margin: 50px;
+    }
+
+
+    /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
+    #socialBar {
+        margin: 15px;
+        position: absolute;
+        height: 100px;
+        text-align: center;
+        background-color: #adad5c;
+        border-radius: 10px;
+    }
+
+    #locationButton {
+        display: none;
+        float: right;
+        padding: 0;
+        background: transparent;
+        border: 0;
+    }
+
+    #locationImg {
+        display: block;
+        margin: 10px;
+        width: 108px;
+    }
+
+    #qrButton {
+        float: right;
+        padding: 0;
+        background: transparent;
+        border: 0;
+    }
+
+    #qrImg {
+        display: block;
+        margin: 10px;
+        width: 108px;
+        border: 1px solid #464545;
+    }
+
+    #skipButton {
+        display: none;
+        float: right;
+        width: 180px;
+        height: 110px;
+        margin: 10px 0 10px;
+        color: #000000;
+        background-color: #FFFFFF;
+        border: 1px solid #464545;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    #twitterLink {
+        text-decoration: none;
+    }
+
+    #twitterLogo {
+        height: 70px;
+        width: 70px;
+        margin: 15px;
+    }
+
+    #twitterLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+    }
+
+    #facebookLogo {
+        height: 70px;
+        width: 70px;
+        margin: 15px;
+    }
+
+    #facebookLink {
+        text-decoration: none;
+    }
+
+    #facebookLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+
+    }
+
+    #githubLogo {
+        height: 70px;
+        width: 70px;
+        margin: 15px;
+    }
+
+    #githubLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+
+    }
+
+    #gitHubLink {
+        text-decoration: none;
+    }
+
+    /*-------------------------------------------------BODY---------------------------------------------------------------*/
+    body {
+        height: 1440px;
+        background-color: #071230;
+        margin: 0;
+        text-align: center;
+    }
+
+    #headBar {
+        height: 130px;
+        background-color: #00262c;
+    }
+
+    /*=============================================LANDING PAGE===========================================================*/
+    #homeP {
+        padding: 75px;
+        margin: 0 auto 30px;
+        font-size: 20px;
+        color: #464545;
+        background-color: #FFFFFF;
+        text-align: center;
+        border: 2px solid #464545;
+    }
+
+    #developersList {
+        margin: 88px;
+
+    }
+
+    #tagLine {
+        margin: 0 auto;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 70px;
+        font-weight: 900;
+    }
+
+    #groupList {
+        margin-top: 15px;
+        padding: 0;
+        text-align: center;
+        color: #FFFFFF;
+        list-style-type: none;
+        font-size: 60px;
+    }
+
+    #startButton:before {
+        padding: 3px;
+        margin: 0 -78px;
+        position: absolute;
+        content: "\276F";
+        font-size: 60px;
+        color: #adad5c;
+    }
+
+    #startButton {
+        display: block;
+        margin: auto;
+        padding: 50px 120px;
+        font-size: 60px;
+        color: #FFFFFF;
+        text-align: center;
+        background-color: #464545;
+        box-shadow: 2px 2px 45px;
+    }
+
+    #startButton:after {
+        padding: 3px;
+        margin: 0 42px;
+        position: absolute;
+        content: "\276F";
+        font-size: 60px;
+        color: #adad5c;
+    }
+
+    #startButton a {
+        padding: 10px 70px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+
+    /*===============================================APP PAGE=============================================================*/
+    /*-----------------------------------------------PHASE 01-------------------------------------------------------------*/
+    #instructionsPbox {
+        display: block;
+    }
+
+    #instructionsH {
+        font-size: 30px;
+        color: #464545;
+        background-color: #FFFFFF;
+        text-align: center;
+        border: 2px solid #464545;
+
+    }
+
+    #instructionsP {
+
+        margin: 0 auto 30px;
+        padding: 75px;
+        font-size: 20px;
+        color: #464545;
+        background-color: #FFFFFF;
+        text-align: left;
+        border: 2px solid #464545;
+    }
+
+    #selectTH {
+        margin: auto;
+        padding: 50px;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-size: 60px;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    #selectTH:after {
+        content: "\002B";
+        margin: 10px 20px;
+    }
+
+    #selectTH2 {
+        display: none;
+        margin: auto;
+        padding: 50px;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-size: 60px;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    #selectTH2:after {
+        content: "\2212";
+        margin: 10px 20px;
+    }
+
+    #challenges {
+        display: none;
+        margin: 0 auto 30px auto;
+        padding: 0;
+    }
+
+    /*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
+    #usernameBox {
+        display: none;
+    }
+
+    #credentials {
+        margin-top: 90px;
+        text-align: center;
+    }
+
+    #usernameMessage {
+        display: none;
+        font-size: 60px;
+        color: #FFFFFF;
+        font-weight: 900;
+    }
+
+    #username {
+        width: 60%;
+        height: 70px;
+        margin: 20px auto;
+        font-size: 40px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #submitButton {
+        width: 60%;
+        margin-bottom: 20px;
+        color: #000000;
+        font-size: 50px;
+    }
+
+    #submitButtonNewGame {
+        width: 60%;
+        margin-bottom: 20px;
+        color: #000000;
+        font-size: 50px;
+    }
+
+    #messageBoxDiv {
+        display: none;
+        height: 400px;
+    }
+
+    #messageBoxP {
+        display: none;
+        margin: 0;
+        padding: 0 5px;
+        color: red;
+        font-size: 54px;
+        font-weight: 900;
+    }
+
+    #gameAttributes {
+        display: none;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #playerNameP {
+        margin: 0;
+        padding: 0 5px;
+        font-size: 54px;
+        color: #adad5c;
+        font-weight: 900;
+    }
+
+    #scoreP {
+        margin: 0;
+        padding: 0 5px;
+        font-size: 54px;
+        color: #adad5c;
+        font-weight: 900;
+    }
+
+    #treasureHuntsDescriptionParagraph {
+        display: none;
+        margin: 320px auto 20px auto;
+        padding: 30px;
+        font-size: 50px;
+        background-color: #FFFFFF;
+        color: #464545;
+        border: 10px solid #adad5c;
+    }
+
+    #loading {
+        display: none;
+        margin-top: -1237px;
+        width: 100%;
+        border-top: 5px solid #adad5c;
+    }
+
+    /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
+    #questionSection {
+        display: none;
+        height: 300px;
+        padding: 20px;
+        font-size: 60px;
+    }
+
+    #question {
+        color: #FFFFFF;
+        margin: 0 auto;
+    }
+
+    #question a {
+        color: red;
+    }
+
+    #answerForm {
+        display: none;
+        clear: both;
+        float: left;
+        width: 100%;
+    }
+
+    /* Answer Buttons */
+    #answerButtons {
+        text-align: center;
+        margin: 20px 20px;
+    }
+
+    #booleanButtons {
+        display: none;
+    }
+
+    .booleanButtons {
+        width: 170px;
+        color: #000000;
+        font-size: 60px;
+        margin: 20px 20px;
+    }
+
+    #mcqButtons {
+        display: none;
+    }
+
+    .mcqButtons {
+        width: 170px;
+        color: #000000;
+        font-size: 60px;
+        margin: 20px 20px;
+    }
+
+    #placeholderBox {
+        display: none;
+        float: left;
+        width: 70%;
+        height: 70px;
+        margin: 20px 0 20px 30px;
+        font-size: 40px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #placeholderSubmit {
+        display: none;
+        float: right;
+        margin: 20px 30px 20px 0;
+        height: 76px;
+        color: #000000;
+        font-size: 50px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #placeholderNumberBox {
+        display: none;
+        float: left;
+        width: 70%;
+        height: 70px;
+        margin: 20px 0 20px 30px;
+        font-size: 40px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #placeholderNumberSubmit {
+        display: none;
+        float: right;
+        margin: 20px 30px 20px 0;
+        height: 76px;
+        color: #000000;
+        font-size: 50px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    /*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
+    #leaderBoardTable {
+        display: none;
+        margin: 20px 0;
+        background-color: #FFFFFF;
+        font-size: 40px;
+    }
+
+    #leaderBoardTable th {
+        width: 33.3%;
+        background-color: #adad5c;
+    }
+
+    #leaderBoardTable tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #followTwitter {
+        display: none;
+    }
+
+    /*================================================QR PAGE=============================================================*/
+    #preview {
+        width: 100%;
+        height: 1000px;
+        background-color: black;
+        text-align: center;
+    }
+
+    #content {
+        width: 100%;
+        text-decoration: none;
+        margin: auto;
+        font-size: 60px;
+        background-color: white;
+        color: #464545;
+        text-align: center;
+    }
+
+    #goBack {
+        float: right;
+        margin: 27px 30px 20px 0;
+        height: 76px;
+        color: #000000;
+        font-size: 50px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+}
+
+/*-----------------------------------------------DESKTOP--------------------------------------------------------------*/
+@media only screen and (min-width: 1001px) {
+
+    * {
+        font-family: sans-serif;
+    }
+
+    /*------------------------------------------------HEADER--------------------------------------------------------------*/
+    header {
+        width: 100%;
+        text-align: center;
+        background-color: white;
+    }
+
+    #theConquerorsLogo {
+        width: 30%;
+        padding: 20px 30px;
+    }
+
+    /*------------------------------------------------FOOTER--------------------------------------------------------------*/
+    footer {
+        margin: 50px;
+    }
+
+
+    /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
+    #socialBar {
+        margin: 5px;
+        position: absolute;
+        height: 40px;
+        text-align: center;
+        background-color: #adad5c;
+        border-radius: 10px;
+    }
+
+    #locationButton {
+        display: none;
+        float: right;
+        padding: 0;
+        background: transparent;
+        border: 0;
+    }
+
+    #locationImg {
+        display: block;
+        margin: 10px;
+        width: 108px;
+    }
+
+    #qrButton {
+        float: right;
+        padding: 0;
+        background: transparent;
+        border: 0;
+    }
+
+    #qrImg {
+        display: block;
+        margin: 5px;
+        width: 40px;
+        border: 1px solid #464545;
+    }
+
+    #skipButton {
+        display: none;
+        float: right;
+        width: 180px;
+        height: 40px;
+        margin: 5px 0 10px;
+        color: #000000;
+        background-color: #FFFFFF;
+        border: 1px solid #464545;
+        font-size: 33px;
+        cursor: pointer;
+    }
+
+    #twitterLink {
+        text-decoration: none;
+    }
+
+    #twitterLogo {
+        height: 30px;
+        width: 30px;
+        margin: 5px;
+    }
+
+    #twitterLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+    }
+
+    #facebookLogo {
+        height: 30px;
+        width: 30px;
+        margin: 5px;
+    }
+
+    #facebookLink {
+        text-decoration: none;
+    }
+
+    #facebookLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+
+    }
+
+    #githubLogo {
+        height: 30px;
+        width: 30px;
+        margin: 5px;
+    }
+
+    #githubLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+
+    }
+
+    #gitHubLink {
+        text-decoration: none;
+    }
+
+    /*-------------------------------------------------BODY---------------------------------------------------------------*/
+    body {
+        height: 580px;
+        background-color: #071230;
+        margin: 0;
+        text-align: center;
+    }
+
+    #headBar {
+        height: 50px;
+        background-color: #00262c;
+    }
+
+    /*=============================================LANDING PAGE===========================================================*/
+    #homeP {
+        padding: 25px;
+        margin: 0 auto;
+        font-size: 20px;
+        color: #464545;
+        background-color: #FFFFFF;
+        text-align: center;
+        border: 2px solid #464545;
+    }
+
+    #developersList {
+        margin: 15px;
+
+    }
+
+    #tagLine {
+        margin: 0 auto;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+    #groupList {
+        margin-top: 15px;
+        padding: 0;
+        text-align: center;
+        color: #FFFFFF;
+        list-style-type: none;
+        font-size: 15px;
+    }
+
+    #startButton:before {
+        margin: -12px -78px;
+        position: absolute;
+        content: "\276F";
+        font-size: 40px;
+        color: #adad5c;
+    }
+
+    #startButton {
+        display: block;
+        margin: auto;
+        padding: 15px 120px;
+        font-size: 30px;
+        color: #FFFFFF;
+        text-align: center;
+        background-color: #464545;
+        box-shadow: 2px 2px 45px;
+    }
+
+    #startButton:after {
+        margin: -12px 42px;
+        position: absolute;
+        content: "\276F";
+        font-size: 40px;
+        color: #adad5c;
+    }
+
+    #startButton a {
+        padding: 10px 70px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+
+    /*===============================================APP PAGE=============================================================*/
+    /*-----------------------------------------------PHASE 01-------------------------------------------------------------*/
+    #instructionsPbox {
+        display: block;
+    }
+
+    #instructionsH {
+        margin: 7px auto;
+        font-size: 30px;
+        color: #464545;
+        background-color: #FFFFFF;
+        text-align: center;
+        border: 2px solid #464545;
+
+    }
+
+    #instructionsP {
+        margin: 0 auto 30px;
+        padding: 15px;
+        font-size: 20px;
+        color: #464545;
+        background-color: #FFFFFF;
+        text-align: left;
+        border: 2px solid #464545;
+    }
+
+    #selectTH {
+        margin: auto;
+        padding: 5px;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-size: 25px;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    #selectTH:after {
+        content: "\002B";
+        margin: 10px 20px;
+    }
+
+    #selectTH2 {
+        display: none;
+        margin: auto;
+        padding: 5px;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-size: 25px;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    #selectTH2:after {
+        content: "\2212";
+        margin: 10px 20px;
+    }
+
+    #treasureHuntsButton1 {
+        font-size: 5px;
+    }
+
+    #challenges {
+        display: none;
+        margin: 0 auto 30px auto;
+        padding: 0;
+    }
+
+    /*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
+    #usernameBox {
+        display: none;
+    }
+
+    #credentials {
+        text-align: center;
+    }
+
+    #usernameMessage {
+        display: none;
+        font-size: 30px;
+        color: #FFFFFF;
+        font-weight: 900;
+    }
+
+    #username {
+        width: 50%;
+        height: 40px;
+        margin: 20px auto;
+        font-size: 40px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #submitButton {
+        width: 50%;
+        color: #000000;
+        font-size: 30px;
+    }
+
+    #submitButtonNewGame {
+        width: 60%;
+        margin-bottom: 20px;
+        color: #000000;
+        font-size: 50px;
+    }
+
+    #messageBoxDiv {
+        display: none;
+    }
+
+    #messageBoxP {
+        display: none;
+        margin: 0;
+        padding: 0 5px;
+        color: red;
+        font-size: 22px;
+        font-weight: 900;
+    }
+
+    #gameAttributes {
+        display: none;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #playerNameP {
+        margin: 0;
+        padding: 0 5px;
+        font-size: 54px;
+        color: #adad5c;
+        font-weight: 900;
+    }
+
+    #scoreP {
+        margin: 0;
+        padding: 0 5px;
+        font-size: 54px;
+        color: #adad5c;
+        font-weight: 900;
+    }
+
+    #treasureHuntsDescriptionParagraph {
+        display: none;
+        margin: 40px auto;
+        padding: 15px;
+        font-size: 30px;
+        background-color: #FFFFFF;
+        color: #464545;
+        border: 10px solid #adad5c;
+    }
+
+    #loading {
+        display: none;
+        margin-top: -1237px;
+        width: 100%;
+        border-top: 5px solid #adad5c;
+    }
+
+    /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
+    #questionSection {
+        display: none;
+        padding: 20px;
+        font-size: 60px;
+    }
+
+    #question {
+        color: #FFFFFF;
+        margin: 0 auto;
+        font-size: x-large;
+    }
+
+    #question a {
+        color: red;
+    }
+
+    #answerForm {
+        display: none;
+        clear: both;
+        float: left;
+        width: 100%;
+    }
+
+    /* Answer Buttons */
+    #answerButtons {
+        text-align: center;
+        margin: 20px 20px;
+    }
+
+    #booleanButtons {
+        display: none;
+    }
+
+    .booleanButtons {
+        width: 170px;
+        color: #000000;
+        font-size: 60px;
+        margin: 20px 20px;
+    }
+
+    #mcqButtons {
+        display: none;
+    }
+
+    .mcqButtons {
+        width: 170px;
+        color: #000000;
+        font-size: 60px;
+        margin: 20px 20px;
+    }
+
+    #placeholderBox {
+        display: none;
+        float: left;
+        width: 70%;
+        height: 70px;
+        margin: 20px 0 20px 30px;
+        font-size: 40px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #placeholderSubmit {
+        display: none;
+        float: right;
+        margin: 20px 30px 20px 0;
+        height: 76px;
+        color: #000000;
+        font-size: 50px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #placeholderNumberBox {
+        display: none;
+        float: left;
+        width: 60%;
+        height: 45px;
+        margin: 20px 0 20px 50px;
+        font-size: 40px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #placeholderNumberSubmit {
+        display: none;
+        float: right;
+        margin: 20px 50px 20px 0;
+        height: 45px;
+        color: #000000;
+        font-size: 50px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    /*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
+    #leaderBoardTable {
+        display: none;
+        margin: 20px 0;
+        background-color: #FFFFFF;
+        font-size: 40px;
+    }
+
+    #leaderBoardTable th {
+        width: 33.3%;
+        background-color: #adad5c;
+    }
+
+    #leaderBoardTable tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #followTwitter {
+        display: none;
+    }
+
+    /*================================================QR PAGE=============================================================*/
+    #preview {
+        width: 100%;
+        height: 1000px;
+        background-color: black;
+        text-align: center;
+    }
+
+    #content {
+        width: 100%;
+        text-decoration: none;
+        margin: auto;
+        font-size: 60px;
+        background-color: white;
+        color: #464545;
+        text-align: center;
+    }
+
+    #goBack {
+        float: right;
+        margin: 27px 30px 20px 0;
+        height: 76px;
+        color: #000000;
+        font-size: 50px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
 }
 
-/*------------------------------------------------HEADER--------------------------------------------------------------*/
-
-header {
-    width: 100%;
-    height: 175px;
-    text-align: center;
-    background-color: white;
-}
-
-#theConquerorsLogo {
-    width: 75%;
-    padding: 20px 30px;
-}
-
-/*------------------------------------------------FOOTER--------------------------------------------------------------*/
-
-footer {
-    margin: 50px;
-}
-
-
-/*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
-
-#socialBar {
-    margin: 15px;
-    position: absolute;
-    height: 100px;
-    text-align: center;
-    background-color: #adad5c;
-    border-radius: 10px;
-}
-
-#locationButton {
-    display: none;
-    float: right;
-    padding: 0;
-    background: transparent;
-    border: 0;
-}
-
-#locationImg {
-    display: block;
-    margin: 10px;
-    width: 108px;
-}
-
-#qrButton {
-    float: right;
-    padding: 0;
-    background: transparent;
-    border: 0;
-}
-
-#qrImg {
-    display: block;
-    margin: 10px;
-    width: 108px;
-    border: 1px solid #464545;
-}
-
-#skipButton {
-    display: none;
-    float: right;
-    width: 180px;
-    height: 110px;
-    margin: 10px 0 10px;
-    color: #000000;
-    background-color: #FFFFFF;
-    border: 1px solid #464545;
-    font-size: 40px;
-    cursor: pointer;
-}
-
-#twitterLink {
-    text-decoration: none;
-}
-
-#twitterLogo {
-    height: 70px;
-    width: 70px;
-    margin: 15px;
-}
-
-#twitterLogo:hover {
-    height: 80px;
-    width: 80px;
-    margin: 2px 10px;
-}
-
-#facebookLogo {
-    height: 70px;
-    width: 70px;
-    margin: 15px;
-}
-
-#facebookLink {
-    text-decoration: none;
-}
-
-#facebookLogo:hover {
-    height: 80px;
-    width: 80px;
-    margin: 2px 10px;
-
-}
-
-#githubLogo {
-    height: 70px;
-    width: 70px;
-    margin: 15px;
-}
-
-#githubLogo:hover {
-    height: 80px;
-    width: 80px;
-    margin: 2px 10px;
-
-}
-
-#gitHubLink {
-    text-decoration: none;
-}
-
-/*-------------------------------------------------BODY---------------------------------------------------------------*/
-
-body {
-    height: 1440px;
-    background-color: #071230;
-    margin: 0;
-    text-align: center;
-}
-
-#headBar {
-    height: 130px;
-    background-color: #00262c;
-}
-
-/*=============================================LANDING PAGE===========================================================*/
-
-#homeP {
-    padding: 75px;
-    margin: 0 auto 30px;
-    font-size: 20px;
-    color: #464545;
-    background-color: #FFFFFF;
-    text-align: center;
-    border: 2px solid #464545;
-}
-
-#developersList {
-    margin: 88px;
-
-}
-
-#tagLine {
-    margin: 0 auto;
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 70px;
-    font-weight: 900;
-}
-
-#groupList {
-    margin-top: 15px;
-    padding: 0;
-    text-align: center;
-    color: #FFFFFF;
-    list-style-type: none;
-    font-size: 60px;
-}
-
-#startButton:before {
-    padding: 3px;
-    margin: 0 -78px;
-    position: absolute;
-    content: "\276F";
-    font-size: 60px;
-    color: #adad5c;
-}
-
-#startButton {
-    display: block;
-    margin: auto;
-    padding: 50px 120px;
-    font-size: 60px;
-    color: #FFFFFF;
-    text-align: center;
-    background-color: #464545;
-    box-shadow: 2px 2px 45px;
-}
-
-#startButton:after {
-    padding: 3px;
-    margin: 0 42px;
-    position: absolute;
-    content: "\276F";
-    font-size: 60px;
-    color: #adad5c;
-}
-
-#startButton a {
-    padding: 10px 70px;
-    text-decoration: none;
-    color: #FFFFFF;
-}
-
-/*===============================================APP PAGE=============================================================*/
-
-/*-----------------------------------------------PHASE 01-------------------------------------------------------------*/
-
-#instructionsPbox {
-    display: block;
-}
-
-#instructionsP {
-
-    margin: 0 auto 30px;
-    padding: 75px;
-    font-size: 20px;
-    color: #464545;
-    background-color: #FFFFFF;
-    text-align: left;
-    border: 2px solid #464545;
-}
-
-#selectTH {
-    margin: auto;
-    padding: 50px;
-    background-color: transparent;
-    color: #FFFFFF;
-    font-size: 60px;
-    font-weight: 900;
-    text-align: center;
-}
-
-#selectTH:after {
-    content: "\002B";
-    margin: 10px 20px;
-}
-
-#selectTH2 {
-    display: none;
-    margin: auto;
-    padding: 50px;
-    background-color: transparent;
-    color: #FFFFFF;
-    font-size: 60px;
-    font-weight: 900;
-    text-align: center;
-}
-
-#selectTH2:after {
-    content: "\2212";
-    margin: 10px 20px;
-}
-
-#challenges {
-    display: none;
-    margin: 0 auto 30px auto;
-    padding: 0;
-}
-
-/*-----------------------------------------------PHASE 02-------------------------------------------------------------*/
-
-#usernameBox {
-    display: none;
-}
-
-#credentials {
-    margin-top: 90px;
-    text-align: center;
-}
-
-#username {
-    width: 60%;
-    height: 70px;
-    margin: 20px auto;
-    font-size: 40px;
-    border: 2px solid #000000;
-    border-radius: 15px;
-}
-
-#submitButton {
-    width: 60%;
-    margin-bottom: 20px;
-    color: #000000;
-    font-size: 50px;
-}
-
-#submitButtonNewGame {
-    width: 60%;
-    margin-bottom: 20px;
-    color: #000000;
-    font-size: 50px;
-}
-
-#messageBoxDiv {
-    display: none;
-    height: 400px;
-}
-
-#messageBoxP {
-    display: none;
-    margin: 0;
-    padding: 0 5px;
-    color: red;
-    font-size: 54px;
-    font-weight: 900;
-}
-
-#gameAttributes {
-    display: none;
-    padding: 10px;
-    text-align: left;
-}
-
-#playerNameP {
-    margin: 0;
-    padding: 0 5px;
-    font-size: 54px;
-    color: #adad5c;
-    font-weight: 900;
-}
-
-#scoreP {
-    margin: 0;
-    padding: 0 5px;
-    font-size: 54px;
-    color: #adad5c;
-    font-weight: 900;
-}
-
-#treasureHuntsDescriptionParagraph {
-    display: none;
-    margin: 320px auto 20px auto;
-    padding: 30px;
-    font-size: 50px;
-    background-color: #FFFFFF;
-    color: #464545;
-    border: 10px solid #adad5c;
-}
-
-#loading {
-    display: none;
-    margin-top: -1237px;
-    width: 100%;
-    border-top: 5px solid #adad5c;
-}
-
-/*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
-
-#questionSection {
-    display: none;
-    height: 300px;
-    padding: 20px;
-    font-size: 60px;
-}
-
-#question {
-    color: #FFFFFF;
-    margin: 0 auto;
-}
-
-#answerForm {
-    display: none;
-    clear: both;
-    float: left;
-    width: 100%;
-}
-
-/* Answer Buttons */
-#answerButtons {
-    text-align: center;
-    margin: 20px 20px;
-}
-
-#booleanButtons {
-    display: none;
-}
-
-.booleanButtons {
-    width: 170px;
-    color: #000000;
-    font-size: 60px;
-    margin: 20px 20px;
-}
-
-#mcqButtons {
-    display: none;
-}
-
-.mcqButtons {
-    width: 170px;
-    color: #000000;
-    font-size: 60px;
-    margin: 20px 20px;
-}
-
-#placeholderBox {
-    display: none;
-    float: left;
-    width: 70%;
-    height: 70px;
-    margin: 20px 0 20px 30px;
-    font-size: 40px;
-    border: 2px solid #000000;
-    border-radius: 15px;
-}
-
-#placeholderSubmit {
-    display: none;
-    float: right;
-    margin: 20px 30px 20px 0;
-    height: 76px;
-    color: #000000;
-    font-size: 50px;
-    border: 2px solid #000000;
-    border-radius: 15px;
-}
-
-#placeholderNumberBox {
-    display: none;
-    float: left;
-    width: 70%;
-    height: 70px;
-    margin: 20px 0 20px 30px;
-    font-size: 40px;
-    border: 2px solid #000000;
-    border-radius: 15px;
-}
-
-#placeholderNumberSubmit {
-    display: none;
-    float: right;
-    margin: 20px 30px 20px 0;
-    height: 76px;
-    color: #000000;
-    font-size: 50px;
-    border: 2px solid #000000;
-    border-radius: 15px;
-}
-
-/*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
-
-#leaderBoardTable {
-    display: none;
-    margin: 20px 0;
-    background-color: #FFFFFF;
-    font-size: 40px;
-}
-
-#leaderBoardTable th {
-    width: 33.3%;
-    background-color: #adad5c;
-}
-
-#leaderBoardTable tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#followTwitter {
-    display: none;
-}
-
-/*================================================QR PAGE=============================================================*/
-
-#preview {
-    width: 100%;
-    height: 1000px;
-    background-color: black;
-    text-align: center;
-}
-
-#content {
-    width: 100%;
-    text-decoration: none;
-    margin: auto;
-    font-size: 60px;
-    background-color: white;
-    color: #464545;
-    text-align: center;
-}
-
-#goBack {
-    float: right;
-    margin: 27px 30px 20px 0;
-    height: 76px;
-    color: #000000;
-    font-size: 50px;
-    border: 2px solid #000000;
-    border-radius: 15px;
-}
 
 /*------------------------------------------------NOTES---------------------------------------------------------------*/
 

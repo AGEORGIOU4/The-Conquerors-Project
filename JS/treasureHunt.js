@@ -42,7 +42,7 @@ function getChallenges() {
                 treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
                 treasureHuntsButton.style.marginTop = "25px";
                 treasureHuntsButton.style.marginBottom = "0";
-                treasureHuntsButton.style.padding = "60px";
+                treasureHuntsButton.style.padding = "10px";
                 treasureHuntsButton.style.width = "95%";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
                 // Define the uuid for each TH on click
@@ -95,13 +95,12 @@ function getCredentials() {
     selectTH.style.display = "none";
     selectTH2.style.display = "none";
     instructionsP.style.display = "none";
+    instructionsH.style.display = "none";
 
     // Show username input
-    let userInput = document.getElementById("usernameBox");
-    userInput.style.display = "block";
-    document.getElementById("treasureHuntsDescriptionParagraph");
-    treasureHuntsDescriptionParagraph.style.display = "block";
-    document.getElementById("messageBoxDiv").style.display = "block";
+    document.getElementById("usernameMessage").style.display = "block";
+    document.getElementById("usernameBox").style.display = "block";;
+    document.getElementById("treasureHuntsDescriptionParagraph").style.display = "block";
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -124,8 +123,10 @@ function startSession() {
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
                 messageBoxP.innerText = jsonObject.errorMessages;
+                document.getElementById("messageBoxDiv").style.display = "block";
                 messageBoxP.style.display = "block";
             } else {
+                document.getElementById("usernameMessage").style.display = "none";
                 document.getElementById("messageBoxP").style.display = "none";
                 // If all params are correct (username, app name, session) call the questions
                 document.getElementById("treasureHuntsDescriptionParagraph").style.display = "none";
@@ -276,7 +277,7 @@ function getScore() {
 }
 
 function getLeaderBoard() {
-    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=50")
+    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=10")
         .then(response => response.json())
         .then(jsonObject =>  handleLeaderBoard(jsonObject));
 }
