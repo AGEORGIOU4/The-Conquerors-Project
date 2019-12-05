@@ -6,17 +6,18 @@ const THIRD_TESTING_API_LIST = "https://codecyprus.org/th/test-api/list?number-o
 const TESTING_API_START = "https://codecyprus.org/th/test-api/start?player=inactive";
 
 
-let list = document.getElementById("challenges2");
+let list = document.getElementById("challenges");
 function getTwoChallengesTest() {
 
-    document.getElementById("challenges").style.display = 'block';
+
     fetch(FIRST_TESTING_API_LIST)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             console.log(jsonObject);
             let array = jsonObject.treasureHunts;
             for (let i = 0; i < array.length; i++) {
-                list = document.getElementById("challenges");
+                document.getElementById("firstResult").style.display = 'block';
+                list = document.getElementById("firstResult");
                 let uuid = array[i].uuid;
                 let listItem = document.createElement("li");
                 listItem.innerHTML = "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id=" + uuid + "'>" + array[i].description + "</a>";
@@ -29,14 +30,15 @@ function getTwoChallengesTest() {
 
 function getTenChallengesTest() {
 
-    document.getElementById("challenges2").style.display = 'block';
+
     fetch(SECOND_TESTING_API_LIST)
         .then(response => response.json())
         .then(jsonObject => {
             console.log(jsonObject);
             let array = jsonObject.treasureHunts;
             for (let i = 0; i < array.length; i++){
-                list = document.getElementById("challenges2");
+                document.getElementById("secondResult").style.display = 'block';
+                list = document.getElementById("secondResult");
 
                 let uuid = array[i].uuid;
                 let listItem = document.createElement("li");
@@ -49,7 +51,7 @@ function getTenChallengesTest() {
 
 function getTwentyChallengesTest() {
 
-    document.getElementById("challenges3").style.display = 'block';
+
     fetch(THIRD_TESTING_API_LIST)
         .then(response => response.json())
         .then(jsonObject => {
@@ -57,7 +59,8 @@ function getTwentyChallengesTest() {
             let array = jsonObject.treasureHunts;
 
             for (let i = 0; i < array.length; i++){
-                list = document.getElementById("challenges3");
+                document.getElementById("thirdResult").style.display = 'block';
+                list = document.getElementById("thirdResult");
 
                 let uuid = array[i].uuid;
                 let listItem = document.createElement("li");
@@ -70,15 +73,14 @@ function getTwentyChallengesTest() {
 }
 
 function  clearTheTestList() {
-    document.getElementById("challenges").style.display = 'none';
-    document.getElementById("challenges2").style.display = 'none';
-    document.getElementById("challenges3").style.display = 'none';
-    document.getElementById("testButton1").style.display = 'block';
-    document.getElementById("testButton2").style.display = 'block';
-    document.getElementById("testButton3").style.display = 'block';
+    document.getElementById("firstResult").style.display = 'none';
+    document.getElementById("secondResult").style.display = 'none';
+    document.getElementById("thirdResult").style.display = 'none';
+    document.getElementById("firstTest").style.display = 'block';
+    document.getElementById("secondTest").style.display = 'block';
+    document.getElementById("thirdTest").style.display = 'block';
 
 }
-
 
     function getStartTest(uuid){
     fetch(TESTING_API_START + uuid)
@@ -87,7 +89,7 @@ function  clearTheTestList() {
             console.log(jsonObject);
             let array = jsonObject.errorMessages;
             for (let i = 0; i<array.length; i++){
-                let error = array[i].status;
+               
                 let list = document.getElementById("errors");
                 let errorList = document.createElement("li");
                 errorList.innerHTML = "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id=" + uuid + "'>" + array[i].name + "</a>";

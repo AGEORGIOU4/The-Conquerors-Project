@@ -1,26 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>Testing</title>
     <script src="JS/testingJavaScript.js"></script>
-    <link rel="stylesheet" type="text/css" href="TestingCSS.css">
-
-
+    <link rel="stylesheet" type="text/css" href="testingStyles.css">
 </head>
+
 <body>
 
-
+    <!--Testing The List-->
     <h2>Testing the List</h2>
+
     <hr>
-    <button id="testButton1" onclick=" getChallengesTest(list);">Run Test</button>
-    <ul id="challenges"></ul>
+
+    <div id="firstTest">
+    <p id="titleOne">First Test</p>
+    <button id="testButton1" onclick=" getTwoChallengesTest(list); document.getElementById('firstTest').style.display = 'none';">Run Test</button>
+    </div>
+
+    <div id="secondTest">
+    <p id="titleTwo">Second Test</p>
+    <button id="testButton2" onclick=" getTenChallengesTest(list); document.getElementById('secondTest').style.display = 'none';">Run Test</button>
+    </div>
+
+    <div id="thirdTest">
+    <p id="titleThree">Third Test</p>
+    <button id="testButton3" onclick=" getTwentyChallengesTest(list); document.getElementById('thirdTest').style.display = 'none';">Run Test</button>
+    </div>
+
+    <div>
+        <p id="titleSeven">Clear the Results</p>
+        <button id="buttonClearList" onclick="clearTheTestList()">Clear Results</button>
+    </div>
+
+    <div id="firstResult">
+    <p id="titleFour">First Test Results</p>
+    <ul id="challenges1"></ul>
+    </div>
+
+    <div id="secondResult">
+    <p id="titleFive">Second Test Results</p>
+    <ul id="challenges2"></ul>
+    </div>
+
+    <div id="thirdResult">
+    <p id="titleSix" >Third Test Results</p>
+    <ul id="challenges3"></ul>
+    </div>
 
 
+    <!-- Testing the Start-->
     <h2>Testing the Start</h2>
     <hr>
-    <button id="testButton2" onclick="getStartTest();">Run Test</button>
+    <button id="testButton4" onclick="getStartTest();">Run Test</button>
     <ul id="errors"></ul>
 
     <br><br>
@@ -28,32 +61,7 @@
     <h2>User Acceptance Plan</h2>
 
     <hr>
-    <table>
-            <tr>
-                <th>Problem Found</th>
-                <th>Heuristic Violated</th>
-                <th>Task</th>
-                <th>Where did it occur</th>
-                <th>How was it found</th>
-                <th>Severity Rating</th>
-            </tr>
-            <tr>
-                <td>Duplicates the number of output when we press the 'Run Test' button twice</td>
-                <td>Visibility of system status</td>
-                <td>Fix the duplication</td>
-                <td>It occurred when we pressed the button in Testing page</td>
-                <td>Since it was an output, we were able to see the problem</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>The command 'append.Child()' was shown as unidentified</td>
-                <td>Match between the system & the real world</td>
-                <td>We had declared a global variable called 'list' were it would contain the value of the 'append.Child()' and afterwards we give it a new value in the for loop of the specific function in order to work</td>
-                <td>It occurred in the Test Page in the developer tools</td>
-                <td>We spotted the problem through the developer's tool</td>
-                <td>5</td>
-            </tr>
-    </table>
+
 <br><br>
 <h2>Nielsen's 10 Heuristics</h2>
     <hr>

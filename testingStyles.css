@@ -1,4 +1,4 @@
-    /*---------------------------------------------TEST PAGE--------------------------------------------------------------*/
+/*---------------------------------------------TEST PAGE--------------------------------------------------------------*/
 * {
     font-family: sans-serif;
     background-color: lightyellow;
@@ -23,10 +23,19 @@ header {
     font-size: xx-large;
 }
 
+#firstTest, #secondTest, #thirdTest, #titleSeven {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
 
-table, th, td {
+#challenges1, #challenges2, #challenges3 {
     font-size: 25px;
+}
 
-    border: 1px solid black;
-    padding: 2px;
+#firstResult, #secondResult, #thirdResult {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+    display: none;
 }
