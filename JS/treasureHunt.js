@@ -270,26 +270,23 @@ function getScore() {
                 document.getElementById("leaderBoardTable").style.display = "block";
                 document.getElementById("messageBoxP").style.display = "block";
 
-                getLeaderboard();
+                getLeaderBoard();
             }
         });
 }
 
-function getLeaderboard() {
-    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=10")
+function getLeaderBoard() {
+    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=50")
         .then(response => response.json())
-        .then(jsonObject => { handleLeaderBoard(jsonObject);
-            console.log(jsonObject);
-        });
+        .then(jsonObject =>  handleLeaderBoard(jsonObject));
 }
 
 function handleLeaderBoard(leaderboard) {
     let options = { day : 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
         second : '2-digit' };
     let html = "";
-    let leaderboardArray = leaderboard ['leaderboard'];
-    for (const entry of leaderboardArray) {
-
+    let leaderBoardArray = leaderboard['leaderboard'];
+    for (const entry of leaderBoardArray) {
         let date = new Date(entry['completionTime']);
         let formattedDate = date.toLocaleDateString("en-UK", options);
         html +=
@@ -298,10 +295,8 @@ function handleLeaderBoard(leaderboard) {
             "<td>" + entry['score'] + "</td>" +
             "<td>" + formattedDate + "</td>" +
             "</tr>";
-
-        document.getElementById("leaderBoardTable").innerHTML += html;
-
     }
+        document.getElementById("leaderBoardTable").innerHTML += html;;
 }
 
 //========================OTHER FUNCTIONS=========================//

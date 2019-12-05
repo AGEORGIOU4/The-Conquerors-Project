@@ -128,7 +128,7 @@ footer {
 /*-------------------------------------------------BODY---------------------------------------------------------------*/
 
 body {
-    height: 2000px;
+    height: 1440px;
     background-color: #071230;
     margin: 0;
     text-align: center;
@@ -455,6 +455,11 @@ body {
 
 #leaderBoardTable th {
     width: 33.3%;
+    background-color: #adad5c;
+}
+
+#leaderBoardTable tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
 #followTwitter {
