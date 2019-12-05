@@ -79,6 +79,7 @@ function  clearTheTestList() {
 
 }
 
+
     function getStartTest(uuid){
     fetch(TESTING_API_START + uuid)
         .then(response => response.json())
