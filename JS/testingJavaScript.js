@@ -69,7 +69,6 @@ function getTwentyChallengesTest() {
         })
 }
 
-
 function  clearTheTestList() {
     document.getElementById("challenges").style.display = 'none';
     document.getElementById("challenges2").style.display = 'none';
