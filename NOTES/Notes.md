@@ -24,24 +24,33 @@ Linked the API Start
 Linked the API Questions
 
 28/11
-all three of us gathered we did the answers and skip API, did the cookies and started the testing
+All three of us gathered we did the answers API and Skip API, and started the testing
 We had questions about how to get the answers 
-We had a appendchild error and leaderboard error
+We had a appendchild error and a leaderboard error
 
 30/11 
-We had questions about the testing /solved
+We had questions about the testing
 Styled the page
 
 1/12
 Modified the testing page, tested the list and start session
 Finished questions session and the skip and answers
 
-Coming days 
-user accptance plan
-score
-Heuritics
+4/12
+Finished the Score
+Finished User Acceptance Plan
+Finished 10 Heuristics
+
+5/12
+Added the Application in Google Analytics
 
 
+Marketing:
+
+Created a Twitter Account and Facebook page
+Linked the App with Google Analytics
+Verified Ownership in Google Search Console.
+Added "alternative text for Images 
 
 
 REFERENCES:
