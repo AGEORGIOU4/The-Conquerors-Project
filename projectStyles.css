@@ -336,7 +336,7 @@ body {
 
 #treasureHuntsDescriptionParagraph {
     display: none;
-    margin: 20px;
+    margin: 320px auto 20px auto;
     padding: 30px;
     font-size: 50px;
     background-color: #FFFFFF;
