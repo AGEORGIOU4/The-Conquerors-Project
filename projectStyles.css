@@ -124,9 +124,8 @@ header {
 /*-------------------------------------------------BODY---------------------------------------------------------------*/
 
 body {
-    height: 1440px;
-    background-image: url("IMAGES/background.png");
-    background-size: cover;
+    height:2000px;
+    background-color: #071230;
     margin: 0;
     text-align: center;
 }
@@ -140,7 +139,7 @@ body {
 
 #homeP {
     padding: 75px;
-    margin: 30px auto;
+    margin: 0 auto 30px;
     font-size: 20px;
     color: #464545;
     background-color: #FFFFFF;
@@ -215,7 +214,7 @@ body {
 
 #instructionsP {
 
-    margin: 30px auto;
+    margin: 0 auto 30px;
     padding: 75px;
     font-size: 20px;
     color: #464545;
@@ -452,6 +451,7 @@ body {
 
 #content {
     width: 100%;
+    text-decoration: none;
     margin: auto;
     font-size: 60px;
     background-color: white;

@@ -13,9 +13,14 @@ const API_SCORE = "https://codecyprus.org/th/api/score";
 let sessionID = "";
 let uuid = "";
 let description = "";
+let playerName = "";
 let appName = "";
 let latitude = "";
 let longitude = "";
+const cookieSession = "cookieSession";
+const cookiePlayerName = "cookiePlayerName";
+
+let cookies = document.cookie;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -110,26 +115,37 @@ function startSession() {
     document.getElementById("messageBoxP").style.display = "none";
 
     // Get required parameters for START URL
-    let playerName = document.getElementById("username").value;
+    playerName = document.getElementById("username").value;
     appName = "TheConquerors";
+
 
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             // Set sessionID to the current session
             sessionID = jsonObject.session;
+
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
                 messageBoxP.style.display = "block";
                 messageBoxP.innerText = jsonObject.errorMessages;
             } else {
+                setCookie(cookieSession, sessionID, 1);
+                setCookie(cookiePlayerName, playerName, 1);
+
                 document.getElementById("messageBoxP").style.display = "none";
                 // If all params are correct (username, app name, session) call the questions
                 document.getElementById("treasureHuntsDescriptionParagraph").style.display = "none";
                 document.getElementById("loading").style.display = "none";
+                console.log(cookies);
                 fetchQuestions(sessionID);
             }
         });
+}
+
+function resumeSession() {
+   getCookie(cookieSession);
+
 }
 
 function fetchQuestions() {
@@ -252,14 +268,22 @@ function getScore() {
             scoreP.innerText = "Score: " + jsonObject.score;
 
             if (jsonObject.completed === true) {
+                document.getElementById("messageBoxDiv").style.display = "block";
+                document.getElementById("messageBoxP").style.display = "block";
+                document.getElementById("questionSection").style.display = "none";
+                document.getElementById("answerButtons").style.display = "none";
+                document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
+                    "Treasure Hunt";
+                messageBoxP.style.color = "green";
+
                 getLeaderboard();
             }
         });
 }
 
 function getLeaderboard() {
-    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=20")
-        .then(response => response.json(handleLeaderBoard(leaderboard)))
+    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=10")
+        .then(response => response.json())
         .then(jsonObject => {
             console.log("Leader board " + sessionID);
             console.log(jsonObject);
@@ -287,20 +311,29 @@ function handleLeaderBoard(leaderboard) {
 }
 
 
-/*
 // Set cookie for session
-function setCookies(sessionID) {
-    let date = new Date();
-    let milliseconds = 365 * 24 * 60 * 1000;
-    let expireDateTime = date.getTime() + milliseconds;
-    date.setTime(expireDateTime);
-    document.cookie = sessionID + " session expires: " + date.toUTCString();
-
-    //testing cookie
-    let cookies = document.cookie;
-    console.log(cookies);
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-*/
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
 
 //========================OTHER FUNCTIONS=========================//
@@ -308,26 +341,32 @@ function setCookies(sessionID) {
 
 //=========================GET LOCATION=========================//
 function getLocation() {
+    document.getElementById("messageBoxDiv").style.display = "block";
+    document.getElementById("messageBoxP").style.display = "block";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
 
     } else {
-        alert("Geolocation is not supported by your browser.");
+        messageBoxP.innerText = "Geolocation is not supported by your browser.";
     }
 }
 
 
 function showPosition(position) {
+    clearInterval();
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
+            document.getElementById("messageBoxP").style.display = "block";
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
-                alert(jsonObject.errorMessages);
+                messageBoxP.style.color = "red";
+                messageBoxP.innerText = jsonObject.errorMessages;
             } else {
-                alert(jsonObject.message);
+                messageBoxP.innerText = jsonObject.message;
+                messageBoxP.style.color = "blue";
                 setInterval(function () {
                     showPosition(position)}, 60000)
             }
