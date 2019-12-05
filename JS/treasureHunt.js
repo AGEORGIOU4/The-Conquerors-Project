@@ -43,6 +43,7 @@ function getChallenges() {
                 treasureHuntsButton.style.marginTop = "25px";
                 treasureHuntsButton.style.marginBottom = "0";
                 treasureHuntsButton.style.padding = "60px";
+                treasureHuntsButton.style.width = "95%";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
                 // Define the uuid for each TH on click
                 treasureHuntsButton.onclick = function () {
@@ -212,13 +213,13 @@ function getAnswer(answer) {
                 document.getElementById("messageBoxP").style.display = "block";
             } if (jsonObject.correct === false) {
                 messageBoxP.style.color = "red";
-                messageBoxP.innerText = jsonObject.message + " -3";
+                messageBoxP.innerText = jsonObject.message + "  -3";
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             } if (jsonObject.correct === true) {
                 messageBoxP.style.color = "green";
-                messageBoxP.innerText = jsonObject.message + " +10";
+                messageBoxP.innerText = jsonObject.message + "  +10";
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
@@ -241,7 +242,7 @@ function skipQuestion() {
                 document.getElementById("messageBoxP").style.display = "block";
             } else {
                 messageBoxP.style.color = "yellow";
-                messageBoxP.innerText = jsonObject.message + " -5";
+                messageBoxP.innerText = jsonObject.message + "  -5";
                 document.getElementById("messageBoxP").style.display = "block";
                 fetchQuestions(sessionID);
             }
@@ -265,6 +266,7 @@ function getScore() {
                 messageBoxP.style.color = "green";
                 document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
                     "Treasure Hunt";
+                document.getElementById("followTwitter").style.display = "block";
                 document.getElementById("messageBoxP").style.display = "block";
 
                 getLeaderboard();
@@ -276,6 +278,7 @@ function getLeaderboard() {
     fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=10")
         .then(response => response.json())
         .then(jsonObject => {
+
             console.log("Leader board " + sessionID);
             console.log(jsonObject);
         });
