@@ -42,7 +42,7 @@ function getChallenges() {
                 treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
                 treasureHuntsButton.style.marginTop = "25px";
                 treasureHuntsButton.style.marginBottom = "0";
-                treasureHuntsButton.style.padding = "10px";
+                treasureHuntsButton.style.padding = "20";
                 treasureHuntsButton.style.width = "95%";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
                 // Define the uuid for each TH on click

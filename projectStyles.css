@@ -636,7 +636,7 @@
 
     /*-------------------------------------------------BODY---------------------------------------------------------------*/
     body {
-        height: 580px;
+        height: 1000px;
         background-color: #071230;
         margin: 0;
         text-align: center;
@@ -659,7 +659,7 @@
     }
 
     #developersList {
-        margin: 15px;
+        margin: 60px;
 
     }
 
