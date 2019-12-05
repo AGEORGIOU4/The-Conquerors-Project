@@ -45,13 +45,15 @@ Finished 10 Heuristics
 Added the Application in Google Analytics
 
 
+
 Marketing:
 
 Created a Twitter Account and Facebook page
 Linked the App with Google Analytics
 Verified Ownership in Google Search Console.
 Added "alternative text for Images 
-
+Added Sitemap
+Added Meta Description
 
 REFERENCES:
 W3 Schools, www.W3schools.com
