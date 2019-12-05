@@ -128,7 +128,7 @@ footer {
 /*-------------------------------------------------BODY---------------------------------------------------------------*/
 
 body {
-    height:2000px;
+    height: 2000px;
     background-color: #071230;
     margin: 0;
     text-align: center;
@@ -445,6 +445,17 @@ body {
 }
 
 /*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
+
+#leaderBoardTable {
+    display: none;
+    margin: 20px 0;
+    background-color: #FFFFFF;
+    font-size: 40px;
+}
+
+#leaderBoardTable th {
+    width: 33.3%;
+}
 
 #followTwitter {
     display: none;

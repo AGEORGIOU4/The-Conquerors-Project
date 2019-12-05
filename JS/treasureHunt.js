@@ -267,6 +267,7 @@ function getScore() {
                 document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
                     "Treasure Hunt";
                 document.getElementById("followTwitter").style.display = "block";
+                document.getElementById("leaderBoardTable").style.display = "block";
                 document.getElementById("messageBoxP").style.display = "block";
 
                 getLeaderboard();
@@ -277,29 +278,28 @@ function getScore() {
 function getLeaderboard() {
     fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=10")
         .then(response => response.json())
-        .then(jsonObject => {
-
-            console.log("Leader board " + sessionID);
+        .then(jsonObject => { handleLeaderBoard(jsonObject);
             console.log(jsonObject);
         });
 }
 
 function handleLeaderBoard(leaderboard) {
-    let options = {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit'};
+    let options = { day : 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+        second : '2-digit' };
     let html = "";
-    let leaderboardArray = leaderboard['leaderboard'];
+    let leaderboardArray = leaderboard ['leaderboard'];
     for (const entry of leaderboardArray) {
 
         let date = new Date(entry['completionTime']);
-        let formattedDate = date.toLocaleTimeString("en-uk", options);
-        html += "<tr>" +
+        let formattedDate = date.toLocaleDateString("en-UK", options);
+        html +=
+            "<tr>" +
             "<td>" + entry['player'] + "</td>" +
             "<td>" + entry['score'] + "</td>" +
-            "<td>" + entry[formattedDate] + "</td>" +
+            "<td>" + formattedDate + "</td>" +
             "</tr>";
 
-        let leaderboardElement = document.getElementById('test-results-table'); // table
-        leaderboardElement.innerHTML += html;  // append generated HTML to existing
+        document.getElementById("leaderBoardTable").innerHTML += html;
 
     }
 }

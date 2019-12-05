@@ -7,7 +7,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154060536-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-154060536-1');
@@ -68,9 +72,9 @@
     </button>
 
     <form action="qrCode.html">
-    <button id="qrButton" value="QR">
-        <img id="qrImg" src="IMAGES/qrCode.png" alt="QR Code">
-    </button>
+        <button id="qrButton" value="QR">
+            <img id="qrImg" src="IMAGES/qrCode.png" alt="QR Code">
+        </button>
     </form>
     <button id="skipButton" value="SKIP" onclick="skipQuestion()">SKIP</button>
 </div>
@@ -82,7 +86,7 @@
 
 <!--Instructions Paragraph-->
 <div id="instructionsPbox">
-<p id="instructionsP"><span style="font-weight: 900; text-align: center;">INSTRUCTIONS</span><br>
+    <p id="instructionsP"><span style="font-weight: 900; text-align: center;">INSTRUCTIONS</span><br>
         Select a Treasure Hunt Challenge <br>
         Enter a valid username<br>
         For every correct answer you earn 10 points<br>
@@ -141,7 +145,8 @@
         <button value="Submit" id="placeholderSubmit">Submit</button>
     </form>
 
-    <form name="enterNumberAnswer" id="answerNumberForm" method="get" action='javascript:getAnswer(placeholderNumberBox.value)'>
+    <form name="enterNumberAnswer" id="answerNumberForm" method="get"
+          action='javascript:getAnswer(placeholderNumberBox.value)'>
         <label for="placeholderNumberBox"></label>
         <input type="number" id="placeholderNumberBox" value="">
         <button value="Submit" id="placeholderNumberSubmit">Submit</button>
@@ -154,10 +159,21 @@
 
 <p id="treasureHuntsDescriptionParagraph"></p>
 
+<!-----------------------------------------------PHASE 04-------------------------------------------------------------->
 <div id="followTwitter">
-    <a href="https://twitter.com/TheConquerors4?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @TheConquerors4</a>
+    <a href="https://twitter.com/TheConquerors4?ref_src=twsrc%5Etfw" class="twitter-follow-button"
+       data-show-count="false">Follow @TheConquerors4</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
+
+<table id="leaderBoardTable">
+    <tr>
+        <th>Player</th>
+        <th>Score</th>
+        <th>Time</th>
+    </tr>
+</table>
+
 </body>
 
 </html>
