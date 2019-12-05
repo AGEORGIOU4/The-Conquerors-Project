@@ -17,10 +17,6 @@ let playerName = "";
 let appName = "";
 let latitude = "";
 let longitude = "";
-const cookieSession = "cookieSession";
-const cookiePlayerName = "cookiePlayerName";
-
-let cookies = document.cookie;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -46,7 +42,7 @@ function getChallenges() {
                 treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
                 treasureHuntsButton.style.marginTop = "25px";
                 treasureHuntsButton.style.marginBottom = "0";
-                treasureHuntsButton.style.padding = "25px";
+                treasureHuntsButton.style.padding = "60px";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
                 // Define the uuid for each TH on click
                 treasureHuntsButton.onclick = function () {
@@ -99,7 +95,6 @@ function getCredentials() {
     selectTH2.style.display = "none";
     instructionsP.style.display = "none";
 
-
     // Show username input
     let userInput = document.getElementById("usernameBox");
     userInput.style.display = "block";
@@ -127,25 +122,16 @@ function startSession() {
 
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
-                messageBoxP.style.display = "block";
                 messageBoxP.innerText = jsonObject.errorMessages;
+                messageBoxP.style.display = "block";
             } else {
-                setCookie(cookieSession, sessionID, 1);
-                setCookie(cookiePlayerName, playerName, 1);
-
                 document.getElementById("messageBoxP").style.display = "none";
                 // If all params are correct (username, app name, session) call the questions
                 document.getElementById("treasureHuntsDescriptionParagraph").style.display = "none";
                 document.getElementById("loading").style.display = "none";
-                console.log(cookies);
                 fetchQuestions(sessionID);
             }
         });
-}
-
-function resumeSession() {
-   getCookie(cookieSession);
-
 }
 
 function fetchQuestions() {
@@ -172,6 +158,7 @@ function fetchQuestions() {
                 if (jsonObject.completed === true) {
                 }
                 if (jsonObject.requiresLocation === true) {
+                    document.getElementById("locationButton").style.display = "block";
                     getLocation(latitude, longitude);
                 }
                 if (jsonObject.canBeSkipped === true) {
@@ -212,23 +199,27 @@ function getTypeOfQuestion(typeOfQuestion) {
 }
 
 function getAnswer(answer) {
+
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
-            document.getElementById("messageBoxP").style.display = "block";
-            messageBoxP.style.color = "red";
             document.getElementById("placeholderBox");
             document.getElementById("placeholderNumberBox");
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
+                messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
+                document.getElementById("messageBoxP").style.display = "block";
             } if (jsonObject.correct === false) {
+                messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.message + " -3";
+                document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             } if (jsonObject.correct === true) {
-                messageBoxP.innerText = jsonObject.message + " +10";
                 messageBoxP.style.color = "green";
+                messageBoxP.innerText = jsonObject.message + " +10";
+                document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
 
@@ -240,17 +231,18 @@ function getAnswer(answer) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 function skipQuestion() {
-    messageBoxP.style.color = "red";
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-            document.getElementById("messageBoxP").style.display = "block";
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
+                messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
+                document.getElementById("messageBoxP").style.display = "block";
             } else {
                 messageBoxP.style.color = "yellow";
                 messageBoxP.innerText = jsonObject.message + " -5";
+                document.getElementById("messageBoxP").style.display = "block";
                 fetchQuestions(sessionID);
             }
         });
@@ -268,13 +260,12 @@ function getScore() {
             scoreP.innerText = "Score: " + jsonObject.score;
 
             if (jsonObject.completed === true) {
-                document.getElementById("messageBoxDiv").style.display = "block";
-                document.getElementById("messageBoxP").style.display = "block";
                 document.getElementById("questionSection").style.display = "none";
                 document.getElementById("answerButtons").style.display = "none";
+                messageBoxP.style.color = "green";
                 document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
                     "Treasure Hunt";
-                messageBoxP.style.color = "green";
+                document.getElementById("messageBoxP").style.display = "block";
 
                 getLeaderboard();
             }
@@ -310,44 +301,18 @@ function handleLeaderBoard(leaderboard) {
     }
 }
 
-
-// Set cookie for session
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-
 //========================OTHER FUNCTIONS=========================//
 
 
 //=========================GET LOCATION=========================//
 function getLocation() {
-    document.getElementById("messageBoxDiv").style.display = "block";
-    document.getElementById("messageBoxP").style.display = "block";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
 
     } else {
+        messageBoxP.style.color = "red";
         messageBoxP.innerText = "Geolocation is not supported by your browser.";
+        document.getElementById("messageBoxP").style.display = "block";
     }
 }
 
@@ -359,14 +324,16 @@ function showPosition(position) {
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-            document.getElementById("messageBoxP").style.display = "block";
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
+                document.getElementById("messageBoxP").style.display = "block";
             } else {
-                messageBoxP.innerText = jsonObject.message;
                 messageBoxP.style.color = "blue";
+                messageBoxP.innerText = jsonObject.message;
+                document.getElementById("messageBoxP").style.display = "block";
+
                 setInterval(function () {
                     showPosition(position)}, 60000)
             }

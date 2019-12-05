@@ -20,13 +20,13 @@
 
     <title>Start</title>
 
-    <script src="JS/treasureHuntFunctions.js"></script>
+    <script src="JS/treasureHunt.js"></script>
     <link rel="stylesheet" type="text/css" href="projectStyles.css">
     <link rel='icon' href='IMAGES/FaviconLogoConquerors.png' type='image/x-icon'>
 
 </head>
 
-<body onload="resumeSession()">
+<body>
 
 <!------------------------------------------------HEADER--------------------------------------------------------------->
 
@@ -98,7 +98,6 @@
         <input type="text" name="player" id="username">
         <br>
         <input type="button" id="submitButton" onclick="startSession(uuid)" value="START">
-        <input type="button" id="submitButtonNewGame" onclick="resumeSession(cookieSession)" value="RESUME">
     </form>
 </div>
 
