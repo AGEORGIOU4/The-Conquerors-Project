@@ -291,7 +291,6 @@ function getScore() {
             scoreP.innerText = "Score: " + jsonObject.score;
 
             if (jsonObject.completed === true) {
-                document.getElementById("currentQuestionP").style.display = "none";
                 document.getElementById("questionSection").style.display = "none";
                 document.getElementById("answerButtons").style.display = "none";
                 messageBoxP.style.color = "green";
