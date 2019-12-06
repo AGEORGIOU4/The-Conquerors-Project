@@ -471,25 +471,51 @@
     }
 
     /*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
+    #enjoyGame {
+        display: none;
+    }
+
+    #ask {
+        font-size: xx-large;
+        color: deeppink;
+    }
+
+    #fb-root.fb_reset {
+        text-align: center;
+    }
+
     #leaderBoardTable {
         display: none;
-        margin: 20px auto;
+        margin: 30px auto;
         background-color: #FFFFFF;
         font-size: 40px;
     }
 
     #leaderBoardTable th {
-        width: 33.3%;
         background-color: #adad5c;
+    }
+
+    #rank {
+        width: 10%;
+    }
+
+    #playerHead {
+        width: 35%;
+    }
+
+    #scoreHead {
+        width: 15%;
+    }
+
+    #timeHead {
+        width: 40%;
     }
 
     #leaderBoardTable tr:nth-child(even) {
         background-color: #f2f2f2;
     }
 
-    #followTwitter {
-        display: none;
-    }
+
 
     /*================================================QR PAGE=============================================================*/
     #preview {
@@ -548,9 +574,9 @@
 
     /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
     #socialBar {
-        margin: 5px;
+        margin: 10px;
         position: absolute;
-        height: 40px;
+        height: 80px;
         text-align: center;
         background-color: #adad5c;
         border-radius: 10px;
@@ -566,7 +592,7 @@
     #locationImg {
         display: none;
         margin: 10px;
-        width: 24px;
+        width: 73px;
     }
 
     #goHome {
@@ -578,7 +604,7 @@
     #homeImg {
         display: block;
         margin: 10px;
-        width: 24px;
+        width: 73px;
     }
 
     #qrButton {
@@ -590,7 +616,7 @@
     #qrImg {
         display: block;
         margin: 10px;
-        width: 24px;
+        width: 73px;
     }
 
     #skipButton {
@@ -614,21 +640,21 @@
     }
 
     #twitterLogo {
-        height: 30px;
-        width: 30px;
-        margin: 5px;
+        height: 50px;
+        width: 50px;
+        margin: 15px;
     }
 
     #twitterLogo:hover {
-        height: 80px;
-        width: 80px;
+        height: 60px;
+        width: 60px;
         margin: 2px 10px;
     }
 
     #facebookLogo {
-        height: 30px;
-        width: 30px;
-        margin: 5px;
+        height: 50px;
+        width: 50px;
+        margin: 15px;
     }
 
     #facebookLink {
@@ -636,21 +662,21 @@
     }
 
     #facebookLogo:hover {
-        height: 80px;
-        width: 80px;
+        height: 60px;
+        width: 60px;
         margin: 2px 10px;
 
     }
 
     #githubLogo {
-        height: 30px;
-        width: 30px;
-        margin: 5px;
+        height: 50px;
+        width: 50px;
+        margin: 15px;
     }
 
     #githubLogo:hover {
-        height: 80px;
-        width: 80px;
+        height: 60px;
+        width: 60px;
         margin: 2px 10px;
 
     }
@@ -668,7 +694,7 @@
     }
 
     #headBar {
-        height: 50px;
+        height: 100px;
         background-color: #00262c;
     }
 
@@ -984,6 +1010,19 @@
     }
 
     /*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
+    #enjoyGame {
+        display: none;
+    }
+
+    #fb-root.fb_reset {
+    text-align: center;
+}
+
+    #ask {
+        font-size: xx-large;
+        color: deeppink;
+    }
+
     #leaderBoardTable {
         display: none;
         padding: 20px;
@@ -992,7 +1031,6 @@
     }
 
     #leaderBoardTable th {
-        width: 33.3%;
         background-color: #adad5c;
     }
 
@@ -1000,8 +1038,20 @@
         background-color: #f2f2f2;
     }
 
-    #followTwitter {
-        display: none;
+    #rank {
+        width: 10%;
+    }
+
+    #playerHead {
+        width: 35%;
+    }
+
+    #scoreHead {
+        width: 15%;
+    }
+
+    #timeHead {
+        width: 40%;
     }
 
     /*================================================QR PAGE=============================================================*/

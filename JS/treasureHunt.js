@@ -272,7 +272,8 @@ function getScore() {
                 document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
                     "Treasure Hunt";
                 messageBoxP.style.padding = "50px";
-                document.getElementById("followTwitter").style.display = "block";
+                document.getElementById( "enjoyGame").style.display = "block";
+                document.getElementById("messageBoxDiv").style.display = "block";
                 document.getElementById("messageBoxP").style.display = "block";
 
                 getLeaderBoard();
@@ -282,12 +283,16 @@ function getScore() {
 
 function getLeaderBoard() {
     document.getElementById("loading").style.display = "block";
-    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=10")
+    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=20")
         .then(response => response.json())
-        .then(jsonObject =>  handleLeaderBoard(jsonObject));
+        .then(jsonObject => {
+            handleLeaderBoard(jsonObject);
+        });
+
 }
 
 function handleLeaderBoard(leaderboard) {
+    let rank = 1;
     let options = { day : 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
         second : '2-digit' };
     let html = "";
@@ -297,10 +302,12 @@ function handleLeaderBoard(leaderboard) {
         let formattedDate = date.toLocaleDateString("en-UK", options);
         html +=
             "<tr>" +
+            "<td>" + rank + "</td>" +
             "<td>" + entry['player'] + "</td>" +
             "<td>" + entry['score'] + "</td>" +
             "<td>" + formattedDate + "</td>" +
             "</tr>";
+        rank += 1;
     }
         document.getElementById("leaderBoardTable").innerHTML += html;
         document.getElementById("loading").style.display = "none";
