@@ -291,9 +291,10 @@ function getScore() {
             if (jsonObject.completed === true) {
                 document.getElementById("questionSection").style.display = "none";
                 document.getElementById("answerButtons").style.display = "none";
-                messageBoxP.style.color = "green";
                 document.getElementById("messageBoxP").innerText = "Congratulations!";
+                messageBoxP.style.color = "green";
                 messageBoxP.style.padding = "50px";
+                messageBoxP.style.fontSize = "40px";
                 document.getElementById("enjoyGame").style.display = "block";
                 document.getElementById("messageBoxDiv").style.display = "block";
                 document.getElementById("messageBoxP").style.display = "block";

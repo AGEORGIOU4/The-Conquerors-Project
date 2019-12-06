@@ -482,6 +482,9 @@
     #ask {
         font-size: 35px;
         color: deeppink;
+        margin: 0 100px;
+        padding: 40px;
+        border-top: 3px solid grey;
     }
 
     #leaderBoardTable {
@@ -1020,7 +1023,7 @@
 
 
     #ask {
-        margin-top: 0;
+        margin: 0 100px;
         font-size: xx-large;
         color: deeppink;
         padding: 40px;
