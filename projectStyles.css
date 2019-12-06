@@ -75,13 +75,16 @@
 
     #skipButton {
         display: none;
+        position: absolute;
+        right: 10px;
+        top: 20px;
         float: right;
-        width: 180px;
+        width: 280px;
         height: 110px;
-        margin: 10px 0 10px;
-        color: #000000;
-        background-color: #FFFFFF;
-        border: 1px solid #464545;
+        margin: 10px 0;
+        /* color: #000000; */
+        /* background-color: #FFFFFF; */
+        /* border: 1px solid #464545; */
         font-size: 40px;
         cursor: pointer;
     }
@@ -592,14 +595,17 @@
 
     #skipButton {
         display: none;
+        position: absolute;
+        right: 10px;
+        top: 20px;
         float: right;
-        width: 180px;
-        height: 40px;
-        margin: 5px 0 10px;
-        color: #000000;
-        background-color: #FFFFFF;
-        border: 1px solid #464545;
-        font-size: 33px;
+        width: 280px;
+        height: 110px;
+        margin: 10px 0;
+        /* color: #000000; */
+        /* background-color: #FFFFFF; */
+        /* border: 1px solid #464545; */
+        font-size: 40px;
         cursor: pointer;
     }
 

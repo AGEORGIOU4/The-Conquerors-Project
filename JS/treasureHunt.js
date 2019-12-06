@@ -344,7 +344,8 @@ function showPosition(position) {
                 document.getElementById("messageBoxP").style.display = "block";
 
                 setInterval(function () {
-                    showPosition(position)}, 60000)
+                    showPosition(position)}, 40000);
+                document.getElementById("locationImg").style.display = "block";
             }
         });
 }
