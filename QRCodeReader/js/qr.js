@@ -51,12 +51,16 @@ function QRCodeReader() {
     });
 
 
-    //code obtained from
+    //code obtained from github
     scanner.addListener('scan', function (content) {
         console.log(content);
         document.getElementById("content").innerHTML = content;
         if (content.match(/^https?:\/\//i)) {
             window.open(content);
+        }
+        else {
+            document.getElementById("placeholderBox").value = content;
+            document.getElementById("placeholderNumberBox").value = content;
         }
     });
 }
