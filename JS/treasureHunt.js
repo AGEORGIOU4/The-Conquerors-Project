@@ -99,7 +99,7 @@ function getCredentials() {
 
     // Show username input
     document.getElementById("usernameMessage").style.display = "block";
-    document.getElementById("usernameBox").style.display = "block";;
+    document.getElementById("usernameBox").style.display = "block";
     document.getElementById("treasureHuntsDescriptionParagraph").style.display = "block";
 }
 
@@ -300,7 +300,7 @@ function handleLeaderBoard(leaderboard) {
             "<td>" + formattedDate + "</td>" +
             "</tr>";
     }
-        document.getElementById("leaderBoardTable").innerHTML += html;;
+        document.getElementById("leaderBoardTable").innerHTML += html;
         document.getElementById("leaderBoardTable").style.display = "block";
 }
 
