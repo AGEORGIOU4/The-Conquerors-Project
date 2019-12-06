@@ -153,7 +153,7 @@
 
     #headBar {
         height: 130px;
-        background-color: #00262c;
+        background-color: #adad5c;
     }
 
     /*=============================================LANDING PAGE===========================================================*/
@@ -168,7 +168,7 @@
     }
 
     #developersList {
-        margin: 88px;
+        margin: 70px;
 
     }
 
@@ -396,6 +396,15 @@
         color: red;
     }
 
+    #currentQuestionP {
+        display: none;
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        font-size: 70px;
+        color: #adad5c;
+    }
+
     /* Answer Buttons */
     #answerButtons {
         text-align: center;
@@ -616,7 +625,7 @@
         display: none;
         position: absolute;
         right: 10px;
-        top: 20px;
+        top: 10px;
         float: right;
         width: 280px;
         height: 110px;
@@ -688,7 +697,7 @@
 
     #headBar {
         height: 100px;
-        background-color: #00262c;
+        background-color: #adad5c;
     }
 
     /*=============================================LANDING PAGE===========================================================*/
@@ -929,6 +938,17 @@
 
     #question a {
         color: red;
+    }
+
+    #currentQuestionP {
+        display: none;
+        position: absolute;
+        margin: 0;
+        bottom: 0;
+        left: 10px;
+        font-size: 70px;
+        color: #adad5c;
+
     }
 
     /* Answer Buttons */

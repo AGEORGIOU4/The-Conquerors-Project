@@ -15,6 +15,7 @@ let uuid = "";
 let description = "";
 let playerName = "";
 let appName = "";
+let scoreAdjustment = 0;
 let latitude = "";
 let longitude = "";
 
@@ -120,6 +121,8 @@ function startSession() {
             // Set sessionID to the current session
             sessionID = jsonObject.session;
 
+            console.log(jsonObject);
+
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
                 messageBoxP.innerText = jsonObject.errorMessages;
@@ -144,6 +147,7 @@ function fetchQuestions() {
     document.getElementById("locationButton").style.display = "none";
     document.getElementById("qrImg").style.display = "block";
     document.getElementById("questionSection").style.display = "block";
+    document.getElementById("currentQuestionP").style.display = "block";
     document.getElementById("answerForm").style.display = "block";
     document.getElementById("answerNumberForm").style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
@@ -153,7 +157,17 @@ function fetchQuestions() {
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
-        .then(jsonObject => {              //Print on the console the object attributes
+        .then(jsonObject => {
+
+            let index = JSON.parse(jsonObject.currentQuestionIndex);
+            index +=1;
+            let numOfQuestion = JSON.parse(jsonObject.numOfQuestions);
+            if (index > numOfQuestion) {
+                index = numOfQuestion;
+            }
+
+            currentQuestionP.innerText = "Question: " + index + " / " + jsonObject.numOfQuestions;
+
             if (jsonObject.status === "ERROR") {
                 document.getElementById("messageBoxP").innerText = jsonObject.errorMessages;
             } else {
@@ -173,6 +187,7 @@ function fetchQuestions() {
                 if (jsonObject.canBeSkipped === false) {
                     document.getElementById("skipButton").style.display = "none";
                 }
+
                 let typeOfQuestion = jsonObject.questionType;
                 getTypeOfQuestion(typeOfQuestion);
             }
@@ -209,6 +224,11 @@ function getAnswer(answer) {
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
+
+            console.log(jsonObject);
+
+            scoreAdjustment = jsonObject.scoreAdjustment;
+
             document.getElementById("placeholderBox");
             document.getElementById("placeholderNumberBox");
             // Give some alert messages if the username is not valid
@@ -219,14 +239,14 @@ function getAnswer(answer) {
             }
             if (jsonObject.correct === false) {
                 messageBoxP.style.color = "red";
-                messageBoxP.innerText = jsonObject.message + "  -3";
+                messageBoxP.innerText = jsonObject.message +  "  " + scoreAdjustment;
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             }
             if (jsonObject.correct === true) {
                 messageBoxP.style.color = "green";
-                messageBoxP.innerText = jsonObject.message + "  +10";
+                messageBoxP.innerText = jsonObject.message  + "  +" + scoreAdjustment;
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
@@ -242,6 +262,12 @@ function skipQuestion() {
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
+
+            console.log(jsonObject);
+
+            scoreAdjustment = jsonObject.scoreAdjustment;
+
+
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.color = "red";
@@ -249,7 +275,7 @@ function skipQuestion() {
                 document.getElementById("messageBoxP").style.display = "block";
             } else {
                 messageBoxP.style.color = "yellow";
-                messageBoxP.innerText = jsonObject.message + "  -5";
+                messageBoxP.innerText = jsonObject.message + "  " + scoreAdjustment;
                 document.getElementById("messageBoxP").style.display = "block";
                 fetchQuestions(sessionID);
             }
@@ -264,10 +290,14 @@ function getScore() {
     fetch(API_SCORE + "?session=" + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
+
+            console.log(jsonObject);
+
             playerNameP.innerText = "Player: " + jsonObject.player;
             scoreP.innerText = "Score: " + jsonObject.score;
 
             if (jsonObject.completed === true) {
+                document.getElementById("currentQuestionP").style.display = "none";
                 document.getElementById("questionSection").style.display = "none";
                 document.getElementById("answerButtons").style.display = "none";
                 messageBoxP.style.color = "green";
@@ -288,6 +318,9 @@ function getLeaderBoard() {
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
         .then(response => response.json())
         .then(jsonObject => {
+
+            console.log(jsonObject);
+
             handleLeaderBoard(jsonObject);
         });
 
@@ -342,6 +375,9 @@ function showPosition(position) {
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
+
+            console.log(jsonObject);
+
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.color = "red";
@@ -350,13 +386,13 @@ function showPosition(position) {
             } else {
 
                 document.getElementById("locationImg").style.display = "block";
-                messageBoxP.style.color = "blue";
+                messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
                 document.getElementById("messageBoxP").style.display = "block";
 
                 setInterval(function () {
                     showPosition(position)
-                }, 40000);
+                }, 60000);
                 document.getElementById("locationImg").style.display = "block";
             }
         });
