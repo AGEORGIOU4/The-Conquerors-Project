@@ -160,7 +160,7 @@ function fetchQuestions() {
         .then(jsonObject => {
 
             let index = JSON.parse(jsonObject.currentQuestionIndex);
-            index +=1;
+            index += 1;
             let numOfQuestion = JSON.parse(jsonObject.numOfQuestions);
             if (index > numOfQuestion) {
                 index = numOfQuestion;
@@ -225,8 +225,6 @@ function getAnswer(answer) {
         .then(response => response.json())
         .then(jsonObject => {
 
-            console.log(jsonObject);
-
             scoreAdjustment = jsonObject.scoreAdjustment;
 
             document.getElementById("placeholderBox");
@@ -239,14 +237,14 @@ function getAnswer(answer) {
             }
             if (jsonObject.correct === false) {
                 messageBoxP.style.color = "red";
-                messageBoxP.innerText = jsonObject.message +  "  " + scoreAdjustment;
+                messageBoxP.innerText = jsonObject.message + "  " + scoreAdjustment;
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             }
             if (jsonObject.correct === true) {
                 messageBoxP.style.color = "green";
-                messageBoxP.innerText = jsonObject.message  + "  +" + scoreAdjustment;
+                messageBoxP.innerText = jsonObject.message + "  +" + scoreAdjustment;
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
@@ -262,8 +260,6 @@ function skipQuestion() {
     fetch(API_SKIP + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-
-            console.log(jsonObject);
 
             scoreAdjustment = jsonObject.scoreAdjustment;
 
@@ -291,8 +287,6 @@ function getScore() {
         .then(response => response.json())
         .then(jsonObject => {
 
-            console.log(jsonObject);
-
             playerNameP.innerText = "Player: " + jsonObject.player;
             scoreP.innerText = "Score: " + jsonObject.score;
 
@@ -318,8 +312,6 @@ function getLeaderBoard() {
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
         .then(response => response.json())
         .then(jsonObject => {
-
-            console.log(jsonObject);
 
             handleLeaderBoard(jsonObject);
         });
@@ -375,8 +367,6 @@ function showPosition(position) {
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-
-            console.log(jsonObject);
 
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {

@@ -8,14 +8,14 @@
     /*------------------------------------------------HEADER--------------------------------------------------------------*/
     header {
         width: 100%;
-        height: 175px;
+        height: 200px;
         text-align: center;
         background-color: white;
     }
 
     #theConquerorsLogo {
         width: 75%;
-        padding: 20px 30px;
+        height: 200px;
     }
 
     /*------------------------------------------------FOOTER--------------------------------------------------------------*/
@@ -76,16 +76,13 @@
     #skipButton {
         display: none;
         position: absolute;
-        right: 10px;
-        top: 20px;
+        height: 100px;
+        right: 25px;
+        top: 50px;
         float: right;
         width: 280px;
-        height: 110px;
-        margin: 10px 0;
-        /* color: #000000; */
-        /* background-color: #FFFFFF; */
-        /* border: 1px solid #464545; */
         font-size: 40px;
+        border-radius: 60px;
         cursor: pointer;
     }
 
@@ -343,7 +340,8 @@
 
     #gameAttributes {
         display: none;
-        padding: 10px;
+        height: 190px;
+        padding: 5px;
         text-align: left;
     }
 
@@ -356,6 +354,14 @@
     }
 
     #scoreP {
+        margin: 0;
+        padding: 0 5px;
+        font-size: 54px;
+        color: #adad5c;
+        font-weight: 900;
+    }
+
+    #currentQuestionP {
         margin: 0;
         padding: 0 5px;
         font-size: 54px;
@@ -396,14 +402,6 @@
         color: red;
     }
 
-    #currentQuestionP {
-        display: none;
-        position: absolute;
-        bottom: 50px;
-        left: 50px;
-        font-size: 70px;
-        color: #adad5c;
-    }
 
     /* Answer Buttons */
     #answerButtons {
@@ -559,13 +557,14 @@
     /*------------------------------------------------HEADER--------------------------------------------------------------*/
     header {
         width: 100%;
+        height: 160px;
         text-align: center;
         background-color: white;
     }
 
     #theConquerorsLogo {
-        width: 30%;
-        padding: 20px 30px;
+        width: 60%;
+        height: 160px;
     }
 
     /*------------------------------------------------FOOTER--------------------------------------------------------------*/
@@ -625,14 +624,10 @@
         display: none;
         position: absolute;
         right: 10px;
-        top: 10px;
+        top: 30px;
         float: right;
         width: 280px;
-        height: 110px;
-        margin: 10px 0;
-        /* color: #000000; */
-        /* background-color: #FFFFFF; */
-        /* border: 1px solid #464545; */
+        height: 100px;
         font-size: 40px;
         cursor: pointer;
     }
@@ -886,6 +881,7 @@
 
     #gameAttributes {
         display: none;
+        height: 140px;
         padding: 10px;
         text-align: left;
     }
@@ -905,6 +901,7 @@
         color: #adad5c;
         font-weight: 900;
     }
+
 
     #treasureHuntsDescriptionParagraph {
         display: none;
