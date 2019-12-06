@@ -44,6 +44,10 @@ Finished 10 Heuristics
 5/12
 Added the Application in Google Analytics
 
+6/12
+Optimized the app on desktop devices
+Embedded tweeter on landing page
+Added url identified on qr code reader
 
 
 Marketing:
@@ -56,6 +60,6 @@ Added Sitemap
 Added Meta Description
 
 REFERENCES:
-W3 Schools, www.W3schools.com
+W3 Schools, www.W3schools.com, github
 
 
