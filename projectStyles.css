@@ -326,7 +326,6 @@
 
     #messageBoxDiv {
         display: none;
-        height: 400px;
     }
 
     #messageBoxP {
@@ -481,7 +480,7 @@
     }
 
     #ask {
-        font-size: xx-large;
+        font-size: 35px;
         color: deeppink;
     }
 
@@ -889,7 +888,7 @@
     #playerNameP {
         margin: 0;
         padding: 0 5px;
-        font-size: 54px;
+        font-size: 40px;
         color: #adad5c;
         font-weight: 900;
     }
@@ -897,7 +896,15 @@
     #scoreP {
         margin: 0;
         padding: 0 5px;
-        font-size: 54px;
+        font-size: 40px;
+        color: #adad5c;
+        font-weight: 900;
+    }
+
+    #currentQuestionP {
+        margin: 0;
+        padding: 0 5px;
+        font-size: 40px;
         color: #adad5c;
         font-weight: 900;
     }
@@ -935,17 +942,6 @@
 
     #question a {
         color: red;
-    }
-
-    #currentQuestionP {
-        display: none;
-        position: absolute;
-        margin: 0;
-        bottom: 0;
-        left: 10px;
-        font-size: 70px;
-        color: #adad5c;
-
     }
 
     /* Answer Buttons */
@@ -1024,8 +1020,11 @@
 
 
     #ask {
+        margin-top: 0;
         font-size: xx-large;
         color: deeppink;
+        padding: 40px;
+        border-top: 3px solid grey;
     }
 
     #leaderBoardTable {

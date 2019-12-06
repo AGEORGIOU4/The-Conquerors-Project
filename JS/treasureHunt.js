@@ -121,8 +121,6 @@ function startSession() {
             // Set sessionID to the current session
             sessionID = jsonObject.session;
 
-            console.log(jsonObject);
-
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
                 messageBoxP.innerText = jsonObject.errorMessages;
@@ -294,8 +292,7 @@ function getScore() {
                 document.getElementById("questionSection").style.display = "none";
                 document.getElementById("answerButtons").style.display = "none";
                 messageBoxP.style.color = "green";
-                document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
-                    "Treasure Hunt";
+                document.getElementById("messageBoxP").innerText = "Congratulations!";
                 messageBoxP.style.padding = "50px";
                 document.getElementById("enjoyGame").style.display = "block";
                 document.getElementById("messageBoxDiv").style.display = "block";
