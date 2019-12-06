@@ -142,6 +142,7 @@ function fetchQuestions() {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("usernameBox").style.display = "none";
     document.getElementById("locationButton").style.display = "none";
+    document.getElementById("qrImg").style.display = "block";
     document.getElementById("questionSection").style.display = "block";
     document.getElementById("answerForm").style.display = "block";
     document.getElementById("answerNumberForm").style.display = "block";
@@ -280,6 +281,7 @@ function getScore() {
 }
 
 function getLeaderBoard() {
+    document.getElementById("loading").style.display = "block";
     fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=10")
         .then(response => response.json())
         .then(jsonObject =>  handleLeaderBoard(jsonObject));
@@ -301,6 +303,7 @@ function handleLeaderBoard(leaderboard) {
             "</tr>";
     }
         document.getElementById("leaderBoardTable").innerHTML += html;
+        document.getElementById("loading").style.display = "none";
         document.getElementById("leaderBoardTable").style.display = "block";
 }
 
@@ -309,6 +312,7 @@ function handleLeaderBoard(leaderboard) {
 
 //=========================GET LOCATION=========================//
 function getLocation() {
+    document.getElementById("locationButton").style.display = "block";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
 
@@ -333,7 +337,8 @@ function showPosition(position) {
                 messageBoxP.innerText = jsonObject.errorMessages;
                 document.getElementById("messageBoxP").style.display = "block";
             } else {
-                document.getElementById("locationButton").style.display = "block";
+
+                document.getElementById("locationImg").style.display = "block";
                 messageBoxP.style.color = "blue";
                 messageBoxP.innerText = jsonObject.message;
                 document.getElementById("messageBoxP").style.display = "block";
@@ -343,5 +348,3 @@ function showPosition(position) {
             }
         });
 }
-
-
