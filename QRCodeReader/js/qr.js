@@ -50,9 +50,14 @@ function QRCodeReader() {
         console.error(e);
     });
 
+
+    //code obtained from
     scanner.addListener('scan', function (content) {
         console.log(content);
         document.getElementById("content").innerHTML = content;
+        if (content.match(/^https?:\/\//i)) {
+            window.open(content);
+        }
     });
 }
 
