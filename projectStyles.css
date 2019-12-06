@@ -1013,6 +1013,7 @@
 
     #leaderBoardTable {
         display: none;
+        margin: 30px 0;
         padding: 20px;
         background-color: #FFFFFF;
         font-size: 40px;
