@@ -365,6 +365,7 @@
     /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
     #questionSection {
         display: none;
+        margin: 50px;
         height: 300px;
         padding: 20px;
         font-size: 60px;
@@ -377,13 +378,6 @@
 
     #question a {
         color: red;
-    }
-
-    #answerForm {
-        display: none;
-        clear: both;
-        float: left;
-        width: 100%;
     }
 
     /* Answer Buttons */
@@ -461,7 +455,7 @@
     /*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
     #leaderBoardTable {
         display: none;
-        margin: 20px 0;
+        margin: 20px auto;
         background-color: #FFFFFF;
         font-size: 40px;
     }
@@ -553,8 +547,8 @@
 
     #locationImg {
         display: block;
-        margin: 10px;
-        width: 108px;
+        margin: 5px;
+        width: 38px;
     }
 
     #qrButton {
@@ -567,7 +561,7 @@
     #qrImg {
         display: block;
         margin: 5px;
-        width: 40px;
+        width: 38px;
         border: 1px solid #464545;
     }
 
@@ -636,7 +630,7 @@
 
     /*-------------------------------------------------BODY---------------------------------------------------------------*/
     body {
-        height: 1000px;
+        height: 900px;
         background-color: #071230;
         margin: 0;
         text-align: center;
@@ -798,7 +792,7 @@
 
     #username {
         width: 50%;
-        height: 40px;
+        height: 60px;
         margin: 20px auto;
         font-size: 40px;
         border: 2px solid #000000;
@@ -808,7 +802,7 @@
     #submitButton {
         width: 50%;
         color: #000000;
-        font-size: 30px;
+        font-size: 40px;
     }
 
     #submitButtonNewGame {
@@ -827,7 +821,7 @@
         margin: 0;
         padding: 0 5px;
         color: red;
-        font-size: 22px;
+        font-size: 30px;
         font-weight: 900;
     }
 
@@ -872,6 +866,7 @@
 
     /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
     #questionSection {
+        height: 100px;
         display: none;
         padding: 20px;
         font-size: 60px;
@@ -885,13 +880,6 @@
 
     #question a {
         color: red;
-    }
-
-    #answerForm {
-        display: none;
-        clear: both;
-        float: left;
-        width: 100%;
     }
 
     /* Answer Buttons */
@@ -924,44 +912,41 @@
 
     #placeholderBox {
         display: none;
-        float: left;
-        width: 70%;
-        height: 70px;
-        margin: 20px 0 20px 30px;
-        font-size: 40px;
+        padding: 0;
+        margin: 10px auto;
+        height: 72px;
+        color: #000000;
+        font-size: 60px;
         border: 2px solid #000000;
         border-radius: 15px;
     }
 
     #placeholderSubmit {
         display: none;
-        float: right;
-        margin: 20px 30px 20px 0;
-        height: 76px;
+        margin: 10px auto;
+        height: 70px;
         color: #000000;
-        font-size: 50px;
+        font-size: 60px;
         border: 2px solid #000000;
         border-radius: 15px;
     }
 
     #placeholderNumberBox {
         display: none;
-        float: left;
-        width: 60%;
-        height: 45px;
-        margin: 20px 0 20px 50px;
-        font-size: 40px;
+        margin: 10px auto;
+        height: 70px;
+        color: #000000;
+        font-size: 60px;
         border: 2px solid #000000;
         border-radius: 15px;
     }
 
     #placeholderNumberSubmit {
         display: none;
-        float: right;
-        margin: 20px 50px 20px 0;
-        height: 45px;
+        margin: 10px auto;
+        height: 70px;
         color: #000000;
-        font-size: 50px;
+        font-size: 60px;
         border: 2px solid #000000;
         border-radius: 15px;
     }
@@ -969,7 +954,7 @@
     /*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
     #leaderBoardTable {
         display: none;
-        margin: 20px 0;
+        padding: 20px;
         background-color: #FFFFFF;
         font-size: 40px;
     }

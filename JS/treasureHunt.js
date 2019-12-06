@@ -126,6 +126,7 @@ function startSession() {
                 document.getElementById("messageBoxDiv").style.display = "block";
                 messageBoxP.style.display = "block";
             } else {
+                document.getElementById("messageBoxDiv").style.display = "block";
                 document.getElementById("usernameMessage").style.display = "none";
                 document.getElementById("messageBoxP").style.display = "none";
                 // If all params are correct (username, app name, session) call the questions
@@ -140,8 +141,10 @@ function fetchQuestions() {
     getScore();
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("usernameBox").style.display = "none";
+    document.getElementById("locationButton").style.display = "none";
     document.getElementById("questionSection").style.display = "block";
     document.getElementById("answerForm").style.display = "block";
+    document.getElementById("answerNumberForm").style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
 
     // Retrieve a paragraph element named "question" to add the questions
@@ -267,8 +270,8 @@ function getScore() {
                 messageBoxP.style.color = "green";
                 document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
                     "Treasure Hunt";
+                messageBoxP.style.padding = "50px";
                 document.getElementById("followTwitter").style.display = "block";
-                document.getElementById("leaderBoardTable").style.display = "block";
                 document.getElementById("messageBoxP").style.display = "block";
 
                 getLeaderBoard();
@@ -298,6 +301,7 @@ function handleLeaderBoard(leaderboard) {
             "</tr>";
     }
         document.getElementById("leaderBoardTable").innerHTML += html;;
+        document.getElementById("leaderBoardTable").style.display = "block";
 }
 
 //========================OTHER FUNCTIONS=========================//
@@ -329,6 +333,7 @@ function showPosition(position) {
                 messageBoxP.innerText = jsonObject.errorMessages;
                 document.getElementById("messageBoxP").style.display = "block";
             } else {
+                document.getElementById("locationButton").style.display = "block";
                 messageBoxP.style.color = "blue";
                 messageBoxP.innerText = jsonObject.message;
                 document.getElementById("messageBoxP").style.display = "block";
