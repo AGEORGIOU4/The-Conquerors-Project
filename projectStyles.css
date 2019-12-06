@@ -480,10 +480,6 @@
         color: deeppink;
     }
 
-    #fb-root.fb_reset {
-        text-align: center;
-    }
-
     #leaderBoardTable {
         display: none;
         margin: 30px auto;
@@ -514,7 +510,6 @@
     #leaderBoardTable tr:nth-child(even) {
         background-color: #f2f2f2;
     }
-
 
 
     /*================================================QR PAGE=============================================================*/
@@ -1014,9 +1009,6 @@
         display: none;
     }
 
-    #fb-root.fb_reset {
-    text-align: center;
-}
 
     #ask {
         font-size: xx-large;

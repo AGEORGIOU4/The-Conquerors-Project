@@ -216,13 +216,15 @@ function getAnswer(answer) {
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
                 document.getElementById("messageBoxP").style.display = "block";
-            } if (jsonObject.correct === false) {
+            }
+            if (jsonObject.correct === false) {
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.message + "  -3";
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
-            } if (jsonObject.correct === true) {
+            }
+            if (jsonObject.correct === true) {
                 messageBoxP.style.color = "green";
                 messageBoxP.innerText = jsonObject.message + "  +10";
                 document.getElementById("messageBoxP").style.display = "block";
@@ -272,7 +274,7 @@ function getScore() {
                 document.getElementById("messageBoxP").innerText = "Congratulations! You finished the " +
                     "Treasure Hunt";
                 messageBoxP.style.padding = "50px";
-                document.getElementById( "enjoyGame").style.display = "block";
+                document.getElementById("enjoyGame").style.display = "block";
                 document.getElementById("messageBoxDiv").style.display = "block";
                 document.getElementById("messageBoxP").style.display = "block";
 
@@ -283,7 +285,7 @@ function getScore() {
 
 function getLeaderBoard() {
     document.getElementById("loading").style.display = "block";
-    fetch(API_LEADERBOARD + "?session=" +  sessionID + "&sorted&limit=20")
+    fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
         .then(response => response.json())
         .then(jsonObject => {
             handleLeaderBoard(jsonObject);
@@ -293,8 +295,10 @@ function getLeaderBoard() {
 
 function handleLeaderBoard(leaderboard) {
     let rank = 1;
-    let options = { day : 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
-        second : '2-digit' };
+    let options = {
+        day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+        second: '2-digit'
+    };
     let html = "";
     let leaderBoardArray = leaderboard['leaderboard'];
     for (const entry of leaderBoardArray) {
@@ -309,9 +313,9 @@ function handleLeaderBoard(leaderboard) {
             "</tr>";
         rank += 1;
     }
-        document.getElementById("leaderBoardTable").innerHTML += html;
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("leaderBoardTable").style.display = "block";
+    document.getElementById("leaderBoardTable").innerHTML += html;
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("leaderBoardTable").style.display = "block";
 }
 
 //========================OTHER FUNCTIONS=========================//
@@ -351,7 +355,8 @@ function showPosition(position) {
                 document.getElementById("messageBoxP").style.display = "block";
 
                 setInterval(function () {
-                    showPosition(position)}, 40000);
+                    showPosition(position)
+                }, 40000);
                 document.getElementById("locationImg").style.display = "block";
             }
         });

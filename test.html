@@ -9,154 +9,175 @@
 
 <body>
 
-    <!--Testing The List-->
-    <h2>Testing the List</h2>
+<!--Testing The List-->
+<h2>Testing the List</h2>
 
-    <hr>
+<hr>
 
-    <div id="firstTest">
+<div id="firstTest">
     <p id="titleOne">First Test</p>
-    <button id="testButton1" onclick=" getTwoChallengesTest(list); document.getElementById('firstTest').style.display = 'none';">Run Test</button>
-    </div>
+    <button id="testButton1"
+            onclick=" getTwoChallengesTest(list); document.getElementById('firstTest').style.display = 'none';">Run Test
+    </button>
+</div>
 
-    <div id="secondTest">
+<div id="secondTest">
     <p id="titleTwo">Second Test</p>
-    <button id="testButton2" onclick=" getTenChallengesTest(list); document.getElementById('secondTest').style.display = 'none';">Run Test</button>
-    </div>
+    <button id="testButton2"
+            onclick=" getTenChallengesTest(list); document.getElementById('secondTest').style.display = 'none';">Run
+        Test
+    </button>
+</div>
 
-    <div id="thirdTest">
+<div id="thirdTest">
     <p id="titleThree">Third Test</p>
-    <button id="testButton3" onclick=" getTwentyChallengesTest(list); document.getElementById('thirdTest').style.display = 'none';">Run Test</button>
-    </div>
+    <button id="testButton3"
+            onclick=" getTwentyChallengesTest(list); document.getElementById('thirdTest').style.display = 'none';">Run
+        Test
+    </button>
+</div>
 
-    <div>
-        <p id="titleSeven">Clear the Results</p>
-        <button id="buttonClearList" onclick="clearTheTestList()">Clear Results</button>
-    </div>
+<div>
+    <p id="titleSeven">Clear the Results</p>
+    <button id="buttonClearList" onclick="clearTheTestList()">Clear Results</button>
+</div>
 
-    <div id="firstResult">
+<div id="firstResult">
     <p id="titleFour">First Test Results</p>
     <ul id="challenges1"></ul>
-    </div>
+</div>
 
-    <div id="secondResult">
+<div id="secondResult">
     <p id="titleFive">Second Test Results</p>
     <ul id="challenges2"></ul>
-    </div>
+</div>
 
-    <div id="thirdResult">
-    <p id="titleSix" >Third Test Results</p>
+<div id="thirdResult">
+    <p id="titleSix">Third Test Results</p>
     <ul id="challenges3"></ul>
-    </div>
+</div>
 
 
-    <!-- Testing the Start-->
-    <h2>Testing the Start</h2>
-    <hr>
-    <button id="testButton4" onclick="getStartTest();">Run Test</button>
-    <ul id="errors"></ul>
+<!-- Testing the Start-->
+<h2>Testing the Start</h2>
+<hr>
+<button id="testButton4" onclick="getStartTest();">Run Test</button>
+<ul id="errors"></ul>
 
-    <br><br>
+<br><br>
 
-    <h2>User Acceptance Plan</h2>
+<h2>User Acceptance Plan</h2>
 
-    <hr>
+<hr>
 
-    <h3>LANDING PAGE</h3>
+<h3>LANDING PAGE</h3>
 
-    <hr>
+<hr>
 
-    <p>The user starts by entering the index.html which is the Landing Page.
-        By pressing the Twitter icon or Facebook icon the user will enter our Official Twitter Site or Facebook Page
-        where we grant more information about the web app.
-        If the user presses the Github icon he/she will be transported to our Repository page
-        and by pressing the START QUIZ BUTTON the user
-        will be taken the app.html which is the Official Web App Page.</p>
+<p>The user starts by entering the index.html which is the Landing Page.
+    By pressing the Twitter icon or Facebook icon the user will enter our Official Twitter Site or Facebook Page
+    where we grant more information about the web app.
+    If the user presses the Github icon he/she will be transported to our Repository page
+    and by pressing the START QUIZ BUTTON the user
+    will be taken the app.html which is the Official Web App Page.</p>
 
-    <h3>WEB APP</h3>
+<h3>WEB APP</h3>
 
-    <hr>
-    <h4>Choose Treasure Hunt</h4>
+<hr>
+<h4>Choose Treasure Hunt</h4>
 
-    <p>When the user proceeds to the WEB APP there are is a button called Select a Treasure Hunt which displays treasure hunts to select .
-        Additionally, there is a Location button that if it's clicked it refreshes the current location.
-        Also, there is a Barcode icon and if the user presses it the rear camera will be opened and can scan a QR Code.
-        If the user clicks an available Treasure Hunt he will be taken to the "next page".<p>
+<p>When the user proceeds to the WEB APP there are is a button called Select a Treasure Hunt which displays treasure
+    hunts to select .
+    Additionally, there is a Location button that if it's clicked it refreshes the current location.
+    Also, there is a Barcode icon and if the user presses it the rear camera will be opened and can scan a QR Code.
+    If the user clicks an available Treasure Hunt he will be taken to the "next page".
+<p>
 
-        <br>
-    <h4>Choose a Username</h4>
-    <p> After that he will see a text box which if he clicks he can enter his username and then press the START button to proceed to the "next page".
-        If he doesn't enter a username an error will be shown saying that the username is missing.
-        If he enters a username which is already taken an error will be shown saying that username is already taken.</p>
     <br>
+<h4>Choose a Username</h4>
+<p> After that he will see a text box which if he clicks he can enter his username and then press the START button to
+    proceed to the "next page".
+    If he doesn't enter a username an error will be shown saying that the username is missing.
+    If he enters a username which is already taken an error will be shown saying that username is already taken.</p>
+<br>
 
-    <h3>QUESTIONS PAGE</h3>
+<h3>QUESTIONS PAGE</h3>
 
-    <p>Then the user will be taken in the Questions Page in which he will start taking the quiz.
-        There are different types of questions if the user answers correctly he will be taken to the next question
-        but if he answers wrong he will remain in the current question question until he answers correctly or skips the question.
-        If a question can be skipped a SKIP button will be available which takes the user to the next question if it is preswsed.</p>
-    <p>1 type. The user must press the text box, type some text and then press submit to Submit his answer.</p>
-    <p>2 type. The user must press the text box, type number(s) and then press submit to Submit his answer.</p>
-    <p>3 type. The user must press the option A or B or C or D and then press submit to Submit his answer.</p>
-    <p>4 type. The user must press True or False and then press the Submit to submit his answer.<p>
-    <p>After the user completes the last question he will be taken to the "next page".</p>
+<p>Then the user will be taken in the Questions Page in which he will start taking the quiz.
+    There are different types of questions if the user answers correctly he will be taken to the next question
+    but if he answers wrong he will remain in the current question question until he answers correctly or skips the
+    question.
+    If a question can be skipped a SKIP button will be available which takes the user to the next question if it is
+    preswsed.</p>
+<p>1 type. The user must press the text box, type some text and then press submit to Submit his answer.</p>
+<p>2 type. The user must press the text box, type number(s) and then press submit to Submit his answer.</p>
+<p>3 type. The user must press the option A or B or C or D and then press submit to Submit his answer.</p>
+<p>4 type. The user must press True or False and then press the Submit to submit his answer.
+<p>
+<p>After the user completes the last question he will be taken to the "next page".</p>
 
-    <h3>Leaderboard Page</h3>
+<h3>Leaderboard Page</h3>
 
 <br><br>
 <h2>Nielsen's 10 Heuristics</h2>
-    <hr>
-    <table>
+<hr>
+<table>
 
-        <tr>
-            <th>Heuristic</th>
-            <th>What We Did</th>
-        </tr>
-        <tr>
-            <td>1. Visibility of system status</td>
-            <td>Added a loading animation when the user chooses his username in the treasure hunt.</td>
-        </tr>
-        <tr>
-            <td>2. Match between system and the real world</td>
-            <td>The app is user friendly since it has simple structure and is giving the user simple instructions to read.</td>
-        </tr>
-        <tr>
-            <td>3. User control and freedom</td>
-            <td>If the user accidentally closes the application, his progress will be saved.</td>
-        </tr>
-        <tr>
-            <td>4. Consistency and standards</td>
-            <td>When the user starts the app, the app takes the user to the next step until he reaches the end.</td>
-        </tr>
-        <tr>
-            <td>5. Error Prevention</td>
-            <td>The buttons are big enough so that the user will definitely not misclick and press something that's going to lead to an error.</td>
-        </tr>
-        <tr>
-            <td>6. Recognition rather than recall</td>
-            <td>The instructions in the beginning help th user understand the game and the user's details will appear through the game.</td>
-        </tr>
-        <tr>
-            <td>7. Flexibility and efficiency of use</td>
-            <td>1 question requires location so when the user gets to that question the app automatically asks the user to have access to his location.</td>
-        </tr>
-        <tr>
-            <td>8. Aesthetic and minimalist design</td>
-            <td>The Barcode Scanner can be accessed at any point by just click it's icon.</td>
-        </tr>
-        <tr>
-            <td>9. Help users recognize, diagnose and recover from errors</td>
-            <td>If an error occurs the user will be notified with an alert explaining briefly the error.</td>
-        </tr>
-        <tr>
-            <td>10. Help and documentation</td>
-            <td>The steps are clear and the procedure is simple enough to not cause frustration to the user.</td>
-        </tr>
+    <tr>
+        <th>Heuristic</th>
+        <th>What We Did</th>
+    </tr>
+    <tr>
+        <td>1. Visibility of system status</td>
+        <td>Added a loading animation when the user chooses his username in the treasure hunt.</td>
+    </tr>
+    <tr>
+        <td>2. Match between system and the real world</td>
+        <td>The app is user friendly since it has simple structure and is giving the user simple instructions to read.
+        </td>
+    </tr>
+    <tr>
+        <td>3. User control and freedom</td>
+        <td>If the user accidentally closes the application, his progress will be saved.</td>
+    </tr>
+    <tr>
+        <td>4. Consistency and standards</td>
+        <td>When the user starts the app, the app takes the user to the next step until he reaches the end.</td>
+    </tr>
+    <tr>
+        <td>5. Error Prevention</td>
+        <td>The buttons are big enough so that the user will definitely not misclick and press something that's going to
+            lead to an error.
+        </td>
+    </tr>
+    <tr>
+        <td>6. Recognition rather than recall</td>
+        <td>The instructions in the beginning help th user understand the game and the user's details will appear
+            through the game.
+        </td>
+    </tr>
+    <tr>
+        <td>7. Flexibility and efficiency of use</td>
+        <td>1 question requires location so when the user gets to that question the app automatically asks the user to
+            have access to his location.
+        </td>
+    </tr>
+    <tr>
+        <td>8. Aesthetic and minimalist design</td>
+        <td>The Barcode Scanner can be accessed at any point by just click it's icon.</td>
+    </tr>
+    <tr>
+        <td>9. Help users recognize, diagnose and recover from errors</td>
+        <td>If an error occurs the user will be notified with an alert explaining briefly the error.</td>
+    </tr>
+    <tr>
+        <td>10. Help and documentation</td>
+        <td>The steps are clear and the procedure is simple enough to not cause frustration to the user.</td>
+    </tr>
 
-    </table>
+</table>
 
-    <!--LEADERBOARD for the APP-->
+<!--LEADERBOARD for the APP-->
 <h1>LEADERBOARD</h1>
 <table id="test-results-table">
     <tr>

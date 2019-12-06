@@ -7,6 +7,7 @@ const TESTING_API_START = "https://codecyprus.org/th/test-api/start?player=inact
 
 
 let list = document.getElementById("challenges");
+
 function getTwoChallengesTest() {
 
 
@@ -36,7 +37,7 @@ function getTenChallengesTest() {
         .then(jsonObject => {
             console.log(jsonObject);
             let array = jsonObject.treasureHunts;
-            for (let i = 0; i < array.length; i++){
+            for (let i = 0; i < array.length; i++) {
                 document.getElementById("secondResult").style.display = 'block';
                 list = document.getElementById("secondResult");
 
@@ -58,13 +59,13 @@ function getTwentyChallengesTest() {
             console.log(jsonObject);
             let array = jsonObject.treasureHunts;
 
-            for (let i = 0; i < array.length; i++){
+            for (let i = 0; i < array.length; i++) {
                 document.getElementById("thirdResult").style.display = 'block';
                 list = document.getElementById("thirdResult");
 
                 let uuid = array[i].uuid;
                 let listItem = document.createElement("li");
-                listItem.innerHTML = "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id=" + uuid + "'>" + array[i].description  + "</a>";
+                listItem.innerHTML = "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id=" + uuid + "'>" + array[i].description + "</a>";
 
                 list.appendChild(listItem);
             }
@@ -72,7 +73,7 @@ function getTwentyChallengesTest() {
         })
 }
 
-function  clearTheTestList() {
+function clearTheTestList() {
     document.getElementById("firstResult").style.display = 'none';
     document.getElementById("secondResult").style.display = 'none';
     document.getElementById("thirdResult").style.display = 'none';
@@ -82,20 +83,20 @@ function  clearTheTestList() {
 
 }
 
-    function getStartTest(uuid){
+function getStartTest(uuid) {
     fetch(TESTING_API_START + uuid)
         .then(response => response.json())
         .then(jsonObject => {
             console.log(jsonObject);
             let array = jsonObject.errorMessages;
-            for (let i = 0; i<array.length; i++){
-               
+            for (let i = 0; i < array.length; i++) {
+
                 let list = document.getElementById("errors");
                 let errorList = document.createElement("li");
                 errorList.innerHTML = "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id=" + uuid + "'>" + array[i].name + "</a>";
                 list.appendChild(errorList);
             }
-            if (status === "ERROR"){
+            if (status === "ERROR") {
                 alert(jsonObject.errorMessages);
             }
         });
