@@ -339,31 +339,28 @@
 
     #gameAttributes {
         display: none;
-        height: 190px;
         padding: 5px;
+        height: 190px;
         text-align: left;
     }
 
     #playerNameP {
         margin: 0;
-        padding: 0 5px;
-        font-size: 54px;
+        font-size: 40px;
         color: #adad5c;
         font-weight: 900;
     }
 
     #scoreP {
         margin: 0;
-        padding: 0 5px;
-        font-size: 54px;
+        font-size: 40px;
         color: #adad5c;
         font-weight: 900;
     }
 
     #currentQuestionP {
         margin: 0;
-        padding: 0 5px;
-        font-size: 54px;
+        font-size: 40px;
         color: #adad5c;
         font-weight: 900;
     }
@@ -883,31 +880,28 @@
 
     #gameAttributes {
         display: none;
-        height: 140px;
-        padding: 10px;
+        height: 150px;
+        padding: 5px;
         text-align: left;
     }
 
     #playerNameP {
         margin: 0;
-        padding: 0 5px;
-        font-size: 40px;
+        font-size: 35px;
         color: #adad5c;
         font-weight: 900;
     }
 
     #scoreP {
         margin: 0;
-        padding: 0 5px;
-        font-size: 40px;
+        font-size: 35px;
         color: #adad5c;
         font-weight: 900;
     }
 
     #currentQuestionP {
         margin: 0;
-        padding: 0 5px;
-        font-size: 40px;
+        font-size: 35px;
         color: #adad5c;
         font-weight: 900;
     }
