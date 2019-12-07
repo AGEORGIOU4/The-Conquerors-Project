@@ -60,8 +60,8 @@ function getTwentyChallengesTest() {
             let array = jsonObject.treasureHunts;
 
             for (let i = 0; i < array.length; i++) {
-                document.getElementById("thirdResult").style.display = 'block';
                 list = document.getElementById("thirdResult");
+                document.getElementById("thirdResult").style.display = 'block';
 
                 let uuid = array[i].uuid;
                 let listItem = document.createElement("li");
@@ -74,9 +74,12 @@ function getTwentyChallengesTest() {
 }
 
 function clearTheTestList() {
-    document.getElementById("firstResult").style.display = 'none';
-    document.getElementById("secondResult").style.display = 'none';
-    document.getElementById("thirdResult").style.display = 'none';
+    document.getElementById("titleFour").style.display = "none";
+    document.getElementById("firstResult").innerHTML = " ";
+    document.getElementById("titleFive").style.display = "none";
+    document.getElementById("secondResult").innerHTML = " ";
+    document.getElementById("titleSix").style.display = "none";
+    document.getElementById("thirdResult").innerHTML = " ";
     document.getElementById("firstTest").style.display = 'block';
     document.getElementById("secondTest").style.display = 'block';
     document.getElementById("thirdTest").style.display = 'block';
