@@ -42,13 +42,10 @@
     <button id="buttonClearList" onclick="clearTheTestList();">Clear Results</button>
 </div>
 
-
 <p id="titleFour">First Test Results</p>
-
 <div id="firstResult">
     <ul id="challenges1"></ul>
 </div>
-
 
 <p id="titleFive">Second Test Results</p>
 <div id="secondResult">
@@ -64,10 +61,25 @@
 <!-- Testing the Start-->
 <h2>Testing the Start</h2>
 <hr>
-<button id="testButton4" onclick="getStartTest();">Run Test</button>
-<ul id="errors"></ul>
 
-<br><br>
+<div id="startTest">
+    <p>Run Start Test</p>
+    <button id="testButton4" onclick="getStartTest(uuid); document.getElementById('startTest').style.display = 'none';">Run Test</button>
+</div>
+
+<div>
+    <p>Clear the Results</p>
+    <button id="buttonClearStart" onclick="clearTheTestStart();">Clear Results</button>
+</div>
+
+
+<p id="titleEight">Test Results</p>
+
+<div id="startResults">
+    <ul id="errorResults"></ul>
+</div>
+
+<br>
 
 <h2>User Acceptance Plan</h2>
 

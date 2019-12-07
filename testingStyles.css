@@ -21,7 +21,7 @@ header {
 
 /*--------------------------------------------------BODY--------------------------------------------------------------*/
 
-#testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList {
+#testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart{
     font-size: xx-large;
 }
 
@@ -35,7 +35,7 @@ header {
     font-size: 25px;
 }
 
-#firstResult, #secondResult, #thirdResult {
+#titleFour, #titleFive, #titleSix, #titleEight {
     font-size: 30px;
     font-weight: bold;
     font-family: sans-serif;
