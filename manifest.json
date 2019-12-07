@@ -6,6 +6,11 @@
       "src": "/IMAGES/faviconlogoconquerorsicon.ico",
       "type": "image/ico",
       "sizes": "256x256"
+    },
+    {
+      "src": "IMAGES/FaviconLogoConquerors.png",
+      "type": "image/png",
+      "sizes": "179x189"
     }
   ],
   "start_url": "/https://ageorgiou4.github.io/TheConquerorsProject/",
