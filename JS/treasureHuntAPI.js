@@ -207,11 +207,11 @@ function getTypeOfQuestion(typeOfQuestion) {
     if (typeOfQuestion === "MCQ") {
         mcqButtons.style.display = "block";
     }
-    if (typeOfQuestion === "TEXT") {
+    if (typeOfQuestion === "TEXT" || typeOfQuestion === "NUMERIC") {
         placeholderBox.style.display = "block";
         placeholderSubmit.style.display = "block";
     }
-    if (typeOfQuestion === "INTEGER" || typeOfQuestion === "NUMERIC") {
+    if (typeOfQuestion === "INTEGER") {
         placeholderNumberBox.style.display = "block";
         placeholderNumberSubmit.style.display = "block";
     }
