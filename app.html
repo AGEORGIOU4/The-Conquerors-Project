@@ -1,22 +1,17 @@
 <!-------------------------------------------------HTML---------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154060536-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
-
         gtag('config', 'UA-154060536-1');
     </script>
-
     <meta charset="UTF-8">
     <meta property="og:title" content="The Conquerors | Treasure Hunt"/>
     <meta property="og:description" content="Welcome to the Conquerors Treasure Hunt App. This app is aiming to
@@ -36,7 +31,6 @@
     <script src="JS/treasureHuntAPI.js"></script>
     <link rel="stylesheet" type="text/css" href="projectStyles.css">
     <link rel='icon' href='IMAGES/FaviconLogoConquerors.png' type='image/x-icon'>
-
 </head>
 
 <body>
@@ -127,13 +121,11 @@
     </form>
 </div>
 
-
 <!-----------------------------------------------PHASE 03-------------------------------------------------------------->
 
 <div id="questionSection">
     <p id="question"></p>
 </div>
-
 
 <!---------------------------------------------ANSWER BOXES------------------------------------------------------------>
 
@@ -186,10 +178,6 @@
     </div>
 </div>
 
-<div id="fbButton" class="fb-share-button" data-href="https://www.facebook.com/theConquerorsTreasureHunt/"
-     data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FtheConquerorsTreasureHunt%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-</div>
-
 <table id="leaderBoardTable">
     <tr>
         <th id="rank">#</th>
@@ -198,6 +186,40 @@
         <th id="timeHead">Time</th>
     </tr>
 </table>
+
+
+<div id="map" style="width: 100%; height: 400px"></div>
+<script>
+    function initMap()
+    {
+        // Map options
+        let options = {
+            zoom: 12,
+            center: {lat: 35.057938, lng: 33.951121}
+        };
+        // New map
+        let map = new
+        google.maps.Map(document.getElementById("map"), options);
+
+        function addMarker(latitude, longitude) {
+            new google.maps.Marker({
+                position: ({lat: latitude, lng: longitude}),
+                map:map,
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+            });
+        }
+        addMarker(latitude, longitude);
+    }
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATMtp854vZWXb1XxNa7mZXy31IeGUvvKk&callback=getLocation"
+        async defer>
+</script>
+
+<div id="fbButton" class="fb-share-button" data-href="https://www.facebook.com/theConquerorsTreasureHunt/"
+     data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FtheConquerorsTreasureHunt%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+</div>
 
 </body>
 

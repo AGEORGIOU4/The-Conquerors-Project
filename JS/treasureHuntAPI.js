@@ -114,12 +114,13 @@ function startSession() {
     playerName = document.getElementById("username").value;
     appName = "TheConquerors";
 
-
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
             // Set sessionID to the current session
             sessionID = jsonObject.session;
+
+            getLocation();
 
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
@@ -176,7 +177,6 @@ function fetchQuestions() {
                 if (jsonObject.completed === true) {
                 }
                 if (jsonObject.requiresLocation === true) {
-                    document.getElementById("locationButton").style.display = "block";
                     getLocation(latitude, longitude);
                 }
                 if (jsonObject.canBeSkipped === true) {
@@ -185,7 +185,6 @@ function fetchQuestions() {
                 if (jsonObject.canBeSkipped === false) {
                     document.getElementById("skipButton").style.display = "none";
                 }
-
                 let typeOfQuestion = jsonObject.questionType;
                 getTypeOfQuestion(typeOfQuestion);
             }
@@ -218,7 +217,6 @@ function getTypeOfQuestion(typeOfQuestion) {
 }
 
 function getAnswer(answer) {
-
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
@@ -260,7 +258,6 @@ function skipQuestion() {
         .then(jsonObject => {
 
             scoreAdjustment = jsonObject.scoreAdjustment;
-
 
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
@@ -342,10 +339,8 @@ function handleLeaderBoard(leaderboard) {
 
 //========================OTHER FUNCTIONS=========================//
 
-
-//=========================GET LOCATION=========================//
+//=========================GET LOCATION===========================//
 function getLocation() {
-    document.getElementById("locationButton").style.display = "block";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
 
@@ -355,7 +350,6 @@ function getLocation() {
         document.getElementById("messageBoxP").style.display = "block";
     }
 }
-
 
 function showPosition(position) {
     clearInterval();
@@ -371,16 +365,15 @@ function showPosition(position) {
                 messageBoxP.innerText = jsonObject.errorMessages;
                 document.getElementById("messageBoxP").style.display = "block";
             } else {
-
-                document.getElementById("locationImg").style.display = "block";
+                initMap(latitude, longitude);
                 messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
                 document.getElementById("messageBoxP").style.display = "block";
+                document.getElementById("locationButton").style.display = "block";
 
                 setInterval(function () {
                     showPosition(position)
                 }, 60000);
-                document.getElementById("locationImg").style.display = "block";
             }
         });
 }
