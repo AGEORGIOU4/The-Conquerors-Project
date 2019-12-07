@@ -1,19 +1,14 @@
 {
-  "short_name": "Treasure Hunt",
+  "short_name": "Treasure",
   "name": "The Conquerors Treasure Hunt",
   "icons": [
     {
-      "src": "https://ageorgiou4.github.io/TheConquerorsProject/IMAGES/FaviconLogoConquerors.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "https://ageorgiou4.github.io/TheConquerorsProject/IMAGES/FaviconLogoConquerors.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/IMAGES/faviconlogoconquerorsicon.ico",
+      "type": "image/ico",
+      "sizes": "256x256"
     }
   ],
-  "start_url": "https://ageorgiou4.github.io/TheConquerorsProject/index.html",
+  "start_url": "/https://ageorgiou4.github.io/TheConquerorsProject/",
   "background_color": "#3367D6",
   "display": "standalone",
   "scope": "/https://ageorgiou4.github.io/TheConquerorsProject/",
