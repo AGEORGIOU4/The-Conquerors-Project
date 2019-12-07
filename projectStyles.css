@@ -383,6 +383,7 @@
     #loading {
         display: none;
         width: 100%;
+        height: 1700px;
     }
 
     /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
@@ -509,18 +510,22 @@
 
     #rank {
         width: 10%;
+        color: #FFFFFF;
     }
 
     #playerHead {
         width: 35%;
+        color: #FFFFFF;
     }
 
     #scoreHead {
         width: 15%;
+        color: #FFFFFF;
     }
 
     #timeHead {
         width: 40%;
+        color: #FFFFFF;
     }
 
     #leaderBoardTable tr:nth-child(even) {
@@ -954,6 +959,7 @@
     #loading {
         display: none;
         width: 100%;
+        height: 1500px;
         margin: 0 auto;
     }
 
@@ -973,6 +979,13 @@
 
     #question a {
         color: red;
+    }
+
+    #skipPopUp {
+        display: none;
+        border: 1px solid #464545;
+        background-color: white;
+        font-size: 50px;
     }
 
     /* Answer Buttons */
@@ -1077,18 +1090,22 @@
 
     #rank {
         width: 10%;
+        color: #FFFFFF;
     }
 
     #playerHead {
         width: 35%;
+        color: #FFFFFF;
     }
 
     #scoreHead {
         width: 15%;
+        color: #FFFFFF;
     }
 
     #timeHead {
         width: 40%;
+        color: #FFFFFF;
     }
 
     /*================================================QR PAGE=============================================================*/
