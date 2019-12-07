@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="projectStyles.css">
     <link rel='icon' href='IMAGES/FaviconLogoConquerors.png' type='image/x-icon'>
 
-    <script src="QRCodeReader/js/qr.js"></script>
     <script src="QRCodeReader/js/instascan.min.js"></script>
 </head>
 
@@ -92,12 +91,12 @@
     }).catch(function (e) {
         alert(e);
     });
+
     function switchCamera() {
         //Cycle through the available cameras:
         if (cameraIndex < cameraArray.length - 1) {
             cameraIndex++;
-        }
-        else {
+        } else {
             cameraIndex = 0;
         }
         //Find the next camera to use:
@@ -111,16 +110,14 @@
     }
 
 
-
-
 </script>
 
 <!------------------------------------------------FOOTER--------------------------------------------------------------->
 
 <footer>
-<div id="whiteBox">
-    <div id="content"></div>
+    <div id="whiteBox">
+        <div id="content"></div>
     </div>
-    </footer>
+</footer>
 </body>
 </html>

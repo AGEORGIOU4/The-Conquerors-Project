@@ -550,6 +550,16 @@
         border-radius: 15px;
     }
 
+    #switchCamera {
+        float: right;
+        margin: 27px 30px 20px 0;
+        height: 76px;
+        color: #000000;
+        font-size: 50px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
     #map {
         display: none;
         margin-bottom: 50px;
@@ -1094,6 +1104,16 @@
     }
 
     #goBack {
+        float: right;
+        margin: 5px 10px;
+        height: 40px;
+        color: #000000;
+        font-size: 30px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #switchCamera {
         float: right;
         margin: 5px 10px;
         height: 40px;
