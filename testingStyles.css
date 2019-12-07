@@ -2,7 +2,7 @@
 * {
     font-family: sans-serif;
     background-color: lightyellow;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -21,7 +21,7 @@ header {
 
 /*--------------------------------------------------BODY--------------------------------------------------------------*/
 
-#testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList {
+#testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart{
     font-size: xx-large;
 }
 
@@ -35,9 +35,14 @@ header {
     font-size: 25px;
 }
 
-#firstResult, #secondResult, #thirdResult {
+#titleFour, #titleFive, #titleSix, #titleEight {
     font-size: 30px;
     font-weight: bold;
     font-family: sans-serif;
     display: none;
+}
+
+#heuristics,td,tr{
+    border: 1px solid black;
+
 }

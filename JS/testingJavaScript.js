@@ -1,11 +1,12 @@
 //JAVASCRIPT FOR TESTING
 
+
 const FIRST_TESTING_API_LIST = "https://codecyprus.org/th/test-api/list?number-of-ths=2";
 const SECOND_TESTING_API_LIST = "https://codecyprus.org/th/test-api/list?number-of-ths=10";
 const THIRD_TESTING_API_LIST = "https://codecyprus.org/th/test-api/list?number-of-ths=20";
 const TESTING_API_START = "https://codecyprus.org/th/test-api/start?player=inactive";
 
-
+let uuid = "";
 let list = document.getElementById("challenges");
 
 function getTwoChallengesTest() {
@@ -17,6 +18,8 @@ function getTwoChallengesTest() {
             console.log(jsonObject);
             let array = jsonObject.treasureHunts;
             for (let i = 0; i < array.length; i++) {
+
+                document.getElementById("titleFour").style.display = "block";
                 document.getElementById("firstResult").style.display = 'block';
                 list = document.getElementById("firstResult");
                 let uuid = array[i].uuid;
@@ -38,7 +41,10 @@ function getTenChallengesTest() {
             console.log(jsonObject);
             let array = jsonObject.treasureHunts;
             for (let i = 0; i < array.length; i++) {
+
+                document.getElementById("titleFive").style.display = "block";
                 document.getElementById("secondResult").style.display = 'block';
+
                 list = document.getElementById("secondResult");
 
                 let uuid = array[i].uuid;
@@ -61,7 +67,8 @@ function getTwentyChallengesTest() {
 
             for (let i = 0; i < array.length; i++) {
                 list = document.getElementById("thirdResult");
-                document.getElementById("thirdResult").style.display = 'block';
+                document.getElementById("titleSix").style.display = "block";
+                document.getElementById("thirdResult").style.display = "block";
 
                 let uuid = array[i].uuid;
                 let listItem = document.createElement("li");
@@ -81,26 +88,34 @@ function clearTheTestList() {
     document.getElementById("titleSix").style.display = "none";
     document.getElementById("thirdResult").innerHTML = " ";
     document.getElementById("firstTest").style.display = 'block';
-    document.getElementById("secondTest").style.display = 'block';
+    document.getElementById("secondTest").style.display =   'block';
     document.getElementById("thirdTest").style.display = 'block';
 
 }
 
-function getStartTest(uuid) {
-    fetch(TESTING_API_START + uuid)
+
+function getStartTest() {
+    fetch(TESTING_API_START)
         .then(response => response.json())
         .then(jsonObject => {
             console.log(jsonObject);
+
             let array = jsonObject.errorMessages;
             for (let i = 0; i < array.length; i++) {
 
-                let list = document.getElementById("errors");
-                let errorList = document.createElement("li");
-                errorList.innerHTML = "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id=" + uuid + "'>" + array[i].name + "</a>";
-                list.appendChild(errorList);
-            }
-            if (status === "ERROR") {
-                alert(jsonObject.errorMessages);
+                list = document.getElementById("errorResults");
+                document.getElementById("titleEight").style.display = "block";
+                document.getElementById("startResults").style.display = "block";
+                let uuid = array[i].uuid;
+                let listItem = document.createElement("li");
+                listItem.innerHTML = "<a href='https://codecyprus.org/th/test-api/start?player=Jacobs&app=Team2&treasure-hunt-id=" + uuid + "'>" + array[i].value + "</a>";
+                list.appendChild(listItem);
             }
         });
+}
+
+function clearTheTestStart() {
+    document.getElementById("titleEight").style.display = "none";
+    document.getElementById("errorResults").innerHTML = " ";
+    document.getElementById("startTest").style.display = "block";
 }
