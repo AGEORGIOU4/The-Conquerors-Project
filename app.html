@@ -6,9 +6,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154060536-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
         gtag('config', 'UA-154060536-1');
     </script>
@@ -38,7 +40,8 @@
 <body>
 
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
 
 <!------------------------------------------------HEADER--------------------------------------------------------------->
 
@@ -46,11 +49,11 @@
     <img src="IMAGES/Original.svg" alt="The Conquerors Logo" id="theConquerorsLogo">
     <div id="gameAttributes">
         <div id="gameStats">
-        <p id="playerNameP"></p>
-        <p id="scoreP"></p>
-        <p id="currentQuestionP"></p>
+            <p id="playerNameP"></p>
+            <p id="scoreP"></p>
+            <p id="currentQuestionP"></p>
 
-        <button id="skipButton" value="SKIP" onclick="askSkip()">SKIP</button>
+            <button id="skipButton" value="SKIP" onclick="askSkip()">SKIP</button>
         </div>
     </div>
 
@@ -207,8 +210,7 @@
 
 <div id="map"></div>
 <script>
-    function initMap()
-    {
+    function initMap() {
         // Map options
         let options = {
             zoom: 14,
@@ -221,10 +223,11 @@
         function addMarker(latitude, longitude) {
             new google.maps.Marker({
                 position: ({lat: latitude, lng: longitude}),
-                map:map,
+                map: map,
                 icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
             });
         }
+
         addMarker(latitude, longitude);
     }
 

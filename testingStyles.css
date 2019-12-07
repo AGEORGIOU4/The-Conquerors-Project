@@ -1,4 +1,4 @@
- /*---------------------------------------------TEST PAGE--------------------------------------------------------------*/
+/*---------------------------------------------TEST PAGE--------------------------------------------------------------*/
 * {
     font-family: sans-serif;
     background-color: lightyellow;
@@ -21,7 +21,7 @@ header {
 
 /*--------------------------------------------------BODY--------------------------------------------------------------*/
 
-#testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart{
+#testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart {
     font-size: xx-large;
 }
 
@@ -42,7 +42,7 @@ header {
     display: none;
 }
 
-#heuristics,td,tr{
+#heuristics, td, tr {
     border: 1px solid black;
 
 }
