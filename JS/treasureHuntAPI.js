@@ -351,6 +351,7 @@ function showPosition(position) {
     clearInterval();
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
+    initMap(latitude, longitude);
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
@@ -361,7 +362,6 @@ function showPosition(position) {
                 messageBoxP.innerText = jsonObject.errorMessages;
                 document.getElementById("messageBoxP").style.display = "block";
             } else {
-                initMap(latitude, longitude);
                 document.getElementById("map").style.display = "block";
                 messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
@@ -370,6 +370,7 @@ function showPosition(position) {
 
                 setInterval(function () {
                     showPosition(position)
+                    initMap(latitude, longitude);
                 }, 60000);
             }
         });

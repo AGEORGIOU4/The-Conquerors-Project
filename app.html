@@ -195,8 +195,8 @@
     {
         // Map options
         let options = {
-            zoom: 12,
-            center: {lat: 35.057938, lng: 33.951121}
+            zoom: 15,
+            center: {lat: latitude, lng: longitude}
         };
         // New map
         let map = new
@@ -208,6 +208,7 @@
                 map:map,
                 icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
             });
+            console.log("added marker")
         }
         addMarker(latitude, longitude);
     }
