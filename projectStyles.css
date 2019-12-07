@@ -403,6 +403,12 @@
         color: red;
     }
 
+    #skipPopUp {
+        display: none;
+        border: 1px solid #464545;
+        background-color: white;
+        font-size: 50px;
+    }
 
     /* Answer Buttons */
     #answerButtons {

@@ -29,8 +29,6 @@
     <title>Start</title>
 
     <script src="JS/treasureHuntAPI.js"></script>
-    <!--Link manifest-->
-    <link rel="manifest" href="/manifest.json">
 
     <link rel="stylesheet" type="text/css" href="projectStyles.css">
     <link rel='icon' href='IMAGES/FaviconLogoConquerors.png' type='image/x-icon'>
@@ -52,7 +50,7 @@
         <p id="scoreP"></p>
         <p id="currentQuestionP"></p>
 
-        <button id="skipButton" value="SKIP" onclick="skipQuestion()">SKIP</button>
+        <button id="skipButton" value="SKIP" onclick="askSkip()">SKIP</button>
         </div>
     </div>
 
@@ -125,11 +123,25 @@
     </form>
 </div>
 
+<!--------------------------------------------SKIP POP-UP-------------------------------------------------------------->
+
+<div id="skipPopUp">
+    <p>Do you want to skip?<br>
+        This will cost you <span style="color: red">5 points!</span></p>
+
+    <div id="skipButtons">
+        <!-- BOOLEAN buttons -->
+        <button id="yesButton" class="booleanButtons" value="Yes" onclick="askSkip(true)">Yes</button>
+        <button id="noButton" class="booleanButtons" value="No" onclick="askSkip(false)">No</button>
+    </div>
+</div>
+
 <!-----------------------------------------------PHASE 03-------------------------------------------------------------->
 
 <div id="questionSection">
     <p id="question"></p>
 </div>
+
 
 <!---------------------------------------------ANSWER BOXES------------------------------------------------------------>
 
@@ -212,7 +224,6 @@
                 map:map,
                 icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
             });
-            console.log("added marker")
         }
         addMarker(latitude, longitude);
     }
