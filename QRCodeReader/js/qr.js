@@ -60,6 +60,3 @@ function QRCodeReader() {
         scanner.start(camera);
     }
 }
-function goBack() {
-    window.history.back();
-}
