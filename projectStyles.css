@@ -544,6 +544,16 @@
         border: 2px solid #000000;
         border-radius: 15px;
     }
+
+    #map {
+        display: none;
+        margin-bottom: 50px;
+        width: 100%;
+        height: 400px;
+        position: absolute;
+        overflow: hidden;
+        bottom: 0;
+    }
 }
 
 
@@ -1085,6 +1095,16 @@
         border: 2px solid #000000;
         border-radius: 15px;
     }
+
+    #map {
+        display: none;
+        margin-bottom: 30px;
+        width: 100%;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        bottom: 0;
+    }
 }
 
 
@@ -1104,7 +1124,3 @@ th, td {
     text-align: left;
 }
 
-#map {
-    margin-top: 100px;
-    margin-bottom: 30px;
-}

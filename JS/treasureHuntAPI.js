@@ -120,8 +120,6 @@ function startSession() {
             // Set sessionID to the current session
             sessionID = jsonObject.session;
 
-            getLocation();
-
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
                 messageBoxP.innerText = jsonObject.errorMessages;
@@ -135,6 +133,7 @@ function startSession() {
                 document.getElementById("treasureHuntsDescriptionParagraph").style.display = "none";
                 document.getElementById("loading").style.display = "none";
                 fetchQuestions(sessionID);
+                getLocation();
             }
         });
 }
@@ -302,6 +301,7 @@ function getScore() {
 }
 
 function getLeaderBoard() {
+    document.getElementById("map").style.position = "relative";
     document.getElementById("loading").style.display = "block";
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
         .then(response => response.json())
@@ -366,6 +366,7 @@ function showPosition(position) {
                 document.getElementById("messageBoxP").style.display = "block";
             } else {
                 initMap(latitude, longitude);
+                document.getElementById("map").style.display = "block";
                 messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
                 document.getElementById("messageBoxP").style.display = "block";
