@@ -481,7 +481,7 @@
         display: none;
     }
 
-    #ask {
+    #ask, #ask1 {
         font-size: 40px;
         color: deeppink;
         font-weight: 900;
@@ -553,6 +553,7 @@
     #map {
         display: none;
         margin-bottom: 50px;
+        top: 200px;
         width: 100%;
         height: 400px;
         position: relative;
@@ -1036,7 +1037,7 @@
     }
 
 
-    #ask {
+    #ask, #ask1 {
         margin: 0 100px;
         font-size: xx-large;
         color: deeppink;

@@ -285,15 +285,11 @@ function getScore() {
             scoreP.innerText = "Score: " + jsonObject.score;
 
             if (jsonObject.completed === true) {
+                document.getElementById("messageBoxDiv").style.display = "none";
                 document.getElementById("questionSection").style.display = "none";
                 document.getElementById("answerButtons").style.display = "none";
-                document.getElementById("messageBoxP").innerText = "Congratulations!";
-                messageBoxP.style.color = "green";
-                messageBoxP.style.padding = "50px";
-                messageBoxP.style.fontSize = "40px";
+                document.getElementById("messageBoxP").style.display = "none";
                 document.getElementById("enjoyGame").style.display = "block";
-                document.getElementById("messageBoxDiv").style.display = "block";
-                document.getElementById("messageBoxP").style.display = "block";
 
                 getLeaderBoard();
             }
@@ -301,7 +297,7 @@ function getScore() {
 }
 
 function getLeaderBoard() {
-    document.getElementById("map").style.position = "relative";
+    document.getElementById("map").style.top = "100px";
     document.getElementById("loading").style.display = "block";
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
         .then(response => response.json())
