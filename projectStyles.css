@@ -383,6 +383,7 @@
     #loading {
         display: none;
         width: 100%;
+        height: 1700px;
     }
 
     /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
@@ -403,6 +404,12 @@
         color: red;
     }
 
+    #skipPopUp {
+        display: none;
+        border: 1px solid #464545;
+        background-color: white;
+        font-size: 50px;
+    }
 
     /* Answer Buttons */
     #answerButtons {
@@ -503,18 +510,22 @@
 
     #rank {
         width: 10%;
+        color: #FFFFFF;
     }
 
     #playerHead {
         width: 35%;
+        color: #FFFFFF;
     }
 
     #scoreHead {
         width: 15%;
+        color: #FFFFFF;
     }
 
     #timeHead {
         width: 40%;
+        color: #FFFFFF;
     }
 
     #leaderBoardTable tr:nth-child(even) {
@@ -541,6 +552,16 @@
     }
 
     #goBack {
+        float: right;
+        margin: 27px 30px 20px 0;
+        height: 76px;
+        color: #000000;
+        font-size: 50px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #switchCamera {
         float: right;
         margin: 27px 30px 20px 0;
         height: 76px;
@@ -938,6 +959,7 @@
     #loading {
         display: none;
         width: 100%;
+        height: 1500px;
         margin: 0 auto;
     }
 
@@ -957,6 +979,13 @@
 
     #question a {
         color: red;
+    }
+
+    #skipPopUp {
+        display: none;
+        border: 1px solid #464545;
+        background-color: white;
+        font-size: 50px;
     }
 
     /* Answer Buttons */
@@ -1061,18 +1090,22 @@
 
     #rank {
         width: 10%;
+        color: #FFFFFF;
     }
 
     #playerHead {
         width: 35%;
+        color: #FFFFFF;
     }
 
     #scoreHead {
         width: 15%;
+        color: #FFFFFF;
     }
 
     #timeHead {
         width: 40%;
+        color: #FFFFFF;
     }
 
     /*================================================QR PAGE=============================================================*/
@@ -1094,6 +1127,16 @@
     }
 
     #goBack {
+        float: right;
+        margin: 5px 10px;
+        height: 40px;
+        color: #000000;
+        font-size: 30px;
+        border: 2px solid #000000;
+        border-radius: 15px;
+    }
+
+    #switchCamera {
         float: right;
         margin: 5px 10px;
         height: 40px;

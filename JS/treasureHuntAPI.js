@@ -143,6 +143,7 @@ function fetchQuestions() {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("usernameBox").style.display = "none";
     document.getElementById("locationButton").style.display = "none";
+    document.getElementById("skipPopUp").style.display = "none";
     document.getElementById("qrImg").style.display = "block";
     document.getElementById("questionSection").style.display = "block";
     document.getElementById("currentQuestionP").style.display = "block";
@@ -250,6 +251,18 @@ function getAnswer(answer) {
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+
+function askSkip(answerSkip) {
+    document.getElementById("skipPopUp").style.display = "block";
+    if (answerSkip === true) {
+        skipQuestion();
+    }
+    if (answerSkip === false) {
+        document.getElementById("skipPopUp").style.display = "none";
+    }
+
+}
+
 
 function skipQuestion() {
     fetch(API_SKIP + "?session=" + sessionID)
