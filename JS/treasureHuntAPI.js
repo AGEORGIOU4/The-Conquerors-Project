@@ -369,7 +369,7 @@ function showPosition(position) {
                 document.getElementById("locationButton").style.display = "block";
 
                 setInterval(function () {
-                    showPosition(position)
+                    showPosition(position);
                     initMap(latitude, longitude);
                 }, 60000);
             }

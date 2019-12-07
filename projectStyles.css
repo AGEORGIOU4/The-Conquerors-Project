@@ -30,7 +30,7 @@
         position: absolute;
         height: 100px;
         text-align: center;
-        background-color: #adad5c;
+        background-color: #4c96d7;
         border-radius: 10px;
     }
 
@@ -150,7 +150,7 @@
 
     #headBar {
         height: 130px;
-        background-color: #adad5c;
+        background-color: #212121;
     }
 
     /*=============================================LANDING PAGE===========================================================*/
@@ -192,7 +192,7 @@
         position: absolute;
         content: "\276F";
         font-size: 60px;
-        color: #adad5c;
+        color: #212121;
     }
 
     #startButton {
@@ -212,7 +212,7 @@
         position: absolute;
         content: "\276F";
         font-size: 60px;
-        color: #adad5c;
+        color: #212121;
     }
 
     #startButton a {
@@ -346,27 +346,27 @@
     }
 
     #gameStats {
-        padding: 25px;
+        padding: 10px;
     }
 
     #playerNameP {
         margin: 0;
         font-size: 40px;
-        color: #adad5c;
+        color: #212121;
         font-weight: 900;
     }
 
     #scoreP {
         margin: 0;
         font-size: 40px;
-        color: #adad5c;
+        color: #212121;
         font-weight: 900;
     }
 
     #currentQuestionP {
         margin: 0;
         font-size: 40px;
-        color: #adad5c;
+        color: #212121;
         font-weight: 900;
     }
 
@@ -377,7 +377,7 @@
         font-size: 50px;
         background-color: #FFFFFF;
         color: #464545;
-        border: 10px solid #adad5c;
+        border: 10px solid #212121;
     }
 
     #loading {
@@ -498,7 +498,7 @@
     }
 
     #leaderBoardTable th {
-        background-color: #adad5c;
+        background-color: #212121;
     }
 
     #rank {
@@ -595,7 +595,7 @@
         position: absolute;
         height: 80px;
         text-align: center;
-        background-color: #adad5c;
+        background-color: #4c96d7;
         border-radius: 10px;
     }
 
@@ -708,7 +708,7 @@
 
     #headBar {
         height: 100px;
-        background-color: #adad5c;
+        background-color: #212121;
     }
 
     /*=============================================LANDING PAGE===========================================================*/
@@ -749,7 +749,7 @@
         position: absolute;
         content: "\276F";
         font-size: 40px;
-        color: #adad5c;
+        color: #212121;
     }
 
     #startButton {
@@ -768,7 +768,7 @@
         position: absolute;
         content: "\276F";
         font-size: 40px;
-        color: #adad5c;
+        color: #212121;
     }
 
     #startButton a {
@@ -902,28 +902,25 @@
         text-align: left;
     }
 
-    #gameStats {
-        padding: 25px;
-    }
 
     #playerNameP {
         margin: 0;
         font-size: 35px;
-        color: #adad5c;
+        color: #212121;
         font-weight: 900;
     }
 
     #scoreP {
         margin: 0;
         font-size: 35px;
-        color: #adad5c;
+        color: #212121;
         font-weight: 900;
     }
 
     #currentQuestionP {
         margin: 0;
         font-size: 35px;
-        color: #adad5c;
+        color: #212121;
         font-weight: 900;
     }
 
@@ -935,7 +932,7 @@
         font-size: 30px;
         background-color: #FFFFFF;
         color: #464545;
-        border: 10px solid #adad5c;
+        border: 10px solid #212121;
     }
 
     #loading {
@@ -1055,7 +1052,7 @@
     }
 
     #leaderBoardTable th {
-        background-color: #adad5c;
+        background-color: #212121;
     }
 
     #leaderBoardTable tr:nth-child(even) {
