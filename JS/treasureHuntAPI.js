@@ -18,6 +18,7 @@ let appName = "";
 let scoreAdjustment = 0;
 let latitude = "";
 let longitude = "";
+let score = 0;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -222,6 +223,7 @@ function getAnswer(answer) {
         .then(jsonObject => {
 
             scoreAdjustment = jsonObject.scoreAdjustment;
+            let obj = JSON.parse(scoreAdjustment);
 
             document.getElementById("placeholderBox");
             document.getElementById("placeholderNumberBox");
@@ -232,15 +234,19 @@ function getAnswer(answer) {
                 document.getElementById("messageBoxP").style.display = "block";
             }
             if (jsonObject.correct === false) {
+                score += obj;
+                scoreP.innerText = "Score: " + score;
                 messageBoxP.style.color = "red";
-                messageBoxP.innerText = jsonObject.message + "  " + scoreAdjustment;
+                messageBoxP.innerText = jsonObject.message + "  (" + scoreAdjustment + ")";
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             }
             if (jsonObject.correct === true) {
+                score += obj;
+                scoreP.innerText = "Score: " + score;
                 messageBoxP.style.color = "green";
-                messageBoxP.innerText = jsonObject.message + "  +" + scoreAdjustment;
+                messageBoxP.innerText = jsonObject.message + "  (+" + scoreAdjustment + ")";
                 document.getElementById("messageBoxP").style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
@@ -270,16 +276,18 @@ function skipQuestion() {
         .then(jsonObject => {
 
             scoreAdjustment = jsonObject.scoreAdjustment;
-
+            let obj = JSON.parse(scoreAdjustment);
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
                 document.getElementById("messageBoxP").style.display = "block";
             } else {
+                score += obj;
                 messageBoxP.style.color = "yellow";
-                messageBoxP.innerText = jsonObject.message + "  " + scoreAdjustment;
+                messageBoxP.innerText = jsonObject.message + "  (" + scoreAdjustment + ")";
                 document.getElementById("messageBoxP").style.display = "block";
+                scoreP.innerText = "Score: " + score;
                 fetchQuestions(sessionID);
             }
         });
@@ -295,7 +303,7 @@ function getScore() {
         .then(jsonObject => {
 
             playerNameP.innerText = "Player: " + jsonObject.player;
-            scoreP.innerText = "Score: " + jsonObject.score;
+            scoreP.innerText = "Score: " + score;
 
             if (jsonObject.completed === true) {
                 document.getElementById("messageBoxDiv").style.display = "none";

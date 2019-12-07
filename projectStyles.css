@@ -156,7 +156,7 @@
     /*=============================================LANDING PAGE===========================================================*/
     #homeP {
         padding: 75px;
-        margin: 0 auto 30px;
+        margin: 0 auto;
         font-size: 20px;
         color: #464545;
         background-color: #FFFFFF;
@@ -165,7 +165,7 @@
     }
 
     #developersList {
-        margin: 70px;
+        margin: 50px;
 
     }
 
@@ -178,7 +178,6 @@
     }
 
     #groupList {
-        margin-top: 15px;
         padding: 0;
         text-align: center;
         color: #FFFFFF;
@@ -744,7 +743,7 @@
     }
 
     #developersList {
-        margin: 60px;
+        margin: 50px;
 
     }
 
