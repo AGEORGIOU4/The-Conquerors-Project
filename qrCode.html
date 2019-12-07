@@ -83,7 +83,6 @@
         cameraArray = cameras; //Set the value for cameraArray, so that we can know what cameras we can use later
         if (cameras.length > 0) {
             cameraIndex = 0; //Set the first camera as the default
-            alert(cameraIndex);
             scanner.start(cameras[0]); //Start the default camera
         } else {
             alert('No cameras found.');
