@@ -391,7 +391,6 @@ function showPosition(position) {
 
                 setInterval(function () {
                     showPosition(position);
-                    initMap(latitude, longitude);
                 }, 60000);
             }
         });
