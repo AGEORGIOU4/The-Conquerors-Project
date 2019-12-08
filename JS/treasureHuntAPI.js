@@ -1,3 +1,45 @@
+/*------------------------------------------------GET ELEMENTS BY ID--------------------------------------------------*/
+document.getElementById("answerForm");
+document.getElementById("answerNumberForm");
+document.getElementById("challenges");
+document.getElementById("currentQuestionP");
+document.getElementById("gameAttributes");
+document.getElementById("instructionsH");
+document.getElementById("instructionsPbox");
+document.getElementById("loading");
+document.getElementById("locationButton");
+document.getElementById("map");
+document.getElementById("messageBoxP");
+document.getElementById("messageBoxDiv");
+document.getElementById("placeholderBox");
+document.getElementById("placeholderNumberBox");
+document.getElementById("playerNameP");
+document.getElementById("qrImg");
+document.getElementById("question");
+document.getElementById("questionSection");
+document.getElementById("scoreP");
+document.getElementById("selectTH");
+document.getElementById("selectTH2");
+document.getElementById("skipButton");
+document.getElementById("skipPopUp");
+document.getElementById("theConquerorsLogo");
+document.getElementById("treasureHuntsDescriptionParagraph");
+document.getElementById("username");
+document.getElementById("usernameBox");
+document.getElementById("usernameMessage");
+document.getElementById("leaderBoardTable");
+
+/*Answer Buttons*/
+document.getElementById("booleanButtons");
+document.getElementById("mcqButtons");
+document.getElementById("placeholderBox");
+document.getElementById("placeholderSubmit");
+document.getElementById("placeholderNumberBox");
+document.getElementById("placeholderNumberSubmit");
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 const API_LIST = "https://codecyprus.org/th/api/list";
 const API_START = "https://codecyprus.org/th/api/start";
 const API_QUESTIONS = "https://codecyprus.org/th/api/question";
@@ -22,6 +64,7 @@ let score = 0;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+
 // Get Challenges
 function getChallenges() {
     fetch(API_LIST)
@@ -34,13 +77,13 @@ function getChallenges() {
             // Traverse the array to get needed data
             for (let i = 0; i < treasureHuntsArray.length; i++) {
                 // Get the Treasure Hunt uuid
-                document.getElementById("treasureHuntsDescriptionParagraph").innerHTML = treasureHuntsArray[i].description;
+                treasureHuntsDescriptionParagraph.innerHTML = treasureHuntsArray[i].description;
                 let uuidLocal = treasureHuntsArray[i].uuid;
                 let descriptionLocal = treasureHuntsArray[i].description;
-                // Create a button and style it for each TH challenge
-                let treasureHuntsButton = document.createElement('input');
 
 /*====================================================================================================================*/
+                // Create a button and style it for each TH challenge
+                let treasureHuntsButton = document.createElement('input');
                 //Treasure Hunts Buttons styles
                 treasureHuntsButton.type = "button";
                 treasureHuntsButton.value = treasureHuntsArray[i].name;
@@ -56,7 +99,7 @@ function getChallenges() {
                 treasureHuntsButton.onclick = function () {
                     uuid = uuidLocal;
                     description = descriptionLocal;
-                    document.getElementById("treasureHuntsDescriptionParagraph").innerText = description;
+                    treasureHuntsDescriptionParagraph.innerText = description;
                 };
                 /*--------------------------------CALL GET CREDENTIALS ON CLICK-----------------------------------*/
                 treasureHuntsButton.addEventListener("click", getCredentials);
@@ -66,26 +109,18 @@ function getChallenges() {
         });
 }
 
-
 /*====================================================================================================================*/
 function showChallenges() {
-    document.getElementById("challenges");
-    document.getElementById("selectTH");
-    document.getElementById("selectTH2");
     challenges.style.display = "block";
     selectTH.style.display = "none";
     selectTH2.style.display = "block";
 }
 function hideChallenges() {
-    document.getElementById("challenges");
-    document.getElementById("selectTH");
-    document.getElementById("selectTH2");
     challenges.style.display = "none";
     selectTH.style.display = "block";
     selectTH2.style.display = "none";
 }
 /*====================================================================================================================*/
-
 
 // Call the first function to START THE QUIZ!
 getChallenges();
@@ -94,26 +129,23 @@ getChallenges();
 // Get the username and the app name and pass them to Start Session
 function getCredentials() {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
-    document.getElementById("challenges").style.display = "none";
-    document.getElementById("selectTH").style.display = "none";
-    document.getElementById("selectTH2").style.display = "none";
-    document.getElementById("instructionsPbox").style.display = "none";
-    document.getElementById("instructionsH").style.display = "none";
-    // Show username input
-    document.getElementById("usernameMessage").style.display = "block";
-    document.getElementById("usernameBox").style.display = "block";
-    document.getElementById("treasureHuntsDescriptionParagraph").style.display = "block";
+    challenges.style.display = "none";
+    selectTH.style.display = "none";
+    selectTH2.style.display = "none";
+    instructionsPbox.style.display = "none";
+    instructionsH.style.display = "none";
+    usernameMessage.style.display = "block";
+    usernameBox.style.display = "block";
+    treasureHuntsDescriptionParagraph.style.display = "block";
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-
 function startSession() {
-    document.getElementById("loading").style.display = "block";
-    document.getElementById("messageBoxP").style.display = "none";
+    loading.style.display = "block";
+    messageBoxP.style.display = "none";
 
     // Get required parameters for START URL
-    playerName = document.getElementById("username").value;
+    playerName = username.value;
     appName = "TheConquerors";
-
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json()) //Parse JSON text
         .then(jsonObject => {
@@ -125,16 +157,18 @@ function startSession() {
                 loading.style.display = "none";
                 messageBoxP.innerText = jsonObject.errorMessages;
                 messageBoxP.style.display = "block";
-                document.getElementById("messageBoxDiv").style.display = "block";
+                messageBoxDiv.style.display = "block";
 
             } else {
-                document.getElementById("messageBoxDiv").style.display = "block";
-                document.getElementById("usernameMessage").style.display = "none";
-                document.getElementById("messageBoxP").style.display = "none";
+                messageBoxDiv.style.display = "block";
+                usernameMessage.style.display = "none";
+                messageBoxP.style.display = "none";
                 // If all params are correct (username, app name, session) call the questions
-                document.getElementById("treasureHuntsDescriptionParagraph").style.display = "none";
-                document.getElementById("loading").style.display = "none";
+                treasureHuntsDescriptionParagraph.style.display = "none";
+                loading.style.display = "none";
+
                 fetchQuestions(sessionID);
+
                 getLocation();
             }
         });
@@ -143,20 +177,20 @@ function startSession() {
 function fetchQuestions() {
     getScore();
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
-    document.getElementById("usernameBox").style.display = "none";
-    document.getElementById("locationButton").style.display = "none";
-    document.getElementById("skipPopUp").style.display = "none";
-    document.getElementById("qrImg").style.display = "block";
-    document.getElementById("questionSection").style.display = "block";
-    document.getElementById("currentQuestionP").style.display = "block";
-    document.getElementById("answerForm").style.display = "block";
-    document.getElementById("answerNumberForm").style.display = "block";
+    usernameBox.style.display = "none";
+    locationButton.style.display = "none";
+    skipPopUp.style.display = "none";
+    qrImg.style.display = "block";
+    questionSection.style.display = "block";
+    currentQuestionP.style.display = "block";
+    answerForm.style.display = "block";
+    answerNumberForm.style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
+
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-
             let index = JSON.parse(jsonObject.currentQuestionIndex);
             index += 1;
             let numOfQuestion = JSON.parse(jsonObject.numOfQuestions);
@@ -166,11 +200,11 @@ function fetchQuestions() {
             currentQuestionP.innerText = "Question: " + index + " / " + jsonObject.numOfQuestions;
 
             if (jsonObject.status === "ERROR") {
-                document.getElementById("messageBoxP").innerText = jsonObject.errorMessages;
+                messageBoxP.innerText = jsonObject.errorMessages;
             } else {
                 messageBoxP.style.display = "none";
                 // Change the questions paragraph content by adding the question from the server
-                document.getElementById("question").innerHTML = jsonObject.questionText;
+                question.innerHTML = jsonObject.questionText;
                 // Question attributes
                 if (jsonObject.completed === true) {
                 }
@@ -178,10 +212,10 @@ function fetchQuestions() {
                     getLocation(latitude, longitude);
                 }
                 if (jsonObject.canBeSkipped === true) {
-                    document.getElementById("skipButton").style.display = "block";
+                    skipButton.style.display = "block";
                 }
                 if (jsonObject.canBeSkipped === false) {
-                    document.getElementById("skipButton").style.display = "none";
+                    skipButton.style.display = "none";
                 }
                 let typeOfQuestion = jsonObject.questionType;
 
@@ -192,12 +226,13 @@ function fetchQuestions() {
 
 function getTypeOfQuestion(typeOfQuestion) {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
-    document.getElementById("booleanButtons").style.display = "none";
-    document.getElementById("mcqButtons").style.display = "none";
-    document.getElementById("placeholderBox").style.display = "none";
-    document.getElementById("placeholderSubmit").style.display = "none";
-    document.getElementById("placeholderNumberBox").style.display = "none";
-    document.getElementById("placeholderNumberSubmit").style.display = "none";
+    booleanButtons.style.display = "none";
+    mcqButtons.style.display = "none";
+    placeholderBox.style.display = "none";
+    placeholderSubmit.style.display = "none";
+    placeholderNumberBox.style.display = "none";
+    placeholderNumberSubmit.style.display = "none";
+    /*----------------------------------------------------------------------------------------------------------------*/
 
     if (typeOfQuestion === "BOOLEAN") {
         booleanButtons.style.display = "block";
@@ -223,20 +258,18 @@ function getAnswer(answer) {
             scoreAdjustment = jsonObject.scoreAdjustment;
             let obj = JSON.parse(scoreAdjustment);
 
-            document.getElementById("placeholderBox");
-            document.getElementById("placeholderNumberBox");
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
-                document.getElementById("messageBoxP").style.display = "block";
+                messageBoxP.style.display = "block";
             }
             if (jsonObject.correct === false) {
                 score += obj;
                 scoreP.innerText = "Score: " + score;
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.message + "  (" + scoreAdjustment + ")";
-                document.getElementById("messageBoxP").style.display = "block";
+                messageBoxP.style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             }
@@ -245,7 +278,7 @@ function getAnswer(answer) {
                 scoreP.innerText = "Score: " + score;
                 messageBoxP.style.color = "green";
                 messageBoxP.innerText = jsonObject.message + "  (+" + scoreAdjustment + ")";
-                document.getElementById("messageBoxP").style.display = "block";
+                messageBoxP.style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
 
@@ -257,16 +290,15 @@ function getAnswer(answer) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 function askSkip(answerSkip) {
-    document.getElementById("skipPopUp").style.display = "block";
+   skipPopUp.style.display = "block";
     if (answerSkip === true) {
         skipQuestion();
     }
     if (answerSkip === false) {
-        document.getElementById("skipPopUp").style.display = "none";
+        skipPopUp.style.display = "none";
     }
 
 }
-
 
 function skipQuestion() {
     fetch(API_SKIP + "?session=" + sessionID)
@@ -279,23 +311,24 @@ function skipQuestion() {
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
-                document.getElementById("messageBoxP").style.display = "block";
+                messageBoxP.style.display = "block";
             } else {
                 score += obj;
                 messageBoxP.style.color = "yellow";
                 messageBoxP.innerText = jsonObject.message + "  (" + scoreAdjustment + ")";
-                document.getElementById("messageBoxP").style.display = "block";
+                messageBoxP.style.display = "block";
                 scoreP.innerText = "Score: " + score;
+
                 fetchQuestions(sessionID);
             }
         });
 }
 
 function getScore() {
-    document.getElementById("theConquerorsLogo").style.display = "none";
-    document.getElementById("gameAttributes").style.display = "block";
-    document.getElementById("playerNameP").style.display = "block";
-    document.getElementById("scoreP").style.display = "block";
+    theConquerorsLogo.style.display = "none";
+    gameAttributes.style.display = "block";
+    playerNameP.style.display = "block";
+    scoreP.style.display = "block";
     fetch(API_SCORE + "?session=" + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
@@ -304,11 +337,11 @@ function getScore() {
             scoreP.innerText = "Score: " + score;
 
             if (jsonObject.completed === true) {
-                document.getElementById("messageBoxDiv").style.display = "none";
-                document.getElementById("questionSection").style.display = "none";
-                document.getElementById("answerButtons").style.display = "none";
-                document.getElementById("messageBoxP").style.display = "none";
-                document.getElementById("enjoyGame").style.display = "block";
+                messageBoxDiv.style.display = "none";
+                questionSection.style.display = "none";
+                answerButtons.style.display = "none";
+                messageBoxP.style.display = "none";
+                enjoyGame.style.display = "block";
 
                 getLeaderBoard();
             }
@@ -316,12 +349,10 @@ function getScore() {
 }
 
 function getLeaderBoard() {
-    document.getElementById("map").style.top = "100px";
-    document.getElementById("loading").style.display = "block";
+    loading.style.display = "block";
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
         .then(response => response.json())
         .then(jsonObject => {
-
             handleLeaderBoard(jsonObject);
         });
 
@@ -347,9 +378,9 @@ function handleLeaderBoard(leaderboard) {
             "</tr>";
         rank += 1;
     }
-    document.getElementById("leaderBoardTable").innerHTML += html;
-    document.getElementById("loading").style.display = "none";
-    document.getElementById("leaderBoardTable").style.display = "block";
+    leaderBoardTable.innerHTML += html;
+    loading.style.display = "none";
+    leaderBoardTable.style.display = "block";
 }
 
 //========================OTHER FUNCTIONS=========================//
@@ -362,7 +393,7 @@ function getLocation() {
     } else {
         messageBoxP.style.color = "red";
         messageBoxP.innerText = "Geolocation is not supported by your browser.";
-        document.getElementById("messageBoxP").style.display = "block";
+        messageBoxP.style.display = "block";
     }
 }
 
@@ -379,13 +410,13 @@ function showPosition(position) {
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
-                document.getElementById("messageBoxP").style.display = "block";
+                messageBoxP.style.display = "block";
             } else {
-                document.getElementById("map").style.display = "block";
+                map.style.display = "block";
                 messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
-                document.getElementById("messageBoxP").style.display = "block";
-                document.getElementById("locationButton").style.display = "block";
+                messageBoxP.style.display = "block";
+                locationButton.style.display = "block";
 
                 setInterval(function () {
                     showPosition(position);

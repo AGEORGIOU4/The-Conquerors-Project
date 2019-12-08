@@ -6,11 +6,9 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154060536-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
         gtag('config', 'UA-154060536-1');
     </script>
@@ -38,10 +36,6 @@
 </head>
 
 <body>
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
 
 <!------------------------------------------------HEADER--------------------------------------------------------------->
 
@@ -208,14 +202,9 @@
 </table>
 
 
-<div id="map1"></div>
-<div id="map2"></div>
-<div id="map3"></div>
-<div id="map4"></div>
-<div id="map5"></div>
-<div id="map6"></div>
+<div id="map"></div>
+
 <script>
-    let x = 1;
     function initMap() {
         // Map options
         let options = {
@@ -224,9 +213,7 @@
         };
         // New map
         let map = new
-        google.maps.Map(document.getElementById("map" + x), options);
-
-        x+=1;
+        google.maps.Map(document.getElementById("map"), options);
 
         function addMarker(latitude, longitude) {
             new google.maps.Marker({
