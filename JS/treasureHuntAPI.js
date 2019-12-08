@@ -39,6 +39,7 @@ function getChallenges() {
                 let descriptionLocal = treasureHuntsArray[i].description;
                 // Create a button and style it for each TH challenge
                 let treasureHuntsButton = document.createElement('input');
+                //Treasure Hunts Buttons styles
                 treasureHuntsButton.type = "button";
                 treasureHuntsButton.value = treasureHuntsArray[i].name;
                 treasureHuntsButton.style.fontSize = "-webkit-xxx-large";
@@ -372,7 +373,7 @@ function showPosition(position) {
     clearInterval();
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-    initMap(latitude, longitude);
+    initMap();
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
@@ -391,7 +392,7 @@ function showPosition(position) {
 
                 setInterval(function () {
                     showPosition(position);
-                }, 60000);
+                }, 45000);
             }
         });
 }
