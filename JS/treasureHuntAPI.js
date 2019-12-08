@@ -39,6 +39,8 @@ function getChallenges() {
                 let descriptionLocal = treasureHuntsArray[i].description;
                 // Create a button and style it for each TH challenge
                 let treasureHuntsButton = document.createElement('input');
+
+/*====================================================================================================================*/
                 //Treasure Hunts Buttons styles
                 treasureHuntsButton.type = "button";
                 treasureHuntsButton.value = treasureHuntsArray[i].name;
@@ -48,7 +50,9 @@ function getChallenges() {
                 treasureHuntsButton.style.padding = "20";
                 treasureHuntsButton.style.width = "95%";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
-                // Define the uuid for each TH on click
+/*====================================================================================================================*/
+
+                // Define the UUID for each TH on click
                 treasureHuntsButton.onclick = function () {
                     uuid = uuidLocal;
                     description = descriptionLocal;
@@ -62,8 +66,9 @@ function getChallenges() {
         });
 }
 
+
+/*====================================================================================================================*/
 function showChallenges() {
-    /*-----------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     document.getElementById("challenges");
     document.getElementById("selectTH");
     document.getElementById("selectTH2");
@@ -71,7 +76,6 @@ function showChallenges() {
     selectTH.style.display = "none";
     selectTH2.style.display = "block";
 }
-
 function hideChallenges() {
     document.getElementById("challenges");
     document.getElementById("selectTH");
@@ -80,32 +84,26 @@ function hideChallenges() {
     selectTH.style.display = "block";
     selectTH2.style.display = "none";
 }
+/*====================================================================================================================*/
 
-/*--------------------------------------------------------------------------------------------------------------------*/
 
-// Call the first function to start the quiz
+// Call the first function to START THE QUIZ!
 getChallenges();
+
 
 // Get the username and the app name and pass them to Start Session
 function getCredentials() {
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
-    document.getElementById("challenges");
-    document.getElementById("selectTH");
-    document.getElementById("selectTH2");
-    document.getElementById("instructionsPbox");
-
-    challenges.style.display = "none";
-    selectTH.style.display = "none";
-    selectTH2.style.display = "none";
-    instructionsP.style.display = "none";
-    instructionsH.style.display = "none";
-
+    document.getElementById("challenges").style.display = "none";
+    document.getElementById("selectTH").style.display = "none";
+    document.getElementById("selectTH2").style.display = "none";
+    document.getElementById("instructionsPbox").style.display = "none";
+    document.getElementById("instructionsH").style.display = "none";
     // Show username input
     document.getElementById("usernameMessage").style.display = "block";
     document.getElementById("usernameBox").style.display = "block";
     document.getElementById("treasureHuntsDescriptionParagraph").style.display = "block";
 }
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 function startSession() {
@@ -117,16 +115,18 @@ function startSession() {
     appName = "TheConquerors";
 
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
-        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(response => response.json()) //Parse JSON text
         .then(jsonObject => {
+
             // Set sessionID to the current session
             sessionID = jsonObject.session;
 
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
                 messageBoxP.innerText = jsonObject.errorMessages;
-                document.getElementById("messageBoxDiv").style.display = "block";
                 messageBoxP.style.display = "block";
+                document.getElementById("messageBoxDiv").style.display = "block";
+
             } else {
                 document.getElementById("messageBoxDiv").style.display = "block";
                 document.getElementById("usernameMessage").style.display = "none";
@@ -152,9 +152,6 @@ function fetchQuestions() {
     document.getElementById("answerForm").style.display = "block";
     document.getElementById("answerNumberForm").style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
-
-    // Retrieve a paragraph element named "question" to add the questions
-    document.getElementById("question");
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
@@ -166,7 +163,6 @@ function fetchQuestions() {
             if (index > numOfQuestion) {
                 index = numOfQuestion;
             }
-
             currentQuestionP.innerText = "Question: " + index + " / " + jsonObject.numOfQuestions;
 
             if (jsonObject.status === "ERROR") {
@@ -174,7 +170,7 @@ function fetchQuestions() {
             } else {
                 messageBoxP.style.display = "none";
                 // Change the questions paragraph content by adding the question from the server
-                question.innerHTML = jsonObject.questionText;
+                document.getElementById("question").innerHTML = jsonObject.questionText;
                 // Question attributes
                 if (jsonObject.completed === true) {
                 }
@@ -188,6 +184,7 @@ function fetchQuestions() {
                     document.getElementById("skipButton").style.display = "none";
                 }
                 let typeOfQuestion = jsonObject.questionType;
+
                 getTypeOfQuestion(typeOfQuestion);
             }
         });
