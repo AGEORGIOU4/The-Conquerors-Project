@@ -1,8 +1,5 @@
-
-
-
-/*-----------------------------------------------DESKTOP--------------------------------------------------------------*/
-@media only screen and (min-width: 1001px) {
+/*-----------------------------------------------MOBILE--------------------------------------------------------------*/
+@media only screen and (max-width: 1000px) {
 
     * {
         font-family: sans-serif;
@@ -11,84 +8,32 @@
     /*------------------------------------------------HEADER--------------------------------------------------------------*/
     header {
         width: 100%;
-        height: 70px;
+        height: 200px;
         text-align: center;
         background-color: white;
     }
 
     #theConquerorsLogo {
-        padding: 5px;
-        width: 50%;
-        height: 60px;
+        width: 75%;
+        height: 200px;
     }
 
     /*------------------------------------------------FOOTER--------------------------------------------------------------*/
     footer {
-        width: 100%;
-        text-align: center;
-        margin: 25px;
+        margin: 50px;
     }
 
 
     /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
     #socialBar {
-        margin: 5px;
+        margin: 15px;
         position: absolute;
-        height: 40px;
+        height: 100px;
         text-align: center;
         background-color: #4c96d7;
         border-radius: 10px;
     }
 
-    #twitterLink {
-        text-decoration: none;
-    }
-
-    #twitterLogo {
-        height: 30px;
-        width: 30px;
-        margin: 5px;
-    }
-
-    #twitterLogo:hover {
-        height: 34px;
-        width: 34px;
-        margin: 2px 3px;
-    }
-
-    #facebookLogo {
-        height: 30px;
-        width: 30px;
-        margin: 5px;
-    }
-
-    #facebookLink {
-        text-decoration: none;
-    }
-
-    #facebookLogo:hover {
-        height: 34px;
-        width: 34px;
-        margin: 2px 3px;
-
-    }
-
-    #githubLogo {
-        height: 30px;
-        width: 30px;
-        margin: 5px;
-    }
-
-    #githubLogo:hover {
-        height: 34px;
-        width: 34px;
-        margin: 2px 3px;
-
-    }
-
-    #gitHubLink {
-        text-decoration: none;
-    }
 
     #locationButton {
         display: none;
@@ -100,7 +45,7 @@
     #locationImg {
         display: block;
         margin: 10px;
-        width: 24px;
+        width: 100px;
     }
 
     #goHome {
@@ -112,61 +57,123 @@
     #homeImg {
         display: block;
         margin: 10px;
-        width: 24px;
+        width: 100px;
     }
 
     #qrButton {
         float: right;
         background: transparent;
         margin: 0 0 0 20px;
+
     }
 
     #qrImg {
         display: block;
         margin: 10px;
-        width: 24px;
+        width: 100px;
     }
 
     #skipButton {
         display: none;
         position: absolute;
-        right: 10px;
-        top: 9px;
+        height: 100px;
+        right: 25px;
+        top: 50px;
         float: right;
+        width: 280px;
         font-size: 40px;
+        border-radius: 60px;
         cursor: pointer;
+    }
+
+    #twitterLink {
+        text-decoration: none;
+    }
+
+    #twitterLogo {
+        height: 70px;
+        width: 70px;
+        margin: 15px;
+    }
+
+    #twitterLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+    }
+
+    #facebookLogo {
+        height: 70px;
+        width: 70px;
+        margin: 15px;
+    }
+
+    #facebookLink {
+        text-decoration: none;
+    }
+
+    #facebookLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+
+    }
+
+    #githubLogo {
+        height: 70px;
+        width: 70px;
+        margin: 15px;
+    }
+
+    #githubLogo:hover {
+        height: 80px;
+        width: 80px;
+        margin: 2px 10px;
+
+    }
+
+    #gitHubLink {
+        text-decoration: none;
+    }
+
+    .timeline-Widget {
+        width: 100%;
     }
 
     /*-------------------------------------------------BODY---------------------------------------------------------------*/
     body {
-        height: 900px;
+        height: 1440px;
         background-color: #071230;
         margin: 0;
         text-align: center;
     }
 
     #headBar {
-        height: 50px;
+        height: 130px;
         background-color: #212121;
     }
 
     /*=============================================LANDING PAGE===========================================================*/
     #homeP {
-        padding: 20px 100px;
-        margin: 0 200px;
-        font-size: 15px;
+        padding: 75px;
+        margin: 0 auto;
+        font-size: 20px;
         color: #464545;
         background-color: #FFFFFF;
         text-align: center;
         border: 2px solid #464545;
     }
 
+    #developersList {
+        margin: 50px;
+
+    }
 
     #tagLine {
         margin: 0 auto;
         text-align: center;
         color: #FFFFFF;
-        font-size: 30px;
+        font-size: 70px;
         font-weight: 900;
     }
 
@@ -175,22 +182,23 @@
         text-align: center;
         color: #FFFFFF;
         list-style-type: none;
-        font-size: 15px;
+        font-size: 60px;
     }
 
     #startButton:before {
-        margin: -12px -78px;
+        padding: 3px;
+        margin: 0 -78px;
         position: absolute;
         content: "\276F";
-        font-size: 40px;
+        font-size: 60px;
         color: #212121;
     }
 
     #startButton {
         display: block;
         margin: auto;
-        padding: 15px 120px;
-        font-size: 30px;
+        padding: 50px 120px;
+        font-size: 60px;
         color: #FFFFFF;
         text-align: center;
         background-color: #464545;
@@ -198,10 +206,11 @@
     }
 
     #startButton:after {
-        margin: -12px 42px;
+        padding: 3px;
+        margin: 0 42px;
         position: absolute;
         content: "\276F";
-        font-size: 40px;
+        font-size: 60px;
         color: #212121;
     }
 
@@ -218,9 +227,8 @@
     }
 
     #instructionsH {
-        padding: 20px 200px;
-        margin: 20px 200px;
-        font-size: 20px;
+        margin: 20px 0;
+        font-size: 30px;
         color: #464545;
         background-color: #FFFFFF;
         text-align: center;
@@ -229,9 +237,10 @@
     }
 
     #instructionsP {
-        padding: 20px 100px;
-        margin: 0 200px 15px;
-        font-size: 15px;
+
+        margin: 0 auto 30px;
+        padding: 75px;
+        font-size: 20px;
         color: #464545;
         background-color: #FFFFFF;
         text-align: left;
@@ -240,10 +249,10 @@
 
     #selectTH {
         margin: auto;
-        padding: 5px;
+        padding: 50px;
         background-color: transparent;
         color: #FFFFFF;
-        font-size: 25px;
+        font-size: 60px;
         font-weight: 900;
         text-align: center;
     }
@@ -256,10 +265,10 @@
     #selectTH2 {
         display: none;
         margin: auto;
-        padding: 5px;
+        padding: 50px;
         background-color: transparent;
         color: #FFFFFF;
-        font-size: 25px;
+        font-size: 60px;
         font-weight: 900;
         text-align: center;
     }
@@ -267,10 +276,6 @@
     #selectTH2:after {
         content: "\2212";
         margin: 10px 20px;
-    }
-
-    #treasureHuntsButton1 {
-        font-size: 5px;
     }
 
     #challenges {
@@ -285,29 +290,31 @@
     }
 
     #credentials {
+        margin-top: 90px;
         text-align: center;
     }
 
     #usernameMessage {
         display: none;
-        margin: 10px;
-        font-size: 30px;
+        font-size: 60px;
         color: #FFFFFF;
         font-weight: 900;
     }
 
     #username {
-        width: 40%;
-        height: 40px;
-        margin: 0 auto 20px;
-        font-size: 30px;
+        width: 60%;
+        height: 70px;
+        margin: 20px auto;
+        font-size: 40px;
         border: 2px solid #000000;
         border-radius: 15px;
     }
 
     #submitButton {
+        width: 60%;
+        margin-bottom: 20px;
         color: #000000;
-        font-size: 40px;
+        font-size: 50px;
     }
 
     #submitButtonNewGame {
@@ -323,64 +330,66 @@
 
     #messageBoxP {
         display: none;
-        margin: 20px;
+        margin: 0;
         padding: 0 5px;
         color: red;
-        font-size: 20px;
+        font-size: 54px;
         font-weight: 900;
     }
 
     #gameAttributes {
         display: none;
-        height: 50px;
         padding: 5px;
+        height: 190px;
         text-align: left;
     }
 
+    #gameStats {
+        padding: 10px;
+    }
 
     #playerNameP {
         margin: 0;
-        font-size: 14px;
+        font-size: 40px;
         color: #212121;
         font-weight: 900;
     }
 
     #scoreP {
         margin: 0;
-        font-size: 14px;
+        font-size: 40px;
         color: #212121;
         font-weight: 900;
     }
 
     #currentQuestionP {
         margin: 0;
-        font-size: 14px;
+        font-size: 40px;
         color: #212121;
         font-weight: 900;
     }
 
-
     #treasureHuntsDescriptionParagraph {
         display: none;
-        margin: 0 200px;
-        padding: 20px 100px;
-        font-size: 15px;
+        margin: 320px auto 20px auto;
+        padding: 30px;
+        font-size: 50px;
         background-color: #FFFFFF;
         color: #464545;
-        border: 2px solid #464545;
+        border: 10px solid #212121;
     }
 
     #loading {
         display: none;
         width: 100%;
-        height: 800px;
-        margin: 0 auto;
+        height: 1600px;
     }
 
     /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
     #questionSection {
-        height: 100px;
         display: none;
+        margin: 50px;
+        height: 300px;
         padding: 20px;
         font-size: 60px;
     }
@@ -388,7 +397,6 @@
     #question {
         color: #FFFFFF;
         margin: 0 auto;
-        font-size: x-large;
     }
 
     #question a {
@@ -413,8 +421,9 @@
     }
 
     .booleanButtons {
+        width: 170px;
         color: #000000;
-        font-size: 25px;
+        font-size: 60px;
         margin: 20px 20px;
     }
 
@@ -423,17 +432,18 @@
     }
 
     .mcqButtons {
+        width: 170px;
         color: #000000;
-        font-size: 25px;
+        font-size: 60px;
         margin: 20px 20px;
     }
 
     #placeholderBox {
         display: none;
-        padding: 0;
-        margin: 10px auto;
-        height: 40px;
-        color: #000000;
+        float: left;
+        width: 70%;
+        height: 70px;
+        margin: 20px 0 20px 30px;
         font-size: 40px;
         border: 2px solid #000000;
         border-radius: 15px;
@@ -441,19 +451,21 @@
 
     #placeholderSubmit {
         display: none;
-        margin: 10px auto;
+        float: right;
+        margin: 20px 30px 20px 0;
+        height: 76px;
         color: #000000;
-        font-size: 25px;
+        font-size: 50px;
         border: 2px solid #000000;
         border-radius: 15px;
     }
 
     #placeholderNumberBox {
         display: none;
-        padding: 0;
-        margin: 10px auto;
-        height: 40px;
-        color: #000000;
+        float: left;
+        width: 70%;
+        height: 70px;
+        margin: 20px 0 20px 30px;
         font-size: 40px;
         border: 2px solid #000000;
         border-radius: 15px;
@@ -461,15 +473,13 @@
 
     #placeholderNumberSubmit {
         display: none;
-        margin: 10px auto;
+        float: right;
+        margin: 20px 30px 20px 0;
+        height: 76px;
         color: #000000;
-        font-size: 25px;
+        font-size: 50px;
         border: 2px solid #000000;
         border-radius: 15px;
-    }
-
-    #skipMessage {
-        font-size: 30px;
     }
 
     /*-----------------------------------------------PHASE 04-------------------------------------------------------------*/
@@ -477,54 +487,55 @@
         display: none;
     }
 
-
     #ask, #ask1 {
-        margin: 0 100px;
-        font-size: xx-large;
+        font-size: 40px;
         color: deeppink;
         font-weight: 900;
+        margin: 0 100px;
         padding: 40px;
         border-top: 3px solid grey;
     }
 
     #leaderBoardTable {
         display: none;
-        margin: 30px 0;
+        margin: 30px auto;
         background-color: #FFFFFF;
-        font-size: 25px;
+        font-size: 40px;
     }
 
     #leaderBoardTable th {
         background-color: #212121;
     }
 
-    #leaderBoardTable tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
     #rank {
+        width: 10%;
         color: #FFFFFF;
     }
 
     #playerHead {
+        width: 35%;
         color: #FFFFFF;
-        width: 50%;
     }
 
     #scoreHead {
+        width: 15%;
         color: #FFFFFF;
-        width: 10%;
     }
 
     #timeHead {
+        width: 40%;
         color: #FFFFFF;
-        width: 50%;
     }
+
+    #leaderBoardTable tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
 
     /*================================================QR PAGE=============================================================*/
     #preview {
         width: 100%;
-        height: 500px;
+        height: 1000px;
         background-color: black;
         text-align: center;
     }
@@ -541,27 +552,28 @@
 
     #goBack {
         float: right;
-        margin: 5px 10px;
-        height: 40px;
+        margin: 27px 30px 20px 0;
+        height: 76px;
         color: #000000;
-        font-size: 30px;
+        font-size: 50px;
         border: 2px solid #000000;
         border-radius: 15px;
     }
 
     #switchCamera {
         float: right;
-        margin: 5px 10px;
-        height: 40px;
+        margin: 27px 30px 20px 0;
+        height: 76px;
         color: #000000;
-        font-size: 30px;
+        font-size: 50px;
         border: 2px solid #000000;
         border-radius: 15px;
     }
 
     #map {
         display: none;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
+        top: 200px;
         width: 100%;
         height: 400px;
         position: relative;
@@ -569,21 +581,3 @@
         bottom: 0;
     }
 }
-
-
-/*------------------------------------------------NOTES---------------------------------------------------------------*/
-
-#notesList {
-    text-align: left;
-}
-
-table {
-    width: 100%;
-    border: 1px solid blue;
-}
-
-th, td {
-    border-bottom: 1px solid gray;
-    text-align: left;
-}
-
