@@ -200,7 +200,7 @@
 
     #startButton:before {
         padding: 3px;
-        margin: 0 -78px;
+        margin: -15px -78px;
         position: absolute;
         content: "\276F";
         font-size: 60px;
@@ -220,7 +220,7 @@
 
     #startButton:after {
         padding: 3px;
-        margin: 0 42px;
+        margin: -15px 42px;
         position: absolute;
         content: "\276F";
         font-size: 60px;

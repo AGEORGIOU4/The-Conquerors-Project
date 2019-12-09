@@ -4,12 +4,12 @@
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#FFE9D2",
-  "theme_color": "FFE1C4",
+  "theme_color": "#FFE1C4",
   "orientation": "portrait",
   "icons": [
     {
       "src": "/IMAGES/faviconlogoconquerorsicon192.png",
-      "type": "image/ico",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
