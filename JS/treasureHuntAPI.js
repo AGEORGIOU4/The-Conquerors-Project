@@ -137,6 +137,7 @@ function getCredentials() {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function startSession() {
+    deleteCookie();
     loading.style.display = "block";
     messageBoxP.style.display = "none";
 
@@ -482,7 +483,7 @@ function checkCookie() {
     }
 
 function deleteCookie() {
-document.cookie = "sessionCookie = ; path=/;";
+document.cookie = "sessionCookie =; path=/;";
 document.cookie = "playerNameCookie =; path=/;";
 document.cookie = "scoreCookie =; path=/;";
 }
