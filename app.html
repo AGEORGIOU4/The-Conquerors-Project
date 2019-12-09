@@ -117,6 +117,8 @@
         <input type="text" name="player" id="username">
         <br>
         <input type="button" id="submitButton" onclick="startSession(uuid)" value="START">
+        <br>
+        <input type="button" id="continueButton" onclick="fetchQuestions(sessionID)" value="CONTINUE">
     </form>
 </div>
 
@@ -203,6 +205,8 @@
 
 
 <div id="map"></div>
+<div id="map2"></div>
+<div id="map3"></div>
 
 <script>
     function initMap() {
@@ -224,6 +228,26 @@
         }
         addMarker(latitude, longitude);
     }
+
+/*    function initMap2() {
+        // Map options
+        let options = {
+            zoom: 14,
+            center: {lat: latitude, lng: longitude}
+        };
+        // New map
+        let map = new
+        google.maps.Map(document.getElementById("map"), options);
+
+        function addMarker(latitude, longitude) {
+            new google.maps.Marker({
+                position: ({lat: latitude, lng: longitude}),
+                map: map,
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+            });
+        }
+        addMarker(latitude, longitude);
+    }*/
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATMtp854vZWXb1XxNa7mZXy31IeGUvvKk&callback=getLocation"

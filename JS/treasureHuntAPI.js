@@ -62,7 +62,7 @@ let latitude = "";
 let longitude = "";
 let score = 0;
 
-/*--------------------------------------------------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------------------------------------------------*/
 
 
 // Get Challenges
@@ -145,13 +145,16 @@ function startSession() {
 
     // Get required parameters for START URL
     playerName = username.value;
+    setCookie("playerNameCookie", playerName, 1);
     appName = "TheConquerors";
+
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
         .then(response => response.json()) //Parse JSON text
         .then(jsonObject => {
 
             // Set sessionID to the current session
             sessionID = jsonObject.session;
+            setCookie("sessionCookie", sessionID, 1);
 
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
@@ -168,7 +171,6 @@ function startSession() {
                 loading.style.display = "none";
 
                 fetchQuestions(sessionID);
-
                 getLocation();
             }
         });
@@ -178,6 +180,7 @@ function fetchQuestions() {
     getScore();
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     usernameBox.style.display = "none";
+    usernameMessage.style.display = "none";
     locationButton.style.display = "none";
     skipPopUp.style.display = "none";
     qrImg.style.display = "block";
@@ -329,6 +332,7 @@ function getScore() {
     gameAttributes.style.display = "block";
     playerNameP.style.display = "block";
     scoreP.style.display = "block";
+
     fetch(API_SCORE + "?session=" + sessionID)
         .then(response => response.json())
         .then(jsonObject => {
@@ -344,6 +348,7 @@ function getScore() {
                 enjoyGame.style.display = "block";
 
                 getLeaderBoard();
+                deleteCookie();
             }
         });
 }
@@ -402,6 +407,7 @@ function showPosition(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     initMap();
+
     fetch(API_LOCATION + "?session=" + sessionID + "&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
@@ -424,3 +430,43 @@ function showPosition(position) {
             }
         });
 }
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    let cookie = getCookie("sessionCookie");
+    let cookie2 = getCookie("playerNameCookie");
+    if (cookie !== "" && cookie2 !=="") {
+      sessionID = cookie;
+      playerName = cookie2;
+    } else {
+        startSession();
+        }
+    }
+
+function deleteCookie() {
+document.cookie = "sessionCookie = ; path=/;";
+document.cookie = "playerNameCookie = ; path=/;";
+}
+
+checkCookie();

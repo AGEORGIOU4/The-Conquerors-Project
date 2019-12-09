@@ -86,6 +86,14 @@
         cursor: pointer;
     }
 
+    #noButton {
+        width: 60px;
+    }
+
+    #yesButton {
+        width: 60px;
+    }
+
     #twitterLink {
         text-decoration: none;
     }
@@ -311,6 +319,13 @@
     }
 
     #submitButton {
+        width: 60%;
+        margin-bottom: 20px;
+        color: #000000;
+        font-size: 50px;
+    }
+
+    #continueButton {
         width: 60%;
         margin-bottom: 20px;
         color: #000000;
@@ -719,6 +734,14 @@
         cursor: pointer;
     }
 
+    #noButton {
+        width: 60px;
+    }
+
+    #yesButton {
+        width: 60px;
+    }
+
     /*-------------------------------------------------BODY---------------------------------------------------------------*/
     body {
         height: 900px;
@@ -888,7 +911,13 @@
     }
 
     #submitButton {
+        width: 90px;
         color: #000000;
+        font-size: 40px;
+    }
+
+    #continueButton {
+        width: 90px;
         font-size: 40px;
     }
 
