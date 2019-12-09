@@ -2,6 +2,7 @@
 document.getElementById("answerForm");
 document.getElementById("answerNumberForm");
 document.getElementById("challenges");
+document.getElementById("continueButton");
 document.getElementById("currentQuestionP");
 document.getElementById("gameAttributes");
 document.getElementById("instructionsH");
@@ -158,6 +159,7 @@ function startSession() {
 
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
+                messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
                 messageBoxP.style.display = "block";
                 messageBoxDiv.style.display = "block";
@@ -321,7 +323,6 @@ function skipQuestion() {
                 messageBoxP.innerText = jsonObject.message + "  (" + scoreAdjustment + ")";
                 messageBoxP.style.display = "block";
                 scoreP.innerText = "Score: " + score;
-
                 fetchQuestions(sessionID);
             }
         });
@@ -456,9 +457,13 @@ function getCookie(cname) {
 function checkCookie() {
     let cookie = getCookie("sessionCookie");
     let cookie2 = getCookie("playerNameCookie");
+    let cookie3 = getCookie("scoreCookie");
     if (cookie !== "" && cookie2 !=="") {
       sessionID = cookie;
       playerName = cookie2;
+      score = cookie3;
+
+        alert("Welcome back " + playerName);
     } else {
         startSession();
         }
@@ -467,6 +472,7 @@ function checkCookie() {
 function deleteCookie() {
 document.cookie = "sessionCookie = ; path=/;";
 document.cookie = "playerNameCookie = ; path=/;";
+document.cookie = "scoreCookie = ; path=/;";
 }
 
 checkCookie();
