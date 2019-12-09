@@ -1,4 +1,5 @@
 /*------------------------------------------------GET ELEMENTS BY ID--------------------------------------------------*/
+
 document.getElementById("answerForm");
 document.getElementById("answerNumberForm");
 document.getElementById("challenges");
@@ -63,8 +64,7 @@ let latitude = "";
 let longitude = "";
 let score = 0;
 
-    /*--------------------------------------------------------------------------------------------------------------------*/
-
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 // Get Challenges
 function getChallenges() {
@@ -95,21 +95,19 @@ function getChallenges() {
                 treasureHuntsButton.style.width = "95%";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
 /*====================================================================================================================*/
-
                 // Define the UUID for each TH on click
                 treasureHuntsButton.onclick = function () {
                     uuid = uuidLocal;
                     description = descriptionLocal;
                     treasureHuntsDescriptionParagraph.innerText = description;
                 };
-                /*--------------------------------CALL GET CREDENTIALS ON CLICK-----------------------------------*/
+                /*--------------------------------CALL GET CREDENTIALS ON CLICK---------------------------------------*/
                 treasureHuntsButton.addEventListener("click", getCredentials);
                 // Add the TH challenges buttons on a list
                 challengesList.appendChild(treasureHuntsButton);
             }
         });
 }
-
 /*====================================================================================================================*/
 function showChallenges() {
     challenges.style.display = "block";
@@ -160,7 +158,6 @@ function startSession() {
                 messageBoxP.innerText = jsonObject.errorMessages;
                 messageBoxP.style.display = "block";
                 messageBoxDiv.style.display = "block";
-
             } else {
                 messageBoxDiv.style.display = "block";
                 usernameMessage.style.display = "none";
@@ -178,9 +175,11 @@ function startSession() {
 function fetchQuestions() {
     loading.style.display = "block";
     getScore();
+
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     usernameBox.style.display = "none";
     usernameMessage.style.display = "none";
+    treasureHuntsDescriptionParagraph.style.display = "none";
     locationButton.style.display = "none";
     skipPopUp.style.display = "none";
     qrImg.style.display = "block";
@@ -286,6 +285,7 @@ function getAnswer(answer) {
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
 
+                setCookie("scoreCookie", score, 30);
                 fetchQuestions();
             }
         });
@@ -355,6 +355,7 @@ function getScore() {
 
 function getLeaderBoard() {
     loading.style.display = "block";
+    treasureHuntsDescriptionParagraph.style.display = "none";
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
         .then(response => response.json())
         .then(jsonObject => {
@@ -456,22 +457,25 @@ function getCookie(cname) {
 function checkCookie() {
     let cookie = getCookie("sessionCookie");
     let cookie2 = getCookie("playerNameCookie");
+    let cookie3 = getCookie("scoreCookie");
 
-    if (cookie != "" && cookie2 !="") {
+    if (cookie !=="" && cookie2 !=="" && cookie3!=="") {
         sessionID = cookie;
         playerName = cookie2;
+        score = cookie3;
         alert("Welcome back " + playerName);
         getChallenges();
     }
-    if (cookie == ""){
+    else {
         // Call the first function to START THE QUIZ!
         getChallenges();
         }
     }
 
 function deleteCookie() {
-document.cookie = "sessionCookie =; path=/;";
+document.cookie = "sessionCookie = ; path=/;";
 document.cookie = "playerNameCookie =; path=/;";
+document.cookie = "scoreCookie =; path=/;";
 }
 
 checkCookie();
