@@ -1,6 +1,7 @@
 {
   "name": "Treasure Hunt",
   "short_name": "Conquerors",
+  "scope: "/TheConquerorsProject",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#FFE9D2",
