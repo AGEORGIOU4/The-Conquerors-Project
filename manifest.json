@@ -1,16 +1,16 @@
 {
   "name": "Treasure Hunt",
   "short_name": "Conquerors",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#FFE9D2",
   "theme_color": "FFE1C4",
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "/IMAGES/faviconlogoconquerorsicon.ico",
+      "src": "/IMAGES/faviconlogoconquerorsicon192.png",
       "type": "image/ico",
-      "sizes": "256x256"
+      "sizes": "192x192"
     },
     {
       "src": "/IMAGES/FaviconLogoConquerors.png",
