@@ -81,7 +81,7 @@ function getChallenges() {
                 let uuidLocal = treasureHuntsArray[i].uuid;
                 let descriptionLocal = treasureHuntsArray[i].description;
 
-/*====================================================================================================================*/
+                /*====================================================================================================================*/
                 // Create a button and style it for each TH challenge
                 let treasureHuntsButton = document.createElement('input');
                 //Treasure Hunts Buttons styles
@@ -93,7 +93,7 @@ function getChallenges() {
                 treasureHuntsButton.style.padding = "20";
                 treasureHuntsButton.style.width = "95%";
                 treasureHuntsButton.id = "treasureHuntsButton" + [i + 1];
-/*====================================================================================================================*/
+                /*====================================================================================================================*/
                 // Define the UUID for each TH on click
                 treasureHuntsButton.onclick = function () {
                     uuid = uuidLocal;
@@ -115,11 +115,13 @@ function showChallenges() {
     selectTH.style.display = "none";
     selectTH2.style.display = "block";
 }
+
 function hideChallenges() {
     challenges.style.display = "none";
     selectTH.style.display = "block";
     selectTH2.style.display = "none";
 }
+
 /*====================================================================================================================*/
 
 
@@ -135,11 +137,13 @@ function getCredentials() {
     usernameBox.style.display = "block";
     treasureHuntsDescriptionParagraph.style.display = "block";
 }
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 function startSession() {
     deleteCookie();
     loading.style.display = "block";
     messageBoxP.style.display = "none";
+
 
     // Get required parameters for START URL
     playerName = username.value;
@@ -170,7 +174,7 @@ function startSession() {
                 loading.style.display = "none";
 
                 fetchQuestions(sessionID);
-                getLocation();
+
 
             }
         });
@@ -178,6 +182,7 @@ function startSession() {
 
 function fetchQuestions() {
     loading.style.display = "block";
+    getLocation();
     getScore();
 
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
@@ -305,7 +310,7 @@ function getAnswer(answer) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 function askSkip(answerSkip) {
-   skipPopUp.style.display = "block";
+    skipPopUp.style.display = "block";
     if (answerSkip === true) {
         skipQuestion();
     }
@@ -352,7 +357,6 @@ function getScore() {
 
             playerNameP.innerText = "Player: " + jsonObject.player;
             scoreP.innerText = "Score: " + score;
-            console.log(score);
             if (jsonObject.completed === true) {
                 messageBoxDiv.style.display = "none";
                 questionSection.style.display = "none";
@@ -449,14 +453,14 @@ function showPosition(position) {
 function setCookie(cname, cvalue, exminutes) {
     var d = new Date();
     d.setTime(d.getTime() + (exminutes * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
+    var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
+    for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) === ' ') {
             c = c.substring(1);
@@ -473,23 +477,23 @@ function checkCookie() {
     let cookie2 = getCookie("playerNameCookie");
     let cookie3 = Number(getCookie("scoreCookie"));
 
-    if (cookie !=="" && cookie2 !=="") {
+    if (cookie !== "" && cookie2 !== "") {
         sessionID = cookie;
         playerName = cookie2;
         score = cookie3;
         alert("Welcome back " + playerName);
         getChallenges();
-    }
-    else {
+    } else {
         // Call the first function to START THE QUIZ!
         getChallenges();
-        }
+        document.getElementById("continueButton").style.display = "none";
     }
+}
 
 function deleteCookie() {
-document.cookie = "sessionCookie=; path=/;";
-document.cookie = "playerNameCookie=; path=/;";
-document.cookie = "scoreCookie=; path=/;";
+    document.cookie = "sessionCookie=; path=/;";
+    document.cookie = "playerNameCookie=; path=/;";
+    document.cookie = "scoreCookie=; path=/;";
 }
 
 function startGame() {
