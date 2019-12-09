@@ -282,6 +282,8 @@ function getAnswer(answer) {
                 messageBoxP.style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
+
+                setCookie("scoreCookie", score, 30);
             }
             if (jsonObject.correct === true) {
                 score += scoreAdjustment;
@@ -292,6 +294,7 @@ function getAnswer(answer) {
                 messageBoxP.style.color = "green";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
+                setCookie("scoreCookie", score, 30);
 
                 setCookie("scoreCookie", score, 30);
                 fetchQuestions();
@@ -331,6 +334,7 @@ function skipQuestion() {
                 messageBoxDiv.style.display = "block";
                 messageBoxP.style.display = "block";
                 scoreP.innerText = "Score: " + score;
+                getScore();
                 fetchQuestions(sessionID);
             }
         });
@@ -348,7 +352,7 @@ function getScore() {
 
             playerNameP.innerText = "Player: " + jsonObject.player;
             scoreP.innerText = "Score: " + score;
-
+            console.log(score);
             if (jsonObject.completed === true) {
                 messageBoxDiv.style.display = "none";
                 questionSection.style.display = "none";
@@ -483,10 +487,15 @@ function checkCookie() {
     }
 
 function deleteCookie() {
-document.cookie = "sessionCookie =; path=/;";
-document.cookie = "playerNameCookie =; path=/;";
-document.cookie = "scoreCookie =; path=/;";
+document.cookie = "sessionCookie=; path=/;";
+document.cookie = "playerNameCookie=; path=/;";
+document.cookie = "scoreCookie=; path=/;";
 }
 
+function startGame() {
+    score = 0;
+    startSession(uuid);
+
+}
 
 checkCookie();
