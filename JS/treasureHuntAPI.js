@@ -439,8 +439,8 @@ function showPosition(position) {
             } else {
                 messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
-                messageBoxP.style.display = "block";
-                locationButton.style.display = "block";
+                messageBoxP.style.display = "none";
+                locationButton.style.display = "none";
 
                 // Update location every 60 seconds
                 setInterval(function () {
