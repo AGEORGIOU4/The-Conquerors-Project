@@ -1,4 +1,5 @@
 /*------------------------------------------------GET ELEMENTS BY ID--------------------------------------------------*/
+document.getElementById("ask1");
 document.getElementById("answerForm");
 document.getElementById("answerNumberForm");
 document.getElementById("challenges");
@@ -363,7 +364,9 @@ function getScore() {
                 questionSection.style.display = "none";
                 answerButtons.style.display = "none";
                 messageBoxP.style.display = "none";
+                ask1.innerText = "Congratulations! You completed the Treasure Hunt. You scored " + score + " points!";
                 enjoyGame.style.display = "block";
+
 
                 getLeaderBoard();
                 deleteCookie();
