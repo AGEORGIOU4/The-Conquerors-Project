@@ -136,7 +136,6 @@ function getCredentials() {
     selectTH2.style.display = "none";
     instructionsPbox.style.display = "none";
     instructionsH.style.display = "none";
-    usernameMessage.style.display = "block";
     usernameBox.style.display = "block";
     treasureHuntsDescriptionParagraph.style.display = "block";
 }
@@ -489,6 +488,7 @@ function checkCookie() {
         alert("Welcome back " + playerName);
         getChallenges();
     } else {
+        usernameMessage.style.display = "none";
         // Call the first function to START THE QUIZ!
         getChallenges();
         document.getElementById("continueButton").style.display = "none";
