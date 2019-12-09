@@ -8,10 +8,11 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/IMAGES/faviconlogoconquerorsicon192.png",
+      "src": "/IMAGES/FaviconLogoConquerors192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
+
     {
       "src": "/IMAGES/FaviconLogoConquerors.png",
       "type": "image/png",
