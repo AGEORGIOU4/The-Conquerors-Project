@@ -334,7 +334,7 @@ function skipQuestion() {
                 messageBoxDiv.style.display = "block";
                 messageBoxP.style.display = "block";
                 scoreP.innerText = "Score: " + score;
-                getScore();
+                setCookie("scoreCookie", score, 30);
                 fetchQuestions(sessionID);
             }
         });
