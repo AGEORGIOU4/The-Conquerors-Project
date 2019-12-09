@@ -138,7 +138,6 @@ function getCredentials() {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function startSession() {
-    deleteCookie();
     loading.style.display = "block";
     messageBoxP.style.display = "none";
 
@@ -256,7 +255,6 @@ function getTypeOfQuestion(typeOfQuestion) {
 }
 
 function getAnswer(answer) {
-    setCookie("scoreCookie", score, 1);
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
@@ -458,11 +456,14 @@ function getCookie(cname) {
 function checkCookie() {
     let cookie = getCookie("sessionCookie");
     let cookie2 = getCookie("playerNameCookie");
-    if (cookie !== "" && cookie2 !=="") {
-      sessionID = cookie;
-      playerName = cookie2;
+
+    if (cookie != "" && cookie2 !="") {
+        sessionID = cookie;
+        playerName = cookie2;
         alert("Welcome back " + playerName);
-    } else {
+        getChallenges();
+    }
+    if (cookie == ""){
         // Call the first function to START THE QUIZ!
         getChallenges();
         }

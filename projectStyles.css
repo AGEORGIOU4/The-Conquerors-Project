@@ -86,14 +86,6 @@
         cursor: pointer;
     }
 
-    #noButton {
-        width: 60px;
-    }
-
-    #yesButton {
-        width: 60px;
-    }
-
     #twitterLink {
         text-decoration: none;
     }
