@@ -140,6 +140,7 @@ function getCredentials() {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 function startSession() {
+    getLocation();
     deleteCookie();
     loading.style.display = "block";
     messageBoxP.style.display = "none";
@@ -182,7 +183,6 @@ function startSession() {
 
 function fetchQuestions() {
     loading.style.display = "block";
-    getLocation();
     getScore();
 
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
@@ -379,7 +379,6 @@ function getLeaderBoard() {
         .then(jsonObject => {
             handleLeaderBoard(jsonObject);
         });
-
 }
 
 function handleLeaderBoard(leaderboard) {
@@ -437,14 +436,13 @@ function showPosition(position) {
                 messageBoxP.innerText = jsonObject.errorMessages;
                 messageBoxP.style.display = "block";
             } else {
-                map.style.display = "block";
                 messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
                 messageBoxP.style.display = "block";
                 locationButton.style.display = "block";
 
+                // Update location every 60 seconds
                 setInterval(function () {
-                    showPosition(position);
                 }, 60000);
             }
         });
@@ -501,5 +499,8 @@ function startGame() {
     startSession(uuid);
 
 }
-
 checkCookie();
+
+function reloadPage() {
+    location.reload();
+}

@@ -6,9 +6,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154060536-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
         gtag('config', 'UA-154060536-1');
     </script>
@@ -84,6 +86,10 @@
 
     <button id="locationButton">
         <img id="locationImg" src="IMAGES/location.png" alt="Location Button" onclick="getLocation()">
+    </button>
+
+    <button id="refreshButton">
+        <img id="refreshImg" src="IMAGES/refresh.png" alt="Refresh Button" onclick="reloadPage()">
     </button>
 
 </div>
@@ -203,12 +209,11 @@
     </tr>
 </table>
 
-
 <div id="map"></div>
-<div id="map2"></div>
-<div id="map3"></div>
 
 <script>
+    let map;
+
     function initMap() {
         // Map options
         let options = {
@@ -216,44 +221,27 @@
             center: {lat: latitude, lng: longitude}
         };
         // New map
-        let map = new
-        google.maps.Map(document.getElementById("map"), options);
+        map = new google.maps.Map(document.getElementById("map"), options);
+        document.getElementById("map").style.display = "block";
+        // Add marker
+        let marker = new google.maps.Marker({
+            position: {lat: latitude, lng: longitude},
+            map: map,
+        });
 
-        function addMarker(latitude, longitude) {
-            new google.maps.Marker({
-                position: ({lat: latitude, lng: longitude}),
-                map: map,
-                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-            });
-        }
-        addMarker(latitude, longitude);
+        var infoWindow = new google.maps.InfoWindow({
+            content: '<h1>Your Position</h1>'
+        });
+
+        marker.addListener('click', function () {
+            infoWindow.open(map, marker);
+        });
     }
-
-/*    function initMap2() {
-        // Map options
-        let options = {
-            zoom: 14,
-            center: {lat: latitude, lng: longitude}
-        };
-        // New map
-        let map = new
-        google.maps.Map(document.getElementById("map"), options);
-
-        function addMarker(latitude, longitude) {
-            new google.maps.Marker({
-                position: ({lat: latitude, lng: longitude}),
-                map: map,
-                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-            });
-        }
-        addMarker(latitude, longitude);
-    }*/
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATMtp854vZWXb1XxNa7mZXy31IeGUvvKk&callback=getLocation"
         async defer>
 </script>
-
 
 </body>
 

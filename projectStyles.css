@@ -48,6 +48,17 @@
         width: 100px;
     }
 
+    #refreshButton {
+        float: right;
+        background: transparent;
+        margin: 0 0 0 20px;
+    }
+
+    #refreshImg {
+        margin: 10px;
+        width: 100px;
+    }
+
     #goHome {
         float: right;
         background: transparent;
@@ -191,7 +202,7 @@
         position: absolute;
         content: "\276F";
         font-size: 60px;
-        color: #212121;
+        color: green;
     }
 
     #startButton {
@@ -211,7 +222,7 @@
         position: absolute;
         content: "\276F";
         font-size: 60px;
-        color: #212121;
+        color: green;
     }
 
     #startButton a {
@@ -260,6 +271,7 @@
     #selectTH:after {
         content: "\002B";
         margin: 10px 20px;
+        color: green;
     }
 
     #selectTH2 {
@@ -276,6 +288,7 @@
     #selectTH2:after {
         content: "\2212";
         margin: 10px 20px;
+        color: red;
     }
 
     #challenges {
@@ -693,6 +706,17 @@
         width: 24px;
     }
 
+    #refreshButton {
+        float: right;
+        background: transparent;
+        margin: 0 0 0 20px;
+    }
+
+    #refreshImg {
+        margin: 10px;
+        width: 24px;
+    }
+
     #goHome {
         float: right;
         background: transparent;
@@ -773,7 +797,7 @@
         position: absolute;
         content: "\276F";
         font-size: 40px;
-        color: #212121;
+        color:   green;
     }
 
     #startButton {
@@ -792,7 +816,7 @@
         position: absolute;
         content: "\276F";
         font-size: 40px;
-        color: #212121;
+        color:   green;
     }
 
     #startButton a {
@@ -841,6 +865,7 @@
     #selectTH:after {
         content: "\002B";
         margin: 10px 20px;
+        color: green;
     }
 
     #selectTH2 {
@@ -857,6 +882,7 @@
     #selectTH2:after {
         content: "\2212";
         margin: 10px 20px;
+        color: red;
     }
 
     #treasureHuntsButton1 {
@@ -896,11 +922,12 @@
     }
 
     #submitButton {
-        color: #000000;
+        width: 40%;
         font-size: 40px;
     }
 
     #continueButton {
+        width: 40%;
         font-size: 40px;
     }
 
