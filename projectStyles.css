@@ -49,12 +49,14 @@
     }
 
     #refreshButton {
+        display: block;
         float: right;
         background: transparent;
         margin: 0 0 0 20px;
     }
 
     #refreshImg {
+        display: block;
         margin: 10px;
         width: 100px;
     }
@@ -713,6 +715,7 @@
     }
 
     #refreshImg {
+        display: block;
         margin: 10px;
         width: 24px;
     }

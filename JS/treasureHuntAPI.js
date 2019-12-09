@@ -189,7 +189,7 @@ function fetchQuestions() {
     usernameBox.style.display = "none";
     usernameMessage.style.display = "none";
     treasureHuntsDescriptionParagraph.style.display = "none";
-    locationButton.style.display = "none";
+    locationButton.style.display = "block";
     skipPopUp.style.display = "none";
     qrImg.style.display = "block";
     questionSection.style.display = "block";
@@ -449,17 +449,17 @@ function showPosition(position) {
 }
 
 function setCookie(cname, cvalue, exminutes) {
-    var d = new Date();
+    let d = new Date();
     d.setTime(d.getTime() + (exminutes * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
+    let expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
         while (c.charAt(0) === ' ') {
             c = c.substring(1);
         }
@@ -501,6 +501,13 @@ function startGame() {
 }
 checkCookie();
 
+
+let x = 1;
 function reloadPage() {
+    fetchQuestions(sessionID);
+    x+=1;
+
+    if (x === 4){
     location.reload();
+    }
 }
