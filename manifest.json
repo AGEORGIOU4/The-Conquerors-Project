@@ -1,7 +1,7 @@
 {
   "name": "Treasure Hunt",
   "short_name": "Conquerors",
-  "start_url": "index.html",
+  "start_url": "https://ageorgiou4.github.io/TheConquerorsProject/index.html",
   "display": "standalone",
   "background_color": "#FFE9D2",
   "theme_color": "#071230",
