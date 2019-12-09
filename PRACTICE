@@ -1,0 +1,2 @@
+                           setCookie("scoreCookie", score, 30);
+                deleteCookie();

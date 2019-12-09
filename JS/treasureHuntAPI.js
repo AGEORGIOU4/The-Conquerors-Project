@@ -108,6 +108,8 @@ function getChallenges() {
             }
         });
 }
+
+
 /*====================================================================================================================*/
 function showChallenges() {
     challenges.style.display = "block";
@@ -168,6 +170,7 @@ function startSession() {
 
                 fetchQuestions(sessionID);
                 getLocation();
+
             }
         });
 }
@@ -193,12 +196,14 @@ function fetchQuestions() {
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
+
             let index = JSON.parse(jsonObject.currentQuestionIndex);
             index += 1;
             let numOfQuestion = JSON.parse(jsonObject.numOfQuestions);
             if (index > numOfQuestion) {
                 index = numOfQuestion;
             }
+
             loading.style.display = "none";
             currentQuestionP.innerText = "Question: " + index + " / " + jsonObject.numOfQuestions;
 
@@ -223,6 +228,7 @@ function fetchQuestions() {
                 let typeOfQuestion = jsonObject.questionType;
 
                 getTypeOfQuestion(typeOfQuestion);
+
             }
         });
 }
@@ -279,9 +285,9 @@ function getAnswer(answer) {
             if (jsonObject.correct === true) {
                 score += obj;
                 scoreP.innerText = "Score: " + score;
-                messageBoxP.style.color = "green";
                 messageBoxP.innerText = jsonObject.message + "  (+" + scoreAdjustment + ")";
                 messageBoxP.style.display = "block";
+                messageBoxP.style.color = "green";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
 
@@ -354,6 +360,7 @@ function getScore() {
 }
 
 function getLeaderBoard() {
+
     loading.style.display = "block";
     treasureHuntsDescriptionParagraph.style.display = "none";
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
