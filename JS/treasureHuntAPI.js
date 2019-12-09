@@ -466,7 +466,7 @@ function getCookie(cname) {
 function checkCookie() {
     let cookie = getCookie("sessionCookie");
     let cookie2 = getCookie("playerNameCookie");
-    let cookie3 = getCookie("scoreCookie");
+    let cookie3 = Number(getCookie("scoreCookie"));
 
     if (cookie !=="" && cookie2 !=="") {
         sessionID = cookie;
