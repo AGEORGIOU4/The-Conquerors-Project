@@ -605,7 +605,6 @@
     #map {
         display: none;
         margin-bottom: 50px;
-        top: 200px;
         width: 100%;
         height: 400px;
         position: relative;
@@ -1021,7 +1020,7 @@
 
     /*-----------------------------------------------PHASE 03-------------------------------------------------------------*/
     #questionSection {
-        height: 100px;
+        height: 35px;
         display: none;
         padding: 20px;
         font-size: 60px;
@@ -1231,6 +1230,3 @@ th, td {
 
 
 
-#map {
-    top: 100px;
-}

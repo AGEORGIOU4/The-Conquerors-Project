@@ -4,9 +4,9 @@ Team: The Conquerors
 
 Team Members:
 
-Andreas Georgiou - App Developer
-Kostas Ioannou - Testing Developer / Design
-Iakovos Kyriakou - Testing Developer / Notes / Marketing
+Andreas Georgiou - App Developer - Coordinator
+Kostas Ioannou - Testing Developer / Design / Landing Page
+Iakovos Kyriakou - Testing Developer / Notes / Marketing 
 
 25/11
 -Meeting 1
