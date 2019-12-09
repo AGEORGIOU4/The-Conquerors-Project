@@ -123,9 +123,6 @@ function hideChallenges() {
 }
 /*====================================================================================================================*/
 
-// Call the first function to START THE QUIZ!
-getChallenges();
-
 
 // Get the username and the app name and pass them to Start Session
 function getCredentials() {
@@ -141,12 +138,13 @@ function getCredentials() {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function startSession() {
+    deleteCookie();
     loading.style.display = "block";
     messageBoxP.style.display = "none";
 
     // Get required parameters for START URL
     playerName = username.value;
-    setCookie("playerNameCookie", playerName, 1);
+    setCookie("playerNameCookie", playerName, 30);
     appName = "TheConquerors";
 
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
@@ -155,7 +153,7 @@ function startSession() {
 
             // Set sessionID to the current session
             sessionID = jsonObject.session;
-            setCookie("sessionCookie", sessionID, 1);
+            setCookie("sessionCookie", sessionID, 30);
 
             if (jsonObject.status === "ERROR") {
                 loading.style.display = "none";
@@ -179,6 +177,7 @@ function startSession() {
 }
 
 function fetchQuestions() {
+    loading.style.display = "block";
     getScore();
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     usernameBox.style.display = "none";
@@ -202,6 +201,7 @@ function fetchQuestions() {
             if (index > numOfQuestion) {
                 index = numOfQuestion;
             }
+            loading.style.display = "none";
             currentQuestionP.innerText = "Question: " + index + " / " + jsonObject.numOfQuestions;
 
             if (jsonObject.status === "ERROR") {
@@ -256,6 +256,7 @@ function getTypeOfQuestion(typeOfQuestion) {
 }
 
 function getAnswer(answer) {
+    setCookie("scoreCookie", score, 1);
     fetch(API_ANSWER + "?session=" + sessionID + "&answer=" + answer)
         .then(response => response.json())
         .then(jsonObject => {
@@ -432,9 +433,9 @@ function showPosition(position) {
         });
 }
 
-function setCookie(cname, cvalue, exdays) {
+function setCookie(cname, cvalue, exminutes) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + (exminutes * 60 * 1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
@@ -457,22 +458,20 @@ function getCookie(cname) {
 function checkCookie() {
     let cookie = getCookie("sessionCookie");
     let cookie2 = getCookie("playerNameCookie");
-    let cookie3 = getCookie("scoreCookie");
     if (cookie !== "" && cookie2 !=="") {
       sessionID = cookie;
       playerName = cookie2;
-      score = cookie3;
-
         alert("Welcome back " + playerName);
     } else {
-        startSession();
+        continueButton.style.display = "none";
+        // Call the first function to START THE QUIZ!
+        getChallenges();
         }
     }
 
 function deleteCookie() {
-document.cookie = "sessionCookie = ; path=/;";
-document.cookie = "playerNameCookie = ; path=/;";
-document.cookie = "scoreCookie = ; path=/;";
+document.cookie = "sessionCookie =; path=/;";
+document.cookie = "playerNameCookie =; path=/;";
 }
 
 checkCookie();
