@@ -142,10 +142,9 @@ function getCredentials() {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 function startSession() {
-    getLocation();
     deleteCookie();
     loading.style.display = "block";
-    messageBoxP.style.display = "none";
+    messageBoxP.style.display = "block";
 
 
     // Get required parameters for START URL
@@ -169,13 +168,13 @@ function startSession() {
                 messageBoxP.style.display = "block";
                 messageBoxDiv.style.display = "block";
             } else {
-                messageBoxDiv.style.display = "block";
                 usernameMessage.style.display = "none";
-                messageBoxP.style.display = "none";
+                messageBoxP.style.display = "block";
+                messageBoxDiv.style.display = "block";
                 // If all params are correct (username, app name, session) call the questions
                 treasureHuntsDescriptionParagraph.style.display = "none";
                 loading.style.display = "none";
-
+                getLocation();
                 fetchQuestions(sessionID);
 
 
@@ -440,7 +439,7 @@ function showPosition(position) {
             } else {
                 messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
-                messageBoxP.style.display = "none";
+                messageBoxP.style.display = "block";
 
                 // Update location every 60 seconds
                 setInterval(function () {
