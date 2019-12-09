@@ -26,6 +26,7 @@ document.getElementById("skipPopUp");
 document.getElementById("theConquerorsLogo");
 document.getElementById("treasureHuntsDescriptionParagraph");
 document.getElementById("username");
+document.getElementById("usernameMessage");
 document.getElementById("usernameBox");
 document.getElementById("usernameMessage");
 document.getElementById("leaderBoardTable");
@@ -476,6 +477,10 @@ function checkCookie() {
     let cookie3 = Number(getCookie("scoreCookie"));
 
     if (cookie !== "" && cookie2 !== "") {
+        username.style.display = "none";
+        usernameMessage.style.display = "none";
+        submitButton.style.display = "none";
+        newGameButton.style.display = "block";
         sessionID = cookie;
         playerName = cookie2;
         score = cookie3;
@@ -506,8 +511,16 @@ let x = 1;
 function reloadPage() {
     fetchQuestions(sessionID);
     x+=1;
-
     if (x === 4){
     location.reload();
+    x=1;
     }
+}
+
+function newGame() {
+    username.style.display = "block";
+    usernameMessage.style.display = "block";
+    submitButton.style.display = "block";
+    newGameButton.style.display = "none";
+    continueButton.style.display = "none";
 }

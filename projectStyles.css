@@ -327,8 +327,17 @@
     }
 
     #submitButton {
+        display: block;
         width: 60%;
-        margin-bottom: 20px;
+        margin: 0 auto;
+        color: #000000;
+        font-size: 50px;
+    }
+
+    #newGameButton {
+        display: none;
+        width: 60%;
+        margin: 0 auto;
         color: #000000;
         font-size: 50px;
     }
@@ -925,6 +934,15 @@
     }
 
     #submitButton {
+        display: block;
+        margin: 0 auto;
+        width: 40%;
+        font-size: 40px;
+    }
+
+    #newGameButton {
+        display: none;
+        margin: 0 auto;
         width: 40%;
         font-size: 40px;
     }
