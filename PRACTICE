@@ -1,2 +1,2 @@
-                           setCookie("scoreCookie", score, 30);
-                deleteCookie();
+ 144
+ 154

@@ -1,5 +1,4 @@
 /*------------------------------------------------GET ELEMENTS BY ID--------------------------------------------------*/
-
 document.getElementById("answerForm");
 document.getElementById("answerNumberForm");
 document.getElementById("challenges");
@@ -144,6 +143,7 @@ function startSession() {
     // Get required parameters for START URL
     playerName = username.value;
     setCookie("playerNameCookie", playerName, 30);
+
     appName = "TheConquerors";
 
     fetch(API_START + "?player=" + playerName + "&app=" + appName + "&treasure-hunt-id=" + uuid)
@@ -209,8 +209,8 @@ function fetchQuestions() {
 
             if (jsonObject.status === "ERROR") {
                 messageBoxP.innerText = jsonObject.errorMessages;
+                messageBoxP.style.display = "block";
             } else {
-                messageBoxP.style.display = "none";
                 // Change the questions paragraph content by adding the question from the server
                 question.innerHTML = jsonObject.questionText;
                 // Question attributes
@@ -265,7 +265,6 @@ function getAnswer(answer) {
         .then(jsonObject => {
 
             scoreAdjustment = jsonObject.scoreAdjustment;
-            let obj = JSON.parse(scoreAdjustment);
 
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
@@ -274,18 +273,20 @@ function getAnswer(answer) {
                 messageBoxP.style.display = "block";
             }
             if (jsonObject.correct === false) {
-                score += obj;
+                score += scoreAdjustment;
                 scoreP.innerText = "Score: " + score;
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.message + "  (" + scoreAdjustment + ")";
+                messageBoxDiv.style.display = "block";
                 messageBoxP.style.display = "block";
                 placeholderBox.value = "";
                 placeholderNumberBox.value = "";
             }
             if (jsonObject.correct === true) {
-                score += obj;
+                score += scoreAdjustment;
                 scoreP.innerText = "Score: " + score;
                 messageBoxP.innerText = jsonObject.message + "  (+" + scoreAdjustment + ")";
+                messageBoxDiv.style.display = "block";
                 messageBoxP.style.display = "block";
                 messageBoxP.style.color = "green";
                 placeholderBox.value = "";
@@ -316,16 +317,17 @@ function skipQuestion() {
         .then(jsonObject => {
 
             scoreAdjustment = jsonObject.scoreAdjustment;
-            let obj = JSON.parse(scoreAdjustment);
             // Give some alert messages if the username is not valid
             if (jsonObject.status === "ERROR") {
                 messageBoxP.style.color = "red";
                 messageBoxP.innerText = jsonObject.errorMessages;
+                messageBoxDiv.style.display = "block";
                 messageBoxP.style.display = "block";
             } else {
-                score += obj;
+                score += scoreAdjustment;
                 messageBoxP.style.color = "yellow";
                 messageBoxP.innerText = jsonObject.message + "  (" + scoreAdjustment + ")";
+                messageBoxDiv.style.display = "block";
                 messageBoxP.style.display = "block";
                 scoreP.innerText = "Score: " + score;
                 fetchQuestions(sessionID);
@@ -434,7 +436,7 @@ function showPosition(position) {
 
                 setInterval(function () {
                     showPosition(position);
-                }, 45000);
+                }, 60000);
             }
         });
 }
@@ -466,7 +468,7 @@ function checkCookie() {
     let cookie2 = getCookie("playerNameCookie");
     let cookie3 = getCookie("scoreCookie");
 
-    if (cookie !=="" && cookie2 !=="" && cookie3!=="") {
+    if (cookie !=="" && cookie2 !=="") {
         sessionID = cookie;
         playerName = cookie2;
         score = cookie3;
@@ -484,5 +486,6 @@ document.cookie = "sessionCookie = ; path=/;";
 document.cookie = "playerNameCookie =; path=/;";
 document.cookie = "scoreCookie =; path=/;";
 }
+
 
 checkCookie();
