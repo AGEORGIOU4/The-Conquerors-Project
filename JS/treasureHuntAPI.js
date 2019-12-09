@@ -63,6 +63,7 @@ let scoreAdjustment = 0;
 let latitude = "";
 let longitude = "";
 let score = 0;
+let index = -1;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -204,7 +205,7 @@ function fetchQuestions() {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            let index = JSON.parse(jsonObject.currentQuestionIndex);
+            index = JSON.parse(jsonObject.currentQuestionIndex);
             index += 1;
             let numOfQuestion = JSON.parse(jsonObject.numOfQuestions);
             if (index > numOfQuestion) {
@@ -440,7 +441,6 @@ function showPosition(position) {
                 messageBoxP.style.color = "#00a3e8";
                 messageBoxP.innerText = jsonObject.message;
                 messageBoxP.style.display = "none";
-                locationButton.style.display = "none";
 
                 // Update location every 60 seconds
                 setInterval(function () {
@@ -508,19 +508,27 @@ checkCookie();
 
 
 let x = 1;
+
+
 function reloadPage() {
-    fetchQuestions(sessionID);
-    x+=1;
-    if (x === 4){
-    location.reload();
-    x=1;
+    if (index < 0) {
+        location.reload();
+    } else {
+        fetchQuestions(sessionID);
+        x += 1;
+        if (x === 4) {
+            location.reload();
+            x = 1;
+        }
     }
 }
 
 function newGame() {
+    deleteCookie();
     username.style.display = "block";
     usernameMessage.style.display = "block";
     submitButton.style.display = "block";
+    messageBoxP.style.display = "block";
     newGameButton.style.display = "none";
     continueButton.style.display = "none";
 }
