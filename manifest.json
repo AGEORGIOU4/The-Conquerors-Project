@@ -1,9 +1,11 @@
 {
   "name": "Treasure Hunt",
   "short_name": "Conquerors",
-  "scope: "/TheConquerorsProject",
-  "start_url": "index.html",
+  "start_url": ".",
   "display": "standalone",
+  "related_applications": [{
+    "platform": "web"
+  }],
   "background_color": "#FFE9D2",
   "theme_color": "#071230",
   "orientation": "portrait",
