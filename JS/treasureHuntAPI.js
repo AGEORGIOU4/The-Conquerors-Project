@@ -463,7 +463,6 @@ function checkCookie() {
       playerName = cookie2;
         alert("Welcome back " + playerName);
     } else {
-        continueButton.style.display = "none";
         // Call the first function to START THE QUIZ!
         getChallenges();
         }
