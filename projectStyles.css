@@ -210,7 +210,7 @@
 
     #startButton {
         display: block;
-        margin: auto;
+        margin: 100px auto;
         padding: 50px 120px;
         font-size: 60px;
         color: #FFFFFF;
@@ -306,7 +306,7 @@
     }
 
     #credentials {
-        margin-top: 90px;
+        margin-top: 180px;
         text-align: center;
     }
 
@@ -398,7 +398,7 @@
 
     #treasureHuntsDescriptionParagraph {
         display: none;
-        margin: 320px auto 20px auto;
+        margin: 180px auto 100px auto;
         padding: 30px;
         font-size: 50px;
         background-color: #FFFFFF;
@@ -811,7 +811,7 @@
 
     #startButton {
         display: block;
-        margin: auto;
+        margin: 50px auto;
         padding: 15px 120px;
         font-size: 30px;
         color: #FFFFFF;
