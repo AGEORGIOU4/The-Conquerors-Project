@@ -23,6 +23,10 @@
         margin: 50px;
     }
 
+    #embeddedTwitter {
+        margin: 50px auto;
+    }
+
     /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
     #socialBar {
         margin: 15px;
@@ -657,6 +661,11 @@
         width: 100%;
         text-align: center;
         margin: 25px;
+    }
+
+    #embeddedTwitter {
+        margin: 50px auto;
+        padding: 0 300px;
     }
 
     /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
