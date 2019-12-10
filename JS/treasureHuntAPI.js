@@ -27,9 +27,7 @@ document.getElementById("skipPopUp");
 document.getElementById("theConquerorsLogo");
 document.getElementById("treasureHuntsDescriptionParagraph");
 document.getElementById("username");
-document.getElementById("usernameMessage");
 document.getElementById("usernameBox");
-document.getElementById("usernameMessage");
 document.getElementById("leaderBoardTable");
 
 /*Answer Buttons*/
@@ -168,13 +166,12 @@ function startSession() {
                 messageBoxP.style.display = "block";
                 messageBoxDiv.style.display = "block";
             } else {
-                usernameMessage.style.display = "none";
-                messageBoxP.style.display = "block";
+                messageBoxP.style.display = "none";
                 messageBoxDiv.style.display = "block";
                 // If all params are correct (username, app name, session) call the questions
                 treasureHuntsDescriptionParagraph.style.display = "none";
                 loading.style.display = "none";
-                getLocation();
+
                 fetchQuestions(sessionID);
 
 
@@ -188,7 +185,6 @@ function fetchQuestions() {
 
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     usernameBox.style.display = "none";
-    usernameMessage.style.display = "none";
     treasureHuntsDescriptionParagraph.style.display = "none";
     locationButton.style.display = "block";
     skipPopUp.style.display = "none";
@@ -363,7 +359,6 @@ function getScore() {
                 questionSection.style.display = "none";
                 answerButtons.style.display = "none";
                 messageBoxP.style.display = "none";
-                ask1.innerText = "Congratulations! You completed the Treasure Hunt. You scored " + score + " points!";
                 enjoyGame.style.display = "block";
 
 
@@ -377,10 +372,19 @@ function getLeaderBoard() {
 
     loading.style.display = "block";
     treasureHuntsDescriptionParagraph.style.display = "none";
-    fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted&limit=20")
+    fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted")
         .then(response => response.json())
         .then(jsonObject => {
             handleLeaderBoard(jsonObject);
+            let rankings = jsonObject.leaderboard;
+            for (let i=1; i<rankings.length; i++) {
+                if (playerName === rankings[i].player ) {
+                    console.log("position" + i);
+                    ask1.innerText = "Congratulations! You completed the Treasure Hunt. You scored " + score + " points!" +
+                        " You finished in Position #" + i;
+                }
+
+            }
         });
 }
 
@@ -392,14 +396,14 @@ function handleLeaderBoard(leaderboard) {
     };
     let html = "";
     let leaderBoardArray = leaderboard['leaderboard'];
-    for (const entry of leaderBoardArray) {
-        let date = new Date(entry['completionTime']);
+    for (let i=0; i<20; i++) {
+        let date = new Date(leaderBoardArray[i]['completionTime']);
         let formattedDate = date.toLocaleDateString("en-UK", options);
         html +=
             "<tr>" +
             "<td>" + rank + "</td>" +
-            "<td>" + entry['player'] + "</td>" +
-            "<td>" + entry['score'] + "</td>" +
+            "<td>" + leaderBoardArray[i]['player'] + "</td>" +
+            "<td>" + leaderBoardArray[i]['score'] + "</td>" +
             "<td>" + formattedDate + "</td>" +
             "</tr>";
         rank += 1;
@@ -479,7 +483,6 @@ function checkCookie() {
 
     if (cookie !== "" && cookie2 !== "") {
         username.style.display = "none";
-        usernameMessage.style.display = "none";
         submitButton.style.display = "none";
         newGameButton.style.display = "block";
         sessionID = cookie;
@@ -488,7 +491,6 @@ function checkCookie() {
         alert("Welcome back " + playerName);
         getChallenges();
     } else {
-        usernameMessage.style.display = "none";
         // Call the first function to START THE QUIZ!
         getChallenges();
         document.getElementById("continueButton").style.display = "none";
@@ -528,7 +530,6 @@ function reloadPage() {
 function newGame() {
     deleteCookie();
     username.style.display = "block";
-    usernameMessage.style.display = "block";
     submitButton.style.display = "block";
     messageBoxP.style.display = "block";
     newGameButton.style.display = "none";
