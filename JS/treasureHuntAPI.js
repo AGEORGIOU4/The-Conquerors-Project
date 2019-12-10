@@ -394,11 +394,10 @@ function getLeaderBoard() {
             for (let i = 1; i < rankings.length; i++) {
                 if (playerName === rankings[i].player) {
                     playerRank = i;
-                    setCookie("playerRankCookie", playerRank, 10000);
                     ask1.innerText = "Congratulations for completing the Treasure Hunt. You scored " + score + " and" +
                         " finished in Position #" + i;
                 }
-
+                setCookie("playerRankCookie", playerRank, 10000);
             }
         });
 }
