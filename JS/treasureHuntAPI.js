@@ -378,8 +378,8 @@ function getLeaderBoard() {
         .then(jsonObject => {
             handleLeaderBoard(jsonObject);
             let rankings = jsonObject.leaderboard;
-            for (let i=1; i<rankings.length; i++) {
-                if (playerName === rankings[i].player ) {
+            for (let i = 1; i < rankings.length; i++) {
+                if (playerName === rankings[i].player) {
                     console.log("position" + i);
                     ask1.innerText = "Congratulations! You completed the Treasure Hunt. You scored " + score + " points!" +
                         " You finished in Position #" + i;
@@ -397,7 +397,7 @@ function handleLeaderBoard(leaderboard) {
     };
     let html = "";
     let leaderBoardArray = leaderboard['leaderboard'];
-    for (let i=0; i<20; i++) {
+    for (let i = 0; i < 20; i++) {
         let date = new Date(leaderBoardArray[i]['completionTime']);
         let formattedDate = date.toLocaleDateString("en-UK", options);
         html +=
@@ -509,11 +509,10 @@ function startGame() {
     startSession(uuid);
 
 }
+
 checkCookie();
 
-
 let x = 1;
-
 
 function reloadPage() {
     if (index < 0) {

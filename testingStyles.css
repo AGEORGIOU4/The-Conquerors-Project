@@ -1,49 +1,101 @@
-
 /*---------------------------------------------TEST PAGE--------------------------------------------------------------*/
-* {
-    font-family: sans-serif;
-    background-color: lightyellow;
-    font-size: 30px;
-    font-weight: bold;
+/*-----------------------------------------------MOBILE--------------------------------------------------------------*/
+@media only screen and (max-width: 1000px) {
+
+    * {
+        font-family: sans-serif;
+        background-color: lightyellow;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    /*------------------------------------------------HEADER--------------------------------------------------------------*/
+    header {
+        width: 100%;
+        text-align: center;
+        background-color: white;
+    }
+
+    #theConquerorsLogo {
+        width: 75%;
+        padding: 20px 30px;
+    }
+
+    /*--------------------------------------------------BODY--------------------------------------------------------------*/
+    #testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart {
+        font-size: xx-large;
+    }
+
+    #firstTest, #secondTest, #thirdTest, #titleSeven {
+        font-size: 30px;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+
+    #challenges1, #challenges2, #challenges3 {
+        font-size: 25px;
+    }
+
+    #titleFour, #titleFive, #titleSix, #titleEight {
+        font-size: 30px;
+        font-weight: bold;
+        font-family: sans-serif;
+        display: none;
+    }
+
+    #heuristics, td, tr {
+        border: 1px solid black;
+
+    }
+
 }
 
-/*------------------------------------------------HEADER--------------------------------------------------------------*/
+@media only screen and (min-width: 1001px) {
 
-header {
-    width: 100%;
-    text-align: center;
-    background-color: white;
-}
+    * {
+        font-family: sans-serif;
+        background-color: lightyellow;
+        font-size: 20px;
+        font-weight: bold;
+    }
 
-#theConquerorsLogo {
-    width: 75%;
-    padding: 20px 30px;
-}
+    /*------------------------------------------------HEADER--------------------------------------------------------------*/
+    header {
+        width: 100%;
+        text-align: center;
+        background-color: white;
+    }
 
-/*--------------------------------------------------BODY--------------------------------------------------------------*/
+    #theConquerorsLogo {
+        width: 75%;
+        padding: 20px 30px;
+    }
 
-#testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart {
-    font-size: xx-large;
-}
+    /*--------------------------------------------------BODY--------------------------------------------------------------*/
+    #testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart {
+        font-size: x-large;
+    }
 
-#firstTest, #secondTest, #thirdTest, #titleSeven {
-    font-size: 30px;
-    font-weight: bold;
-    font-family: sans-serif;
-}
+    #firstTest, #secondTest, #thirdTest, #titleSeven {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
 
-#challenges1, #challenges2, #challenges3 {
-    font-size: 25px;
-}
+    #challenges1, #challenges2, #challenges3 {
+        font-size: 25px;
+    }
 
-#titleFour, #titleFive, #titleSix, #titleEight {
-    font-size: 30px;
-    font-weight: bold;
-    font-family: sans-serif;
-    display: none;
-}
+    #titleFour, #titleFive, #titleSix, #titleEight {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+        display: none;
+    }
 
-#heuristics, td, tr {
-    border: 1px solid black;
+    #heuristics, td, tr {
+        border: 1px solid black;
+
+    }
 
 }
