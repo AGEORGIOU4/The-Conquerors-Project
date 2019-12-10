@@ -538,7 +538,7 @@
         display: none;
         margin: 30px auto;
         background-color: #FFFFFF;
-        font-size: 40px;
+        font-size: 42px;
     }
 
     #leaderBoardTable th {
@@ -1150,7 +1150,7 @@
         display: none;
         margin: 30px 0;
         background-color: #FFFFFF;
-        font-size: 25px;
+        font-size: 60px;
     }
 
     #leaderBoardTable th {
@@ -1261,6 +1261,7 @@ th {
 td {
     border-bottom: 1px solid gray;
     text-align: left;
+    padding: 30px;
 }
 
 
