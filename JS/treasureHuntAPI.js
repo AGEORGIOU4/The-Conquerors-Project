@@ -8,6 +8,7 @@ document.getElementById("currentQuestionP");
 document.getElementById("gameAttributes");
 document.getElementById("instructionsH");
 document.getElementById("instructionsPbox");
+document.getElementById("leaderBoardTable");
 document.getElementById("loading");
 document.getElementById("locationButton");
 document.getElementById("map");
@@ -29,7 +30,7 @@ document.getElementById("theConquerorsLogo");
 document.getElementById("treasureHuntsDescriptionParagraph");
 document.getElementById("username");
 document.getElementById("usernameBox");
-document.getElementById("leaderBoardTable");
+document.getElementById("viewLeaderBoard");
 
 /*Answer Buttons*/
 document.getElementById("booleanButtons");
@@ -194,6 +195,7 @@ function fetchQuestions() {
     currentQuestionP.style.display = "block";
     answerForm.style.display = "block";
     answerNumberForm.style.display = "block";
+    viewLeaderBoard.style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
 
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
@@ -394,7 +396,16 @@ function handleLeaderBoard(leaderboard) {
         day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
         second: '2-digit'
     };
+    leaderBoardTable.innerHTML = "";
     let html = "";
+    html +=
+        "<tr>" +
+        "<th>" + "#" + "</th>" +
+        "<th>" + "player" + "</th>" +
+        "<th>" + "score" + "</th>" +
+        "<th>" + "date" + "</th>" +
+        "</tr>";
+
     let leaderBoardArray = leaderboard['leaderboard'];
     for (let i = 0; i < 20; i++) {
         let date = new Date(leaderBoardArray[i]['completionTime']);
@@ -533,5 +544,17 @@ function newGame() {
     messageBoxP.style.display = "block";
     newGameButton.style.display = "none";
     continueButton.style.display = "none";
+}
+
+function viewLeaderboard() {
+    viewLeaderBoard.style.display= "none";
+    hideLeaderBoard.style.display = "block";
+    getLeaderBoard();
+}
+
+function hideLeaderboard() {
+    viewLeaderBoard.style.display= "block";
+    hideLeaderBoard.style.display = "none";
+    leaderBoardTable.style.display = "none";
 }
 

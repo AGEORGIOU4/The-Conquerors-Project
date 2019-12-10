@@ -608,6 +608,16 @@
         overflow: hidden;
         bottom: 0;
     }
+    #viewLeaderBoard {
+        display: none;
+        font-size: 30px;
+        margin: 20px auto;
+    }
+    #hideLeaderBoard {
+        display: none;
+        font-size: 30px;
+        margin: 20px auto;
+    }
 }
 
 
@@ -1200,6 +1210,18 @@
         overflow: hidden;
         bottom: 0;
     }
+
+    #viewLeaderBoard {
+        display: none;
+        font-size: 30px;
+        margin: 20px auto;
+    }
+
+    #viewLeaderBoard {
+        display: none;
+        font-size: 30px;
+        margin: 20px auto;
+    }
 }
 
 
@@ -1214,7 +1236,13 @@ table {
     border: 1px solid blue;
 }
 
-th, td {
+th {
+    border-bottom: 1px solid gray;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+td {
     border-bottom: 1px solid gray;
     text-align: left;
 }
