@@ -23,7 +23,6 @@
         margin: 50px;
     }
 
-
     /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
     #socialBar {
         margin: 15px;
@@ -33,7 +32,6 @@
         background-color: #4c96d7;
         border-radius: 10px;
     }
-
 
     #locationButton {
         display: none;
@@ -310,12 +308,12 @@
         text-align: center;
     }
 
-
     #username {
         width: 60%;
         height: 70px;
         margin: 20px auto;
         padding: 5px;
+        text-align: center;
         font-size: 40px;
         border: 2px solid #000000;
         border-radius: 15px;
@@ -559,7 +557,6 @@
         background-color: #f2f2f2;
     }
 
-
     /*================================================QR PAGE=============================================================*/
     #preview {
         width: 100%;
@@ -608,18 +605,19 @@
         overflow: hidden;
         bottom: 0;
     }
+
     #viewLeaderBoard {
         display: none;
         font-size: 30px;
         margin: 20px auto;
     }
+
     #hideLeaderBoard {
         display: none;
         font-size: 30px;
         margin: 20px auto;
     }
 }
-
 
 /*-----------------------------------------------DESKTOP--------------------------------------------------------------*/
 @media only screen and (min-width: 1001px) {
@@ -648,7 +646,6 @@
         text-align: center;
         margin: 25px;
     }
-
 
     /*----------------------------------------------SOCIAL BAR------------------------------------------------------------*/
     #socialBar {
@@ -794,7 +791,6 @@
         border: 2px solid #464545;
     }
 
-
     #tagLine {
         margin: 0 auto;
         text-align: center;
@@ -816,7 +812,7 @@
         position: absolute;
         content: "\276F";
         font-size: 40px;
-        color:   green;
+        color: green;
     }
 
     #startButton {
@@ -835,7 +831,7 @@
         position: absolute;
         content: "\276F";
         font-size: 40px;
-        color:   green;
+        color: green;
     }
 
     #startButton a {
@@ -928,6 +924,7 @@
         height: 40px;
         margin: 70px auto 20px;
         font-size: 30px;
+        text-align: center;
         border: 2px solid #000000;
         border-radius: 15px;
     }
@@ -978,7 +975,6 @@
         text-align: left;
     }
 
-
     #playerNameP {
         margin: 0;
         font-size: 14px;
@@ -1000,12 +996,11 @@
         font-weight: 900;
     }
 
-
     #treasureHuntsDescriptionParagraph {
         display: none;
         margin: 0 200px;
         padding: 20px 100px;
-        font-size: 15px;
+        font-size: 25px;
         background-color: #FFFFFF;
         color: #464545;
         border: 2px solid #464545;
@@ -1118,7 +1113,6 @@
         display: none;
     }
 
-
     #ask, #ask1 {
         margin: 0 100px;
         font-size: xx-large;
@@ -1213,17 +1207,15 @@
 
     #viewLeaderBoard {
         display: none;
-        font-size: 30px;
         margin: 20px auto;
     }
 
-    #viewLeaderBoard {
+    #hideLeaderBoard {
         display: none;
-        font-size: 30px;
         margin: 20px auto;
     }
-}
 
+}
 
 /*------------------------------------------------NOTES---------------------------------------------------------------*/
 

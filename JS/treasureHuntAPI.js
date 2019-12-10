@@ -6,6 +6,7 @@ document.getElementById("challenges");
 document.getElementById("continueButton");
 document.getElementById("currentQuestionP");
 document.getElementById("gameAttributes");
+document.getElementById("hideLeaderBoard");
 document.getElementById("instructionsH");
 document.getElementById("instructionsPbox");
 document.getElementById("leaderBoardTable");
