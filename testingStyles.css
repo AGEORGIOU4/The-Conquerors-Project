@@ -4,9 +4,9 @@
 
     * {
         font-family: sans-serif;
-        background-color: lightyellow;
         font-size: 30px;
-        font-weight: bold;
+        background-color: lightyellow;
+
     }
 
     /*------------------------------------------------HEADER--------------------------------------------------------------*/
@@ -23,7 +23,7 @@
 
     /*--------------------------------------------------BODY--------------------------------------------------------------*/
     #testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart {
-        font-size: xx-large;
+        font-size: 40px;
     }
 
     #firstTest, #secondTest, #thirdTest, #titleSeven {
@@ -43,59 +43,83 @@
         display: none;
     }
 
-    #heuristics, td, tr {
-        border: 1px solid black;
-
+    #heuristics, td, th {
+        border: 2px solid black;
+        font-size: 30px;
+        text-align: justify;
+        margin: 15px;
     }
 
+    #testLeaderBoardTable{
+        display: none;
+        font-size: 30px;
+
+    }
+    td, th {
+        padding: 5px;
+    }
+
+    #placeholderSubmit {
+        font-size: 30px;
+    }
 }
 
 @media only screen and (min-width: 1001px) {
 
-    * {
-        font-family: sans-serif;
-        background-color: lightyellow;
-        font-size: 20px;
-        font-weight: bold;
+        * {
+            font-family: sans-serif;
+            font-size: 30px;
+            background-color: lightyellow;
+
+        }
+
+        /*------------------------------------------------HEADER--------------------------------------------------------------*/
+        header {
+            width: 100%;
+            text-align: center;
+            background-color: white;
+        }
+
+        #theConquerorsLogo {
+            width: 75%;
+            padding: 20px 30px;
+        }
+
+        /*--------------------------------------------------BODY--------------------------------------------------------------*/
+        #testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart {
+            font-size: 30px;
+        }
+
+        #firstTest, #secondTest, #thirdTest, #titleSeven {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        #challenges1, #challenges2, #challenges3 {
+            font-size: 25px;
+        }
+
+        #titleFour, #titleFive, #titleSix, #titleEight {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: sans-serif;
+            display: none;
+        }
+
+        #heuristics, td, th {
+            border: 2px solid black;
+            font-size: 30px;
+            text-align: justify;
+            margin: 15px;
+        }
+
+        #testLeaderBoardTable {
+            display: none;
+            font-size: 30px;
+        }
+
+        #placeholderSubmit {
+            font-size: 30px;
+        }
     }
-
-    /*------------------------------------------------HEADER--------------------------------------------------------------*/
-    header {
-        width: 100%;
-        text-align: center;
-        background-color: white;
-    }
-
-    #theConquerorsLogo {
-        width: 75%;
-        padding: 20px 30px;
-    }
-
-    /*--------------------------------------------------BODY--------------------------------------------------------------*/
-    #testButton1, #testButton2, #testButton3, #testButton4, #buttonClearList, #buttonClearStart {
-        font-size: x-large;
-    }
-
-    #firstTest, #secondTest, #thirdTest, #titleSeven {
-        font-size: 20px;
-        font-weight: bold;
-        font-family: sans-serif;
-    }
-
-    #challenges1, #challenges2, #challenges3 {
-        font-size: 25px;
-    }
-
-    #titleFour, #titleFive, #titleSix, #titleEight {
-        font-size: 20px;
-        font-weight: bold;
-        font-family: sans-serif;
-        display: none;
-    }
-
-    #heuristics, td, tr {
-        border: 1px solid black;
-
-    }
-
-}

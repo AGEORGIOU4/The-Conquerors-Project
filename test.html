@@ -81,11 +81,38 @@
     <ul id="errorResults"></ul>
 </div>
 
-<br><br>
+<br>
+
+
+<h2>Testing the Leaderboard</h2>
+<p>Insert the number of players to be shown on the leaderboard: </p>
+
+<form id = "leaderboardLimit" method="get" action='javascript:testLeaderBoard(placeholderBox.value)'>
+    <label for="placeholderBox"></label>
+    <input type="text" id="placeholderBox" value="">
+        <button value="Submit" id="placeholderSubmit">Run Test</button>
+</form>
+
+<div>
+    <p>Clear the Leaderboard Results</p>
+    <button id="clearLeaderboard" onclick="clearLeaderboard();">Clear Results</button>
+</div>
+
+
+<table id = "testLeaderBoardTable">
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
 
 <h2>User Acceptance Plan</h2>
 <hr>
-<br>
 <h3>LANDING PAGE</h3>
 <hr>
 
@@ -152,62 +179,8 @@
 <h2>Nielsen's 10 Heuristics</h2>
 <hr>
 <br>
-<table id="heuristics">
-    <tr>
-        <th>Heuristic</th>
-        <th>What We Did</th>
-    </tr>
 
-    <tr>
-        <td>1. Visibility of system status</td>
-        <td>Added a loading animation when the user chooses his username in the treasure hunt.</td>
-    </tr>
-    <tr>
-        <td>2. Match between system and the real world</td>
-        <td>The app is user friendly since it has simple structure and is giving the user simple instructions to read.
-        </td>
-    </tr>
-    <tr>
-        <td>3. User control and freedom</td>
-        <td>If the user accidentally exits the app he will be able to resume his progress when he re enters the gamwe.
-        </td>
-    </tr>
-    <tr>
-        <td>4. Consistency and standards</td>
-        <td>When the user starts the app, the app takes the user to the next step until he reaches the end and the
-            styling of the pages is consistent.
-        </td>
-    </tr>
-    <tr>
-        <td>5. Error Prevention</td>
-        <td>If the user accidentally press the SKIP button an alert will show asking the user to confirm his choice.
-        </td>
-    </tr>
-    <tr>
-        <td>6. Recognition rather than recall</td>
-        <td>The instructions in the beginning help the user understand the game and the user's details and score will
-            appear
-            through the game.
-        </td>
-    </tr>
-    <tr>
-        <td>7. Flexibility and efficiency of use</td>
-        <td>1 question requires location so when the user gets to that question the app automatically asks the user to
-            have access to his location.
-        </td>
-    </tr>
-    <tr>
-        <td>8. Aesthetic and minimalist design</td>
-        <td>The Barcode Scanner can be accessed at any point by just click it's icon.</td>
-    </tr>
-    <tr>
-        <td>9. Help users recognize, diagnose and recover from errors</td>
-        <td>If an error occurs the user will be notified with an alert explaining briefly the error.</td>
-    </tr>
-    <tr>
-        <td>10. Help and documentation</td>
-        <td>The steps are clear and the procedure is simple enough to not cause frustration to the user.</td>
-    </tr>
-</table>
+
+
 </body>
 </html>
