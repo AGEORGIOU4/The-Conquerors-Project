@@ -16,6 +16,7 @@ document.getElementById("messageBoxDiv");
 document.getElementById("placeholderBox");
 document.getElementById("placeholderNumberBox");
 document.getElementById("playerNameP");
+document.getElementById("qrButton");
 document.getElementById("qrImg");
 document.getElementById("question");
 document.getElementById("questionSection");
@@ -188,7 +189,7 @@ function fetchQuestions() {
     treasureHuntsDescriptionParagraph.style.display = "none";
     locationButton.style.display = "block";
     skipPopUp.style.display = "none";
-    qrImg.style.display = "block";
+    qrButton.style.display = "block";
     questionSection.style.display = "block";
     currentQuestionP.style.display = "block";
     answerForm.style.display = "block";
