@@ -70,7 +70,7 @@
 </div>
 
 <div>
-    <p>Clear the Results</p>
+    <p id="clearStart">Clear the Results</p>
     <button id="buttonClearStart" onclick="clearTheTestStart();">Clear Results</button>
 </div>
 
@@ -94,7 +94,8 @@
 </form>
 
 <div>
-    <p>Clear the Leaderboard Results</p>
+    <br>
+    <p  id="clearBoard">Clear the Leaderboard Results</p>
     <button id="clearLeaderboard" onclick="clearLeaderboard();">Clear Results</button>
 </div>
 
@@ -116,14 +117,13 @@
 <h3>LANDING PAGE</h3>
 <hr>
 
-<p>The user starts by entering the index.html which is the Landing Page.
-    By pressing the Twitter icon or Facebook icon the user will enter our Official Twitter Site or Facebook Page
-    where we grant more information about the web app.
-    If the user presses the Github icon he/she will be transported to our Repository page
-    and by pressing the "START THE QUIZ" button the user
-    will be taken the app.html which is the Official Web App Page.
+<p>The user starts by entering the Landing Page.
+    By pressing the Twitter icon or Facebook icon the user will enter our Official Twitter or Facebook Page
+    where we provide updates about the web app.
+    If the user presses the Github icon he/she will be transported to our Repository page,
+    by pressing the Test icon he will be taken to our testing page and by pressing the "START THE QUIZ" button the user
+    will be taken to the Web App to start the quiz.
     The user can also interact with the Twitter embed under the "START THE QUIZ" button.</p>
-
 <br>
 
 <h3>WEB APP</h3>
@@ -136,51 +136,99 @@
 
 <hr>
 
-<p>When the user proceeds to the WEB APP there is a button "Select a Treasure Hunt" which displays treasure
-    hunts to select. Additionally, there is a "Home" button that if it's clicked it takes the user in the Landing Page.
-    Also, there is a Barcode icon and if the user presses it the device's camera will be opened and can scan a QR Code.
-    By pressing the switch camera button it switches the camera and by pressing the "Go Back" button it takes the user
-    on the previous page.
-    If the user clicks an available Treasure Hunt he will be taken to the next page.</p>
+<p>In this page there is a button "Select a Treasure Hunt" which displays treasure
+    hunts to select. There is a "Home" button that if it's clicked it takes the user in the Landing Page. There is a
+    refresh button which refreshes the current page. If the user presses it 3 times at any point of the game he will be taken to this page.
+    If the user clicks an available Treasure Hunt he will be taken to the next page.
+    If the user restarts the game and wants to continue he can press "CONTINUE" to resume his session.</p>
 <br>
 <h4>CHOOSE A USERNAME</h4>
 <hr>
 
-<p> After that he will see a text box which if he clicks he can enter his username and then press the "START" button to
-    proceed to the next page.
+<p>The user will see a text box which if he clicks he can enter his username and then press the "START" button to
+    proceed.
     If he doesn't enter a username an error will be shown saying that the username is missing.
     If he enters a username which is already taken an error will be shown saying that username is already taken.</p>
 <br>
 <h3>QUESTIONS PAGE</h3>
 
 <hr>
+<p>Then the user will be taken in the Questions Page in which he will start taking the quiz.</p>
+<p>There is a Location icon which refreshes the user's current Location. The user can interact with the map to
+    change the view of his location and press the QR icon which opens the camera and can identify QR Codes.
+    The user can switch the camera by pressing "Switch camera" or go back by pressing "Go back". There are different types of questions.
+    The leaderboard button displays the current leaderboard and if it's pressed again it closes the leaderboard.
+    If the user answers correctly he will be taken to the next question
+    but if he answers wrong he will remain in the current question question until he answers correctly or skips the question.
+    If a question can be skipped a "SKIP" button will be available which takes the user to the next question if it is pressed.</p>
 
-<p>Then the user will be taken in the Questions Page in which he will start taking the quiz.
-    There are different types of questions. If the user answers correctly he will be taken to the next question
-    but if he answers wrong he will remain in the current question question until he answers correctly or skips the
-    question.
-    If a question can be skipped a "SKIP" button will be available which takes the user to the next question if it is
-    pressed.</p>
-<p>There is also a Location icon which refreshes the user's current Location. The user can interact with the map to
-    change the view of his location</p>
-<p>1 type of question. The user must press the text box, type some text and then press submit to Submit his answer.</p>
-<p>2 type of question. The user must press the text box, type number(s) and then press submit to Submit his answer.</p>
-<p>3 type of question. The user must press the option A or B or C or D and then press submit to Submit his answer.</p>
-<p>4 type of question. The user must press True or False and then press the Submit to submit his answer.</p>
+<p>1 Type of question. The user must press the text box, type some text and then press submit to Submit his answer.</p>
+<p>2 Type of question. The user must press the text box, type number(s) and then press submit to Submit his answer.</p>
+<p>3 Type of question. The user must press the option A or B or C or D and then press submit to Submit his answer.</p>
+<p>4 Type of question. The user must press True or False and then press the Submit to submit his answer.</p>
 <p>After the user completes the last question he will be taken to the Leaderboard Page</p>
 <br>
 <h3>LEADERBOARD PAGE</h3>
 
 <hr>
 
-<p>The Leaderbord will be shown and user can press the Follow Twitter button to follow our Twitter Page.</p>
+<p>The Leaderbord will be shown alongside the User's score and user can press the Follow Twitter button to follow our Twitter Page.</p>
 
 <br><br>
 <h2>Nielsen's 10 Heuristics</h2>
 <hr>
+<br><br>
+<h1>1. Visibility of system status</h1>
+<hr>
+<p>Added a loading animation when the user chooses his username in the treasure hunt.</p>
 <br>
 
+<h1>2. Match between system and the real world</h1>
+<hr>
+<p>The app is user friendly since it has simple structure and is giving the user simple instructions to read.</p>
+<br>
 
+<h1>3. User control and freedom</h1>
+<hr>
+<p>If the user accidentally exits the app he will be able to resume his progress when he re enters the game.</p>
+<br>
+
+<h1>4. Consistency and standards</h1>
+<hr>
+<p>When the user starts the app, the app takes the user to the next step until he reaches the end and the
+    styling of the pages is consistent.</p>
+<br>
+
+<h1>5. Error Prevention</h1>
+<hr>
+<p>If the user accidentally press the SKIP button an alert will show asking the user to confirm his choice.</p>
+<br>
+
+<h1>6. Recognition rather than recall</h1>
+<hr>
+<p>The instructions in the beginning help the user understand the game and the user's details and score will appear
+    through the game.</p>
+<br>
+
+<h1>7. Flexibility and efficiency of use</h1>
+<hr>
+<p>1 question requires location so when the user gets to that question the app automatically asks the user to
+    have access to his location.</p>
+<br>
+
+<h1>8. Aesthetic and minimalist design</h1>
+<hr>
+<p>The Barcode Scanner can be accessed at any point by just click it's icon.</p>
+<br>
+
+<h1>9. Help users recognize, diagnose and recover from errors</h1>
+<hr>
+<p>If an error occurs the user will be notified with an alert explaining briefly the error.</p>
+<br>
+<h1>10. Help and documentation</h1>
+<hr>
+<p>The steps are clear and the procedure is simple enough to not cause frustration to the user.</p>
+<br>
 
 </body>
 </html>
