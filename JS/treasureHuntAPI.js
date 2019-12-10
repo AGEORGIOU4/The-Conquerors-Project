@@ -185,6 +185,7 @@ function startSession() {
 function fetchQuestions() {
     loading.style.display = "block";
     getScore();
+    getLeaderBoard();
 
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     usernameBox.style.display = "none";
