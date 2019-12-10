@@ -199,6 +199,12 @@ function fetchQuestions() {
     viewLeaderBoard.style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
 
+
+    if(hideLeaderBoard.style.display === "block") {
+        viewLeaderBoard.style.display = "none";
+    }
+
+
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
         .then(response => response.json()) //Parse JSON text to JavaScript object
