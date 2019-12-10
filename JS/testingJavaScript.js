@@ -5,6 +5,7 @@ const FIRST_TESTING_API_LIST = "https://codecyprus.org/th/test-api/list?number-o
 const SECOND_TESTING_API_LIST = "https://codecyprus.org/th/test-api/list?number-of-ths=10";
 const THIRD_TESTING_API_LIST = "https://codecyprus.org/th/test-api/list?number-of-ths=20";
 const TESTING_API_START = "https://codecyprus.org/th/test-api/start?player=inactive";
+const TESTING_API_LEADERBOARD = "https://codecyprus.org/th/test-api/leaderboard?sorted&hasPrize&size=0";
 
 let uuid = "";
 let list = document.getElementById("challenges");
@@ -114,8 +115,45 @@ function getStartTest() {
         });
 }
 
-function clearTheTestStart() {
-    document.getElementById("titleEight").style.display = "none";
-    document.getElementById("errorResults").innerHTML = " ";
-    document.getElementById("startTest").style.display = "block";
+
+
+function testLeaderBoard(leaderboardLimit) {
+    fetch(TESTING_API_LEADERBOARD + leaderboardLimit)
+        .then(response => response.json())
+        .then(jsonObject => {
+            console.log(jsonObject);
+            handleLeaderBoard(jsonObject, leaderboardLimit);
+
+        });
+
+
+}
+
+
+function handleLeaderBoard(leaderboard, leaderboardLimit) {
+    document.getElementById("testLeaderBoardTable");
+    testLeaderBoardTable.style.display = "none";
+    testLeaderBoardTable.innerHTML = "";
+    let html = "";
+    html +=
+        "<tr>" +
+        "<th>" + "Player" + "</th>" +
+        "<th>" + "Score" + "</th>" +
+        "</tr>";
+    let leaderBoardArray = leaderboard['leaderboard'];
+    for (let i = 0; i < leaderboardLimit; i++) {
+        html +=
+            "<tr>" +
+            "<td>" + leaderBoardArray[i]['player'] + "</td>" +
+            "<td>" + leaderBoardArray[i]['score'] + "</td>" +
+            "</tr>";
+    }
+    testLeaderBoardTable.innerHTML += html;
+    testLeaderBoardTable.style.display = "block";
+}
+
+function clearLeaderboard() {
+
+    document.getElementById("testLeaderBoardTable").innerHTML   = " ";
+
 }
