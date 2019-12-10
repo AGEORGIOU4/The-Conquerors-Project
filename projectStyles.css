@@ -65,7 +65,19 @@
         margin: 0 0 0 20px;
     }
 
+    #goTest {
+        float: right;
+        background: transparent;
+        margin: 0 0 0 20px;
+    }
+
     #homeImg {
+        display: block;
+        margin: 10px;
+        width: 100px;
+    }
+
+    #testImg {
         display: block;
         margin: 10px;
         width: 100px;
@@ -738,7 +750,19 @@
         margin: 0 0 0 20px;
     }
 
+    #goTest {
+        float: right;
+        background: transparent;
+        margin: 0 0 0 20px;
+    }
+
     #homeImg {
+        display: block;
+        margin: 10px;
+        width: 24px;
+    }
+
+    #testImg {
         display: block;
         margin: 10px;
         width: 24px;
