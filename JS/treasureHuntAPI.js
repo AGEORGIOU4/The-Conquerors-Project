@@ -379,7 +379,7 @@ function getScore() {
         });
 }
 
-let playerRank = 0;
+let playerRank;
 
 function getLeaderBoard() {
     viewLeaderBoard.style.display = "none";
@@ -394,6 +394,7 @@ function getLeaderBoard() {
             for (let i = 1; i < rankings.length; i++) {
                 if (playerName === rankings[i].player) {
                     playerRank = i;
+                    setCookie("playerRankCookie", playerRank, 10000);
                     ask1.innerText = "Congratulations for completing the Treasure Hunt. You scored " + score + " and" +
                         " finished in Position #" + i;
                 }
@@ -517,6 +518,7 @@ function checkCookie() {
     let cookie = getCookie("sessionCookie");
     let cookie2 = getCookie("playerNameCookie");
     let cookie3 = Number(getCookie("scoreCookie"));
+    let cookie4 = Number(getCookie("playerRankCookie"));
 
     if (cookie !== "" && cookie2 !== "") {
         username.style.display = "none";
@@ -525,6 +527,7 @@ function checkCookie() {
         sessionID = cookie;
         playerName = cookie2;
         score = cookie3;
+        playerRank = cookie4;
         alert("Welcome back " + playerName);
         getChallenges();
     } else {
@@ -538,6 +541,7 @@ function deleteCookie() {
     document.cookie = "sessionCookie=; path=/;";
     document.cookie = "playerNameCookie=; path=/;";
     document.cookie = "scoreCookie=; path=/;";
+    document.cookie = "playerRankCookie=; path=/;";
 }
 
 function startGame() {
