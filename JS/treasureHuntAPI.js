@@ -6,6 +6,7 @@ document.getElementById("challenges");
 document.getElementById("continueButton");
 document.getElementById("currentQuestionP");
 document.getElementById("gameAttributes");
+document.getElementById("hideLeaderBoard");
 document.getElementById("instructionsH");
 document.getElementById("instructionsPbox");
 document.getElementById("leaderBoardTable");
@@ -184,6 +185,7 @@ function startSession() {
 function fetchQuestions() {
     loading.style.display = "block";
     getScore();
+    getLeaderBoard();
 
     /*---------------------------------------------SHOW / HIDE ELEMENTS-----------------------------------------------*/
     usernameBox.style.display = "none";
@@ -197,6 +199,12 @@ function fetchQuestions() {
     answerNumberForm.style.display = "block";
     viewLeaderBoard.style.display = "block";
     /*----------------------------------------------------------------------------------------------------------------*/
+
+
+    if(hideLeaderBoard.style.display === "block") {
+        viewLeaderBoard.style.display = "none";
+    }
+
 
     // Fetch a json formatted file from the API than requires the session ID and includes the questions
     fetch(API_QUESTIONS + "?session=" + sessionID)
@@ -363,6 +371,7 @@ function getScore() {
                 answerButtons.style.display = "none";
                 messageBoxP.style.display = "none";
                 enjoyGame.style.display = "block";
+                viewLeaderBoard.style.display = "none";
 
                 getLeaderBoard();
                 deleteCookie();
@@ -370,8 +379,11 @@ function getScore() {
         });
 }
 
-function getLeaderBoard() {
+let playerRank = 0;
 
+function getLeaderBoard() {
+    viewLeaderBoard.style.display = "none";
+    hideLeaderBoard.style.display = "block";
     loading.style.display = "block";
     treasureHuntsDescriptionParagraph.style.display = "none";
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted")
@@ -381,6 +393,7 @@ function getLeaderBoard() {
             let rankings = jsonObject.leaderboard;
             for (let i = 1; i < rankings.length; i++) {
                 if (playerName === rankings[i].player) {
+                    playerRank = i;
                     ask1.innerText = "Congratulations for completing the Treasure Hunt. You scored " + score + " and" +
                         " finished in Position #" + i;
                 }
@@ -396,6 +409,7 @@ function handleLeaderBoard(leaderboard) {
         day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
         second: '2-digit'
     };
+
     leaderBoardTable.innerHTML = "";
     let html = "";
     html +=
@@ -406,10 +420,22 @@ function handleLeaderBoard(leaderboard) {
         "<th>" + "date" + "</th>" +
         "</tr>";
 
+
     let leaderBoardArray = leaderboard['leaderboard'];
     for (let i = 0; i < 20; i++) {
         let date = new Date(leaderBoardArray[i]['completionTime']);
         let formattedDate = date.toLocaleDateString("en-UK", options);
+
+        if (i === 0) {
+            html +=
+                "<tr>" +
+                "<td>"  + playerRank + "</td>" +
+                "<td>"  + "YOU" + "</td>" +
+                "<td>"  + score + "</td>" +
+                "<td>" + formattedDate + "</td>" +
+                "</tr>";
+        }
+
         html +=
             "<tr>" +
             "<td>" + rank + "</td>" +
