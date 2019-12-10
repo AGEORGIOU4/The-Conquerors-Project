@@ -115,6 +115,11 @@ function getStartTest() {
         });
 }
 
+function clearTheStartTest() {
+    document.getElementById("titleEight").style.display = "none";
+    document.getElementById("errorResults").innerHTML = " ";
+    document.getElementById("startTest").style.display = "block";
+}
 
 
 function testLeaderBoard(leaderboardLimit) {

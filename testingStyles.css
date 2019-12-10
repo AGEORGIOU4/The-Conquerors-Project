@@ -65,6 +65,10 @@
     #clearBoard, #startTest, #clearStart{
         font-weight: bold;
     }
+
+    #titleNine{
+        font-weight: bold;
+    }
 }
 
 @media only screen and (min-width: 1001px) {
@@ -109,7 +113,9 @@
             font-family: sans-serif;
             display: none;
         }
-
+    #titleNine{
+        font-weight: bold;
+    }
         #heuristics, td, th {
             border: 2px solid black;
             font-size: 30px;

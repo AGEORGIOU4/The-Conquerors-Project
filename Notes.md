@@ -62,6 +62,13 @@ We are finishing the app. We check for possible bugs. No bugs found.
 Checking the testing page. Still did not manage to find a way of 
 using cookies to create a resume progress for the user.
 
+10/12
+-Meeting 8
+Final touches:
+A few twists and updates of the app.
+Added Manifest Chrome json file and linked
+ on our app pages so the user can add it on its home screen
+
 Marketing:
 
 Created a Twitter Account and Facebook page
