@@ -364,6 +364,7 @@ function getScore() {
                 answerButtons.style.display = "none";
                 messageBoxP.style.display = "none";
                 enjoyGame.style.display = "block";
+                viewLeaderBoard.style.display = "none";
 
                 getLeaderBoard();
                 deleteCookie();
@@ -372,7 +373,8 @@ function getScore() {
 }
 
 function getLeaderBoard() {
-
+    viewLeaderBoard.style.display = "none";
+    hideLeaderBoard.style.display = "block";
     loading.style.display = "block";
     treasureHuntsDescriptionParagraph.style.display = "none";
     fetch(API_LEADERBOARD + "?session=" + sessionID + "&sorted")
