@@ -202,15 +202,6 @@
     </div>
 </div>
 
-<table id="leaderBoardTable">
-    <tr>
-        <th id="rank">#</th>
-        <th id="playerHead">Player</th>
-        <th id="scoreHead">Score</th>
-        <th id="timeHead">Time</th>
-    </tr>
-</table>
-
 <div id="map"></div>
 
 <script>
@@ -244,6 +235,19 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATMtp854vZWXb1XxNa7mZXy31IeGUvvKk&callback=getLocation"
         async defer>
 </script>
+
+<input type="button" id="viewLeaderBoard" onclick="getLeaderBoard()" value="LEADERBOARD">
+
+<table id="leaderBoardTable">
+    <tr>
+        <th id="rank">#</th>
+        <th id="playerHead">Player</th>
+        <th id="scoreHead">Score</th>
+        <th id="timeHead">Time</th>
+    </tr>
+</table>
+
+
 
 </body>
 

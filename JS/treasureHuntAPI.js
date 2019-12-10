@@ -362,7 +362,6 @@ function getScore() {
                 messageBoxP.style.display = "none";
                 enjoyGame.style.display = "block";
 
-
                 getLeaderBoard();
                 deleteCookie();
             }
@@ -380,9 +379,8 @@ function getLeaderBoard() {
             let rankings = jsonObject.leaderboard;
             for (let i = 1; i < rankings.length; i++) {
                 if (playerName === rankings[i].player) {
-                    console.log("position" + i);
-                    ask1.innerText = "Congratulations! You completed the Treasure Hunt. You scored " + score + " points!" +
-                        " You finished in Position #" + i;
+                    ask1.innerText = "Congratulations for completing the Treasure Hunt. You scored " + score + " and" +
+                        " finished in Position #" + i;
                 }
 
             }
@@ -390,6 +388,7 @@ function getLeaderBoard() {
 }
 
 function handleLeaderBoard(leaderboard) {
+    leaderBoardTable.style.display = "none";
     let rank = 1;
     let options = {
         day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
@@ -535,3 +534,4 @@ function newGame() {
     newGameButton.style.display = "none";
     continueButton.style.display = "none";
 }
+

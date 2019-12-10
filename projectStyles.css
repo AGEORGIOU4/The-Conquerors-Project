@@ -433,7 +433,7 @@
     #skipPopUp {
         display: none;
         border: 1px solid #464545;
-        background-color: white;
+        background-color: lightyellow;
         font-size: 50px;
     }
 
@@ -1029,7 +1029,7 @@
     #skipPopUp {
         display: none;
         border: 1px solid #464545;
-        background-color: white;
+        background-color: lightyellow;
         font-size: 50px;
     }
 
